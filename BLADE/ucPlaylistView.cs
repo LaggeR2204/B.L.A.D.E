@@ -20,35 +20,76 @@ namespace BLADE
         public ucPlaylistView()
         {
             InitializeComponent();
-            btnPlaylistMenu.Hide();
+            //btnPlaylistMenu.Hide();
             _playlist = new Playlist();
             setLabelName();
+
+            lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
+            btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
+            btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
+            lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
         }
         public ucPlaylistView(Playlist src)
         {
             InitializeComponent();
-            btnPlaylistMenu.Hide();
+            //btnPlaylistMenu.Hide();
             _playlist = src;
             setLabelName();
+
+            lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
+            btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
+            btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
+            lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
+
         }
         #region EVENTHANDLER
         private void ucPlaylistView_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
-            btnPlaylistMenu.Show();
+            //btnPlaylistMenu.Show();
             lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Underline);
         }
 
         private void ucPlaylistView_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(40, 40, 40);
-            btnPlaylistMenu.Hide();
+            //btnPlaylistMenu.Hide();
             lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
         }
+
         private void BtnPlaylistMenu_MouseClick(object sender, MouseEventArgs e)
         {
+            OpenFileDialog openfileDialog = new OpenFileDialog();
+            openfileDialog.InitialDirectory = "c:\\";
+            openfileDialog.Filter = "Audio (*.mp3)|*.mp3|All File|*.*";
+            openfileDialog.FilterIndex = 2;
+            openfileDialog.RestoreDirectory = true;
 
+            if (openfileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo file = new FileInfo(openfileDialog.FileName);
+                Song song;
+                if (file.Extension == ".mp3")
+                {
+                    song = GetSongInfo(file);
+                    if (!_playlist.IsContains(song))
+                    {
+                        _playlist.AddSong(song);                    }
+                    else
+                    {
+                        MessageBox.Show("Bai hat da ton tai trong playlist!!!");
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Day khong phai file audio");
+                }
+
+            }
+            openfileDialog.Dispose();
         }
+
 
         #endregion
 
@@ -77,6 +118,6 @@ namespace BLADE
                 showContent(_playlist.List, e);
         }
 
-      
+
     }
 }

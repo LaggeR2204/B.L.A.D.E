@@ -107,13 +107,6 @@ namespace BLADE
         //    }
         //    openfileDialog.Dispose();
         //}
-        private void ShowPlaylistInfo(Playlist src)
-        {
-            ucPlaylistView temp = new ucPlaylistView(src);
-            temp.showContent += ShowPlaylist;
-            fpnlPlaylistView.Controls.Add(temp);
-        }
-
         private void clearSongViewList()
         {
             foreach (Control ctr in fpnlSongView.Controls)
@@ -122,7 +115,6 @@ namespace BLADE
                 ctr.Dispose();
             }
         }
-
         private void ShowPlaylist(object sender, EventArgs e)
         {
             clearSongViewList();
@@ -132,13 +124,18 @@ namespace BLADE
                 addSongToPlaylistView(song);
             }
         }
-
         private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
         {
             string name = string.Copy("");
             InputNamePlaylistBox.Show("Input Name", "Nhap ten playlist: ", ref name);
             Playlist pl1 = new Playlist(name);
             ShowPlaylistInfo(pl1);
+        }
+        private void ShowPlaylistInfo(Playlist src)
+        {
+            ucPlaylistView temp = new ucPlaylistView(src);
+            temp.showContent += ShowPlaylist;
+            fpnlPlaylistView.Controls.Add(temp);
         }
     }
 }

@@ -970,6 +970,7 @@
             this.uc_Playlist.Name = "uc_Playlist";
             this.uc_Playlist.Size = new System.Drawing.Size(787, 565);
             this.uc_Playlist.TabIndex = 1;
+            this.uc_Playlist.SelectSong += PlayMusic;
             // 
             // uc_Info
             // 

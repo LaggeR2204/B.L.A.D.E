@@ -27,9 +27,7 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
         }
-        //
-        //Windows Control
-        //
+        #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -57,9 +55,9 @@ namespace BLADE
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        //
-        //Music Control
-        //
+        #endregion
+
+        #region Music Controls
         private void btnPlay_Click(object sender, EventArgs e)
         {
             WMP.Ctlcontrols.play();
@@ -123,9 +121,9 @@ namespace BLADE
             btnVolumeOff.Hide();
             btnVolume.Show();
         }
-        //
-        //UC button events
-        //
+        #endregion
+
+        #region UC button events
         private bool isCollapsed;
         private void DropdownTime_Tick(object sender, EventArgs e)
         {
@@ -233,9 +231,9 @@ namespace BLADE
         {
             this.lblTime.Text = DateTime.Now.ToString();
         }
-        //
-        //Cac button trong menu
-        //
+        #endregion
+
+        #region Buttons in menu
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnCloseWindows.PerformClick();
@@ -280,5 +278,16 @@ namespace BLADE
             else
                 btnRepeat.PerformClick();
         }
+        #endregion
+
+        #region WindowMediaPlayer
+        private void PlayMusic(object sender, EventArgs e)
+        {
+            WMP.URL = sender.ToString();
+            btnPause.Show();
+            btnPlay.Hide();
+        }
+        #endregion
+
     }
 }

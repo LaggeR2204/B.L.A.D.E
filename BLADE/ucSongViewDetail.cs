@@ -26,6 +26,30 @@ namespace BLADE
             btnSongPlay.Hide();
             btnSongPause.Hide();
             _song = new Song();
+
+            lblSongNameSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            lblTimeSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            lblCategorySVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            lblArtistSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            this.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+
+            btnSongLove.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongMenu.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongPause.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongPlay.MouseHover += ucSongViewDetail_MouseHover;
+            lblCategorySVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblArtistSVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblSongNameSVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblTimeSVD.MouseHover += ucSongViewDetail_MouseHover;
+
+            btnSongLove.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongMenu.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongPause.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongPlay.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblCategorySVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
         }
         public ucSongViewDetail(Song src)
         {
@@ -40,6 +64,25 @@ namespace BLADE
             lblTimeSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
             lblCategorySVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
             lblArtistSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            this.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+
+            btnSongLove.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongMenu.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongPause.MouseHover += ucSongViewDetail_MouseHover;
+            btnSongPlay.MouseHover += ucSongViewDetail_MouseHover;
+            lblCategorySVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblArtistSVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblSongNameSVD.MouseHover += ucSongViewDetail_MouseHover;
+            lblTimeSVD.MouseHover += ucSongViewDetail_MouseHover;
+
+            btnSongLove.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongMenu.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongPause.MouseLeave += ucSongViewDetail_MouseLeave;
+            btnSongPlay.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblCategorySVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
         }
         #region EVENTHANDLER
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)

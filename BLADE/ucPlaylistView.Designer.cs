@@ -44,6 +44,7 @@
             this.lblPlaylistName.TabIndex = 2;
             this.lblPlaylistName.Text = "Playlist Name";
             this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //this.lblPlaylistName.MouseClick += ucPlaylistView_MouseDoubleClick;
             // 
             // btnPlaylistMenu
             // 
@@ -55,6 +56,7 @@
             this.btnPlaylistMenu.Size = new System.Drawing.Size(40, 40);
             this.btnPlaylistMenu.TabIndex = 3;
             this.btnPlaylistMenu.UseVisualStyleBackColor = true;
+            this.btnPlaylistMenu.MouseClick += BtnPlaylistMenu_MouseClick;
             // 
             // ucPlaylistView
             // 
@@ -70,6 +72,7 @@
             this.Size = new System.Drawing.Size(160, 40);
             this.MouseLeave += new System.EventHandler(this.ucPlaylistView_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucPlaylistView_MouseHover);
+            this.MouseClick += ucPlaylistView_MouseDoubleClick;
             this.ResumeLayout(false);
             this.PerformLayout();
 
