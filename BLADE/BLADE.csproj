@@ -110,11 +110,23 @@
     <Compile Include="ucPlaylist.Designer.cs">
       <DependentUpon>ucPlaylist.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPlaylistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPlaylistView.Designer.cs">
+      <DependentUpon>ucPlaylistView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucSearch.Designer.cs">
       <DependentUpon>ucSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSongViewDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSongViewDetail.Designer.cs">
+      <DependentUpon>ucSongViewDetail.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -140,8 +152,14 @@
     <EmbeddedResource Include="ucPlaylist.resx">
       <DependentUpon>ucPlaylist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucPlaylistView.resx">
+      <DependentUpon>ucPlaylistView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucSearch.resx">
       <DependentUpon>ucSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSongViewDetail.resx">
+      <DependentUpon>ucSongViewDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

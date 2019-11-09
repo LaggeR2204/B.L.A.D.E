@@ -221,10 +221,64 @@ namespace BLADE
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            lblTextBLADE.ForeColor = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+            if (lblTextBLADE.ForeColor == Color.White)
+            {
+                lblTextBLADE.ForeColor = Color.FromArgb(0, 217, 87);
+            }
+            else
+                lblTextBLADE.ForeColor = Color.White;
         }
 
-        
+        private void timerTime_Tick(object sender, EventArgs e)
+        {
+            this.lblTime.Text = DateTime.Now.ToString();
+        }
+        //
+        //Cac button trong menu
+        //
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCloseWindows.PerformClick();
+        }
+
+        private void playToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnPlay.PerformClick();
+        }
+
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnPause.PerformClick();
+        }
+
+        private void nextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnNext.PerformClick();
+        }
+
+        private void previousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnPrev.PerformClick();
+        }
+
+        private void shuffleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (btnShuffle.CanFocus == true)
+            {
+                btnShuffleOff.PerformClick();
+            }
+            else
+                btnShuffle.PerformClick();
+        }
+
+        private void repeatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (btnRepeat.CanFocus == true)
+            {
+                btnRepeatOff.PerformClick();
+            }
+            else
+                btnRepeat.PerformClick();
+        }
     }
 }

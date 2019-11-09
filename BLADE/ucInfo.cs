@@ -22,11 +22,6 @@ namespace BLADE
             btnVTB.Font = new Font(btnVTB.Font.Name, btnVTB.Font.SizeInPoints, FontStyle.Underline);
         }
 
-        private void btnVTB_MouseLeave(object sender, EventArgs e)
-        {
-            btnVTB.Font = new Font(btnVTB.Font.Name, btnVTB.Font.SizeInPoints, FontStyle.Regular);
-        }
-
         private void btnTHMD_MouseHover(object sender, EventArgs e)
         {
             btnTHMD.Font = new Font(btnVTB.Font.Name, btnVTB.Font.SizeInPoints, FontStyle.Underline);
@@ -40,6 +35,11 @@ namespace BLADE
         private void btnBHL_MouseHover(object sender, EventArgs e)
         {
             btnBHL.Font = new Font(btnVTB.Font.Name, btnVTB.Font.SizeInPoints, FontStyle.Underline);
+        }
+
+        private void btnVTB_MouseLeave(object sender, EventArgs e)
+        {
+            btnVTB.Font = new Font(btnVTB.Font.Name, btnVTB.Font.SizeInPoints, FontStyle.Regular);
         }
 
         private void btnTHMD_MouseLeave(object sender, EventArgs e)

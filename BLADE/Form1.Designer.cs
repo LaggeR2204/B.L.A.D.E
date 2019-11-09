@@ -76,6 +76,21 @@
             this.DropdownTime = new System.Windows.Forms.Timer(this.components);
             this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblTime = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.AppMenu = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shuffleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.volumeUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.volumeDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uc_Home = new BLADE.ucHome();
             this.uc_Playlist = new BLADE.ucPlaylist();
             this.uc_Info = new BLADE.ucInfo();
@@ -87,6 +102,7 @@
             this.pnlTimerControl.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlMain.SuspendLayout();
+            this.AppMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMusicControl
@@ -375,6 +391,7 @@
             // 
             // pnlControl
             // 
+            this.pnlControl.Controls.Add(this.lblTime);
             this.pnlControl.Controls.Add(this.lblUserName);
             this.pnlControl.Controls.Add(this.txtSearch);
             this.pnlControl.Controls.Add(this.btnMaximize);
@@ -504,7 +521,7 @@
             this.btnCloseWindows.FlatAppearance.BorderSize = 0;
             this.btnCloseWindows.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseWindows.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseWindows.Image")));
-            this.btnCloseWindows.Location = new System.Drawing.Point(749, 0);
+            this.btnCloseWindows.Location = new System.Drawing.Point(752, 0);
             this.btnCloseWindows.Name = "btnCloseWindows";
             this.btnCloseWindows.Size = new System.Drawing.Size(35, 35);
             this.btnCloseWindows.TabIndex = 0;
@@ -529,6 +546,7 @@
             this.pnlButton.Controls.Add(this.lblTextBLADE);
             this.pnlButton.Controls.Add(this.btnHome);
             this.pnlButton.Controls.Add(this.btnPlaylist);
+            this.pnlButton.Controls.Add(this.AppMenu);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlButton.Location = new System.Drawing.Point(0, 0);
             this.pnlButton.Name = "pnlButton";
@@ -804,6 +822,131 @@
             this.pnlMain.Size = new System.Drawing.Size(787, 565);
             this.pnlMain.TabIndex = 4;
             // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTime.Location = new System.Drawing.Point(349, 7);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(77, 18);
+            this.lblTime.TabIndex = 3;
+            this.lblTime.Text = "TimeNow";
+            // 
+            // timerTime
+            // 
+            this.timerTime.Enabled = true;
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
+            // AppMenu
+            // 
+            this.AppMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.AppMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AppMenu.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.AppMenu.Location = new System.Drawing.Point(0, 576);
+            this.AppMenu.Name = "AppMenu";
+            this.AppMenu.Size = new System.Drawing.Size(213, 24);
+            this.AppMenu.TabIndex = 17;
+            this.AppMenu.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playbackToolStripMenuItem,
+            this.fileToolStripMenuItem});
+            this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(28, 20);
+            this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // playbackToolStripMenuItem
+            // 
+            this.playbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playToolStripMenuItem,
+            this.pauseToolStripMenuItem,
+            this.nextToolStripMenuItem,
+            this.previousToolStripMenuItem,
+            this.shuffleToolStripMenuItem,
+            this.repeatToolStripMenuItem,
+            this.volumeUpToolStripMenuItem,
+            this.volumeDownToolStripMenuItem});
+            this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
+            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.playbackToolStripMenuItem.Text = "Playback";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // playToolStripMenuItem
+            // 
+            this.playToolStripMenuItem.Name = "playToolStripMenuItem";
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.playToolStripMenuItem.Text = "Play";
+            this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
+            // 
+            // pauseToolStripMenuItem
+            // 
+            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
+            // 
+            // nextToolStripMenuItem
+            // 
+            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.nextToolStripMenuItem.Text = "Next";
+            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
+            // 
+            // previousToolStripMenuItem
+            // 
+            this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.previousToolStripMenuItem.Text = "Previous";
+            this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
+            // 
+            // shuffleToolStripMenuItem
+            // 
+            this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
+            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.shuffleToolStripMenuItem.Text = "Shuffle";
+            this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
+            // 
+            // repeatToolStripMenuItem
+            // 
+            this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
+            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.repeatToolStripMenuItem.Text = "Repeat";
+            this.repeatToolStripMenuItem.Click += new System.EventHandler(this.repeatToolStripMenuItem_Click);
+            // 
+            // volumeUpToolStripMenuItem
+            // 
+            this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
+            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.volumeUpToolStripMenuItem.Text = "Volume up";
+            // 
+            // volumeDownToolStripMenuItem
+            // 
+            this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
+            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.volumeDownToolStripMenuItem.Text = "Volume down";
+            // 
             // uc_Home
             // 
             this.uc_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -876,9 +1019,12 @@
             this.pnlControl.ResumeLayout(false);
             this.pnlControl.PerformLayout();
             this.pnlButton.ResumeLayout(false);
+            this.pnlButton.PerformLayout();
             this.pnlTimerControl.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
+            this.AppMenu.ResumeLayout(false);
+            this.AppMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -930,6 +1076,21 @@
         private System.Windows.Forms.Button btnVolume;
         private Bunifu.Framework.UI.BunifuCustomLabel lblArtistName;
         private Bunifu.Framework.UI.BunifuCustomLabel lblSongName;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblTime;
+        private System.Windows.Forms.Timer timerTime;
+        private System.Windows.Forms.MenuStrip AppMenu;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playbackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem previousToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shuffleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem repeatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volumeUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volumeDownToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

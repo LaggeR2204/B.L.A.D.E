@@ -37,3 +37,26 @@ D:\Coding\BLADE\BLADE\obj\Debug\BLADE.ucPlaylist.resources
 D:\Coding\BLADE\BLADE\obj\Debug\BLADE.ucHome.resources
 D:\Coding\BLADE\BLADE\obj\Debug\BLADE.ucSearch.resources
 D:\Coding\BLADE\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe.config
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\BLADE.pdb
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\Interop.WMPLib.dll
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\AxInterop.WMPLib.dll
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe.config
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\Interop.WMPLib.dll
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\AxInterop.WMPLib.dll
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.ResolveComReference.cache
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.MainForm.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.LoginForm.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.Properties.Resources.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucHome.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucInfo.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylist.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSearch.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.GenerateResource.cache
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongViewDetail.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylistView.resources
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
