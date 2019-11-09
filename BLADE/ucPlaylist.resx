@@ -120,16 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddPlaylist.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAHySURBVEhLxZXPS1RRHMVnmol+gMaI7QZaCIJICi6CJAhNAoe2utGFBu5aSBJZtBlaOYushIGo
-        ndGqhUE/EBUMIVIwhaCNLoTK3El/wfT53jnTa2jumzdvMwc+i3PuuW/e3HfffYmmqlQqZeE2bMAvOBbf
-        4S1MwjnVo4tJbfAIfkABLsMZDdt4KwzDC7CO3cRJDYeLYjfswRzUvTs6F+A1rEO74tqicBHsjm4oiizm
-        zMA3aFNULQbaYR9yihoWc+/BKqQUBSJcgIeyscT8JLyHCUVlEdg6/oQWRbHFNWyZDyCtyIV3oCDrFZ27
-        UHcJ6dgyDcq64CP0y3pF5wnclPWKzi2Yl3XBEfzd5z7RifoDV+BDxaTh2JkaYuw+PBNfwfZ7xY+rViXy
-        DtitGHvyv52pIcauwYiwHVL8x/epViXyLtiSdYGdLRlZr+hEXaJBeCPrgncQZXdE/YEHkJd1wRQ8l/WK
-        zihckvWKzhcIlg9jp+chZBXFFte4DtuQVFQWwSy8lI0l5p+GXRhSFIjwFNiHZVpRw2LuIhRl/xeD58GO
-        XHtI1X8xRHTPwiuwzRL+4aGQgWVYgV7FXtHJgd3UUwgOuDBRPAFjYN+HNbCzxV7/TrCXaADsX+7AZ7iq
-        qY2JiSmbDI/BPvKb8AmWIA89qjZLicQfHao+HlcamX4AAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAfJJREFUSEvF
+        lc9LVFEcxWeaiX6AxojtBloIgkgKLoIkCE0Ch7a60YUG7lpIElm0GVo5i6yEgaid0aqFQT8QFQwhUjCF
+        oI0uhMrcSX/B9PneOdNraO6bN28zBz6Lc+65b97cd999iaaqVCpl4TZswC84Ft/hLUzCOdWji0lt8Ah+
+        QAEuwxkN23grDMMLsI7dxEkNh4tiN+zBHNS9OzoX4DWsQ7vi2qJwEeyObiiKLObMwDdoU1QtBtphH3KK
+        GhZz78EqpBQFIlyAh7KxxPwkvIcJRWUR2Dr+hBZFscU1bJkPIK3IhXegIOsVnbtQdwnp2DINyrrgI/TL
+        ekXnCdyU9YrOLZiXdcER/N3nPtGJ+gNX4EPFpOHYmRpi7D48E1/B9nvFj6tWJfIO2K0Ye/K/nakhxq7B
+        iLAdUvzH96lWJfIu2JJ1gZ0tGVmv6ERdokF4I+uCdxBld0T9gQeQl3XBFDyX9YrOKFyS9YrOFwiWD2On
+        5yFkFcUW17gO25BUVBbBLLyUjSXmn4ZdGFIUiPAU2IdlWlHDYu4iFGX/F4PnwY5ce0jVfzFEdM/CK7DN
+        Ev7hoZCBZViBXsVe0cmB3dRTCA64MFE8AWNg34c1sLPFXv9OsJdoAOxf7sBnuKqpjYmJKZsMj8E+8pvw
+        CZYgDz2qNkuJxB8dqj4eVxqZfgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

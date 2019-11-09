@@ -40,7 +40,7 @@
             this.lblPlaylistName.Location = new System.Drawing.Point(3, 12);
             this.lblPlaylistName.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblPlaylistName.Name = "lblPlaylistName";
-            this.lblPlaylistName.Size = new System.Drawing.Size(94, 17);
+            this.lblPlaylistName.Size = new System.Drawing.Size(119, 17);
             this.lblPlaylistName.TabIndex = 2;
             this.lblPlaylistName.Text = "Playlist Name";
             this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -58,7 +58,7 @@
             // 
             // ucPlaylistView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnPlaylistMenu);

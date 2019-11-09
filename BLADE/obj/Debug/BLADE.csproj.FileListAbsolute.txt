@@ -60,3 +60,27 @@ D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongViewDetail.resources
 D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylistView.resources
 D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
+G:\Git\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe.config
+G:\Git\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe
+G:\Git\B.L.A.D.E\BLADE\bin\Debug\BLADE.pdb
+G:\Git\B.L.A.D.E\BLADE\bin\Debug\Interop.WMPLib.dll
+G:\Git\B.L.A.D.E\BLADE\bin\Debug\AxInterop.WMPLib.dll
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe.config
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\Interop.WMPLib.dll
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\AxInterop.WMPLib.dll
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.ResolveComReference.cache
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.MainForm.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.LoginForm.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.Properties.Resources.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucHome.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucInfo.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylist.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylistView.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSearch.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongViewDetail.resources
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.GenerateResource.cache
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CoreCompileInputs.cache
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
+G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
