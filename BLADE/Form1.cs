@@ -1,0 +1,230 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WMPLib;
+using AxWMPLib;
+
+namespace BLADE
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+            //set vi tri mac dinh cho pnlSelectedButton
+            pnlSelectedButton.Height = btnHome.Height;
+            pnlSelectedButton.Top = btnHome.Top;
+            //cho trang mac dinh la Home
+            uc_Info.Hide();
+            uc_Playlist.Hide();
+            uc_Search.Hide();
+            uc_Home.Show();
+            uc_Home.BringToFront();
+        }
+        //
+        //Windows Control
+        //
+        private void btnCloseWindows_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCloseWindows_MouseHover(object sender, EventArgs e)
+        {
+            btnCloseWindows.BackColor = Color.Red;
+        }
+        private void btnCloseWindows_MouseLeave(object sender, EventArgs e)
+        {
+            btnCloseWindows.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        //
+        //Music Control
+        //
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.play();
+            btnPlay.Hide();
+            btnPause.Show();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.pause();
+            btnPause.Hide();
+            btnPlay.Show();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.next();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.previous();
+        }
+
+        private void btnRepeatOff_Click(object sender, EventArgs e)
+        {
+            WMP.settings.setMode("loop", false);
+            btnRepeatOff.Hide();
+            btnRepeat.Show();
+        }
+
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+            WMP.settings.setMode("loop", true);
+            btnRepeat.Hide();
+            btnRepeatOff.Show();
+        }
+
+        private void btnShuffle_Click(object sender, EventArgs e)
+        {
+            btnShuffle.Hide();
+            btnShuffleOff.Show();
+        }
+
+        private void btnShuffleOff_Click(object sender, EventArgs e)
+        {
+            btnShuffleOff.Hide();
+            btnShuffle.Show();
+        }
+
+        private void btnVolume_Click(object sender, EventArgs e)
+        {
+            WMP.settings.mute = false;
+            btnVolume.Hide();
+            btnVolumeOff.Show();
+        }
+
+        private void btnVolumeOff_Click(object sender, EventArgs e)
+        {
+            WMP.settings.mute = true;
+            btnVolumeOff.Hide();
+            btnVolume.Show();
+        }
+        //
+        //UC button events
+        //
+        private bool isCollapsed;
+        private void DropdownTime_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                pnlTimerControl.Height += 10;
+                if (pnlTimerControl.Size == pnlTimerControl.MaximumSize)
+                {
+                    DropdownTime.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                pnlTimerControl.Height -= 10;
+                if (pnlTimerControl.Size == pnlTimerControl.MinimumSize)
+                {
+                    DropdownTime.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
+
+        private void btnTimer_Click(object sender, EventArgs e)
+        {
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Show();
+            pnlSelectedButton.Height = btnTimer.Height;
+            pnlSelectedButton.Top = pnlTimerControl.Top;
+
+            DropdownTime.Start();
+            if (isCollapsed)
+            {
+                btnInfo.Top = 389;
+            }
+            else
+                btnInfo.Top = 241;
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Show();
+            pnlSelectedButton.Height = btnHome.Height;
+            pnlSelectedButton.Top = btnHome.Top;
+            //cho user control ohu hop xuat hien
+            uc_Info.Hide();
+            uc_Playlist.Hide();
+            uc_Search.Hide();
+            uc_Home.Show();
+            uc_Home.BringToFront();
+        }
+
+        private void btnPlaylist_Click(object sender, EventArgs e)
+        {
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Show();
+            pnlSelectedButton.Height = btnPlaylist.Height;
+            pnlSelectedButton.Top = btnPlaylist.Top;
+            //cho user control ohu hop xuat hien
+            uc_Info.Hide();
+            uc_Home.Hide();
+            uc_Search.Hide();
+            uc_Playlist.Show();
+            uc_Playlist.BringToFront();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Show();
+            pnlSelectedButton.Height = btnInfo.Height;
+            pnlSelectedButton.Top = btnInfo.Top;
+            //cho user control ohu hop xuat hien
+            uc_Playlist.Hide();
+            uc_Home.Hide();
+            uc_Search.Hide();
+            uc_Info.Show();
+            uc_Info.BringToFront();
+        }
+
+        private void txtSearch_Click(object sender, MouseEventArgs e)
+        {
+            //an pnlSelectedButton di
+            pnlSelectedButton.Hide();
+            //cho user control ohu hop xuat hien
+            uc_Playlist.Hide();
+            uc_Home.Hide();
+            uc_Info.Hide();
+            uc_Search.Show();
+            uc_Search.BringToFront();
+        }
+
+        private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            lblTextBLADE.ForeColor = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+        }
+
+        
+    }
+}
