@@ -16,6 +16,8 @@ namespace BLADE
         private string _singer;
         private string _genre;
         private Image _songImage;
+        private bool isFavorite;
+
         //private string songURL;
         //private string lyric;
         //private string downloadURL;
@@ -35,8 +37,10 @@ namespace BLADE
         //public string PhotoURL { get => photoURL; set => photoURL = value; }
         //public double Duration { get => duration; set => duration = value; }
         //public double Position { get => position; set => position = value; }
+        public bool IsFavorite { get => isFavorite; set => isFavorite = value; }
         public Song()
         {
+            isFavorite = false;
         }
         public Song(Song src)
         {
@@ -45,6 +49,7 @@ namespace BLADE
             this._songTime = string.Copy(src._songTime);
             this._singer = string.Copy(src._singer);
             this._genre = string.Copy(src._genre);
+            isFavorite = false;
         }
         public override bool Equals(object obj)
         {

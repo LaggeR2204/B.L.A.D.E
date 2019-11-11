@@ -87,6 +87,7 @@
             this.btnSongLove.Size = new System.Drawing.Size(40, 40);
             this.btnSongLove.TabIndex = 0;
             this.btnSongLove.UseVisualStyleBackColor = true;
+            this.btnSongLove.Click += new System.EventHandler(this.BtnSongLove_Click);
             // 
             // lblSongNameSVD
             // 
@@ -144,14 +145,14 @@
             this.ctxtmsSong.Name = "ctxtmsSong";
             this.ctxtmsSong.ShowImageMargin = false;
             this.ctxtmsSong.ShowItemToolTips = false;
-            this.ctxtmsSong.Size = new System.Drawing.Size(186, 58);
+            this.ctxtmsSong.Size = new System.Drawing.Size(156, 30);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.deleteSongToolStripMenuItem.Text = "Delete Song";
             this.deleteSongToolStripMenuItem.Click += new System.EventHandler(this.DeleteSongToolStripMenuItem_Click);
             // 

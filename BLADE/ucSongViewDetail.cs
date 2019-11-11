@@ -20,6 +20,7 @@ namespace BLADE
         }
         public event EventHandler SelectedSong;
         public event EventHandler DeletedSong;
+        public event EventHandler FavoriteChanged;
         public ucSongViewDetail()
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace BLADE
             lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
             lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
         }
+
         #region EVENTHANDLER
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
         {
@@ -99,6 +101,15 @@ namespace BLADE
             if (DeletedSong != null)
             {
                 DeletedSong(this, new EventArgs());
+            }
+        }
+
+        private void BtnSongLove_Click(object sender, EventArgs e)
+        {
+            Song.IsFavorite = !Song.IsFavorite;
+            if (FavoriteChanged!= null)
+            {
+                FavoriteChanged(this.Song, new EventArgs());
             }
         }
     }

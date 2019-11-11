@@ -55,9 +55,18 @@ namespace BLADE
             //deleteToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
             _playlist.NameChanged += setLabelName;
         }
-        void setLabelName(object sender, EventArgs e)
+        private void setLabelName(object sender, EventArgs e)
         {
             this.lblPlaylistName.Text = _playlist.PlaylistName;
+        }
+
+        public void addSongToPlaylistControl(Song src)
+        {
+            _playlist.AddSong(src);
+        }
+        public void removeSongFromPlaylistControl(Song src)
+        {
+            _playlist.Remove(src);
         }
 
         private Song GetSongInfo(FileInfo file)
@@ -92,7 +101,7 @@ namespace BLADE
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
             //btnPlaylistMenu.Show();
-            lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Underline);
+            lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
         }
 
         private void ucPlaylistView_MouseLeave(object sender, EventArgs e)
