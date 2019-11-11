@@ -26,6 +26,7 @@ namespace BLADE
             uc_Search.Hide();
             uc_Home.Show();
             uc_Home.BringToFront();
+            this.uc_Playlist.SelectSong += PlayMusic;
         }
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
@@ -286,6 +287,9 @@ namespace BLADE
             WMP.URL = sender.ToString();
             btnPause.Show();
             btnPlay.Hide();
+            IWMPMedia src = WMP.newMedia(sender.ToString());
+            lblSongName.Text = src.getItemInfo("Name");
+            lblArtistName.Text = src.getItemInfo("Author");
         }
         #endregion
 

@@ -39,6 +39,7 @@
             this.btnAddPlaylist = new System.Windows.Forms.Button();
             this.fpnlSongView = new System.Windows.Forms.FlowLayoutPanel();
             this.fpnlPlaylistView = new System.Windows.Forms.FlowLayoutPanel();
+            this._default = new Playlist("Default");
             this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,5 +190,6 @@
         private System.Windows.Forms.Button btnAddPlaylist;
         private System.Windows.Forms.FlowLayoutPanel fpnlSongView;
         private System.Windows.Forms.FlowLayoutPanel fpnlPlaylistView;
+        private Playlist _default;
     }
 }

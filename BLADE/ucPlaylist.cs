@@ -18,28 +18,16 @@ namespace BLADE
         public ucPlaylist()
         {
             InitializeComponent();
-            //this.LoadLocalSong();
+            ShowPlaylistInfo(_default);
+            Init();
         }
 
-        //private void loadListSong()
-        //{
-        //    DirectoryInfo dir = new DirectoryInfo(@"D:\Music");
-        //    foreach (FileInfo file in dir.GetFiles())
-        //    {
-        //        if (file.Extension == ".mp3")
-        //        {
-        //            Song item = GetSongInfo(file);
-        //            listSong.Add(item);
-        //        }
-        //    }
-        //}
-        //public void LoadLocalSong()
-        //{
-        //    loadListSong();
-        //    foreach (Song song in listSong)
-        //        addSongToPlaylistView(song);
+        private void Init()
+        {
 
-        //}
+        }
+
+       
         public void addSongToPlaylistView(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
@@ -53,67 +41,9 @@ namespace BLADE
                 SelectSong(sender.ToString(), e);
             }
         }
-        //private Song GetSongInfo(FileInfo file)
-        //{
-        //    WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-        //    IWMPMedia src = wmp.newMedia(file.FullName);
-        //    Song song = new Song();
-        //    song.SongName = src.getItemInfo("Name");
-        //    song.SavePath = file.FullName;
-        //    song.SongTime = src.getItemInfo("Duration");
-        //    song.SingerName = src.getItemInfo("Artist");
-        //    song.Genre = src.getItemInfo("WM/Genre");
-        //    //song.SongImage = getImage(file.FullName);
-        //    return song;
-        //}
-
-        //private Image getImage(string path)
-        //{
-        //    Image image;
-
-        //    return image;
-        //}
-        //private void BtnAdd_Click(object sender, EventArgs e)
-        //{
-        //    OpenFileDialog openfileDialog = new OpenFileDialog();
-        //    openfileDialog.InitialDirectory = "c:\\";
-        //    openfileDialog.Filter = "Audio (*.mp3)|*.mp3|All File|*.*";
-        //    openfileDialog.FilterIndex = 2;
-        //    openfileDialog.RestoreDirectory = true;
-
-        //    if (openfileDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        FileInfo file = new FileInfo(openfileDialog.FileName);
-        //        Song song;
-        //        if (file.Extension == ".mp3")
-        //        {
-        //            song = GetSongInfo(file);
-        //            if (!listSong.Contains(song))
-        //            {
-        //                listSong.Add(song);
-        //                addSongToPlaylistView(song);
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Bai hat da ton tai!!!");
-        //                return;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Day khong phai file audio");
-        //        }
-
-        //    }
-        //    openfileDialog.Dispose();
-        //}
         private void clearSongViewList()
         {
-            foreach (Control ctr in fpnlSongView.Controls)
-            {
-                fpnlSongView.Controls.Remove(ctr);
-                ctr.Dispose();
-            }
+            fpnlSongView.Controls.Clear();
         }
         private void ShowPlaylist(object sender, EventArgs e)
         {
@@ -127,7 +57,7 @@ namespace BLADE
         private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
         {
             string name = string.Copy("");
-            InputNamePlaylistBox.Show("Input Name", "Nhap ten playlist: ", ref name);
+            InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name);
             Playlist pl1 = new Playlist(name);
             ShowPlaylistInfo(pl1);
         }
@@ -135,7 +65,15 @@ namespace BLADE
         {
             ucPlaylistView temp = new ucPlaylistView(src);
             temp.showContent += ShowPlaylist;
+            temp.delPlaylist += DeletePlaylist;
             fpnlPlaylistView.Controls.Add(temp);
+        }
+
+        private void DeletePlaylist(object sender, EventArgs e)
+        {
+            ucPlaylistView src = sender as ucPlaylistView;
+            fpnlPlaylistView.Controls.Remove(src);
+            src.Dispose();
         }
     }
 }

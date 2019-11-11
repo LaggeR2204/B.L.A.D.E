@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPlaylistView));
             this.lblPlaylistName = new System.Windows.Forms.Label();
             this.btnPlaylistMenu = new System.Windows.Forms.Button();
+            this.ctxtmsPlaylist = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxtmsPlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPlaylistName
@@ -44,7 +50,6 @@
             this.lblPlaylistName.TabIndex = 2;
             this.lblPlaylistName.Text = "Playlist Name";
             this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //this.lblPlaylistName.MouseClick += ucPlaylistView_MouseDoubleClick;
             // 
             // btnPlaylistMenu
             // 
@@ -56,7 +61,45 @@
             this.btnPlaylistMenu.Size = new System.Drawing.Size(40, 40);
             this.btnPlaylistMenu.TabIndex = 3;
             this.btnPlaylistMenu.UseVisualStyleBackColor = true;
-            this.btnPlaylistMenu.MouseClick += BtnPlaylistMenu_MouseClick;
+            // 
+            // ctxtmsPlaylist
+            // 
+            this.ctxtmsPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.ctxtmsPlaylist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ctxtmsPlaylist.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctxtmsPlaylist.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxtmsPlaylist.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSongToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.ctxtmsPlaylist.Name = "ctxtmsPlaylist";
+            this.ctxtmsPlaylist.ShowImageMargin = false;
+            this.ctxtmsPlaylist.ShowItemToolTips = false;
+            this.ctxtmsPlaylist.Size = new System.Drawing.Size(186, 110);
+            // 
+            // addSongToolStripMenuItem
+            // 
+            this.addSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.addSongToolStripMenuItem.Text = "Add song";
+            this.addSongToolStripMenuItem.Click += new System.EventHandler(this.AddSongToolStripMenuItem_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // ucPlaylistView
             // 
@@ -72,7 +115,7 @@
             this.Size = new System.Drawing.Size(160, 40);
             this.MouseLeave += new System.EventHandler(this.ucPlaylistView_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucPlaylistView_MouseHover);
-            this.MouseClick += ucPlaylistView_MouseDoubleClick;
+            this.ctxtmsPlaylist.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +125,9 @@
 
         private System.Windows.Forms.Label lblPlaylistName;
         private System.Windows.Forms.Button btnPlaylistMenu;
+        private System.Windows.Forms.ContextMenuStrip ctxtmsPlaylist;
+        private System.Windows.Forms.ToolStripMenuItem addSongToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

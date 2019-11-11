@@ -12,10 +12,24 @@ namespace BLADE
         private List<Song> _listSong;
         private int _count;
         private DateTime _createdDay;
-        public string PlaylistName { get => _plName; set => _plName = value; }
+        public string PlaylistName
+        {
+            get => _plName;
+            set
+            {
+                if (value != "" && value != _plName)
+                {
+                    _plName = value;
+                    if (NameChanged != null)
+                        NameChanged(this, new EventArgs());
+                }
+            }
+        }
         public int Count { get => _count; set => _count = value; }
         public List<Song> List { get => _listSong; set => _listSong = value; }
         public DateTime CreatedDay { get => _createdDay; set => _createdDay = value; }
+
+        public event EventHandler NameChanged;
 
         public Playlist()
         {

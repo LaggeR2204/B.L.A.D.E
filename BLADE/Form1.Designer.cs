@@ -140,7 +140,7 @@
             this.lblArtistName.Name = "lblArtistName";
             this.lblArtistName.Size = new System.Drawing.Size(143, 16);
             this.lblArtistName.TabIndex = 4;
-            this.lblArtistName.Text = "Singer\'s Name Is Here";
+            this.lblArtistName.Text = "";
             // 
             // lblSongName
             // 
@@ -152,7 +152,7 @@
             this.lblSongName.Name = "lblSongName";
             this.lblSongName.Size = new System.Drawing.Size(156, 18);
             this.lblSongName.TabIndex = 4;
-            this.lblSongName.Text = "Song\'s Name Is Here";
+            this.lblSongName.Text = "";
             // 
             // SliderVolume
             // 
@@ -970,7 +970,6 @@
             this.uc_Playlist.Name = "uc_Playlist";
             this.uc_Playlist.Size = new System.Drawing.Size(787, 565);
             this.uc_Playlist.TabIndex = 1;
-            this.uc_Playlist.SelectSong += PlayMusic;
             // 
             // uc_Info
             // 
