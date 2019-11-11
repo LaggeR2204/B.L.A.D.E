@@ -21,18 +21,34 @@ namespace BLADE
             ShowPlaylistInfo(_default);
             Init();
         }
-
         private void Init()
         {
 
         }
-
-       
         public void addSongToPlaylistView(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
             songView.SelectedSong += click;
+            songView.DeletedSong += deleteSong;
             this.fpnlSongView.Controls.Add(songView);
+        }
+        private void clearSongViewList()
+        {
+            fpnlSongView.Controls.Clear();
+        }
+        private void ShowPlaylistInfo(Playlist src)
+        {
+            ucPlaylistView temp = new ucPlaylistView(src);
+            temp.showContent += ShowPlaylist;
+            temp.delPlaylist += DeletePlaylist;
+            fpnlPlaylistView.Controls.Add(temp);
+        }
+        #region Event Handler
+        private void DeletePlaylist(object sender, EventArgs e)
+        {
+            ucPlaylistView src = sender as ucPlaylistView;
+            fpnlPlaylistView.Controls.Remove(src);
+            src.Dispose();
         }
         private void click(object sender, EventArgs e)
         {
@@ -41,9 +57,12 @@ namespace BLADE
                 SelectSong(sender.ToString(), e);
             }
         }
-        private void clearSongViewList()
+        private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
         {
-            fpnlSongView.Controls.Clear();
+            string name = string.Copy("");
+            InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name);
+            Playlist pl1 = new Playlist(name);
+            ShowPlaylistInfo(pl1);
         }
         private void ShowPlaylist(object sender, EventArgs e)
         {
@@ -54,26 +73,12 @@ namespace BLADE
                 addSongToPlaylistView(song);
             }
         }
-        private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
+        private void deleteSong(object sender, EventArgs e)
         {
-            string name = string.Copy("");
-            InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name);
-            Playlist pl1 = new Playlist(name);
-            ShowPlaylistInfo(pl1);
-        }
-        private void ShowPlaylistInfo(Playlist src)
-        {
-            ucPlaylistView temp = new ucPlaylistView(src);
-            temp.showContent += ShowPlaylist;
-            temp.delPlaylist += DeletePlaylist;
-            fpnlPlaylistView.Controls.Add(temp);
-        }
-
-        private void DeletePlaylist(object sender, EventArgs e)
-        {
-            ucPlaylistView src = sender as ucPlaylistView;
-            fpnlPlaylistView.Controls.Remove(src);
+            ucSongViewDetail src = sender as ucSongViewDetail;
+            fpnlSongView.Controls.Remove(src);
             src.Dispose();
         }
+        #endregion
     }
 }

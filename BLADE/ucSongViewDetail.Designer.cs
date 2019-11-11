@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSongViewDetail));
             this.btnSongPlay = new System.Windows.Forms.Button();
             this.btnSongPause = new System.Windows.Forms.Button();
@@ -37,6 +38,9 @@
             this.lblArtistSVD = new System.Windows.Forms.Label();
             this.lblCategorySVD = new System.Windows.Forms.Label();
             this.lblTimeSVD = new System.Windows.Forms.Label();
+            this.ctxtmsSong = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxtmsSong.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSongPlay
@@ -71,6 +75,7 @@
             this.btnSongMenu.Size = new System.Drawing.Size(40, 40);
             this.btnSongMenu.TabIndex = 0;
             this.btnSongMenu.UseVisualStyleBackColor = true;
+            this.btnSongMenu.Click += new System.EventHandler(this.BtnSongMenu_Click);
             // 
             // btnSongLove
             // 
@@ -90,7 +95,7 @@
             this.lblSongNameSVD.Location = new System.Drawing.Point(86, 12);
             this.lblSongNameSVD.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblSongNameSVD.Name = "lblSongNameSVD";
-            this.lblSongNameSVD.Size = new System.Drawing.Size(83, 16);
+            this.lblSongNameSVD.Size = new System.Drawing.Size(106, 16);
             this.lblSongNameSVD.TabIndex = 1;
             this.lblSongNameSVD.Text = "Song Name";
             this.lblSongNameSVD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,7 +107,7 @@
             this.lblArtistSVD.Location = new System.Drawing.Point(270, 12);
             this.lblArtistSVD.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblArtistSVD.Name = "lblArtistSVD";
-            this.lblArtistSVD.Size = new System.Drawing.Size(39, 17);
+            this.lblArtistSVD.Size = new System.Drawing.Size(52, 17);
             this.lblArtistSVD.TabIndex = 1;
             this.lblArtistSVD.Text = "Artist";
             this.lblArtistSVD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,7 +119,7 @@
             this.lblCategorySVD.Location = new System.Drawing.Point(420, 12);
             this.lblCategorySVD.MaximumSize = new System.Drawing.Size(93, 17);
             this.lblCategorySVD.Name = "lblCategorySVD";
-            this.lblCategorySVD.Size = new System.Drawing.Size(69, 17);
+            this.lblCategorySVD.Size = new System.Drawing.Size(89, 17);
             this.lblCategorySVD.TabIndex = 1;
             this.lblCategorySVD.Text = "Category";
             this.lblCategorySVD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,14 +130,34 @@
             this.lblTimeSVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeSVD.Location = new System.Drawing.Point(525, 12);
             this.lblTimeSVD.Name = "lblTimeSVD";
-            this.lblTimeSVD.Size = new System.Drawing.Size(37, 16);
+            this.lblTimeSVD.Size = new System.Drawing.Size(49, 21);
             this.lblTimeSVD.TabIndex = 1;
             this.lblTimeSVD.Text = "time";
             this.lblTimeSVD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ctxtmsSong
+            // 
+            this.ctxtmsSong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.ctxtmsSong.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctxtmsSong.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteSongToolStripMenuItem});
+            this.ctxtmsSong.Name = "ctxtmsSong";
+            this.ctxtmsSong.ShowImageMargin = false;
+            this.ctxtmsSong.ShowItemToolTips = false;
+            this.ctxtmsSong.Size = new System.Drawing.Size(186, 58);
+            // 
+            // deleteSongToolStripMenuItem
+            // 
+            this.deleteSongToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteSongToolStripMenuItem.Text = "Delete Song";
+            this.deleteSongToolStripMenuItem.Click += new System.EventHandler(this.DeleteSongToolStripMenuItem_Click);
+            // 
             // ucSongViewDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.lblTimeSVD);
@@ -150,6 +175,7 @@
             this.Size = new System.Drawing.Size(620, 40);
             this.MouseLeave += new System.EventHandler(this.ucSongViewDetail_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucSongViewDetail_MouseHover);
+            this.ctxtmsSong.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +191,7 @@
         private System.Windows.Forms.Label lblArtistSVD;
         private System.Windows.Forms.Label lblCategorySVD;
         private System.Windows.Forms.Label lblTimeSVD;
+        private System.Windows.Forms.ContextMenuStrip ctxtmsSong;
+        private System.Windows.Forms.ToolStripMenuItem deleteSongToolStripMenuItem;
     }
 }

@@ -35,6 +35,7 @@ namespace BLADE
 
         void Init()
         {
+            this.MouseClick += ucPlaylistView_MouseClick;
             this.lblPlaylistName.Text = _playlist.PlaylistName;
 
             lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
@@ -106,7 +107,7 @@ namespace BLADE
             ctxtmsPlaylist.Show(btnPlaylistMenu, 0, btnPlaylistMenu.Height);
         }
 
-        private void ucPlaylistView_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void ucPlaylistView_MouseClick(object sender, MouseEventArgs e)
         {
             if (showContent != null)
                 showContent(_playlist.List, e);
