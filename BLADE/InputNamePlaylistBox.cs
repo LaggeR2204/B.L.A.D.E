@@ -18,6 +18,21 @@ namespace BLADE
             Button buttonOk = new Button();
             Button buttonCancel = new Button();
 
+            form.BackColor = Color.FromArgb(50, 50, 50);
+            label.ForeColor = Color.Gainsboro;
+            textBox.BackColor = Color.WhiteSmoke;
+            textBox.ForeColor = Color.Black;
+            buttonOk.ForeColor = Color.Gainsboro;
+            buttonCancel.ForeColor = Color.Gainsboro;
+
+            buttonOk.FlatStyle = FlatStyle.Flat;
+            buttonOk.FlatAppearance.BorderSize = 0;
+            buttonOk.FlatAppearance.BorderColor = Color.FromArgb(0, 217, 87);
+
+            buttonCancel.FlatStyle = FlatStyle.Flat;
+            buttonCancel.FlatAppearance.BorderSize = 0;
+            buttonCancel.FlatAppearance.BorderColor = Color.FromArgb(0, 217, 87);
+
             form.Text = title;
             label.Text = promptText;
             textBox.Text = value;
@@ -40,7 +55,8 @@ namespace BLADE
             form.ClientSize = new Size(396, 107);
             form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
             form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.FormBorderStyle = FormBorderStyle.None;
             form.StartPosition = FormStartPosition.CenterScreen;
             form.MinimizeBox = false;
             form.MaximizeBox = false;

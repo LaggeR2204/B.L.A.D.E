@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BLADE
 {
-    public partial class LoginForm : Form
+    public partial class SignupForm : Form
     {
-        public LoginForm()
+        public SignupForm()
         {
             InitializeComponent();
-        }
-
-        private void btnCloseWindows_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
