@@ -15,6 +15,7 @@ namespace BLADE
     {
         private ucPlaylistView _default;
         private ucPlaylistView _favorites;
+        private Playlist currentPlaylist;
         public event EventHandler SelectSong;
 
         public ucPlaylist()
@@ -63,12 +64,14 @@ namespace BLADE
             else
             {
                 _favorites.removeSongFromPlaylistControl(src);
-            } 
+            }
         }
         private void DeletePlaylist(object sender, EventArgs e)
         {
             ucPlaylistView src = sender as ucPlaylistView;
             fpnlPlaylistView.Controls.Remove(src);
+            if (src.Playlist == currentPlaylist)
+                fpnlSongView.Controls.Clear();
             src.Dispose();
         }
         private void SelectedSongHandler(object sender, EventArgs e)
@@ -88,11 +91,13 @@ namespace BLADE
         private void ShowPlaylist(object sender, EventArgs e)
         {
             clearSongViewList();
-            List<Song> list = sender as List<Song>;
+            Playlist pl = sender as Playlist;
+            List<Song> list = pl.List;
             foreach (Song song in list)
             {
                 addSongToPlaylistView(song);
             }
+            currentPlaylist = pl;
         }
         private void deleteSong(object sender, EventArgs e)
         {

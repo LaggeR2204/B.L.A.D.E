@@ -69,6 +69,15 @@ namespace BLADE
             return (src._savedPath == this._savedPath);
         }
 
+        public static string convertToTime(string src)
+        {
+            double sec = Convert.ToDouble(src);
+            string result;
+            TimeSpan temp = TimeSpan.FromSeconds(sec);
+            result = temp.ToString("mm':'ss");
+            return result;
+        }
+
         #region SORT SONG
         private class sortNameAscending : IComparer
         {

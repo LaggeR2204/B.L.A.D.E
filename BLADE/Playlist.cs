@@ -53,11 +53,13 @@ namespace BLADE
         public void AddSong(Song src)
         {
             _listSong.Add(src);
+            _count++;
         }
 
         public void Remove(Song src)
         {
             _listSong.Remove(src);
+            _count--;
         }
         public bool IsContains(Song src)
         {

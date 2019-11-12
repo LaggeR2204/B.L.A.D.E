@@ -62,7 +62,15 @@ namespace BLADE
 
         public void addSongToPlaylistControl(Song src)
         {
-            _playlist.AddSong(src);
+            if (!_playlist.IsContains(src))
+            {
+                _playlist.AddSong(src);
+            }
+            else
+            {
+                MessageBox.Show("Bai hat da ton tai trong playlist!!!");
+                return;
+            }
         }
         public void removeSongFromPlaylistControl(Song src)
         {
@@ -76,7 +84,7 @@ namespace BLADE
             Song song = new Song();
             song.SongName = src.getItemInfo("Name");
             song.SavedPath = file.FullName;
-            song.SongTime = src.getItemInfo("Duration");
+            song.SongTime = Song.convertToTime(src.getItemInfo("Duration"));
             song.Singer = src.getItemInfo("Artist");
             song.Genre = src.getItemInfo("WM/Genre");
             //song.SongImage = getImage(file.FullName);
@@ -119,7 +127,7 @@ namespace BLADE
         private void ucPlaylistView_MouseClick(object sender, MouseEventArgs e)
         {
             if (showContent != null)
-                showContent(_playlist.List, e);
+                showContent(_playlist, e);
         }
 
         private void AddSongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -155,7 +163,7 @@ namespace BLADE
             }
             openfileDialog.Dispose();
             if (showContent != null)
-                showContent(_playlist.List, e);
+                showContent(_playlist, e);
         }
 
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
