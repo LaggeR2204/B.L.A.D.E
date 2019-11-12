@@ -90,11 +90,11 @@
             this.DropdownTime = new System.Windows.Forms.Timer(this.components);
             this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.uc_Home = new BLADE.ucHome();
             this.uc_Playlist = new BLADE.ucPlaylist();
             this.uc_Info = new BLADE.ucInfo();
             this.uc_Search = new BLADE.ucSearch();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.pnlMusicControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.pnlControl.SuspendLayout();
@@ -300,6 +300,7 @@
             this.sliderMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sliderMusic.Maximum = 100;
             this.sliderMusic.Minimum = 0;
+            this.sliderMusic.MinimumSize = new System.Drawing.Size(0, 31);
             this.sliderMusic.MinimumThumbLength = 18;
             this.sliderMusic.Name = "sliderMusic";
             this.sliderMusic.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
@@ -308,7 +309,7 @@
             this.sliderMusic.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sliderMusic.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sliderMusic.ShrinkSizeLimit = 3;
-            this.sliderMusic.Size = new System.Drawing.Size(500, 30);
+            this.sliderMusic.Size = new System.Drawing.Size(500, 31);
             this.sliderMusic.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sliderMusic.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
             this.sliderMusic.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
@@ -409,10 +410,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTime.Location = new System.Drawing.Point(349, 7);
             this.lblTime.Name = "lblTime";
-
             this.lblTime.Size = new System.Drawing.Size(91, 22);
-          this.lblTime.Size = new System.Drawing.Size(77, 18);
-
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "TimeNow";
             // 
@@ -821,9 +819,9 @@
             this.AppMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.AppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
-            this.AppMenu.Location = new System.Drawing.Point(0, 570);
+            this.AppMenu.Location = new System.Drawing.Point(0, 572);
             this.AppMenu.Name = "AppMenu";
-            this.AppMenu.Size = new System.Drawing.Size(213, 30);
+            this.AppMenu.Size = new System.Drawing.Size(213, 28);
             this.AppMenu.TabIndex = 17;
             this.AppMenu.Text = "menuStrip1";
             // 
@@ -834,7 +832,7 @@
             this.fileToolStripMenuItem});
             this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
             this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // playbackToolStripMenuItem
@@ -911,21 +909,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
-
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
-
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -936,9 +926,7 @@
             // 
             // timerChangeColorBLADE
             // 
-
             this.timerChangeColorBLADE.Enabled = true;
-
             this.timerChangeColorBLADE.Interval = 3000;
             this.timerChangeColorBLADE.Tick += new System.EventHandler(this.timerChangeColorBLADE_Tick);
             // 
@@ -953,15 +941,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(787, 565);
             this.pnlMain.TabIndex = 4;
-            // 
-            // timerTime
-            // 
-
-
-            this.timerTime.Enabled = true;
-
-            this.timerTime.Interval = 1000;
-            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
             // uc_Home
             // 
@@ -1013,6 +992,12 @@
             this.uc_Search.Size = new System.Drawing.Size(787, 565);
             this.uc_Search.TabIndex = 3;
             // 
+            // timerTime
+            // 
+            this.timerTime.Enabled = true;
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1031,6 +1016,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BLADE-Player";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlMusicControl.ResumeLayout(false);
             this.pnlMusicControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();

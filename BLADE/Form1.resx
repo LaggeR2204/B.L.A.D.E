@@ -212,10 +212,10 @@
   </data>
   <data name="sliderMusic.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAfQAAAAeCAYAAADafuzaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABwSURBVHhe7dWhEQAwCARB+m8RQw8pIEFEJQ0gdmdOgf8A
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYr6qy25IkaXx55/vXx/U8S5Kkma073wAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAGNFHOyx+ggOmmbzAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAfQAAAAfCAYAAAARIj9/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABzSURBVHhe7dWhDQAgDEXB7r8ipjswACCqQJNU3CVPtf4H
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAf5k5TkuSJLVv1Hy/znFez5IkqWez5hsAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA4J+IDbfG+ggFCsIJAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnPause.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

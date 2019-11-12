@@ -124,7 +124,7 @@
   <data name="txtUsername.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAAAjCAYAAACq/4cTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
         AbKPgKysRFYikUgkshLWppuGJrvQC5nuDv+a+WaAnCRqcZL0BBqEkH+YwWDQ7PV61/1+v62vxwB2Y92x
         DhmvVX3pdrsXOlFHJ53p5O8A/pb6NVe/7obD4aXX7vDoYOc6uP3GWHw/GYBaTWzS9BruF5/e34KDA6jf
         Qv279TruFr+3ZdYFjm/stdwuXt7oQACOQJ2893r+HLts1g7MvEAy6mbHaxrHnzRzzwvktFBHr7yu1dg0
@@ -139,7 +139,7 @@
   <data name="txtPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAAAjCAYAAACq/4cTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
         AbKPgKysRFYikUgkshLWppuGJrvQC5nuDv+a+WaAnCRqcZL0BBqEkH+YwWDQ7PV61/1+v62vxwB2Y92x
         DhmvVX3pdrsXOlFHJ53p5O8A/pb6NVe/7obD4aXX7vDoYOc6uP3GWHw/GYBaTWzS9BruF5/e34KDA6jf
         Qv279TruFr+3ZdYFjm/stdwuXt7oQACOQJ2893r+HLts1g7MvEAy6mbHaxrHnzRzzwvktFBHr7yu1dg0
@@ -154,7 +154,7 @@
   <data name="txtConfirm.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAAAjCAYAAACq/4cTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH+SURBVHhe7d2rUsNQFIXhSiQSySMgK3kEJK6VnV6mlci+
         AbKPgKysRFYikUgkshLWppuGJrvQC5nuDv+a+WaAnCRqcZL0BBqEkH+YwWDQ7PV61/1+v62vxwB2Y92x
         DhmvVX3pdrsXOlFHJ53p5O8A/pb6NVe/7obD4aXX7vDoYOc6uP3GWHw/GYBaTWzS9BruF5/e34KDA6jf
         Qv279TruFr+3ZdYFjm/stdwuXt7oQACOQJ2893r+HLts1g7MvEAy6mbHaxrHnzRzzwvktFBHr7yu1dg0
@@ -169,7 +169,7 @@
   <data name="btnSignup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAAAtCAYAAACQ9eZjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMaSURBVHhe7d0/TxRRFIdhSkpLSkpKSko+gaExsbQkVhQW
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMaSURBVHhe7d0/TxRRFIdhSkpLSkpKSko+gaExsbQkVhQW
         FhaUJnYWFnYkdiR2JlYkVsRqCwsSCxMTiUZCEBFByYLvuXPIugnILi7snfA+ycns3Nm5s82PmbnMnwlJ
         N9jJycn08fHxItNlpmtUh9piXlKKTGQ21pldph5SMxmj68WGI7RPqE1qj9qnTdKAyMwRtUtFsFeouYzX
         1WG7U2zoBbXX/AxJo0Cmdqg1Pk5n3EaLjh+zgfiL8btsUdLIxc6Res7HyYze/6GjW3T4hjooW5B0pbrd
@@ -188,11 +188,14 @@
   </data>
   <data name="btnCloseWindows.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAC6SURBVEhL7ZG7CQJBEEA3ELzUQDE6Disw8RNpGXZgHSYGNmFuBWJkAxrIYWIgWIEK5uPbdcJT
-        uGPOaB+8ZHZ4E6yLROpHREa4x6GO7CA6wDt6Zjq2geAUXyEtstCxDQQnWFt8jM+QFllhq4QNzRTDQh8f
-        WJWTpophoYuXsPo5dMRDCdea+g5LbczRs8NEn+wg2sGzvwBbbOqTHURTvPoLsMHfH1gFohne/AWY69gW
-        wj1cYqajSOSvOPcGmpk4nIurcjcAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAALpJREFUSEvt
+        kbsJAkEQQDcQvNRAMToOKzDxE2kZdmAdJgY2YW4FYmQDGshhYiBYgQrm49t1wlO4Y85oH7xkdngTrItE
+        6kdERrjHoY7sIDrAO3pmOraB4BRfIS2y0LENBCdYW3yMz5AWWWGrhA3NFMNCHx9YlZOmimGhi5ew+jl0
+        xEMJ15r6DkttzNGzw0Sf7CDawbO/AFts6pMdRFO8+guwwd8fWAWiGd78BZjr2BbCPVxipqNI5K849waa
+        mTici6tyNwAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="lblFailed.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 1.2px; margin: auto; padding-top: 11px;font-family: 'Century Gothic'; font-size: 8.25pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: Red; text-align: left; }</value>
   </data>
 </root>
