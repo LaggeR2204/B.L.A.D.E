@@ -113,3 +113,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\xNet.dll
 D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongSearchDetail.resources
 >>>>>>> master
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongSearchDetail.resources

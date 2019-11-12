@@ -16,14 +16,14 @@ namespace BLADE
         private string _singer;
         private string _genre;
         private Image _songImage;
-<<<<<<< HEAD
+
         private bool isFavorite;
 
         //private string songURL;
         //private string lyric;
-=======
+
         private string _songURL;
->>>>>>> master
+
         //private string downloadURL;
         //private string _photoURL;
         //private double duration;
@@ -43,16 +43,16 @@ namespace BLADE
         public bool IsFavorite { get => isFavorite; set => isFavorite = value; }
         public Song()
         {
-<<<<<<< HEAD
+
             isFavorite = false;
-=======
+
             this._songName = "";
             this._savedPath = "";
             this._songTime = "";
             this._singer = "";
             this._genre = "";
             this._songURL = "";
->>>>>>> master
+
         }
         public Song(Song src)
         {
@@ -61,11 +61,11 @@ namespace BLADE
             this._songTime = string.Copy(src._songTime);
             this._singer = string.Copy(src._singer);
             this._genre = string.Copy(src._genre);
-<<<<<<< HEAD
+
             isFavorite = false;
-=======
+
             this._songURL = string.Copy(src._songURL);
->>>>>>> master
+
         }
         public override bool Equals(object obj)
         {

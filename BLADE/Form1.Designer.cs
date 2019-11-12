@@ -409,11 +409,10 @@
             this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTime.Location = new System.Drawing.Point(349, 7);
             this.lblTime.Name = "lblTime";
-<<<<<<< HEAD
+
             this.lblTime.Size = new System.Drawing.Size(91, 22);
-=======
-            this.lblTime.Size = new System.Drawing.Size(77, 18);
->>>>>>> master
+          this.lblTime.Size = new System.Drawing.Size(77, 18);
+
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "TimeNow";
             // 
@@ -912,21 +911,21 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-<<<<<<< HEAD
+
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
-=======
+
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
->>>>>>> master
+
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-<<<<<<< HEAD
+
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
-=======
+
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
->>>>>>> master
+
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -937,10 +936,9 @@
             // 
             // timerChangeColorBLADE
             // 
-<<<<<<< HEAD
-=======
+
             this.timerChangeColorBLADE.Enabled = true;
->>>>>>> master
+
             this.timerChangeColorBLADE.Interval = 3000;
             this.timerChangeColorBLADE.Tick += new System.EventHandler(this.timerChangeColorBLADE_Tick);
             // 
@@ -958,10 +956,10 @@
             // 
             // timerTime
             // 
-<<<<<<< HEAD
-=======
+
+
             this.timerTime.Enabled = true;
->>>>>>> master
+
             this.timerTime.Interval = 1000;
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
