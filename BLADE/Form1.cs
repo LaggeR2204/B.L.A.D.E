@@ -14,6 +14,7 @@ namespace BLADE
 {
     public partial class MainForm : Form
     {
+        SearchOnline search = new SearchOnline();
         public MainForm()
         {
             InitializeComponent();
@@ -42,6 +43,17 @@ namespace BLADE
         private void btnCloseWindows_MouseLeave(object sender, EventArgs e)
         {
             btnCloseWindows.BackColor = Color.FromArgb(40, 40, 40);
+        }
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TextBox textbox = sender as TextBox;
+                uc_Search.pnlSearchTitle.Show();
+                uc_Search.fpnlSearchSongView.Show();
+                uc_Search.lblTextSearch.Text = textbox.Text;
+                uc_Search.ShowListSearch(search.Search(textbox.Text));
+            }
         }
 
 
@@ -217,6 +229,7 @@ namespace BLADE
             uc_Info.Hide();
             uc_Search.Show();
             uc_Search.BringToFront();
+            uc_Search.fpnlSearchSongView.Controls.Clear();
         }
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
@@ -231,7 +244,7 @@ namespace BLADE
 
         private void timerTime_Tick(object sender, EventArgs e)
         {
-            this.lblTime.Text = DateTime.Now.ToString();
+            this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
         #endregion
 
@@ -308,6 +321,8 @@ namespace BLADE
             lblArtistName.Text = WMP.currentMedia.getItemInfo("Author");
         }
         #endregion
+
+        
 
     }
 }
