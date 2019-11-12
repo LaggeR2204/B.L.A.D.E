@@ -51,6 +51,7 @@
             this.btnVolumeOff = new System.Windows.Forms.Button();
             this.btnVolume = new System.Windows.Forms.Button();
             this.pnlControl = new System.Windows.Forms.Panel();
+            this.lblTime = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblUserName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtSearch = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.btnMaximize = new System.Windows.Forms.Button();
@@ -73,16 +74,9 @@
             this.lblTextBLADE = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnPlaylist = new System.Windows.Forms.Button();
-            this.DropdownTime = new System.Windows.Forms.Timer(this.components);
-            this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
-            this.pnlMain = new System.Windows.Forms.Panel();
-            this.lblTime = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.AppMenu = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,6 +85,12 @@
             this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volumeUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volumeDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DropdownTime = new System.Windows.Forms.Timer(this.components);
+            this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.uc_Home = new BLADE.ucHome();
             this.uc_Playlist = new BLADE.ucPlaylist();
             this.uc_Info = new BLADE.ucInfo();
@@ -101,8 +101,8 @@
             this.pnlButton.SuspendLayout();
             this.pnlTimerControl.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             this.AppMenu.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMusicControl
@@ -138,9 +138,8 @@
             this.lblArtistName.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblArtistName.Location = new System.Drawing.Point(9, 57);
             this.lblArtistName.Name = "lblArtistName";
-            this.lblArtistName.Size = new System.Drawing.Size(143, 16);
+            this.lblArtistName.Size = new System.Drawing.Size(0, 21);
             this.lblArtistName.TabIndex = 4;
-            this.lblArtistName.Text = "";
             // 
             // lblSongName
             // 
@@ -150,9 +149,8 @@
             this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSongName.Location = new System.Drawing.Point(9, 27);
             this.lblSongName.Name = "lblSongName";
-            this.lblSongName.Size = new System.Drawing.Size(156, 18);
+            this.lblSongName.Size = new System.Drawing.Size(0, 23);
             this.lblSongName.TabIndex = 4;
-            this.lblSongName.Text = "";
             // 
             // SliderVolume
             // 
@@ -298,7 +296,7 @@
             this.sliderMusic.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.sliderMusic.LargeChange = 10;
             this.sliderMusic.Location = new System.Drawing.Point(250, 66);
-            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4);
+            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sliderMusic.Maximum = 100;
             this.sliderMusic.Minimum = 0;
             this.sliderMusic.MinimumSize = new System.Drawing.Size(0, 30);
@@ -403,6 +401,18 @@
             this.pnlControl.Size = new System.Drawing.Size(787, 35);
             this.pnlControl.TabIndex = 2;
             // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTime.Location = new System.Drawing.Point(349, 7);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(91, 22);
+            this.lblTime.TabIndex = 3;
+            this.lblTime.Text = "TimeNow";
+            // 
             // lblUserName
             // 
             this.lblUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -410,7 +420,7 @@
             this.lblUserName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.Location = new System.Drawing.Point(577, 7);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(84, 18);
+            this.lblUserName.Size = new System.Drawing.Size(106, 23);
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "UserName";
             // 
@@ -477,7 +487,7 @@
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(197, 27);
+            this.txtSearch.Size = new System.Drawing.Size(197, 31);
             this.txtSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -799,6 +809,114 @@
             this.btnPlaylist.UseVisualStyleBackColor = true;
             this.btnPlaylist.Click += new System.EventHandler(this.btnPlaylist_Click);
             // 
+            // AppMenu
+            // 
+            this.AppMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.AppMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AppMenu.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.AppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.AppMenu.Location = new System.Drawing.Point(0, 570);
+            this.AppMenu.Name = "AppMenu";
+            this.AppMenu.Size = new System.Drawing.Size(213, 30);
+            this.AppMenu.TabIndex = 17;
+            this.AppMenu.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playbackToolStripMenuItem,
+            this.fileToolStripMenuItem});
+            this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 26);
+            this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // playbackToolStripMenuItem
+            // 
+            this.playbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playToolStripMenuItem,
+            this.pauseToolStripMenuItem,
+            this.nextToolStripMenuItem,
+            this.previousToolStripMenuItem,
+            this.shuffleToolStripMenuItem,
+            this.repeatToolStripMenuItem,
+            this.volumeUpToolStripMenuItem,
+            this.volumeDownToolStripMenuItem});
+            this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
+            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.playbackToolStripMenuItem.Text = "Playback";
+            // 
+            // playToolStripMenuItem
+            // 
+            this.playToolStripMenuItem.Name = "playToolStripMenuItem";
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.playToolStripMenuItem.Text = "Play";
+            this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
+            // 
+            // pauseToolStripMenuItem
+            // 
+            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
+            // 
+            // nextToolStripMenuItem
+            // 
+            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.nextToolStripMenuItem.Text = "Next";
+            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
+            // 
+            // previousToolStripMenuItem
+            // 
+            this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.previousToolStripMenuItem.Text = "Previous";
+            this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
+            // 
+            // shuffleToolStripMenuItem
+            // 
+            this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
+            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.shuffleToolStripMenuItem.Text = "Shuffle";
+            this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
+            // 
+            // repeatToolStripMenuItem
+            // 
+            this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
+            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.repeatToolStripMenuItem.Text = "Repeat";
+            this.repeatToolStripMenuItem.Click += new System.EventHandler(this.repeatToolStripMenuItem_Click);
+            // 
+            // volumeUpToolStripMenuItem
+            // 
+            this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
+            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeUpToolStripMenuItem.Text = "Volume up";
+            // 
+            // volumeDownToolStripMenuItem
+            // 
+            this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
+            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeDownToolStripMenuItem.Text = "Volume down";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // DropdownTime
             // 
             this.DropdownTime.Interval = 10;
@@ -806,7 +924,6 @@
             // 
             // timerChangeColorBLADE
             // 
-            this.timerChangeColorBLADE.Enabled = true;
             this.timerChangeColorBLADE.Interval = 3000;
             this.timerChangeColorBLADE.Tick += new System.EventHandler(this.timerChangeColorBLADE_Tick);
             // 
@@ -822,130 +939,10 @@
             this.pnlMain.Size = new System.Drawing.Size(787, 565);
             this.pnlMain.TabIndex = 4;
             // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTime.Location = new System.Drawing.Point(349, 7);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(77, 18);
-            this.lblTime.TabIndex = 3;
-            this.lblTime.Text = "TimeNow";
-            // 
             // timerTime
             // 
-            this.timerTime.Enabled = true;
             this.timerTime.Interval = 1000;
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
-            // 
-            // AppMenu
-            // 
-            this.AppMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.AppMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AppMenu.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
-            this.AppMenu.Location = new System.Drawing.Point(0, 576);
-            this.AppMenu.Name = "AppMenu";
-            this.AppMenu.Size = new System.Drawing.Size(213, 24);
-            this.AppMenu.TabIndex = 17;
-            this.AppMenu.Text = "menuStrip1";
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.playbackToolStripMenuItem,
-            this.fileToolStripMenuItem});
-            this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(28, 20);
-            this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // playbackToolStripMenuItem
-            // 
-            this.playbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.playToolStripMenuItem,
-            this.pauseToolStripMenuItem,
-            this.nextToolStripMenuItem,
-            this.previousToolStripMenuItem,
-            this.shuffleToolStripMenuItem,
-            this.repeatToolStripMenuItem,
-            this.volumeUpToolStripMenuItem,
-            this.volumeDownToolStripMenuItem});
-            this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
-            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.playbackToolStripMenuItem.Text = "Playback";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // playToolStripMenuItem
-            // 
-            this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.playToolStripMenuItem.Text = "Play";
-            this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
-            // 
-            // pauseToolStripMenuItem
-            // 
-            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.pauseToolStripMenuItem.Text = "Pause";
-            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
-            // 
-            // nextToolStripMenuItem
-            // 
-            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.nextToolStripMenuItem.Text = "Next";
-            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
-            // 
-            // previousToolStripMenuItem
-            // 
-            this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.previousToolStripMenuItem.Text = "Previous";
-            this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
-            // 
-            // shuffleToolStripMenuItem
-            // 
-            this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
-            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.shuffleToolStripMenuItem.Text = "Shuffle";
-            this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
-            // 
-            // repeatToolStripMenuItem
-            // 
-            this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
-            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.repeatToolStripMenuItem.Text = "Repeat";
-            this.repeatToolStripMenuItem.Click += new System.EventHandler(this.repeatToolStripMenuItem_Click);
-            // 
-            // volumeUpToolStripMenuItem
-            // 
-            this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
-            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.volumeUpToolStripMenuItem.Text = "Volume up";
-            // 
-            // volumeDownToolStripMenuItem
-            // 
-            this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
-            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.volumeDownToolStripMenuItem.Text = "Volume down";
             // 
             // uc_Home
             // 
@@ -962,6 +959,8 @@
             // uc_Playlist
             // 
             this.uc_Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.uc_Playlist.ChoosingPlaylist = null;
+            this.uc_Playlist.CurrentPlaylist = null;
             this.uc_Playlist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Playlist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Playlist.ForeColor = System.Drawing.Color.Gainsboro;
@@ -997,7 +996,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
@@ -1022,9 +1021,9 @@
             this.pnlButton.PerformLayout();
             this.pnlTimerControl.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.pnlMain.ResumeLayout(false);
             this.AppMenu.ResumeLayout(false);
             this.AppMenu.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -16,6 +16,10 @@ namespace BLADE
         private ucPlaylistView _default;
         private ucPlaylistView _favorites;
         private Playlist currentPlaylist;
+        private Playlist choosingPlaylist;
+
+        public Playlist CurrentPlaylist { get => currentPlaylist; set => currentPlaylist = value; }
+        public Playlist ChoosingPlaylist { get => choosingPlaylist; set => choosingPlaylist = value; }
         public event EventHandler SelectSong;
 
         public ucPlaylist()
@@ -70,15 +74,18 @@ namespace BLADE
         {
             ucPlaylistView src = sender as ucPlaylistView;
             fpnlPlaylistView.Controls.Remove(src);
-            if (src.Playlist == currentPlaylist)
+            if (src.Playlist == choosingPlaylist)
                 fpnlSongView.Controls.Clear();
             src.Dispose();
         }
         private void SelectedSongHandler(object sender, EventArgs e)
         {
+            if (currentPlaylist != choosingPlaylist && choosingPlaylist != null)
+                currentPlaylist = choosingPlaylist;
             if (SelectSong != null)
             {
-                SelectSong(sender.ToString(), e);
+                Song song = sender as Song;
+                SelectSong(currentPlaylist.List.IndexOf(song), e);
             }
         }
         private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
@@ -97,7 +104,7 @@ namespace BLADE
             {
                 addSongToPlaylistView(song);
             }
-            currentPlaylist = pl;
+            choosingPlaylist = pl;
         }
         private void deleteSong(object sender, EventArgs e)
         {

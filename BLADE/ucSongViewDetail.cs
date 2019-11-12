@@ -87,7 +87,7 @@ namespace BLADE
         {
             this.BackColor = Color.Aquamarine;
             if (SelectedSong != null)
-                SelectedSong(_song.SavedPath, e);
+                SelectedSong(_song, e);
         }
         #endregion
 

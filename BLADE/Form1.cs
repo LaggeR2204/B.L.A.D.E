@@ -27,6 +27,7 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
+            this.WMP.MediaChange += SetSongInfor ;
         }
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
@@ -282,14 +283,29 @@ namespace BLADE
         #endregion
 
         #region WindowMediaPlayer
+        private void ReloadPlaylist()
+        {
+            WMP.currentPlaylist.clear();
+            List<Song> listsong = uc_Playlist.CurrentPlaylist.List;
+            foreach (Song song in listsong)
+            {
+                IWMPMedia src;
+                src = WMP.newMedia(song.SavedPath);
+                WMP.currentPlaylist.appendItem(src);
+            }
+        }
         private void PlayMusic(object sender, EventArgs e)
         {
-            WMP.URL = sender.ToString();
+            ReloadPlaylist();
+            WMP.Ctlcontrols.playItem(WMP.currentPlaylist.Item[Convert.ToInt32(sender)]);
             btnPause.Show();
             btnPlay.Hide();
-            IWMPMedia src = WMP.newMedia(sender.ToString());
-            lblSongName.Text = src.getItemInfo("Name");
-            lblArtistName.Text = src.getItemInfo("Author");
+        }
+
+        private void SetSongInfor(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
+        {
+            lblSongName.Text = WMP.currentMedia.getItemInfo("Name");
+            lblArtistName.Text = WMP.currentMedia.getItemInfo("Author");
         }
         #endregion
 
