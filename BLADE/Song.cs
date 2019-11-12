@@ -16,10 +16,9 @@ namespace BLADE
         private string _singer;
         private string _genre;
         private Image _songImage;
-        //private string songURL;
-        //private string lyric;
+        private string _songURL;
         //private string downloadURL;
-        //private string photoURL;
+        //private string _photoURL;
         //private double duration;
         //private double position;
 
@@ -29,14 +28,19 @@ namespace BLADE
         public string Singer { get => _singer; set => _singer = value; }
         public string Genre { get => _genre; set => _genre = value; }
         public Image SongImage { get => _songImage; set => _songImage = value; }
-        //public string SongURL { get => songURL; set => songURL = value; }
-        //public string Lyric { get => lyric; set => lyric = value; }
+        public string SongURL { get => _songURL; set => _songURL = value; }
         //public string DownloadURL { get => downloadURL; set => downloadURL = value; }
-        //public string PhotoURL { get => photoURL; set => photoURL = value; }
+        //public string PhotoURL { get => _photoURL; set => _photoURL = value; }
         //public double Duration { get => duration; set => duration = value; }
         //public double Position { get => position; set => position = value; }
         public Song()
         {
+            this._songName = "";
+            this._savedPath = "";
+            this._songTime = "";
+            this._singer = "";
+            this._genre = "";
+            this._songURL = "";
         }
         public Song(Song src)
         {
@@ -45,6 +49,7 @@ namespace BLADE
             this._songTime = string.Copy(src._songTime);
             this._singer = string.Copy(src._singer);
             this._genre = string.Copy(src._genre);
+            this._songURL = string.Copy(src._songURL);
         }
         public override bool Equals(object obj)
         {

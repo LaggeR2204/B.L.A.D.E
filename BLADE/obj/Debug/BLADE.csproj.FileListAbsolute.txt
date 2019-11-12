@@ -84,3 +84,5 @@ G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CoreCompileInputs.cache
 G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
 G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 G:\Git\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\bin\Debug\xNet.dll
+D:\Học Tập\LTTQ\DoAn\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucSongSearchDetail.resources
