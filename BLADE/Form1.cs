@@ -340,38 +340,44 @@ namespace BLADE
         #region StopTimer
         private void btnSetCustomTime_Click(object sender, EventArgs e)
         {
-            int h, m, s, all;
-            //DIEUKIEN
-
-            if (txtHour.Text == null || txtHour.Text == "H")
+            try
+            {
+                int h, m, s, all;
+                //DIEUKIEN
                 h = 0;
-            else
-                h = Convert.ToInt32(txtHour.Text);
-
-            if (txtMinute.Text == null || txtMinute.Text == "M")
                 m = 0;
-            else
-                m = Convert.ToInt32(txtMinute.Text);
-
-            if (txtSecond.Text == null || txtSecond.Text == "S")
                 s = 0;
-            else
-                s = Convert.ToInt32(txtSecond.Text);
 
-            all = h * 60 * 60 + m * 60 + s;
+                if (txtHour.Text != null)
+                    h = Convert.ToInt32(txtHour.Text);
+                if (txtMinute.Text != null)
+                    m = Convert.ToInt32(txtMinute.Text);
+                if (txtSecond.Text != null)
+                    s = Convert.ToInt32(txtSecond.Text);
 
-            s_Timer = new stopTimer(all);
-            this.lblCountdown.Text = "Time Remaining: " + all;
-            s_Timer.Tick += TimeOut;
+                all = h * 60 * 60 + m * 60 + s;
 
-            if (txtHour.Text == null && txtMinute.Text == null && txtSecond.Text == null)
-                s_Timer.Stop();
+                s_Timer = new stopTimer(all);
+                this.lblCountdown.Text = "CD: " + all;
+                s_Timer.Tick += TimeOut;
+
+                if (all == 0)
+                {
+                    this.lblCountdown.Text = "";
+                    s_Timer.Stop();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("    YOU MUST ENTER TIMESPAN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn10m_Click_1(object sender, EventArgs e)
         {
             int all = 600;
-            this.lblCountdown.Text = "Time Remaining: " + all;
+            this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
         }
@@ -379,7 +385,7 @@ namespace BLADE
         private void btn30m_Click_1(object sender, EventArgs e)
         {
             int all = 1800;
-            this.lblCountdown.Text = "Time Remaining: " + all;
+            this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
         }
@@ -387,13 +393,13 @@ namespace BLADE
         private void btn1h_Click_1(object sender, EventArgs e)
         {
             int all = 3600;
-            this.lblCountdown.Text = "Time Remaining: " + all;
+            this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
         }
         private void TimeOut(object sender, EventArgs e)
         {
-            this.lblCountdown.Text = "Time Remaining: " + s_Timer.Second;
+            this.lblCountdown.Text = "CD: " + s_Timer.Second;
             if (s_Timer.Second <= 0)
                 Application.Exit();
         }
