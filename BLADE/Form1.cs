@@ -29,7 +29,7 @@ namespace BLADE
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
-            this.uc_Playlist.ReloadPlaylist += ReloadPlaylist;
+            this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -306,7 +306,10 @@ namespace BLADE
         #region WindowMediaPlayer
         private void ReloadPlaylist(object sender, EventArgs e)
         {
-            ReloadPlaylist();
+            Song song = sender as Song;
+            IWMPMedia temp;
+            temp = WMP.newMedia(song.SavedPath);
+            WMP.currentPlaylist.appendItem(temp);
         }
         private void ReloadPlaylist()
         {

@@ -21,7 +21,7 @@ namespace BLADE
         public Playlist CurrentPlaylist { get => currentPlaylist; set => currentPlaylist = value; }
         public Playlist ChoosingPlaylist { get => choosingPlaylist; set => choosingPlaylist = value; }
         public event EventHandler SelectSong;
-        public event EventHandler ReloadPlaylist;
+        public event EventHandler PlaylistUpdated;
 
         public ucPlaylist()
         {
@@ -70,8 +70,8 @@ namespace BLADE
             if (temp == choosingPlaylist)
                 addSongToPlaylistView(temp.List[temp.List.Count - 1]);
             if (temp == currentPlaylist)
-                if (ReloadPlaylist != null)
-                    ReloadPlaylist(currentPlaylist, new EventArgs());
+                if (PlaylistUpdated != null)
+                    PlaylistUpdated(temp.List[temp.List.Count - 1], new EventArgs());
 
         }
         private void FavoriteChangedHandler(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace BLADE
         }
         private void SelectedSongHandler(object sender, EventArgs e)
         {
-            if (currentPlaylist != choosingPlaylist && choosingPlaylist != null)
+            if (currentPlaylist != choosingPlaylist)
                 currentPlaylist = choosingPlaylist;
             if (SelectSong != null)
             {
@@ -113,14 +113,17 @@ namespace BLADE
         }
         private void ShowPlaylist(object sender, EventArgs e)
         {
-            clearSongViewList();
             Playlist pl = sender as Playlist;
-            List<Song> list = pl.List;
-            foreach (Song song in list)
+            if (choosingPlaylist != pl)
             {
-                addSongToPlaylistView(song);
+                clearSongViewList();
+                List<Song> list = pl.List;
+                foreach (Song song in list)
+                {
+                    addSongToPlaylistView(song);
+                }
+                choosingPlaylist = pl;
             }
-            choosingPlaylist = pl;
         }
         private void deleteSong(object sender, EventArgs e)
         {
