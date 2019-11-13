@@ -121,6 +121,9 @@
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Song.cs" />
+    <Compile Include="stopTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ucHome.cs">
       <SubType>UserControl</SubType>
     </Compile>

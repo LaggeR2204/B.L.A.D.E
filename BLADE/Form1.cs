@@ -28,7 +28,7 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
-            this.WMP.MediaChange += SetSongInfor ;
+            this.WMP.MediaChange += SetSongInfor;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -329,5 +329,66 @@ namespace BLADE
         }
         #endregion
 
+        #region StopTimer
+        private void btnSetCustomTime_Click(object sender, EventArgs e)
+        {
+            int h, m, s, all;
+            //DIEUKIEN
+
+            if (txtHour.Text == null || txtHour.Text == "H")
+                h = 0;
+            else
+                h = Convert.ToInt32(txtHour.Text);
+
+            if (txtMinute.Text == null || txtMinute.Text == "M")
+                m = 0;
+            else
+                m = Convert.ToInt32(txtMinute.Text);
+
+            if (txtSecond.Text == null || txtSecond.Text == "S")
+                s = 0;
+            else
+                s = Convert.ToInt32(txtSecond.Text);
+
+            all = h * 60 * 60 + m * 60 + s;
+
+            s_Timer = new stopTimer(all);
+            this.lblCountdown.Text = "Time Remaining: " + all;
+            s_Timer.Tick += TimeOut;
+
+            if (txtHour.Text == null && txtMinute.Text == null && txtSecond.Text == null)
+                s_Timer.Stop();
+        }
+
+        private void btn10m_Click_1(object sender, EventArgs e)
+        {
+            int all = 600;
+            this.lblCountdown.Text = "Time Remaining: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += TimeOut;
+        }
+
+        private void btn30m_Click_1(object sender, EventArgs e)
+        {
+            int all = 1800;
+            this.lblCountdown.Text = "Time Remaining: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += TimeOut;
+        }
+
+        private void btn1h_Click_1(object sender, EventArgs e)
+        {
+            int all = 3600;
+            this.lblCountdown.Text = "Time Remaining: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += TimeOut;
+        }
+        private void TimeOut(object sender, EventArgs e)
+        {
+            this.lblCountdown.Text = "Time Remaining: " + s_Timer.Second;
+            if (s_Timer.Second <= 0)
+                Application.Exit();
+        }
+        #endregion
     }
 }
