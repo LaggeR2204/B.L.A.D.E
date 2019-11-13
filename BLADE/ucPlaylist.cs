@@ -42,6 +42,7 @@ namespace BLADE
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
 
             choosingPlaylist = _default.Playlist;
+            
         }
         public void addSongToPlaylistView(Song song)
         {
