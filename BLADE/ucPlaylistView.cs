@@ -18,6 +18,7 @@ namespace BLADE
         public Playlist Playlist { get => _playlist; set => _playlist = value; }
         public event EventHandler showContent;
         public event EventHandler delPlaylist;
+        public event EventHandler addingSong;
         public ucPlaylistView()
         {
             InitializeComponent();
@@ -162,8 +163,8 @@ namespace BLADE
 
             }
             openfileDialog.Dispose();
-            if (showContent != null)
-                showContent(_playlist, e);
+            if (addingSong != null)
+                addingSong(_playlist, e);
         }
 
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)

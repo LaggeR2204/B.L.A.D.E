@@ -29,6 +29,7 @@ namespace BLADE
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
+            this.uc_Playlist.ReloadPlaylist += ReloadPlaylist;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -303,6 +304,10 @@ namespace BLADE
         #endregion
 
         #region WindowMediaPlayer
+        private void ReloadPlaylist(object sender, EventArgs e)
+        {
+            ReloadPlaylist();
+        }
         private void ReloadPlaylist()
         {
             WMP.currentPlaylist.clear();

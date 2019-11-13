@@ -21,6 +21,7 @@ namespace BLADE
         public Playlist CurrentPlaylist { get => currentPlaylist; set => currentPlaylist = value; }
         public Playlist ChoosingPlaylist { get => choosingPlaylist; set => choosingPlaylist = value; }
         public event EventHandler SelectSong;
+        public event EventHandler ReloadPlaylist;
 
         public ucPlaylist()
         {
@@ -32,11 +33,15 @@ namespace BLADE
             _default = new ucPlaylistView(new Playlist("Default"));
             _default.showContent += ShowPlaylist;
             _default.delPlaylist += DeletePlaylist;
+            _default.addingSong += AddingSongHandler;
 
             _favorites = new ucPlaylistView(new Playlist("Favorites"));
             _favorites.showContent += ShowPlaylist;
             _favorites.delPlaylist += DeletePlaylist;
+            _favorites.addingSong += AddingSongHandler;
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
+
+            choosingPlaylist = _default.Playlist;
         }
         public void addSongToPlaylistView(Song song)
         {
@@ -55,9 +60,20 @@ namespace BLADE
             ucPlaylistView temp = new ucPlaylistView(src);
             temp.showContent += ShowPlaylist;
             temp.delPlaylist += DeletePlaylist;
+            temp.addingSong += AddingSongHandler;
             fpnlPlaylistView.Controls.Add(temp);
         }
         #region Event Handler
+        private void AddingSongHandler(object sender, EventArgs e)
+        {
+            Playlist temp = sender as Playlist;
+            if (temp == choosingPlaylist)
+                addSongToPlaylistView(temp.List[temp.List.Count - 1]);
+            if (temp == currentPlaylist)
+                if (ReloadPlaylist != null)
+                    ReloadPlaylist(currentPlaylist, new EventArgs());
+
+        }
         private void FavoriteChangedHandler(object sender, EventArgs e)
         {
             Song src = sender as Song;

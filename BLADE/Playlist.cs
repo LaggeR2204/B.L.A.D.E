@@ -42,7 +42,7 @@ namespace BLADE
 
         }
 
-        void Init()
+        private void Init()
         {
             _plName = string.Copy("");
             _count = 0;

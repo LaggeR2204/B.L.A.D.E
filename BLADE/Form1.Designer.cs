@@ -140,7 +140,7 @@
             this.lblArtistName.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblArtistName.Location = new System.Drawing.Point(9, 57);
             this.lblArtistName.Name = "lblArtistName";
-            this.lblArtistName.Size = new System.Drawing.Size(0, 16);
+            this.lblArtistName.Size = new System.Drawing.Size(0, 21);
             this.lblArtistName.TabIndex = 4;
             // 
             // lblSongName
@@ -151,7 +151,7 @@
             this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSongName.Location = new System.Drawing.Point(9, 27);
             this.lblSongName.Name = "lblSongName";
-            this.lblSongName.Size = new System.Drawing.Size(0, 18);
+            this.lblSongName.Size = new System.Drawing.Size(0, 23);
             this.lblSongName.TabIndex = 4;
             // 
             // SliderVolume
@@ -298,7 +298,7 @@
             this.sliderMusic.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.sliderMusic.LargeChange = 1;
             this.sliderMusic.Location = new System.Drawing.Point(250, 66);
-            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4);
+            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sliderMusic.Maximum = 100;
             this.sliderMusic.Minimum = 0;
             this.sliderMusic.MinimumSize = new System.Drawing.Size(0, 31);
@@ -411,7 +411,7 @@
             this.lblCountdown.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblCountdown.Location = new System.Drawing.Point(448, 9);
             this.lblCountdown.Name = "lblCountdown";
-            this.lblCountdown.Size = new System.Drawing.Size(66, 18);
+            this.lblCountdown.Size = new System.Drawing.Size(79, 22);
             this.lblCountdown.TabIndex = 4;
             this.lblCountdown.Text = "TimeCD";
             // 
@@ -423,7 +423,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTime.Location = new System.Drawing.Point(349, 7);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(77, 18);
+            this.lblTime.Size = new System.Drawing.Size(91, 22);
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "TimeNow";
             // 
@@ -434,7 +434,7 @@
             this.lblUserName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.Location = new System.Drawing.Point(577, 7);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(84, 18);
+            this.lblUserName.Size = new System.Drawing.Size(106, 23);
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "UserName";
             // 
@@ -501,7 +501,7 @@
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(197, 27);
+            this.txtSearch.Size = new System.Drawing.Size(197, 31);
             this.txtSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -598,7 +598,7 @@
             this.pnlTimerControl.MaximumSize = new System.Drawing.Size(198, 193);
             this.pnlTimerControl.MinimumSize = new System.Drawing.Size(198, 45);
             this.pnlTimerControl.Name = "pnlTimerControl";
-            this.pnlTimerControl.Size = new System.Drawing.Size(198, 193);
+            this.pnlTimerControl.Size = new System.Drawing.Size(198, 45);
             this.pnlTimerControl.TabIndex = 4;
             // 
             // panel3
@@ -634,8 +634,8 @@
             this.txtSecond.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSecond.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtSecond.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSecond.HintForeColor = System.Drawing.Color.Empty;
-            this.txtSecond.HintText = "";
+            this.txtSecond.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSecond.HintText = "S";
             this.txtSecond.isPassword = false;
             this.txtSecond.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.txtSecond.LineIdleColor = System.Drawing.Color.Gray;
@@ -647,7 +647,6 @@
             this.txtSecond.Name = "txtSecond";
             this.txtSecond.Size = new System.Drawing.Size(40, 30);
             this.txtSecond.TabIndex = 5;
-            this.txtSecond.Text = "S";
             this.txtSecond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMinute
@@ -658,8 +657,8 @@
             this.txtMinute.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMinute.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtMinute.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMinute.HintForeColor = System.Drawing.Color.Empty;
-            this.txtMinute.HintText = "";
+            this.txtMinute.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMinute.HintText = "M";
             this.txtMinute.isPassword = false;
             this.txtMinute.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.txtMinute.LineIdleColor = System.Drawing.Color.Gray;
@@ -671,7 +670,6 @@
             this.txtMinute.Name = "txtMinute";
             this.txtMinute.Size = new System.Drawing.Size(40, 30);
             this.txtMinute.TabIndex = 5;
-            this.txtMinute.Text = "M";
             this.txtMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtHour
@@ -682,8 +680,8 @@
             this.txtHour.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtHour.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtHour.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtHour.HintForeColor = System.Drawing.Color.Empty;
-            this.txtHour.HintText = "";
+            this.txtHour.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtHour.HintText = "H";
             this.txtHour.isPassword = false;
             this.txtHour.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.txtHour.LineIdleColor = System.Drawing.Color.Gray;
@@ -695,7 +693,6 @@
             this.txtHour.Name = "txtHour";
             this.txtHour.Size = new System.Drawing.Size(40, 30);
             this.txtHour.TabIndex = 5;
-            this.txtHour.Text = "H";
             this.txtHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn10m
@@ -849,7 +846,7 @@
             this.fileToolStripMenuItem});
             this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
             this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // playbackToolStripMenuItem
@@ -864,61 +861,61 @@
             this.volumeUpToolStripMenuItem,
             this.volumeDownToolStripMenuItem});
             this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
-            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.playbackToolStripMenuItem.Text = "Playback";
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // nextToolStripMenuItem
             // 
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
             // previousToolStripMenuItem
             // 
             this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.previousToolStripMenuItem.Text = "Previous";
             this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
             // 
             // shuffleToolStripMenuItem
             // 
             this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
-            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.shuffleToolStripMenuItem.Text = "Shuffle";
             this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
             // 
             // repeatToolStripMenuItem
             // 
             this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
-            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.repeatToolStripMenuItem.Text = "Repeat";
             this.repeatToolStripMenuItem.Click += new System.EventHandler(this.repeatToolStripMenuItem_Click);
             // 
             // volumeUpToolStripMenuItem
             // 
             this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
-            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.volumeUpToolStripMenuItem.Text = "Volume up";
             // 
             // volumeDownToolStripMenuItem
             // 
             this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
-            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.volumeDownToolStripMenuItem.Text = "Volume down";
             // 
             // fileToolStripMenuItem
@@ -926,13 +923,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1017,7 +1014,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
