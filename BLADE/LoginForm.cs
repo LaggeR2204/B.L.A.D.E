@@ -12,9 +12,13 @@ namespace BLADE
 {
     public partial class LoginForm : Form
     {
+        public event EventHandler LoginSuccess;
         public LoginForm()
         {
             InitializeComponent();
+            this.KeyDown += EnterToLogin;
+            this.txtPassword.KeyDown += EnterToLogin;
+            this.txtUsername.KeyDown += EnterToLogin;
             lblIncorrect.Hide();
         }
 
@@ -44,6 +48,8 @@ namespace BLADE
             }
             if (Login(username, password))
             {
+                if (LoginSuccess != null)
+                    LoginSuccess(username, new EventArgs());
                 this.Hide();
             }
             else
@@ -56,7 +62,13 @@ namespace BLADE
                 txtPassword.PasswordChar = '\0';
             }
         }
-
+        private void EnterToLogin(object sender, KeyEventArgs e)
+        {
+            if ( e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             SignupForm frmSU = new SignupForm();

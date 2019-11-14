@@ -30,14 +30,21 @@ namespace BLADE
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
             this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
+            frmLI.LoginSuccess += ShowUserName;
             frmLI.ShowDialog();
+           
         }
 
+        private void ShowUserName(object sender, EventArgs e)
+        {
+            lblUserName.Text = sender.ToString();
+        }
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
