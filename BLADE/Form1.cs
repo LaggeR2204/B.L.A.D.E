@@ -18,6 +18,9 @@ namespace BLADE
         public MainForm()
         {
             InitializeComponent();
+            Init();        }
+        private void Init()
+        {
             //set vi tri mac dinh cho pnlSelectedButton
             pnlSelectedButton.Height = btnHome.Height;
             pnlSelectedButton.Top = btnHome.Top;
@@ -30,9 +33,12 @@ namespace BLADE
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
             this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
-            
+            //slidervolume
+            this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
+            this.SliderVolume.LargeChange = 10;
+            this.SliderVolume.SmallChange = 5;
+            this.SliderVolume.Value = 100;
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
@@ -409,6 +415,22 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + s_Timer.Second;
             if (s_Timer.Second <= 0)
                 Application.Exit();
+        }
+        #endregion
+        #region SliderVolum
+        private void SliderVolumeChangeHandler(object sender, EventArgs e)
+        {
+            if (SliderVolume.Value == 0)
+            {
+                btnVolumeOff.Hide();
+                btnVolume.Show();
+            }
+            else
+            {
+                btnVolumeOff.Show();
+                btnVolume.Hide();
+            }
+            WMP.settings.volume = SliderVolume.Value;
         }
         #endregion
     }
