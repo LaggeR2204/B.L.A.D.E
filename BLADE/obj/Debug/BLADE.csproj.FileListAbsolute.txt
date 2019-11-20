@@ -20,16 +20,6 @@ D:\B.L.A.D.E\BLADE\bin\Debug\Login_log.ldf
 D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe.config
 D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.pdb
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.Core.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.ToggleSwitch.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu_UI_v1.5.3.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\xNet.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.Json.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml

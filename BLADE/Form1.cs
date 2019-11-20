@@ -149,13 +149,17 @@ namespace BLADE
         private void btnVolume_Click(object sender, EventArgs e)
         {
             WMP.settings.mute = false;
-            btnVolume.Hide();
+            SliderVolume.Enabled = true;
+            SliderVolume.ElapsedColor = Color.FromArgb(0, 217, 87); 
             btnVolumeOff.Show();
         }
 
         private void btnVolumeOff_Click(object sender, EventArgs e)
         {
             WMP.settings.mute = true;
+            SliderVolume.Enabled = false;
+            SliderVolume.ElapsedColor = Color.FromArgb(224, 224, 224);
+            btnVolume.Hide();
             btnVolumeOff.Hide();
             btnVolume.Show();
         }

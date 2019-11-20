@@ -1001,8 +1001,6 @@
             playlist2.Count = 0;
             playlist2.CreatedDay = new System.DateTime(2019, 11, 20, 15, 42, 35, 905);
             playlist2.PlaylistName = "Default";
-            this.uc_Playlist.ChoosingPlaylist = playlist2;
-            this.uc_Playlist.CurrentPlaylist = null;
             this.uc_Playlist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Playlist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Playlist.ForeColor = System.Drawing.Color.Gainsboro;
