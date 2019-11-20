@@ -60,7 +60,6 @@ namespace BLADE
             frmLI.ShowDialog();
            
         }
-
         private void ShowUserName(object sender, EventArgs e)
         {
             string textUsername = sender.ToString();
@@ -107,7 +106,6 @@ namespace BLADE
             this.WindowState = FormWindowState.Minimized;
         }
         #endregion
-
         #region Music Controls
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -170,6 +168,7 @@ namespace BLADE
         private void btnVolumeOff_Click(object sender, EventArgs e)
         {
             WMP.settings.mute = true;
+            this.SliderVolume.Value = 0;
             SliderVolume.Enabled = false;
             SliderVolume.ElapsedColor = Color.FromArgb(224, 224, 224);
             btnVolume.Hide();
@@ -177,7 +176,6 @@ namespace BLADE
             btnVolume.Show();
         }
         #endregion
-
         #region UC button events
         private bool isCollapsed;
         private void DropdownTime_Tick(object sender, EventArgs e)
@@ -306,7 +304,6 @@ namespace BLADE
             this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
         #endregion
-
         #region Buttons in menu
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -353,7 +350,6 @@ namespace BLADE
                 btnRepeat.PerformClick();
         }
         #endregion
-
         #region WindowMediaPlayer
         private void ReloadPlaylist(object sender, EventArgs e)
         {
@@ -408,7 +404,6 @@ namespace BLADE
             sliderMusic.Maximum = Convert.ToInt32(WMP.currentMedia.duration);
         }
         #endregion
-
         #region StopTimer
 
         private void btnSetCustomTime_Click(object sender, EventArgs e)
@@ -523,8 +518,7 @@ namespace BLADE
                 notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
         }
 
-        #endregion
-
+        #endregion
         #region Slider Volume
         private void SliderVolumeChangeHandler(object sender, EventArgs e)
         {
@@ -540,8 +534,7 @@ namespace BLADE
             }
             WMP.settings.volume = SliderVolume.Value;
         }
-        #endregion
-
+        #endregion
         #region Notify Icon
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -579,8 +572,7 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible=false;
         }
-        #endregion
-
+        #endregion
         #region Slider Music
         private void ScrollSliderHandler(object sender, EventArgs e)
         {
@@ -589,7 +581,9 @@ namespace BLADE
         private void SliderRun(object sender, AxWMPLib._WMPOCXEvents_DurationUnitChangeEvent e)
         {
             sliderMusic.Value = Convert.ToInt32(WMP.currentMedia.duration);
-        }
-        #endregion
+        }
+
+
+        #endregion
     }
 }
