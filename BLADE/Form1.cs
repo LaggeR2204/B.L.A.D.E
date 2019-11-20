@@ -18,7 +18,8 @@ namespace BLADE
         public MainForm()
         {
             InitializeComponent();
-            Init();        }
+            Init();
+        }
         private void Init()
         {
             //set vi tri mac dinh cho pnlSelectedButton
@@ -71,7 +72,9 @@ namespace BLADE
             {
                 TextBox textbox = sender as TextBox;
                 uc_Search.pnlSearchTitle.Show();
+                uc_Search.pnlSearchTitle.BringToFront();
                 uc_Search.fpnlSearchSongView.Show();
+                uc_Search.fpnlSearchSongView.BringToFront();
                 uc_Search.lblTextSearch.Text = textbox.Text;
                 uc_Search.ShowListSearch(search.Search(textbox.Text));
             }
@@ -200,6 +203,10 @@ namespace BLADE
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
             pnlSelectedButton.Height = btnHome.Height;
@@ -214,6 +221,10 @@ namespace BLADE
 
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
             pnlSelectedButton.Height = btnPlaylist.Height;
@@ -228,6 +239,10 @@ namespace BLADE
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
             pnlSelectedButton.Height = btnInfo.Height;
@@ -242,6 +257,10 @@ namespace BLADE
 
         private void txtSearch_Click(object sender, MouseEventArgs e)
         {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
             //an pnlSelectedButton di
             pnlSelectedButton.Hide();
             //cho user control ohu hop xuat hien
@@ -251,6 +270,8 @@ namespace BLADE
             uc_Search.Show();
             uc_Search.BringToFront();
             uc_Search.fpnlSearchSongView.Controls.Clear();
+            uc_Search.pnlSearchTitle.Hide();
+            uc_Search.fpnlSearchSongView.Hide();
         }
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
@@ -345,7 +366,16 @@ namespace BLADE
 
         private void SetSongInfor(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
         {
-            lblSongName.Text = WMP.currentMedia.getItemInfo("Name");
+            string test = WMP.currentMedia.getItemInfo("Name");
+            if (test.Length > 18)
+            {
+                lblSongName.Text = test.Remove(18, test.Length - 18).Insert(18, "...");
+            }
+            else
+            {
+                lblSongName.Text = test;
+            }
+            
             lblArtistName.Text = WMP.currentMedia.getItemInfo("Author");
         }
         #endregion
@@ -384,7 +414,10 @@ namespace BLADE
             {
                 MessageBox.Show("    YOU MUST ENTER TIMESPAN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
         }
 
         private void btn10m_Click_1(object sender, EventArgs e)
@@ -393,6 +426,10 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
         }
 
         private void btn30m_Click_1(object sender, EventArgs e)
@@ -401,6 +438,10 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
         }
 
         private void btn1h_Click_1(object sender, EventArgs e)
@@ -409,6 +450,10 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
         }
         private void TimeOut(object sender, EventArgs e)
         {
@@ -417,6 +462,7 @@ namespace BLADE
                 Application.Exit();
         }
         #endregion
+
         #region SliderVolum
         private void SliderVolumeChangeHandler(object sender, EventArgs e)
         {
@@ -431,6 +477,39 @@ namespace BLADE
                 btnVolume.Hide();
             }
             WMP.settings.volume = SliderVolume.Value;
+        }
+        #endregion
+
+        #region Notify Icon
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.ShowInTaskbar = true;
+            WindowState = FormWindowState.Normal;
+            minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
+        }
+
+        private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.ShowInTaskbar)
+            {
+                this.Hide();
+                this.ShowInTaskbar = false;
+                WindowState = FormWindowState.Minimized;
+                minimizeToTrayToolStripMenuItem.Text = "Show BLADE-Player";
+            }
+            else
+            {
+                this.Show();
+                this.ShowInTaskbar = true;
+                WindowState = FormWindowState.Normal;
+                minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
+            }
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
         #endregion
     }

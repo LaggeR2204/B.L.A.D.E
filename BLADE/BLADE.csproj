@@ -92,7 +92,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="xNet">
-      <HintPath>..\..\..\..\..\Coding\CrawData\CrawData\xNet.dll</HintPath>
+      <HintPath>.\xNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

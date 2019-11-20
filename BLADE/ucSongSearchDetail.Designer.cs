@@ -68,7 +68,7 @@
             // 
             this.lblNumberPlays.AutoSize = true;
             this.lblNumberPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberPlays.Location = new System.Drawing.Point(395, 20);
+            this.lblNumberPlays.Location = new System.Drawing.Point(590, 20);
             this.lblNumberPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblNumberPlays.Name = "lblNumberPlays";
             this.lblNumberPlays.Size = new System.Drawing.Size(60, 16);
@@ -80,7 +80,7 @@
             // 
             this.lblTextPlays.AutoSize = true;
             this.lblTextPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextPlays.Location = new System.Drawing.Point(460, 20);
+            this.lblTextPlays.Location = new System.Drawing.Point(650, 20);
             this.lblTextPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblTextPlays.Name = "lblTextPlays";
             this.lblTextPlays.Size = new System.Drawing.Size(40, 16);
@@ -93,7 +93,7 @@
             this.btnDownload.FlatAppearance.BorderSize = 0;
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(575, 10);
+            this.btnDownload.Location = new System.Drawing.Point(747, 10);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(40, 40);
@@ -115,7 +115,7 @@
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucSongSearchDetail";
-            this.Size = new System.Drawing.Size(620, 60);
+            this.Size = new System.Drawing.Size(787, 60);
             this.MouseLeave += new System.EventHandler(this.ucSongSearchDetail_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucSongSearchDetail_MouseHover);
             this.ResumeLayout(false);

@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 156);
+            this.label1.Location = new System.Drawing.Point(319, 335);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 16);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(320, 180);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -62,12 +62,12 @@
             // 
             // pnlSearchTitle
             // 
-            this.pnlSearchTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSearchTitle.Controls.Add(this.lblTextSearch);
             this.pnlSearchTitle.Controls.Add(this.lblResult);
-            this.pnlSearchTitle.Location = new System.Drawing.Point(167, 0);
+            this.pnlSearchTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSearchTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlSearchTitle.Name = "pnlSearchTitle";
-            this.pnlSearchTitle.Size = new System.Drawing.Size(620, 40);
+            this.pnlSearchTitle.Size = new System.Drawing.Size(787, 40);
             this.pnlSearchTitle.TabIndex = 2;
             // 
             // lblTextSearch
@@ -97,11 +97,10 @@
             // 
             // fpnlSearchSongView
             // 
-            this.fpnlSearchSongView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fpnlSearchSongView.Location = new System.Drawing.Point(167, 46);
+            this.fpnlSearchSongView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.fpnlSearchSongView.Location = new System.Drawing.Point(0, 46);
             this.fpnlSearchSongView.Name = "fpnlSearchSongView";
-            this.fpnlSearchSongView.Size = new System.Drawing.Size(620, 519);
+            this.fpnlSearchSongView.Size = new System.Drawing.Size(787, 519);
             this.fpnlSearchSongView.TabIndex = 9;
             // 
             // ucSearch
@@ -109,10 +108,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlSearchTitle);
             this.Controls.Add(this.fpnlSearchSongView);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(4);
