@@ -33,12 +33,23 @@ namespace BLADE
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
+            this.WMP.DurationUnitChange += SliderRun;
             this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
             //slidervolume
             this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
             this.SliderVolume.LargeChange = 10;
             this.SliderVolume.SmallChange = 5;
             this.SliderVolume.Value = 100;
+            //label curduration
+            label1.Text = "";
+            //label duration limit
+            label2.Text = "";
+            //slider music
+            sliderMusic.Scroll += ScrollSliderHandler;
+            sliderMusic.Minimum = 0;
+            sliderMusic.SmallChange = 1;
+            sliderMusic.LargeChange = 1;
+            sliderMusic.Value = 0;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -381,6 +392,9 @@ namespace BLADE
             }
             
             lblArtistName.Text = WMP.currentMedia.getItemInfo("Author");
+            label1.Text = TimeSpan.Zero.ToString("mm':'ss");
+            label2.Text = TimeSpan.FromSeconds(Convert.ToDouble(WMP.currentMedia.duration)).ToString("mm':'ss");
+            sliderMusic.Maximum = Convert.ToInt32(WMP.currentMedia.duration);
         }
         #endregion
 
@@ -514,6 +528,17 @@ namespace BLADE
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        #endregion
+
+        #region slider music
+        private void ScrollSliderHandler(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.currentPosition = sliderMusic.Value;
+        }
+        private void SliderRun(object sender, AxWMPLib._WMPOCXEvents_DurationUnitChangeEvent e)
+        {
+            sliderMusic.Value = Convert.ToInt32(WMP.currentMedia.duration);
         }
         #endregion
     }

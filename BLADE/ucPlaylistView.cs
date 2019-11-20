@@ -135,7 +135,7 @@ namespace BLADE
         {
             OpenFileDialog openfileDialog = new OpenFileDialog();
             openfileDialog.InitialDirectory = "c:\\";
-            openfileDialog.Filter = "Audio (*.mp3)|*.mp3";
+            openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3|All File|*.*";
             openfileDialog.FilterIndex = 2;
             openfileDialog.RestoreDirectory = true;
 
