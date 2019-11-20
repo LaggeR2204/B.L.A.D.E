@@ -419,7 +419,7 @@ namespace BLADE
                     s = Convert.ToInt32(txtSecond.Text);
 
                 all = h * 60 * 60 + m * 60 + s;
-
+                this.lblCountdown.Visible = true;
                 s_Timer = new stopTimer(all);
                 this.lblCountdown.Text = "CD: " + all;
                 timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
@@ -432,7 +432,7 @@ namespace BLADE
                     s_Timer.Stop();
                 }
 
-                notifyIcon.ShowBalloonTip(5000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
             }
             catch(Exception ex)
             {
@@ -447,52 +447,69 @@ namespace BLADE
         private void btn10m_Click_1(object sender, EventArgs e)
         {
             int all = 600;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
-            s_Timer.Tick += TimeOut;
             s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
             }
+            timeRemain = "Application will shut down in 10 minutes";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
         }
 
         private void btn30m_Click_1(object sender, EventArgs e)
         {
             int all = 1800;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
-            s_Timer.Tick += TimeOut;
             s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
             }
+
+            timeRemain = "Application will shut down in 30 minutes";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
         }
 
         private void btn1h_Click_1(object sender, EventArgs e)
         {
             int all = 3600;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
-            s_Timer.Tick += TimeOut;
             s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
             }
+
+            timeRemain = "Application will shut down in an hour";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
         }
         private void TimeOut(object sender, EventArgs e)
         {
-            this.lblCountdown.Text = "CD: " + s_Timer.Second;
             if (s_Timer.Second <= 0)
                 Application.Exit();
+            this.lblCountdown.Text = "CD: " + s_Timer.Second;
         }
 
         private void OneMinRemaining(object sender, EventArgs e)
         {
             if (s_Timer.Second == 60)
-                notifyIcon.ShowBalloonTip(5000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
+                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
         }
 
         #endregion
@@ -549,7 +566,7 @@ namespace BLADE
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             s_Timer.Stop();
-            this.lblCountdown.Text = "";
+            this.lblCountdown.Visible=false;
         }
         #endregion
 
