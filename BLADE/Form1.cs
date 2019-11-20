@@ -20,9 +20,9 @@ namespace BLADE
             InitializeComponent();
             Init();
         }
-        private void Init()
-        {
-            //set vi tri mac dinh cho pnlSelectedButton
+        private void Init()
+        {
+            //set vi tri mac dinh cho pnlSelectedButton
             pnlSelectedButton.Height = btnHome.Height;
             pnlSelectedButton.Top = btnHome.Top;
             //cho trang mac dinh la Home
@@ -34,34 +34,44 @@ namespace BLADE
             this.uc_Playlist.SelectSong += PlayMusic;
             this.WMP.MediaChange += SetSongInfor;
             this.WMP.DurationUnitChange += SliderRun;
-            this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
-            //slidervolume
-            this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
-            this.SliderVolume.LargeChange = 10;
-            this.SliderVolume.SmallChange = 5;
-            this.SliderVolume.Value = 100;
-            //label curduration
-            label1.Text = "";
-            //label duration limit
-            label2.Text = "";
-            //slider music
-            sliderMusic.Scroll += ScrollSliderHandler;
-            sliderMusic.Minimum = 0;
-            sliderMusic.SmallChange = 1;
-            sliderMusic.LargeChange = 1;
-            sliderMusic.Value = 0;
+            this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
+            //slidervolume
+            this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
+            this.SliderVolume.LargeChange = 10;
+            this.SliderVolume.SmallChange = 5;
+            this.SliderVolume.Value = 100;
+            //label curduration
+            lbCurDuration.Text = "";
+            //label duration limit
+            lblDurationLimit.Text = "";
+            //slider music
+            sliderMusic.Scroll += ScrollSliderHandler;
+            sliderMusic.Minimum = 0;
+            sliderMusic.SmallChange = 1;
+            sliderMusic.LargeChange = 1;
+            sliderMusic.Value = 0;
+            //notifyicon stop timer
+
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm frmLI = new LoginForm();
+            LoginForm frmLI = new LoginForm();
             frmLI.LoginSuccess += ShowUserName;
             frmLI.ShowDialog();
            
         }
 
-        private void ShowUserName(object sender, EventArgs e)
-        {
-            lblUserName.Text = sender.ToString();
+        private void ShowUserName(object sender, EventArgs e)
+        {
+            string textUsername = sender.ToString();
+            if (textUsername.Length > 10)
+            {
+                lblUserName.Text = textUsername.Remove(9, textUsername.Length - 9).Insert(9, "...");
+            }
+            else
+            {
+                lblUserName.Text = textUsername;
+            }
         }
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
@@ -69,14 +79,6 @@ namespace BLADE
             Application.Exit();
         }
 
-        private void btnCloseWindows_MouseHover(object sender, EventArgs e)
-        {
-            btnCloseWindows.BackColor = Color.Red;
-        }
-        private void btnCloseWindows_MouseLeave(object sender, EventArgs e)
-        {
-            btnCloseWindows.BackColor = Color.FromArgb(40, 40, 40);
-        }
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -218,9 +220,9 @@ namespace BLADE
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
             }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
@@ -236,9 +238,9 @@ namespace BLADE
 
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
             }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
@@ -254,9 +256,9 @@ namespace BLADE
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
             }
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
@@ -272,9 +274,9 @@ namespace BLADE
 
         private void txtSearch_Click(object sender, MouseEventArgs e)
         {
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
             }
             //an pnlSelectedButton di
             pnlSelectedButton.Hide();
@@ -285,7 +287,7 @@ namespace BLADE
             uc_Search.Show();
             uc_Search.BringToFront();
             uc_Search.fpnlSearchSongView.Controls.Clear();
-            uc_Search.pnlSearchTitle.Hide();
+            uc_Search.pnlSearchTitle.Hide();
             uc_Search.fpnlSearchSongView.Hide();
         }
 
@@ -349,16 +351,16 @@ namespace BLADE
             }
             else
                 btnRepeat.PerformClick();
-        }
+        }
         #endregion
-
+
         #region WindowMediaPlayer
-        private void ReloadPlaylist(object sender, EventArgs e)
-        {
-            Song song = sender as Song;
-            IWMPMedia temp;
-            temp = WMP.newMedia(song.SavedPath);
-            WMP.currentPlaylist.appendItem(temp);
+        private void ReloadPlaylist(object sender, EventArgs e)
+        {
+            Song song = sender as Song;
+            IWMPMedia temp;
+            temp = WMP.newMedia(song.SavedPath);
+            WMP.currentPlaylist.appendItem(temp);
         }
         private void ReloadPlaylist()
         {
@@ -381,204 +383,213 @@ namespace BLADE
 
         private void SetSongInfor(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
         {
-            string test = WMP.currentMedia.getItemInfo("Name");
-            if (test.Length > 18)
-            {
-                lblSongName.Text = test.Remove(18, test.Length - 18).Insert(18, "...");
+            string textSongName = WMP.currentMedia.getItemInfo("Name");
+            if (textSongName.Length > 18)
+            {
+                lblSongName.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
             }
-            else
-            {
-                lblSongName.Text = test;
+            else
+            {
+                lblSongName.Text = textSongName;
             }
             
-            lblArtistName.Text = WMP.currentMedia.getItemInfo("Author");
-            label1.Text = TimeSpan.Zero.ToString("mm':'ss");
-            label2.Text = TimeSpan.FromSeconds(Convert.ToDouble(WMP.currentMedia.duration)).ToString("mm':'ss");
+            string textAuthor = WMP.currentMedia.getItemInfo("Author");
+            if (textSongName.Length > 18)
+            {
+                lblArtistName.Text = textSongName.Remove(21, textSongName.Length - 21).Insert(21, "...");
+            }
+            else
+            {
+                lblArtistName.Text = textSongName;
+            }
+
+            lbCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
+            lblDurationLimit.Text = TimeSpan.FromSeconds(Convert.ToDouble(WMP.currentMedia.duration)).ToString("mm':'ss");
             sliderMusic.Maximum = Convert.ToInt32(WMP.currentMedia.duration);
-        }
+        }
         #endregion
-
-        #region StopTimer
-
-        private void btnSetCustomTime_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int h, m, s, all;
-                string timeRemain;
-                //DIEUKIEN
-                h = 0;
-                m = 0;
-                s = 0;
-
-                if (txtHour.Text != null)
-                    h = Convert.ToInt32(txtHour.Text);
-                if (txtMinute.Text != null)
-                    m = Convert.ToInt32(txtMinute.Text);
-                if (txtSecond.Text != null)
-                    s = Convert.ToInt32(txtSecond.Text);
-
-                all = h * 60 * 60 + m * 60 + s;
-                this.lblCountdown.Visible = true;
-                s_Timer = new stopTimer(all);
-                this.lblCountdown.Text = "CD: " + all;
-                timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
-                s_Timer.Tick += TimeOut;
-                s_Timer.Tick += OneMinRemaining;
-
-                if (all == 0)
-                {
-                    this.lblCountdown.Text = "";
-                    s_Timer.Stop();
-                }
-
-                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("    YOU MUST FILL ALL FIELDS ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
-            }
-        }
-
-        private void btn10m_Click_1(object sender, EventArgs e)
-        {
-            int all = 600;
-            this.lblCountdown.Visible = true;
-            string timeRemain;
-            this.lblCountdown.Text = "CD: " + all;
-            s_Timer = new stopTimer(all);
-            s_Timer.Tick += OneMinRemaining;
-            s_Timer.Tick += TimeOut;
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
-            }
-            timeRemain = "Application will shut down in 10 minutes";
-            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
-
-        }
-
-        private void btn30m_Click_1(object sender, EventArgs e)
-        {
-            int all = 1800;
-            this.lblCountdown.Visible = true;
-            string timeRemain;
-            this.lblCountdown.Text = "CD: " + all;
-            s_Timer = new stopTimer(all);
-            s_Timer.Tick += OneMinRemaining;
-            s_Timer.Tick += TimeOut;
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
-            }
-
-            timeRemain = "Application will shut down in 30 minutes";
-            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
-
-        }
-
-        private void btn1h_Click_1(object sender, EventArgs e)
-        {
-            int all = 3600;
-            this.lblCountdown.Visible = true;
-            string timeRemain;
-            this.lblCountdown.Text = "CD: " + all;
-            s_Timer = new stopTimer(all);
-            s_Timer.Tick += OneMinRemaining;
-            s_Timer.Tick += TimeOut;
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
-            }
-
-            timeRemain = "Application will shut down in an hour";
-            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
-
-        }
-        private void TimeOut(object sender, EventArgs e)
-        {
-            if (s_Timer.Second <= 0)
-                Application.Exit();
-            this.lblCountdown.Text = "CD: " + s_Timer.Second;
-        }
-
-        private void OneMinRemaining(object sender, EventArgs e)
-        {
-            if (s_Timer.Second == 60)
-                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
-        }
-
-        #endregion
-
-        #region SliderVolum
-        private void SliderVolumeChangeHandler(object sender, EventArgs e)
-        {
-            if (SliderVolume.Value == 0)
-            {
-                btnVolumeOff.Hide();
-                btnVolume.Show();
-            }
-            else
-            {
-                btnVolumeOff.Show();
-                btnVolume.Hide();
-            }
-            WMP.settings.volume = SliderVolume.Value;
-        }
-        #endregion
-
-        #region Notify Icon
-        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-            this.ShowInTaskbar = true;
-            WindowState = FormWindowState.Normal;
-            minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
-        }
-
-        private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.ShowInTaskbar)
-            {
-                this.Hide();
-                this.ShowInTaskbar = false;
-                WindowState = FormWindowState.Minimized;
-                minimizeToTrayToolStripMenuItem.Text = "Show BLADE-Player";
-            }
-            else
-            {
-                this.Show();
-                this.ShowInTaskbar = true;
-                WindowState = FormWindowState.Normal;
-                minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
-            }
-        }
-
-        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            s_Timer.Stop();
-            this.lblCountdown.Visible=false;
-        }
-        #endregion
-
-        #region slider music
-        private void ScrollSliderHandler(object sender, EventArgs e)
-        {
-            WMP.Ctlcontrols.currentPosition = sliderMusic.Value;
-        }
-        private void SliderRun(object sender, AxWMPLib._WMPOCXEvents_DurationUnitChangeEvent e)
-        {
-            sliderMusic.Value = Convert.ToInt32(WMP.currentMedia.duration);
-        }
-        #endregion
+
+        #region StopTimer
+
+        private void btnSetCustomTime_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int h, m, s, all;
+                string timeRemain;
+                //DIEUKIEN
+                h = 0;
+                m = 0;
+                s = 0;
+
+                if (txtHour.Text != null)
+                    h = Convert.ToInt32(txtHour.Text);
+                if (txtMinute.Text != null)
+                    m = Convert.ToInt32(txtMinute.Text);
+                if (txtSecond.Text != null)
+                    s = Convert.ToInt32(txtSecond.Text);
+
+                all = h * 60 * 60 + m * 60 + s;
+                this.lblCountdown.Visible = true;
+                s_Timer = new stopTimer(all);
+                this.lblCountdown.Text = "CD: " + all;
+                timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
+                s_Timer.Tick += TimeOut;
+                s_Timer.Tick += OneMinRemaining;
+
+                if (all == 0)
+                {
+                    this.lblCountdown.Text = "";
+                    s_Timer.Stop();
+                }
+
+                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("    YOU MUST FILL ALL FIELDS ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+        }
+
+        private void btn10m_Click_1(object sender, EventArgs e)
+        {
+            int all = 600;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
+            this.lblCountdown.Text = "CD: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+            timeRemain = "Application will shut down in 10 minutes";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
+        }
+
+        private void btn30m_Click_1(object sender, EventArgs e)
+        {
+            int all = 1800;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
+            this.lblCountdown.Text = "CD: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+
+            timeRemain = "Application will shut down in 30 minutes";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
+        }
+
+        private void btn1h_Click_1(object sender, EventArgs e)
+        {
+            int all = 3600;
+            this.lblCountdown.Visible = true;
+            string timeRemain;
+            this.lblCountdown.Text = "CD: " + all;
+            s_Timer = new stopTimer(all);
+            s_Timer.Tick += OneMinRemaining;
+            s_Timer.Tick += TimeOut;
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+
+            timeRemain = "Application will shut down in an hour";
+            notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+
+        }
+        private void TimeOut(object sender, EventArgs e)
+        {
+            if (s_Timer.Second <= 0)
+                Application.Exit();
+            this.lblCountdown.Text = "CD: " + s_Timer.Second;
+        }
+
+        private void OneMinRemaining(object sender, EventArgs e)
+        {
+            if (s_Timer.Second == 60)
+                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
+        }
+
+        #endregion
+
+        #region Slider Volume
+        private void SliderVolumeChangeHandler(object sender, EventArgs e)
+        {
+            if (SliderVolume.Value == 0)
+            {
+                btnVolumeOff.Hide();
+                btnVolume.Show();
+            }
+            else
+            {
+                btnVolumeOff.Show();
+                btnVolume.Hide();
+            }
+            WMP.settings.volume = SliderVolume.Value;
+        }
+        #endregion
+
+        #region Notify Icon
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.ShowInTaskbar = true;
+            WindowState = FormWindowState.Normal;
+            minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
+        }
+
+        private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.ShowInTaskbar)
+            {
+                this.Hide();
+                this.ShowInTaskbar = false;
+                WindowState = FormWindowState.Minimized;
+                minimizeToTrayToolStripMenuItem.Text = "Show BLADE-Player";
+            }
+            else
+            {
+                this.Show();
+                this.ShowInTaskbar = true;
+                WindowState = FormWindowState.Normal;
+                minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
+            }
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            s_Timer.Stop();
+            this.lblCountdown.Visible=false;
+        }
+        #endregion
+
+        #region Slider Music
+        private void ScrollSliderHandler(object sender, EventArgs e)
+        {
+            WMP.Ctlcontrols.currentPosition = sliderMusic.Value;
+        }
+        private void SliderRun(object sender, AxWMPLib._WMPOCXEvents_DurationUnitChangeEvent e)
+        {
+            sliderMusic.Value = Convert.ToInt32(WMP.currentMedia.duration);
+        }
+        #endregion
     }
 }
