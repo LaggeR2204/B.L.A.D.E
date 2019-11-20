@@ -1,4 +1,6 @@
-﻿namespace BLADE
+﻿using System;
+
+namespace BLADE
 {
     partial class MainForm
     {
@@ -103,6 +105,7 @@
             this.menuNofityIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.minimizeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMusicControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.pnlControl.SuspendLayout();
@@ -1052,23 +1055,31 @@
             // 
             this.menuNofityIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.minimizeToTrayToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.exitToolStripMenuItem1});
             this.menuNofityIcon.Name = "menuNofityIcon";
-            this.menuNofityIcon.Size = new System.Drawing.Size(162, 48);
+            this.menuNofityIcon.Size = new System.Drawing.Size(181, 92);
             // 
             // minimizeToTrayToolStripMenuItem
             // 
             this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
             this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Stop SleepTimer";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -1105,6 +1116,11 @@
             this.menuNofityIcon.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void SleepNotifyIcon_Click(object sender, EventArgs e)
+        {
+            s_Timer.Stop();
         }
 
         #endregion
@@ -1177,6 +1193,7 @@
         private System.Windows.Forms.ContextMenuStrip menuNofityIcon;
         private System.Windows.Forms.ToolStripMenuItem minimizeToTrayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

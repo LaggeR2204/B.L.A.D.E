@@ -399,11 +399,13 @@ namespace BLADE
         #endregion
 
         #region StopTimer
+
         private void btnSetCustomTime_Click(object sender, EventArgs e)
         {
             try
             {
                 int h, m, s, all;
+                string timeRemain;
                 //DIEUKIEN
                 h = 0;
                 m = 0;
@@ -420,17 +422,21 @@ namespace BLADE
 
                 s_Timer = new stopTimer(all);
                 this.lblCountdown.Text = "CD: " + all;
+                timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
                 s_Timer.Tick += TimeOut;
+                s_Timer.Tick += OneMinRemaining;
 
                 if (all == 0)
                 {
                     this.lblCountdown.Text = "";
                     s_Timer.Stop();
                 }
+
+                notifyIcon.ShowBalloonTip(5000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("    YOU MUST ENTER TIMESPAN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("    YOU MUST FILL ALL FIELDS ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (!isCollapsed)
             {
@@ -444,6 +450,7 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            s_Timer.Tick += OneMinRemaining;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
@@ -456,6 +463,7 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            s_Timer.Tick += OneMinRemaining;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
@@ -468,6 +476,7 @@ namespace BLADE
             this.lblCountdown.Text = "CD: " + all;
             s_Timer = new stopTimer(all);
             s_Timer.Tick += TimeOut;
+            s_Timer.Tick += OneMinRemaining;
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
@@ -479,6 +488,13 @@ namespace BLADE
             if (s_Timer.Second <= 0)
                 Application.Exit();
         }
+
+        private void OneMinRemaining(object sender, EventArgs e)
+        {
+            if (s_Timer.Second == 60)
+                notifyIcon.ShowBalloonTip(5000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
+        }
+
         #endregion
 
         #region SliderVolum
@@ -528,6 +544,12 @@ namespace BLADE
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            s_Timer.Stop();
+            this.lblCountdown.Text = "";
         }
         #endregion
 
