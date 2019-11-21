@@ -412,7 +412,10 @@ namespace BLADE
         #region StopTimer
 
         private void btnSetCustomTime_Click(object sender, EventArgs e)
-        {
+        {            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
             try
             {
                 int h, m, s, all;
@@ -439,20 +442,20 @@ namespace BLADE
 
                 if (all == 0)
                 {
-                    this.lblCountdown.Text = "";
-                    s_Timer.Stop();
+                    Application.Exit();
+                }                else
+                {
+                    btnTimer.Hide();
+                    btnStopTimer.Show();
+
+                    notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
                 }
-
-                notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
             }
             catch(Exception ex)
             {
                 MessageBox.Show("    YOU MUST FILL ALL FIELDS ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!isCollapsed)
-            {
-                btnTimer.PerformClick();
-            }
+            
         }
 
         private void btn10m_Click_1(object sender, EventArgs e)
@@ -467,7 +470,9 @@ namespace BLADE
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
-            }
+            }            btnTimer.Hide();
+            btnStopTimer.Show();
+
             timeRemain = "Application will shut down in 10 minutes";
             notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
 
@@ -486,7 +491,8 @@ namespace BLADE
             {
                 btnTimer.PerformClick();
             }
-
+            btnTimer.Hide();
+            btnStopTimer.Show();
             timeRemain = "Application will shut down in 30 minutes";
             notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
 
@@ -504,8 +510,9 @@ namespace BLADE
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
-            }
-
+            }            btnTimer.Hide();
+            btnStopTimer.Show();
+            
             timeRemain = "Application will shut down in an hour";
             notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
 
@@ -522,7 +529,13 @@ namespace BLADE
             if (s_Timer.Second == 60)
                 notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer Notification", "Application will shut down in less than a minute", ToolTipIcon.Warning);
         }
-
+        private void btnStopTimer_Click(object sender, EventArgs e)
+        {
+            s_Timer.Stop();
+            this.lblCountdown.Visible = false;
+            btnStopTimer.Hide();
+            btnTimer.Show();
+        }
         #endregion
         #region Slider Volume
         private void SliderVolumeChangeHandler(object sender, EventArgs e)
@@ -590,5 +603,7 @@ namespace BLADE
 
 
         #endregion
+
+        
     }
 }
