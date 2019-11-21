@@ -53,6 +53,8 @@ namespace BLADE
             //notifyicon stop timer
 
         }
+
+        #region Account Actions
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
@@ -72,6 +74,28 @@ namespace BLADE
                 lblUserName.Text = textUsername;
             }
         }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm frmCP = new ChangePasswordForm();
+            frmCP.Show();
+        }
+
+        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void changeYourPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changePasswordToolStripMenuItem.PerformClick();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logOutToolStripMenuItem1.PerformClick();
+        }
+        #endregion
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
@@ -602,8 +626,7 @@ namespace BLADE
         }
 
 
-        #endregion
 
-        
+        #endregion
     }
 }

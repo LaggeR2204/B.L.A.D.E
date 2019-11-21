@@ -67,7 +67,7 @@
             this.lblBLADE.Location = new System.Drawing.Point(97, 34);
             this.lblBLADE.Name = "lblBLADE";
             this.lblBLADE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblBLADE.Size = new System.Drawing.Size(156, 63);
+            this.lblBLADE.Size = new System.Drawing.Size(191, 77);
             this.lblBLADE.TabIndex = 12;
             this.lblBLADE.Text = "BLADE";
             this.lblBLADE.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,6 +88,7 @@
             this.btnBack.Text = "Back";
             this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnChange
             // 
@@ -151,6 +152,7 @@
             this.btnChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnChange.TextMarginLeft = 0;
             this.btnChange.UseDefaultRadiusAndThickness = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // txtNewPassword
             // 
@@ -217,7 +219,7 @@
             this.txtNewPassword.ShortcutsEnabled = true;
             this.txtNewPassword.Size = new System.Drawing.Size(240, 35);
             this.txtNewPassword.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txtNewPassword.TabIndex = 21;
+            this.txtNewPassword.TabIndex = 3;
             this.txtNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNewPassword.TextMarginBottom = 0;
             this.txtNewPassword.TextMarginLeft = 5;
@@ -225,6 +227,7 @@
             this.txtNewPassword.TextPlaceholder = "New password";
             this.txtNewPassword.UseSystemPasswordChar = false;
             this.txtNewPassword.WordWrap = true;
+            this.txtNewPassword.TextChange += new System.EventHandler(this.txtNewPassword_TextChange);
             // 
             // txtPassword
             // 
@@ -291,7 +294,7 @@
             this.txtPassword.ShortcutsEnabled = true;
             this.txtPassword.Size = new System.Drawing.Size(240, 35);
             this.txtPassword.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txtPassword.TabIndex = 20;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPassword.TextMarginBottom = 0;
             this.txtPassword.TextMarginLeft = 5;
@@ -299,6 +302,7 @@
             this.txtPassword.TextPlaceholder = "Password";
             this.txtPassword.UseSystemPasswordChar = false;
             this.txtPassword.WordWrap = true;
+            this.txtPassword.TextChange += new System.EventHandler(this.txtPassword_TextChange);
             // 
             // txtUsername
             // 
@@ -365,7 +369,7 @@
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(240, 35);
             this.txtUsername.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txtUsername.TabIndex = 19;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUsername.TextMarginBottom = 0;
             this.txtUsername.TextMarginLeft = 5;
@@ -455,7 +459,7 @@
             this.txtConfirm.ShortcutsEnabled = true;
             this.txtConfirm.Size = new System.Drawing.Size(240, 35);
             this.txtConfirm.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txtConfirm.TabIndex = 21;
+            this.txtConfirm.TabIndex = 4;
             this.txtConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtConfirm.TextMarginBottom = 0;
             this.txtConfirm.TextMarginLeft = 5;
@@ -463,10 +467,11 @@
             this.txtConfirm.TextPlaceholder = "Confirm your new password";
             this.txtConfirm.UseSystemPasswordChar = false;
             this.txtConfirm.WordWrap = true;
+            this.txtConfirm.TextChange += new System.EventHandler(this.txtConfirm_TextChange);
             // 
             // ChangePasswordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(350, 430);
@@ -480,7 +485,7 @@
             this.Controls.Add(this.lblBLADE);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePasswordForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
