@@ -207,6 +207,7 @@ namespace BLADE
             pnlSelectedButton.Height = btnTimer.Height;
             pnlSelectedButton.Top = pnlTimerControl.Top;
 
+            lblTextBLADE.Show();
             DropdownTime.Start();
             if (isCollapsed)
             {
@@ -230,6 +231,7 @@ namespace BLADE
             uc_Info.Hide();
             uc_Playlist.Hide();
             uc_Search.Hide();
+            lblTextBLADE.Show();
             uc_Home.Show();
             uc_Home.BringToFront();
         }
@@ -248,6 +250,7 @@ namespace BLADE
             uc_Info.Hide();
             uc_Home.Hide();
             uc_Search.Hide();
+            lblTextBLADE.Show();
             uc_Playlist.Show();
             uc_Playlist.BringToFront();
         }
@@ -266,6 +269,7 @@ namespace BLADE
             uc_Playlist.Hide();
             uc_Home.Hide();
             uc_Search.Hide();
+            lblTextBLADE.Hide();
             uc_Info.Show();
             uc_Info.BringToFront();
         }
@@ -282,6 +286,7 @@ namespace BLADE
             uc_Playlist.Hide();
             uc_Home.Hide();
             uc_Info.Hide();
+            lblTextBLADE.Show();
             uc_Search.Show();
             uc_Search.BringToFront();
             uc_Search.fpnlSearchSongView.Controls.Clear();

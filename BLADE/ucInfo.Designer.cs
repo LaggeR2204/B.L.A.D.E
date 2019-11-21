@@ -33,6 +33,7 @@
             this.btnTHMD = new System.Windows.Forms.Button();
             this.btnPQA = new System.Windows.Forms.Button();
             this.btnBHL = new System.Windows.Forms.Button();
+            this.lblInfoBLADE = new Bunifu.UI.WinForms.BunifuLabel();
             this.SuspendLayout();
             // 
             // btnVTB
@@ -115,11 +116,28 @@
             this.btnBHL.MouseLeave += new System.EventHandler(this.btnBHL_MouseLeave);
             this.btnBHL.MouseHover += new System.EventHandler(this.btnBHL_MouseHover);
             // 
+            // lblInfoBLADE
+            // 
+            this.lblInfoBLADE.AutoEllipsis = false;
+            this.lblInfoBLADE.AutoSize = false;
+            this.lblInfoBLADE.CursorType = null;
+            this.lblInfoBLADE.Font = new System.Drawing.Font("Showcard Gothic", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoBLADE.ForeColor = System.Drawing.Color.White;
+            this.lblInfoBLADE.Location = new System.Drawing.Point(3, 165);
+            this.lblInfoBLADE.Name = "lblInfoBLADE";
+            this.lblInfoBLADE.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblInfoBLADE.Size = new System.Drawing.Size(422, 120);
+            this.lblInfoBLADE.TabIndex = 15;
+            this.lblInfoBLADE.Text = "BLADE";
+            this.lblInfoBLADE.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfoBLADE.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // ucInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.lblInfoBLADE);
             this.Controls.Add(this.btnBHL);
             this.Controls.Add(this.btnPQA);
             this.Controls.Add(this.btnTHMD);
@@ -139,5 +157,6 @@
         private System.Windows.Forms.Button btnTHMD;
         private System.Windows.Forms.Button btnPQA;
         private System.Windows.Forms.Button btnBHL;
+        private Bunifu.UI.WinForms.BunifuLabel lblInfoBLADE;
     }
 }

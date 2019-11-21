@@ -158,4 +158,7 @@
         lLFoEJL/SHGJO9xjLBqEqnAI32P4xpr0nr89C+zDLGMpD4PnXQCMTgga31qvEwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="lblInfoBLADE.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 1.2px; margin: auto; padding-top: -5px;font-family: 'Showcard Gothic'; font-size: 72pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: White; text-align: center; }</value>
+  </data>
 </root>
