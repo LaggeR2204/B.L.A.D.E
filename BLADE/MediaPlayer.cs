@@ -75,26 +75,50 @@ namespace BLADE
         public void Next()
         {
             timer.Start();
-            if (outputSound != null)
+            if (outputSound == null)
+                return;
+            int nowIndex = _curPlaylist.IndexOf(_curMedia);
+            if (_isLoop)
             {
-                int nowIndex = _curPlaylist.IndexOf(_curMedia) + 1;
-                if (nowIndex == _curPlaylist.Count)
+                if (nowIndex == _curPlaylist.Count - 1)
                     nowIndex = 0;
-                _curMedia = _curPlaylist[nowIndex];
-                PlayInIndex(nowIndex);
+                else nowIndex++;
             }
+            else
+            if (_isShuffle)
+            {
+                Random ran = new Random();
+                int nextIndex = ran.Next(_curPlaylist.Count - 1);
+                while (nextIndex == nowIndex)
+                    nextIndex = ran.Next(_curPlaylist.Count - 1);
+                nowIndex = nextIndex;
+            }
+            _curMedia = _curPlaylist[nowIndex];
+            PlayInIndex(nowIndex);
         }
         public void Previous()
         {
             timer.Start();
-            if (outputSound != null)
+            if (outputSound == null)
+                return;
+            int nowIndex = _curPlaylist.IndexOf(_curMedia);
+            if (_isLoop)
             {
-                int nowIndex = _curPlaylist.IndexOf(_curMedia) - 1;
-                if (nowIndex == -1)
+                if (nowIndex == 0)
                     nowIndex = _curPlaylist.Count - 1;
-                _curMedia = _curPlaylist[nowIndex];
-                PlayInIndex(nowIndex);
+                else nowIndex--;
             }
+            else
+            if (_isShuffle)
+            {
+                Random ran = new Random();
+                int nextIndex = ran.Next(_curPlaylist.Count - 1);
+                while (nextIndex == nowIndex)
+                    nextIndex = ran.Next(_curPlaylist.Count - 1);
+                nowIndex = nextIndex;
+            }
+            _curMedia = _curPlaylist[nowIndex];
+            PlayInIndex(nowIndex);
         }
         public void AddSongToCurrentPlaylist(string src)
         {
@@ -127,7 +151,7 @@ namespace BLADE
         {
             if (waveChanel != null)
                 waveChanel.Volume = n;
-                
+
         }
 
         public void SetPossition(int n)
