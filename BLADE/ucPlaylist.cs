@@ -13,6 +13,7 @@ namespace BLADE
 {
     public partial class ucPlaylist : UserControl
     {
+
         private ucPlaylistView _default;
         private ucPlaylistView _favorites;
         private Playlist currentPlaylist;
@@ -34,11 +35,13 @@ namespace BLADE
             _default.showContent += ShowPlaylist;
             _default.delPlaylist += DeletePlaylist;
             _default.addingSong += AddingSongHandler;
+            _default.RemoveChooseItem();
 
             _favorites = new ucPlaylistView(new Playlist("Favorites"));
             _favorites.showContent += ShowPlaylist;
             _favorites.delPlaylist += DeletePlaylist;
             _favorites.addingSong += AddingSongHandler;
+            _favorites.RemoveChooseItem();
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
 
             choosingPlaylist = _default.Playlist;

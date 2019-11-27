@@ -76,6 +76,9 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\App\Bunifu UI WinForms 1.11.3.0\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\..\Tools\NaudioLibv1.8\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -116,6 +119,7 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaPlayer.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

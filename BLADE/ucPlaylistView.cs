@@ -60,7 +60,6 @@ namespace BLADE
         {
             this.lblPlaylistName.Text = _playlist.PlaylistName;
         }
-
         public void addSongToPlaylistControl(Song src)
         {
             if (!_playlist.IsContains(src))
@@ -77,7 +76,6 @@ namespace BLADE
         {
             _playlist.Remove(src);
         }
-
         private Song GetSongInfo(FileInfo file)
         {
             WindowsMediaPlayer wmp = new WindowsMediaPlayer();
@@ -138,33 +136,38 @@ namespace BLADE
             openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3|All File|*.*";
             openfileDialog.FilterIndex = 2;
             openfileDialog.RestoreDirectory = true;
+            openfileDialog.Multiselect = true;
 
             if (openfileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileInfo file = new FileInfo(openfileDialog.FileName);
-                Song song;
-                if (file.Extension == ".mp3")
+                foreach (string file in openfileDialog.FileNames)
                 {
-                    song = GetSongInfo(file);
-                    if (!_playlist.IsContains(song))
+                    FileInfo fileinfo = new FileInfo(file);
+                    Song song;
+                    if (fileinfo.Extension == ".mp3")
                     {
-                        _playlist.AddSong(song);
+                        song = GetSongInfo(fileinfo);
+                        if (!_playlist.IsContains(song))
+                        {
+                            _playlist.AddSong(song);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bai hat da ton tai trong playlist!!!");
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Bai hat da ton tai trong playlist!!!");
-                        return;
+                        MessageBox.Show("Day khong phai file audio");
                     }
+                    if (addingSong != null)
+                        addingSong(_playlist, e);
                 }
-                else
-                {
-                    MessageBox.Show("Day khong phai file audio");
-                }
-
+               
             }
             openfileDialog.Dispose();
-            if (addingSong != null)
-                addingSong(_playlist, e);
+           
         }
 
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +184,11 @@ namespace BLADE
         }
         #endregion
 
+        public void RemoveChooseItem()
+        {
+            ctxtmsPlaylist.Items.RemoveAt(2);
+            ctxtmsPlaylist.Items.RemoveAt(1);
+        }
 
     }
 }
