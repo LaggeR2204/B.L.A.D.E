@@ -37,12 +37,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ChangePasswordForm.resources
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.ToggleSwitch.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu_UI_v1.5.3.dll
+D:\B.L.A.D.E\BLADE\bin\Debug\NAudio.dll

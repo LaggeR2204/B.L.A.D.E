@@ -160,7 +160,7 @@ namespace BLADE
         private void btnVolume_Click(object sender, EventArgs e)
         {
             SliderVolume.Enabled = true;
-            mediaPlayer.SetVolume(SliderVolume.Value / 10f);
+            mediaPlayer.SetVolume((float)SliderVolume.Value / 10f);
             SliderVolume.ElapsedColor = Color.FromArgb(0, 217, 87);
             btnVolumeOff.Show();
         }
@@ -176,17 +176,26 @@ namespace BLADE
         }
         private void btnRepeat_Click(object sender, EventArgs e)
         {
-
+            mediaPlayer.SetPlaybackMode(false, true, false);
+            btnShuffle.Show();
+            btnRepeat.Hide();
+            btnLoop.Hide();
         }
 
         private void btnLoop_Click(object sender, EventArgs e)
         {
-
+            btnShuffle.Hide();
+            btnRepeat.Show();
+            btnLoop.Hide();
+            mediaPlayer.SetPlaybackMode(false, false, true);
         }
 
         private void btnShuffle_Click(object sender, EventArgs e)
         {
-
+            btnShuffle.Hide();
+            btnRepeat.Hide();
+            btnLoop.Show();
+            mediaPlayer.SetPlaybackMode(true, false, false);
         }
         #endregion
         #region UC button events
@@ -529,7 +538,7 @@ namespace BLADE
                 btnVolumeOff.Show();
                 btnVolume.Hide();
             }
-            mediaPlayer.SetVolume(SliderVolume.Value / 5f);
+            mediaPlayer.SetVolume((float)SliderVolume.Value / 5f);
         }
         #endregion
         #region Notify Icon

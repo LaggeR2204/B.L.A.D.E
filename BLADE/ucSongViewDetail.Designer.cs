@@ -145,15 +145,15 @@
             this.ctxtmsSong.Name = "ctxtmsSong";
             this.ctxtmsSong.ShowImageMargin = false;
             this.ctxtmsSong.ShowItemToolTips = false;
-            this.ctxtmsSong.Size = new System.Drawing.Size(156, 30);
+            this.ctxtmsSong.Size = new System.Drawing.Size(186, 58);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
-            this.deleteSongToolStripMenuItem.Text = "Delete Song";
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteSongToolStripMenuItem.Text = "Remove Song";
             this.deleteSongToolStripMenuItem.Click += new System.EventHandler(this.DeleteSongToolStripMenuItem_Click);
             // 
             // ucSongViewDetail

@@ -37,14 +37,17 @@ namespace BLADE
             timer = new Timer();
             timer.Interval = 5000;
             timer.Elapsed += Timer_Elapsed;
-            _isRepeat = false;
-            _isLoop = false;
-            _isShuffle = true;
+            SetPlaybackMode(false, true, false);
             CurrentMedia = null;
             _curPlaylist = new List<string>();
 
         }
-
+        public void SetPlaybackMode(bool loop, bool shuffle, bool repeat)
+        {
+            _isLoop = loop;
+            _isShuffle = shuffle;
+            _isRepeat = repeat;
+        }
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds)
