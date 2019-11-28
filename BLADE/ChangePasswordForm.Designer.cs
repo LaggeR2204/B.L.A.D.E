@@ -67,7 +67,7 @@
             this.lblBLADE.Location = new System.Drawing.Point(97, 34);
             this.lblBLADE.Name = "lblBLADE";
             this.lblBLADE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblBLADE.Size = new System.Drawing.Size(191, 77);
+            this.lblBLADE.Size = new System.Drawing.Size(156, 63);
             this.lblBLADE.TabIndex = 12;
             this.lblBLADE.Text = "BLADE";
             this.lblBLADE.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -471,9 +471,9 @@
             // 
             // ChangePasswordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(350, 430);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnChange);

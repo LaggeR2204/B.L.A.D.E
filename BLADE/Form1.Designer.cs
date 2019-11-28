@@ -36,6 +36,7 @@ namespace BLADE
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            BLADE.Playlist playlist2 = new BLADE.Playlist();
             this.pnlMusicControl = new System.Windows.Forms.Panel();
             this.lblDurationLimit = new System.Windows.Forms.Label();
             this.lbCurDuration = new System.Windows.Forms.Label();
@@ -43,16 +44,15 @@ namespace BLADE
             this.lblSongName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SliderVolume = new Bunifu.UI.WinForms.BunifuHSlider();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.btnShuffleOff = new System.Windows.Forms.Button();
-            this.btnShuffle = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnPlay = new System.Windows.Forms.Button();
             this.sliderMusic = new Bunifu.UI.WinForms.BunifuHSlider();
-            this.btnPause = new System.Windows.Forms.Button();
-            this.btnRepeatOff = new System.Windows.Forms.Button();
-            this.btnRepeat = new System.Windows.Forms.Button();
             this.btnVolumeOff = new System.Windows.Forms.Button();
             this.btnVolume = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnShuffle = new System.Windows.Forms.Button();
+            this.btnRepeat = new System.Windows.Forms.Button();
+            this.btnLoop = new System.Windows.Forms.Button();
             this.pnlControl = new System.Windows.Forms.Panel();
             this.lblTime = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblUserName = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -91,8 +91,6 @@ namespace BLADE
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shuffleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volumeUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volumeDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,16 +132,15 @@ namespace BLADE
             this.pnlMusicControl.Controls.Add(this.lblSongName);
             this.pnlMusicControl.Controls.Add(this.SliderVolume);
             this.pnlMusicControl.Controls.Add(this.btnPrev);
-            this.pnlMusicControl.Controls.Add(this.btnShuffleOff);
-            this.pnlMusicControl.Controls.Add(this.btnShuffle);
             this.pnlMusicControl.Controls.Add(this.btnNext);
-            this.pnlMusicControl.Controls.Add(this.btnPlay);
             this.pnlMusicControl.Controls.Add(this.sliderMusic);
-            this.pnlMusicControl.Controls.Add(this.btnPause);
-            this.pnlMusicControl.Controls.Add(this.btnRepeatOff);
-            this.pnlMusicControl.Controls.Add(this.btnRepeat);
             this.pnlMusicControl.Controls.Add(this.btnVolumeOff);
             this.pnlMusicControl.Controls.Add(this.btnVolume);
+            this.pnlMusicControl.Controls.Add(this.btnShuffle);
+            this.pnlMusicControl.Controls.Add(this.btnRepeat);
+            this.pnlMusicControl.Controls.Add(this.btnLoop);
+            this.pnlMusicControl.Controls.Add(this.btnPlay);
+            this.pnlMusicControl.Controls.Add(this.btnPause);
             this.pnlMusicControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlMusicControl.Location = new System.Drawing.Point(0, 600);
             this.pnlMusicControl.Name = "pnlMusicControl";
@@ -156,7 +153,7 @@ namespace BLADE
             this.lblDurationLimit.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblDurationLimit.Location = new System.Drawing.Point(757, 72);
             this.lblDurationLimit.Name = "lblDurationLimit";
-            this.lblDurationLimit.Size = new System.Drawing.Size(135, 21);
+            this.lblDurationLimit.Size = new System.Drawing.Size(109, 17);
             this.lblDurationLimit.TabIndex = 5;
             this.lblDurationLimit.Text = "lblDurationLimit";
             // 
@@ -166,7 +163,7 @@ namespace BLADE
             this.lbCurDuration.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbCurDuration.Location = new System.Drawing.Point(196, 72);
             this.lbCurDuration.Name = "lbCurDuration";
-            this.lbCurDuration.Size = new System.Drawing.Size(128, 21);
+            this.lbCurDuration.Size = new System.Drawing.Size(102, 17);
             this.lbCurDuration.TabIndex = 5;
             this.lbCurDuration.Text = "lblCurDuration";
             // 
@@ -243,6 +240,8 @@ namespace BLADE
             // 
             this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnPrev.FlatAppearance.BorderSize = 0;
+            this.btnPrev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnPrev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrev.Image = ((System.Drawing.Image)(resources.GetObject("btnPrev.Image")));
             this.btnPrev.Location = new System.Drawing.Point(419, 5);
@@ -252,36 +251,12 @@ namespace BLADE
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // btnShuffleOff
-            // 
-            this.btnShuffleOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnShuffleOff.FlatAppearance.BorderSize = 0;
-            this.btnShuffleOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShuffleOff.Image = ((System.Drawing.Image)(resources.GetObject("btnShuffleOff.Image")));
-            this.btnShuffleOff.Location = new System.Drawing.Point(363, 5);
-            this.btnShuffleOff.Name = "btnShuffleOff";
-            this.btnShuffleOff.Size = new System.Drawing.Size(50, 50);
-            this.btnShuffleOff.TabIndex = 1;
-            this.btnShuffleOff.UseVisualStyleBackColor = true;
-            this.btnShuffleOff.Click += new System.EventHandler(this.btnShuffleOff_Click);
-            // 
-            // btnShuffle
-            // 
-            this.btnShuffle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnShuffle.FlatAppearance.BorderSize = 0;
-            this.btnShuffle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShuffle.Image = ((System.Drawing.Image)(resources.GetObject("btnShuffle.Image")));
-            this.btnShuffle.Location = new System.Drawing.Point(363, 5);
-            this.btnShuffle.Name = "btnShuffle";
-            this.btnShuffle.Size = new System.Drawing.Size(50, 50);
-            this.btnShuffle.TabIndex = 1;
-            this.btnShuffle.UseVisualStyleBackColor = true;
-            this.btnShuffle.Click += new System.EventHandler(this.btnShuffle_Click);
-            // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
             this.btnNext.Location = new System.Drawing.Point(531, 5);
@@ -290,19 +265,6 @@ namespace BLADE
             this.btnNext.TabIndex = 1;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnPlay.FlatAppearance.BorderSize = 0;
-            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
-            this.btnPlay.Location = new System.Drawing.Point(475, 5);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(50, 50);
-            this.btnPlay.TabIndex = 1;
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // sliderMusic
             // 
@@ -326,7 +288,7 @@ namespace BLADE
             this.sliderMusic.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
             this.sliderMusic.LargeChange = 1;
             this.sliderMusic.Location = new System.Drawing.Point(250, 66);
-            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4);
             this.sliderMusic.Maximum = 100;
             this.sliderMusic.Minimum = 0;
             this.sliderMusic.MinimumSize = new System.Drawing.Size(0, 31);
@@ -350,45 +312,6 @@ namespace BLADE
             this.sliderMusic.ThumbMargin = 1;
             this.sliderMusic.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Fill;
             this.sliderMusic.Value = 50;
-            // 
-            // btnPause
-            // 
-            this.btnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnPause.FlatAppearance.BorderSize = 0;
-            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
-            this.btnPause.Location = new System.Drawing.Point(475, 5);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(50, 50);
-            this.btnPause.TabIndex = 1;
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // btnRepeatOff
-            // 
-            this.btnRepeatOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnRepeatOff.FlatAppearance.BorderSize = 0;
-            this.btnRepeatOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepeatOff.Image = ((System.Drawing.Image)(resources.GetObject("btnRepeatOff.Image")));
-            this.btnRepeatOff.Location = new System.Drawing.Point(587, 5);
-            this.btnRepeatOff.Name = "btnRepeatOff";
-            this.btnRepeatOff.Size = new System.Drawing.Size(50, 50);
-            this.btnRepeatOff.TabIndex = 1;
-            this.btnRepeatOff.UseVisualStyleBackColor = true;
-            this.btnRepeatOff.Click += new System.EventHandler(this.btnRepeatOff_Click);
-            // 
-            // btnRepeat
-            // 
-            this.btnRepeat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnRepeat.FlatAppearance.BorderSize = 0;
-            this.btnRepeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepeat.Image = ((System.Drawing.Image)(resources.GetObject("btnRepeat.Image")));
-            this.btnRepeat.Location = new System.Drawing.Point(587, 5);
-            this.btnRepeat.Name = "btnRepeat";
-            this.btnRepeat.Size = new System.Drawing.Size(50, 50);
-            this.btnRepeat.TabIndex = 1;
-            this.btnRepeat.UseVisualStyleBackColor = true;
-            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
             // btnVolumeOff
             // 
@@ -417,6 +340,81 @@ namespace BLADE
             this.btnVolume.UseVisualStyleBackColor = true;
             this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
+            // btnPlay
+            // 
+            this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnPlay.FlatAppearance.BorderSize = 0;
+            this.btnPlay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+            this.btnPlay.Location = new System.Drawing.Point(475, 5);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(50, 50);
+            this.btnPlay.TabIndex = 1;
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnPause.FlatAppearance.BorderSize = 0;
+            this.btnPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
+            this.btnPause.Location = new System.Drawing.Point(475, 5);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(50, 50);
+            this.btnPause.TabIndex = 1;
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnShuffle
+            // 
+            this.btnShuffle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnShuffle.FlatAppearance.BorderSize = 0;
+            this.btnShuffle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnShuffle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnShuffle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShuffle.Image = ((System.Drawing.Image)(resources.GetObject("btnShuffle.Image")));
+            this.btnShuffle.Location = new System.Drawing.Point(363, 5);
+            this.btnShuffle.Name = "btnShuffle";
+            this.btnShuffle.Size = new System.Drawing.Size(50, 50);
+            this.btnShuffle.TabIndex = 1;
+            this.btnShuffle.UseVisualStyleBackColor = true;
+            this.btnShuffle.Click += new System.EventHandler(this.btnShuffle_Click);
+            // 
+            // btnRepeat
+            // 
+            this.btnRepeat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnRepeat.FlatAppearance.BorderSize = 0;
+            this.btnRepeat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnRepeat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnRepeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRepeat.Image = ((System.Drawing.Image)(resources.GetObject("btnRepeat.Image")));
+            this.btnRepeat.Location = new System.Drawing.Point(363, 5);
+            this.btnRepeat.Name = "btnRepeat";
+            this.btnRepeat.Size = new System.Drawing.Size(50, 50);
+            this.btnRepeat.TabIndex = 6;
+            this.btnRepeat.UseVisualStyleBackColor = true;
+            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
+            // 
+            // btnLoop
+            // 
+            this.btnLoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnLoop.FlatAppearance.BorderSize = 0;
+            this.btnLoop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnLoop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnLoop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoop.Image = ((System.Drawing.Image)(resources.GetObject("btnLoop.Image")));
+            this.btnLoop.Location = new System.Drawing.Point(363, 5);
+            this.btnLoop.Name = "btnLoop";
+            this.btnLoop.Size = new System.Drawing.Size(50, 50);
+            this.btnLoop.TabIndex = 1;
+            this.btnLoop.UseVisualStyleBackColor = true;
+            this.btnLoop.Click += new System.EventHandler(this.btnLoop_Click);
+            // 
             // pnlControl
             // 
             this.pnlControl.Controls.Add(this.lblTime);
@@ -439,7 +437,7 @@ namespace BLADE
             this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTime.Location = new System.Drawing.Point(349, 7);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(91, 22);
+            this.lblTime.Size = new System.Drawing.Size(77, 18);
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "TimeNow";
             // 
@@ -465,7 +463,7 @@ namespace BLADE
             this.menuUser.Name = "menuUser";
             this.menuUser.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuUser.ShowImageMargin = false;
-            this.menuUser.Size = new System.Drawing.Size(223, 52);
+            this.menuUser.Size = new System.Drawing.Size(186, 48);
             // 
             // changeYourPasswordToolStripMenuItem
             // 
@@ -475,7 +473,7 @@ namespace BLADE
             this.changeYourPasswordToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.changeYourPasswordToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.changeYourPasswordToolStripMenuItem.Name = "changeYourPasswordToolStripMenuItem";
-            this.changeYourPasswordToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.changeYourPasswordToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.changeYourPasswordToolStripMenuItem.Text = "Change Your Password";
             this.changeYourPasswordToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeYourPasswordToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -487,7 +485,7 @@ namespace BLADE
             this.logOutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.logOutToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logOutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -556,7 +554,7 @@ namespace BLADE
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(197, 31);
+            this.txtSearch.Size = new System.Drawing.Size(197, 27);
             this.txtSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -617,7 +615,7 @@ namespace BLADE
             this.lblCountdown.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCountdown.Location = new System.Drawing.Point(120, 14);
             this.lblCountdown.Name = "lblCountdown";
-            this.lblCountdown.Size = new System.Drawing.Size(0, 18);
+            this.lblCountdown.Size = new System.Drawing.Size(0, 16);
             this.lblCountdown.TabIndex = 4;
             // 
             // DragControl
@@ -933,7 +931,7 @@ namespace BLADE
             this.accountToolStripMenuItem});
             this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
             this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // fileToolStripMenuItem
@@ -946,7 +944,7 @@ namespace BLADE
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShowShortcutKeys = false;
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
@@ -954,7 +952,7 @@ namespace BLADE
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -968,14 +966,12 @@ namespace BLADE
             this.pauseToolStripMenuItem,
             this.nextToolStripMenuItem,
             this.previousToolStripMenuItem,
-            this.shuffleToolStripMenuItem,
-            this.repeatToolStripMenuItem,
             this.volumeUpToolStripMenuItem,
             this.volumeDownToolStripMenuItem});
             this.playbackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
             this.playbackToolStripMenuItem.ShowShortcutKeys = false;
-            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.playbackToolStripMenuItem.Text = "Playback";
             // 
             // playToolStripMenuItem
@@ -983,7 +979,7 @@ namespace BLADE
             this.playToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.playToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -992,7 +988,7 @@ namespace BLADE
             this.pauseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
@@ -1001,7 +997,7 @@ namespace BLADE
             this.nextToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.nextToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
@@ -1010,34 +1006,16 @@ namespace BLADE
             this.previousToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.previousToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.previousToolStripMenuItem.Text = "Previous";
             this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
-            // 
-            // shuffleToolStripMenuItem
-            // 
-            this.shuffleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.shuffleToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
-            this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.shuffleToolStripMenuItem.Text = "Shuffle";
-            this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
-            // 
-            // repeatToolStripMenuItem
-            // 
-            this.repeatToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.repeatToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.repeatToolStripMenuItem.Name = "repeatToolStripMenuItem";
-            this.repeatToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.repeatToolStripMenuItem.Text = "Repeat";
-            this.repeatToolStripMenuItem.Click += new System.EventHandler(this.repeatToolStripMenuItem_Click);
             // 
             // volumeUpToolStripMenuItem
             // 
             this.volumeUpToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.volumeUpToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
-            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.volumeUpToolStripMenuItem.Text = "Volume up";
             // 
             // volumeDownToolStripMenuItem
@@ -1045,7 +1023,7 @@ namespace BLADE
             this.volumeDownToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.volumeDownToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
-            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.volumeDownToolStripMenuItem.Text = "Volume down";
             // 
             // accountToolStripMenuItem
@@ -1059,7 +1037,7 @@ namespace BLADE
             this.accountToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.ShowShortcutKeys = false;
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // changePasswordToolStripMenuItem
@@ -1067,7 +1045,7 @@ namespace BLADE
             this.changePasswordToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.changePasswordToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -1076,7 +1054,7 @@ namespace BLADE
             this.logOutToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.logOutToolStripMenuItem1.ForeColor = System.Drawing.Color.Gainsboro;
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(245, 26);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
             this.logOutToolStripMenuItem1.Text = "Log Out";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -1118,6 +1096,11 @@ namespace BLADE
             // uc_Playlist
             // 
             this.uc_Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            playlist2.Count = 0;
+            playlist2.CreatedDay = new System.DateTime(2019, 11, 28, 21, 9, 40, 295);
+            playlist2.PlaylistName = "Default";
+            this.uc_Playlist.ChoosingPlaylist = playlist2;
+            this.uc_Playlist.CurrentPlaylist = null;
             this.uc_Playlist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Playlist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Playlist.ForeColor = System.Drawing.Color.Gainsboro;
@@ -1172,19 +1155,19 @@ namespace BLADE
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem1});
             this.menuNofityIcon.Name = "menuNofityIcon";
-            this.menuNofityIcon.Size = new System.Drawing.Size(189, 52);
+            this.menuNofityIcon.Size = new System.Drawing.Size(162, 48);
             // 
             // minimizeToTrayToolStripMenuItem
             // 
             this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
             this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(188, 24);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -1220,7 +1203,7 @@ namespace BLADE
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
@@ -1271,10 +1254,6 @@ namespace BLADE
         private Bunifu.UI.WinForms.BunifuHSlider sliderMusic;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnRepeat;
-        private System.Windows.Forms.Button btnRepeatOff;
-        private System.Windows.Forms.Button btnShuffleOff;
-        private System.Windows.Forms.Button btnShuffle;
         private Bunifu.UI.WinForms.BunifuHSlider SliderVolume;
         private System.Windows.Forms.Panel pnlButton;
         private Bunifu.UI.WinForms.BunifuLabel lblTextBLADE;
@@ -1315,8 +1294,6 @@ namespace BLADE
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previousToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem shuffleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem repeatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem volumeUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem volumeDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -1339,6 +1316,10 @@ namespace BLADE
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem1;
         private ucHome uc_Home;
         private System.Windows.Forms.Button btnStopTimer;
+        private System.Windows.Forms.Button btnShuffleOff;
+        private System.Windows.Forms.Button btnLoop;
+        private System.Windows.Forms.Button btnShuffle;
+        private System.Windows.Forms.Button btnRepeat;
     }
 }
 

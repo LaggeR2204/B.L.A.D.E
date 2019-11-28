@@ -157,32 +157,6 @@ namespace BLADE
             mediaPlayer.Previous();
         }
 
-        private void btnRepeatOff_Click(object sender, EventArgs e)
-        {
-
-            btnRepeatOff.Hide();
-            btnRepeat.Show();
-        }
-
-        private void btnRepeat_Click(object sender, EventArgs e)
-        {
-
-            btnRepeat.Hide();
-            btnRepeatOff.Show();
-        }
-
-        private void btnShuffle_Click(object sender, EventArgs e)
-        {
-            btnShuffle.Hide();
-            btnShuffleOff.Show();
-        }
-
-        private void btnShuffleOff_Click(object sender, EventArgs e)
-        {
-            btnShuffleOff.Hide();
-            btnShuffle.Show();
-        }
-
         private void btnVolume_Click(object sender, EventArgs e)
         {
             SliderVolume.Enabled = true;
@@ -199,6 +173,20 @@ namespace BLADE
             btnVolume.Hide();
             btnVolumeOff.Hide();
             btnVolume.Show();
+        }
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShuffle_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
         #region UC button events
@@ -359,25 +347,7 @@ namespace BLADE
             btnPrev.PerformClick();
         }
 
-        private void shuffleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (btnShuffle.CanFocus == true)
-            {
-                btnShuffleOff.PerformClick();
-            }
-            else
-                btnShuffle.PerformClick();
-        }
-
-        private void repeatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (btnRepeat.CanFocus == true)
-            {
-                btnRepeatOff.PerformClick();
-            }
-            else
-                btnRepeat.PerformClick();
-        }
+        
         #endregion
         #region Media Player
         private void ReloadPlaylist(object sender, EventArgs e)
