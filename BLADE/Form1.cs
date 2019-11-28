@@ -41,7 +41,7 @@ namespace BLADE
             this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
             this.SliderVolume.LargeChange = 1;
             this.SliderVolume.SmallChange = 1;
-            this.SliderVolume.Value = 10;
+            this.SliderVolume.Value = 5;
             //label curduration
             lbCurDuration.Text = "";
             //label duration limit
@@ -559,7 +559,7 @@ namespace BLADE
                 btnVolumeOff.Show();
                 btnVolume.Hide();
             }
-            mediaPlayer.SetVolume(SliderVolume.Value / 10f);
+            mediaPlayer.SetVolume(SliderVolume.Value / 5f);
         }
         #endregion
         #region Notify Icon

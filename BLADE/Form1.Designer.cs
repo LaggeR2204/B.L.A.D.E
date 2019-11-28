@@ -215,7 +215,7 @@ namespace BLADE
             this.SliderVolume.LargeChange = 1;
             this.SliderVolume.Location = new System.Drawing.Point(913, 38);
             this.SliderVolume.Margin = new System.Windows.Forms.Padding(5);
-            this.SliderVolume.Maximum = 100;
+            this.SliderVolume.Maximum = 5;
             this.SliderVolume.Minimum = 0;
             this.SliderVolume.MinimumSize = new System.Drawing.Size(0, 30);
             this.SliderVolume.MinimumThumbLength = 18;

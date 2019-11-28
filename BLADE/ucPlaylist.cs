@@ -111,9 +111,21 @@ namespace BLADE
         private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
         {
             string name = string.Copy("");
-            InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name);
-            Playlist pl1 = new Playlist(name);
-            ShowPlaylistInfo(pl1);
+            if(InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name) == DialogResult.OK)
+            {
+                Playlist pl1 = new Playlist(name);
+                var controls = fpnlPlaylistView.Controls.OfType<Control>();
+                foreach (var item in controls)
+                {
+                    ucPlaylistView temp = item as ucPlaylistView;
+                    if (temp.Playlist.PlaylistName == name)
+                    {
+                        MessageBox.Show("Playlist is existed!!!");
+                        return;
+                    }
+                }
+                ShowPlaylistInfo(pl1);
+            }
         }
         private void ShowPlaylist(object sender, EventArgs e)
         {

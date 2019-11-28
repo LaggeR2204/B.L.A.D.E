@@ -23,6 +23,7 @@ namespace BLADE
             textBox.BackColor = Color.WhiteSmoke;
             textBox.ForeColor = Color.Black;
             buttonOk.ForeColor = Color.Gainsboro;
+            buttonOk.Enabled = false;
             buttonCancel.ForeColor = Color.Gainsboro;
 
             buttonOk.FlatStyle = FlatStyle.Flat;
@@ -35,7 +36,14 @@ namespace BLADE
 
             form.Text = title;
             label.Text = promptText;
-            textBox.Text = value;
+            textBox.TextChanged += TextBox_TextChanged;
+            void TextBox_TextChanged(object sender, EventArgs e)
+            {
+                if (textBox.Text != "")
+                    buttonOk.Enabled = true;
+                else
+                    buttonOk.Enabled = false;
+            }
 
             buttonOk.Text = "OK";
             buttonCancel.Text = "Cancel";
@@ -67,5 +75,7 @@ namespace BLADE
             value = textBox.Text;
             return dialogResult;
         }
+
+       
     }
 }

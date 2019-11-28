@@ -164,17 +164,19 @@ namespace BLADE
                     if (addingSong != null)
                         addingSong(_playlist, e);
                 }
-               
+
             }
             openfileDialog.Dispose();
-           
+
         }
 
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string name = string.Copy("");
-            InputNamePlaylistBox.Show("Notification", "Enter new name: ", ref name);
-            _playlist.PlaylistName = name;
+            if (InputNamePlaylistBox.Show("Notification", "Enter new name: ", ref name) == DialogResult.OK)
+            {
+                _playlist.PlaylistName = name;
+            }
         }
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +191,5 @@ namespace BLADE
             ctxtmsPlaylist.Items.RemoveAt(2);
             ctxtmsPlaylist.Items.RemoveAt(1);
         }
-
     }
 }
