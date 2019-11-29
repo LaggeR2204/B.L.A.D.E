@@ -151,6 +151,12 @@
     <Compile Include="ucInfo.Designer.cs">
       <DependentUpon>ucInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMusicCutter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMusicCutter.Designer.cs">
+      <DependentUpon>ucMusicCutter.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPlaylist.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucInfo.resx">
       <DependentUpon>ucInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMusicCutter.resx">
+      <DependentUpon>ucMusicCutter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPlaylist.resx">
       <DependentUpon>ucPlaylist.cs</DependentUpon>

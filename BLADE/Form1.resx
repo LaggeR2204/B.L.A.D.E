@@ -338,6 +338,21 @@
   <metadata name="AppMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>649, 17</value>
   </metadata>
+  <data name="btnMusicCutter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAjNJREFUSEvt
+        lj1MFEEYho/fCAViSAg0QgEYK2MsLKitKEwIIRYmQmEjhQoRTURCp4mhoZHQ22iDLYWChTFa2AGJiYrx
+        N6ExFmgh4/POfHu5vd09Vzgq7kme3O4378x3e7c7d4UahxPn3Gl8gX/wFz7GLhvODXMa8Ri2WykbQqdQ
+        zcRvVHPxAY9aLBMyR3AOt7CUexZJh8DzkHOL2IpduKYC3LdYKozr6l76ZJxP2GexJAw2oa5QV9piZdUH
+        Uby2UgLG9AbXfSrOOzxusXQI1GP08XZaWfURFFtWikE9q+l77LFYZQg+8lOce4pncRh3VDBmLerhfP9N
+        BeFu/KiZFZiyuPLzoRTjG560SH6Y1IZ38RW+xV0s545ldV8s+0pAN1K/X2i/sNBlrNS8GZ/gZ6xO0wgW
+        nMRSvqO++0kbb8EBH642LHwbxRfUVUZ3u29+ILB4B77xbcLjdhGX/FngukWrB4uWNq3EjE3ZOyyij1I/
+        FnqW07bBH/Zazt6vnMkX8KtfJh3dvSfwhj9Lcs2Wyg+ThsJczyZuh8Mi2nuLOxLH076a5P+aM2EjzHMT
+        dt6Az3zFuZ+Y2AappTXXc5+vOUF9r0LPZ4OVVT/jq+zJVkrA2M0QiaHmVy2SDaE6jG6a4l7L8XgouRUr
+        pcL4rRCLkbt5tOnru7yCMxi9mVGLZUJGc6J/MBFqfski6RDQv45VpctYsMg/IduL2uUeon5m5XkbzoaQ
+        /hCM4QNcwHM2VKNGTgqFv1WaOUwVjtn3AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btn10m.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAZtJREFUOE/V

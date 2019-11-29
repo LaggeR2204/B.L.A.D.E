@@ -232,12 +232,29 @@ namespace BLADE
             DropdownTime.Start();
             if (isCollapsed)
             {
-                btnInfo.Top = 389;
+                btnInfo.Top = 440;
             }
             else
-                btnInfo.Top = 241;
+                btnInfo.Top = 292;
         }
 
+        private void btnMusicCutter_Click(object sender, EventArgs e)
+        {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Show();
+            pnlSelectedButton.Height = btnMusicCutter.Height;
+            pnlSelectedButton.Top = btnMusicCutter.Top;
+            //cho user control ohu hop xuat hien
+            uc_Info.Hide();
+            uc_Playlist.Hide();
+            uc_Search.Hide();
+            uc_Home.Hide();
+            lblTextBLADE.Show();
+        }
         private void btnHome_Click(object sender, EventArgs e)
         {
             if (!isCollapsed)

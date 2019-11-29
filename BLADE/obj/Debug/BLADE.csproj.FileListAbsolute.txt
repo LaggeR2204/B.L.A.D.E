@@ -21,16 +21,6 @@ D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe.config
 D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\bin\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\bin\Debug\xNet.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.Json.dll
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.ToggleSwitch.xml
-D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu_UI_v1.5.3.xml
 D:\B.L.A.D.E\BLADE\bin\Debug\Interop.WMPLib.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\AxInterop.WMPLib.dll
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
@@ -38,3 +28,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ChangePasswordForm.resources
 D:\B.L.A.D.E\BLADE\bin\Debug\NAudio.dll
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucMusicCutter.resources

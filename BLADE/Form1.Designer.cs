@@ -66,6 +66,7 @@ namespace BLADE
             this.lblCountdown = new System.Windows.Forms.Label();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.btnMusicCutter = new System.Windows.Forms.Button();
             this.pnlSelectedButton = new System.Windows.Forms.Panel();
             this.pnlTimerControl = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -630,6 +631,7 @@ namespace BLADE
             // pnlButton
             // 
             this.pnlButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pnlButton.Controls.Add(this.btnMusicCutter);
             this.pnlButton.Controls.Add(this.pnlSelectedButton);
             this.pnlButton.Controls.Add(this.pnlTimerControl);
             this.pnlButton.Controls.Add(this.btnInfo);
@@ -642,6 +644,23 @@ namespace BLADE
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(213, 600);
             this.pnlButton.TabIndex = 3;
+            // 
+            // btnMusicCutter
+            // 
+            this.btnMusicCutter.FlatAppearance.BorderSize = 0;
+            this.btnMusicCutter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMusicCutter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMusicCutter.ForeColor = System.Drawing.Color.White;
+            this.btnMusicCutter.Image = ((System.Drawing.Image)(resources.GetObject("btnMusicCutter.Image")));
+            this.btnMusicCutter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMusicCutter.Location = new System.Drawing.Point(12, 190);
+            this.btnMusicCutter.Name = "btnMusicCutter";
+            this.btnMusicCutter.Size = new System.Drawing.Size(198, 45);
+            this.btnMusicCutter.TabIndex = 18;
+            this.btnMusicCutter.Text = "   Cutter";
+            this.btnMusicCutter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMusicCutter.UseVisualStyleBackColor = true;
+            this.btnMusicCutter.Click += new System.EventHandler(this.btnMusicCutter_Click);
             // 
             // pnlSelectedButton
             // 
@@ -661,7 +680,7 @@ namespace BLADE
             this.pnlTimerControl.Controls.Add(this.btn30m);
             this.pnlTimerControl.Controls.Add(this.btnTimer);
             this.pnlTimerControl.Controls.Add(this.btnStopTimer);
-            this.pnlTimerControl.Location = new System.Drawing.Point(12, 190);
+            this.pnlTimerControl.Location = new System.Drawing.Point(12, 241);
             this.pnlTimerControl.MaximumSize = new System.Drawing.Size(198, 193);
             this.pnlTimerControl.MinimumSize = new System.Drawing.Size(198, 45);
             this.pnlTimerControl.Name = "pnlTimerControl";
@@ -850,7 +869,7 @@ namespace BLADE
             this.btnInfo.ForeColor = System.Drawing.Color.White;
             this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
             this.btnInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfo.Location = new System.Drawing.Point(12, 241);
+            this.btnInfo.Location = new System.Drawing.Point(12, 292);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(198, 45);
             this.btnInfo.TabIndex = 13;
@@ -1321,6 +1340,7 @@ namespace BLADE
         private System.Windows.Forms.Button btnLoop;
         private System.Windows.Forms.Button btnShuffle;
         private System.Windows.Forms.Button btnRepeat;
+        private System.Windows.Forms.Button btnMusicCutter;
     }
 }
 
