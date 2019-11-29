@@ -1117,11 +1117,6 @@ namespace BLADE
             // uc_Playlist
             // 
             this.uc_Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            playlist2.Count = 0;
-            playlist2.CreatedDay = new System.DateTime(2019, 11, 28, 22, 59, 49, 222);
-            playlist2.PlaylistName = "Default";
-            this.uc_Playlist.ChoosingPlaylist = playlist2;
-            this.uc_Playlist.CurrentPlaylist = null;
             this.uc_Playlist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Playlist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Playlist.ForeColor = System.Drawing.Color.Gainsboro;

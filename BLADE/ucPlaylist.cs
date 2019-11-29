@@ -16,10 +16,7 @@ namespace BLADE
 
         private ucPlaylistView _default;
         private ucPlaylistView _favorites;
-        private Playlist currentPlaylist;
         private Playlist choosingPlaylist;
-
-        public Playlist CurrentPlaylist { get => currentPlaylist; set => currentPlaylist = value; }
         public Playlist ChoosingPlaylist { get => choosingPlaylist; set => choosingPlaylist = value; }
         public event EventHandler SelectSong;
         public event EventHandler PlaylistUpdated;
@@ -73,10 +70,6 @@ namespace BLADE
             Playlist temp = sender as Playlist;
             if (temp == choosingPlaylist)
                 addSongToPlaylistView(temp.List[temp.List.Count - 1]);
-            if (temp == currentPlaylist)
-                if (PlaylistUpdated != null)
-                    PlaylistUpdated(temp.List[temp.List.Count - 1], new EventArgs());
-
         }
         private void FavoriteChangedHandler(object sender, EventArgs e)
         {
@@ -100,12 +93,10 @@ namespace BLADE
         }
         private void SelectedSongHandler(object sender, EventArgs e)
         {
-            if (currentPlaylist != choosingPlaylist)
-                currentPlaylist = choosingPlaylist;
             if (SelectSong != null)
             {
                 Song song = sender as Song;
-                SelectSong(currentPlaylist.List.IndexOf(song), e);
+                SelectSong(song, e);
             }
         }
         private void BtnAddPlaylist_MouseClick(object sender, MouseEventArgs e)
@@ -148,5 +139,12 @@ namespace BLADE
             src.Dispose();
         }
         #endregion
+
+        private void btnAddPlaylistToPlayback_Click(object sender, EventArgs e)
+        {
+            if (this.PlaylistUpdated != null)
+                PlaylistUpdated(this.ChoosingPlaylist, new EventArgs());
+
+        }
     }
 }

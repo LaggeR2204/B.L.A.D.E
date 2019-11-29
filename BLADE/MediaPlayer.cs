@@ -13,16 +13,32 @@ namespace BLADE
         private bool _isRepeat;
         private bool _isLoop;
         private bool _isShuffle;
-        private List<string> _curPlaylist;
-        private string _curMedia;
-        private Timer timer;
+        private List<Song> _curPlaylist;
+        private Song _curMedia;
+        private Timer _timer;
+        private PlaybackState _playbackState;
         public event EventHandler MediaEnded;
         public event EventHandler MediaChanged;
+        public event EventHandler PlaybackStateChanged;
+        public PlaybackState MediaState 
+        {
+            get => _playbackState; 
+            set
+            {
+                if (_playbackState != value)
+                {
+                    _playbackState = value;
+                    if (PlaybackStateChanged != null)
+                        PlaybackStateChanged(_playbackState, new EventArgs());
+                }
+            }
+        }
         public bool IsRepeat { get => _isRepeat; set => _isRepeat = value; }
+        public Timer MediaTimer { get => _timer; }
         public bool IsLoop { get => _isLoop; set => _isLoop = value; }
         public bool IsShuffle { get => _isShuffle; set => _isShuffle = value; }
-        public string CurrentMedia { get => _curMedia; set => _curMedia = value; }
-        public List<string> CurrentPlaylist { get => _curPlaylist; set => _curPlaylist = value; }
+        public Song CurrentMedia { get => _curMedia; set => _curMedia = value; }
+        public List<Song> CurrentPlaylist { get => _curPlaylist; set => _curPlaylist = value; }
 
         DirectSoundOut outputSound = null;
         MediaFoundationReader audioReader = null;
@@ -34,13 +50,13 @@ namespace BLADE
 
         private void Init()
         {
-            timer = new Timer();
-            timer.Interval = 5000;
-            timer.Elapsed += Timer_Elapsed;
+            _timer = new Timer();
+            _timer.Interval = 2000;
+            _timer.Elapsed += Timer_Elapsed;
             SetPlaybackMode(false, true, false);
             CurrentMedia = null;
-            _curPlaylist = new List<string>();
-
+            _curPlaylist = new List<Song>();
+            _playbackState = PlaybackState.Stopped;
         }
         public void SetPlaybackMode(bool loop, bool shuffle, bool repeat)
         {
@@ -57,27 +73,49 @@ namespace BLADE
 
         public void Play()
         {
-            timer.Start();
+            if (_timer.Enabled == false)
+                _timer.Start();
             if (outputSound != null)
                 if (outputSound.PlaybackState == PlaybackState.Paused)
+                {
                     outputSound.Play();
+                    MediaState = PlaybackState.Playing;
+                }
+                  
         }
         public void Pause()
         {
-            timer.Stop();
+            if (_timer.Enabled == true)
+                _timer.Stop();
             if (outputSound != null)
                 if (outputSound.PlaybackState == PlaybackState.Playing)
+                {
                     outputSound.Pause();
+                    MediaState = PlaybackState.Paused;
+                }
+                  
         }
         public void Stop()
         {
-            timer.Stop();
+            if (_timer.Enabled == true)
+                _timer.Stop();
             if (outputSound != null)
-                outputSound.Stop();
+                if (outputSound.PlaybackState == PlaybackState.Playing)
+                {
+                    outputSound.Stop();
+                    MediaState = PlaybackState.Stopped;
+                }
+
         }
         public void Next()
         {
-            timer.Start();
+            if (_timer.Enabled == false)
+                _timer.Start();
+            if (_curPlaylist.Count == 1)
+            {
+                PlayInIndex(0);
+                return;
+            }
             if (outputSound == null)
                 return;
             int nowIndex = _curPlaylist.IndexOf(_curMedia);
@@ -91,17 +129,22 @@ namespace BLADE
             if (_isShuffle)
             {
                 Random ran = new Random();
-                int nextIndex = ran.Next(_curPlaylist.Count - 1);
+                int nextIndex = ran.Next(_curPlaylist.Count);
                 while (nextIndex == nowIndex)
-                    nextIndex = ran.Next(_curPlaylist.Count - 1);
+                    nextIndex = ran.Next(_curPlaylist.Count);
                 nowIndex = nextIndex;
             }
-            _curMedia = _curPlaylist[nowIndex];
             PlayInIndex(nowIndex);
         }
         public void Previous()
         {
-            timer.Start();
+            if (_timer.Enabled == false)
+                _timer.Start();
+            if (_curPlaylist.Count == 1)
+            {
+                PlayInIndex(0);
+                return;
+            }
             if (outputSound == null)
                 return;
             int nowIndex = _curPlaylist.IndexOf(_curMedia);
@@ -115,15 +158,14 @@ namespace BLADE
             if (_isShuffle)
             {
                 Random ran = new Random();
-                int nextIndex = ran.Next(_curPlaylist.Count - 1);
+                int nextIndex = ran.Next(_curPlaylist.Count);
                 while (nextIndex == nowIndex)
-                    nextIndex = ran.Next(_curPlaylist.Count - 1);
+                    nextIndex = ran.Next(_curPlaylist.Count);
                 nowIndex = nextIndex;
             }
-            _curMedia = _curPlaylist[nowIndex];
             PlayInIndex(nowIndex);
         }
-        public void AddSongToCurrentPlaylist(string src)
+        public void AddSongToCurrentPlaylist(Song src)
         {
             if (_curPlaylist.Contains(src))
                 return;
@@ -133,14 +175,15 @@ namespace BLADE
         {
             DisposeAudio();
             _curMedia = _curPlaylist[src];
-            audioReader = new MediaFoundationReader(_curMedia);
+            audioReader = new MediaFoundationReader(_curMedia.SavedPath);
             outputSound = new DirectSoundOut();
             waveChanel = new WaveChannel32(audioReader);
             outputSound.Init(waveChanel);
             outputSound.Play();
             if (MediaChanged != null)
                 MediaChanged(this, new EventArgs());
-            timer.Start();
+            _timer.Start();
+            MediaState = PlaybackState.Playing;
         }
         public double GetDurationInSecond()
         {
@@ -154,7 +197,6 @@ namespace BLADE
         {
             if (waveChanel != null)
                 waveChanel.Volume = n;
-
         }
 
         public void SetPossition(int n)

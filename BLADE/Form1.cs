@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
 using AxWMPLib;
+using NAudio.Wave;
 
 namespace BLADE
 {
@@ -26,6 +27,7 @@ namespace BLADE
         {            mediaPlayer = new MediaPlayer();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             mediaPlayer.MediaChanged += MediaPlayer_MediaChanged;
+            mediaPlayer.PlaybackStateChanged += MediaPlayer_PlaybackStateChanged;
             //set vi tri mac dinh cho pnlSelectedButton
             pnlSelectedButton.Height = btnHome.Height;
             pnlSelectedButton.Top = btnHome.Top;
@@ -36,7 +38,7 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
             this.uc_Playlist.SelectSong += PlayMusic;
-            this.uc_Playlist.PlaylistUpdated += ReloadPlaylist;
+            this.uc_Playlist.PlaylistUpdated += UpDatePlaylist;
             //slidervolume
             this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
             this.SliderVolume.LargeChange = 1;
@@ -56,6 +58,26 @@ namespace BLADE
             timerSliderMusic = new Timer();
             timerSliderMusic.Interval = 10;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
+        }
+
+        private void MediaPlayer_PlaybackStateChanged(object sender, EventArgs e)
+        {
+            if (mediaPlayer.MediaState == PlaybackState.Paused)
+            {
+                btnPlay.Show();
+                btnPause.Hide();
+            }
+            else 
+            if (mediaPlayer.MediaState == PlaybackState.Playing)
+            {
+                btnPlay.Hide();
+                btnPause.Show();
+            }
+            else
+            {
+                btnPlay.Show();
+                btnPause.Hide();
+            }
         }
 
         #region Account Actions
@@ -373,26 +395,23 @@ namespace BLADE
             btnPrev.PerformClick();
         }
 
-        
+
         #endregion
         #region Media Player
-        private void ReloadPlaylist(object sender, EventArgs e)
+        private void UpDatePlaylist(object sender, EventArgs e)
         {
-            Song song = sender as Song;            mediaPlayer.CurrentPlaylist.Add(song.SavedPath);
-        }
-        private void ReloadPlaylist()
-        {
-            mediaPlayer.CurrentPlaylist.Clear();
-            List<Song> listsong = uc_Playlist.CurrentPlaylist.List;
-            foreach (Song song in listsong)
+            Playlist playlist = sender as Playlist;            mediaPlayer.CurrentPlaylist.Clear();            for(int i = 0; i < playlist.Count; i++)
             {
-                mediaPlayer.CurrentPlaylist.Add(song.SavedPath);
+                mediaPlayer.CurrentPlaylist.Add(playlist.List[i]);
             }
+            mediaPlayer.PlayInIndex(0);
         }
+       
         private void PlayMusic(object sender, EventArgs e)
         {
-            ReloadPlaylist();
-            mediaPlayer.PlayInIndex(Convert.ToInt32(sender));
+            Song song = sender as Song;
+            mediaPlayer.AddSongToCurrentPlaylist(song);
+            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
             btnPause.Show();
             btnPlay.Hide();
         }
@@ -401,7 +420,7 @@ namespace BLADE
             sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond() * 1000;
             sliderMusic.Value = 0;
             WindowsMediaPlayer WMP = new WindowsMediaPlayer();
-            IWMPMedia src = WMP.newMedia(mediaPlayer.CurrentMedia);
+            IWMPMedia src = WMP.newMedia(mediaPlayer.CurrentMedia.SavedPath);
             string textSongName = src.getItemInfo("Name");
             if (textSongName.Length > 18)
             {
@@ -592,6 +611,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
         #endregion
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
