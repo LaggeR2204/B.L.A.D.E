@@ -16,9 +16,9 @@ namespace BLADE
     {
         private Playlist _playlist;
         public Playlist Playlist { get => _playlist; set => _playlist = value; }
-        public event EventHandler showContent;
-        public event EventHandler delPlaylist;
-        public event EventHandler addingSong;
+        public event EventHandler PlaylistShowed;
+        public event EventHandler PlaylistDeleted;
+        public event EventHandler NewSongAdded;
         public ucPlaylistView()
         {
             InitializeComponent();
@@ -39,12 +39,16 @@ namespace BLADE
             this.MouseClick += ucPlaylistView_MouseClick;
             this.lblPlaylistName.Text = _playlist.PlaylistName;
 
+            btnPlaylistMenu.MouseClick += BtnPlaylistMenu_MouseClick;
+
+            _playlist.NameChanged += setLabelName;
+
             lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
             btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
             btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
             lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
 
-            btnPlaylistMenu.MouseClick += BtnPlaylistMenu_MouseClick;
+
 
             //addSongToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
             //addSongToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
@@ -54,15 +58,15 @@ namespace BLADE
 
             //deleteToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
             //deleteToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
-            _playlist.NameChanged += setLabelName;
+
         }
         private void setLabelName(object sender, EventArgs e)
         {
             this.lblPlaylistName.Text = _playlist.PlaylistName;
         }
-        public void addSongToPlaylistControl(Song src)
+        public void AddSong(Song src)
         {
-            if (!_playlist.IsContains(src))
+            if (!_playlist.List.Contains(src))
             {
                 _playlist.AddSong(src);
             }
@@ -72,9 +76,11 @@ namespace BLADE
                 return;
             }
         }
-        public void removeSongFromPlaylistControl(Song src)
+        public void RemoveSong(Song src)
         {
-            _playlist.Remove(src);
+            if (src != null)
+                if (_playlist.List.Contains(src))
+                    _playlist.Remove(src);
         }
         private Song GetSongInfo(FileInfo file)
         {
@@ -125,8 +131,8 @@ namespace BLADE
 
         private void ucPlaylistView_MouseClick(object sender, MouseEventArgs e)
         {
-            if (showContent != null)
-                showContent(_playlist, e);
+            if (PlaylistShowed != null)
+                PlaylistShowed(_playlist, e);
         }
 
         private void AddSongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,8 +167,8 @@ namespace BLADE
                     {
                         MessageBox.Show("Day khong phai file audio");
                     }
-                    if (addingSong != null)
-                        addingSong(_playlist, e);
+                    if (NewSongAdded != null)
+                        NewSongAdded(_playlist, e);
                 }
 
             }
@@ -181,8 +187,8 @@ namespace BLADE
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (delPlaylist != null)
-                delPlaylist(this, new EventArgs());
+            if (PlaylistDeleted != null)
+                PlaylistDeleted(this, new EventArgs());
         }
         #endregion
 

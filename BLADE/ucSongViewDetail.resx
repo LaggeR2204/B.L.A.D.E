@@ -159,4 +159,16 @@
   <metadata name="ctxtmsSong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="btnSongLoveOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFPSURBVEhL7ZQ/SsRAGMW/ZFIJKv5NNlaKhegBvIBYW9h4AG2tRLyBtqI2HkAED2BnKWxtpRaC
+        CAuLNrqFijxfJh+SnZ2F3VnBxgc/ksy8+e1CZiL/8WYakmaID8gNeSH35CSFzGpFeL/MsTPySJoZTJ3X
+        nRwypJX2pEhWWChk8NDKYdZ43SVflfEfaohvKV9QXZkMssjJN7fs4BU6PIxDRlRbiONzpxBMinivtEIS
+        DrTcQjimbr2TkNxfCKZpxcXb9EwOwp0VF+FDw5kcgOhStVZ81FkIowazpVq73ZY4+OGWAmiMQUZVW4aD
+        +06pb1KYDdVVYrdddOVb0CPHauoMt95wiJzH+ZR/zKimS8oDc+gu7sJn28vqJVywyYWvjqjKU45kVev9
+        ZQoyzyN63SmNLmYgE1oLDCTih2WbwnfyzB9a15nfSfGBJ3P6+FcR+QZ+xDCNpUK4UgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
 </root>

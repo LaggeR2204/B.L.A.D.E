@@ -29,29 +29,45 @@ namespace BLADE
         private void Init()
         {
             _default = new ucPlaylistView(new Playlist("Default"));
-            _default.showContent += ShowPlaylist;
-            _default.delPlaylist += DeletePlaylist;
-            _default.addingSong += AddingSongHandler;
+            _default.PlaylistShowed += ucPlaylistView_showContent;
+            _default.PlaylistDeleted += DeletePlaylist;
+            _default.NewSongAdded += AddingSongHandler;
             _default.RemoveChooseItem();
 
             _favorites = new ucPlaylistView(new Playlist("Favorites"));
-            _favorites.showContent += ShowPlaylist;
-            _favorites.delPlaylist += DeletePlaylist;
-            _favorites.addingSong += AddingSongHandler;
+            _favorites.PlaylistShowed += ucPlaylistView_showContent;
+            _favorites.PlaylistDeleted += DeletePlaylist;
+            _favorites.NewSongAdded += AddingSongHandler;
             _favorites.RemoveChooseItem();
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
 
             choosingPlaylist = _default.Playlist;
             
         }
-        public void addSongToPlaylistView(Song song)
+        public void ShowSongOnListArea(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
             songView.SelectedSong += SelectedSongHandler;
             songView.DeletedSong += deleteSong;
-            songView.FavoriteChanged += FavoriteChangedHandler;
+            songView.FavoriteStateChanged += SongView_FavoriteStateChanged;
             this.fpnlSongView.Controls.Add(songView);
         }
+
+        private void SongView_FavoriteStateChanged(object sender, EventArgs e)
+        {
+            ucSongViewDetail src = sender as ucSongViewDetail;
+           // src.ChangedIconFavoriteState(src.Song.IsFavorite);
+            if (src.Song.IsFavorite)
+            {
+                _favorites.AddSong(src.Song);
+            }
+            else
+            {
+                _favorites.RemoveSong(src.Song);
+            }
+           
+        }
+
         private void clearSongViewList()
         {
             fpnlSongView.Controls.Clear();
@@ -59,29 +75,31 @@ namespace BLADE
         private void ShowPlaylistInfo(Playlist src)
         {
             ucPlaylistView temp = new ucPlaylistView(src);
-            temp.showContent += ShowPlaylist;
-            temp.delPlaylist += DeletePlaylist;
-            temp.addingSong += AddingSongHandler;
+            temp.PlaylistShowed += ucPlaylistView_showContent;
+            temp.PlaylistDeleted += DeletePlaylist;
+            temp.NewSongAdded += AddingSongHandler;
             fpnlPlaylistView.Controls.Add(temp);
+        }
+
+        private void ucPlaylistView_showContent(object sender, EventArgs e)
+        {
+            Playlist pl = sender as Playlist;
+            if (choosingPlaylist != pl)
+            {
+                clearSongViewList();
+                foreach (Song song in pl.List)
+                {
+                    ShowSongOnListArea(song);
+                }
+                choosingPlaylist = pl;
+            }
         }
         #region Event Handler
         private void AddingSongHandler(object sender, EventArgs e)
         {
             Playlist temp = sender as Playlist;
             if (temp == choosingPlaylist)
-                addSongToPlaylistView(temp.List[temp.List.Count - 1]);
-        }
-        private void FavoriteChangedHandler(object sender, EventArgs e)
-        {
-            Song src = sender as Song;
-            if (src.IsFavorite)
-            {
-                _favorites.addSongToPlaylistControl(src);
-            }
-            else
-            {
-                _favorites.removeSongFromPlaylistControl(src);
-            }
+                ShowSongOnListArea(temp.List[temp.List.Count - 1]);
         }
         private void DeletePlaylist(object sender, EventArgs e)
         {
@@ -118,20 +136,7 @@ namespace BLADE
                 ShowPlaylistInfo(pl1);
             }
         }
-        private void ShowPlaylist(object sender, EventArgs e)
-        {
-            Playlist pl = sender as Playlist;
-            if (choosingPlaylist != pl)
-            {
-                clearSongViewList();
-                List<Song> list = pl.List;
-                foreach (Song song in list)
-                {
-                    addSongToPlaylistView(song);
-                }
-                choosingPlaylist = pl;
-            }
-        }
+       
         private void deleteSong(object sender, EventArgs e)
         {
             ucSongViewDetail src = sender as ucSongViewDetail;

@@ -22,6 +22,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
+            timerChangeColorBLADE.Enabled = false;
+            timerTime.Enabled = false;
         }
         private void Init()
         {            mediaPlayer = new MediaPlayer();

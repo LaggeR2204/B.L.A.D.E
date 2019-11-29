@@ -20,7 +20,7 @@ namespace BLADE
         }
         public event EventHandler SelectedSong;
         public event EventHandler DeletedSong;
-        public event EventHandler FavoriteChanged;
+        public event EventHandler FavoriteStateChanged;
         public ucSongViewDetail()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace BLADE
         public ucSongViewDetail(Song src)
         {
             InitializeComponent();
-            _song = new Song(src);
+            _song = src;
             lblSongNameSVD.Text = _song.SongName;
             lblTimeSVD.Text = _song.SongTime;
             lblCategorySVD.Text = _song.Genre;
@@ -43,6 +43,9 @@ namespace BLADE
 
         private void Init()
         {
+            btnSongLove.Show();
+            btnSongLoveOff.Hide();
+
             lblSongNameSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
             lblTimeSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
             lblCategorySVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
@@ -66,7 +69,11 @@ namespace BLADE
             lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
             lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
             lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+
+            ChangedIconFavoriteState(_song.IsFavorite);
         }
+
+       
 
         #region EVENTHANDLER
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
@@ -103,14 +110,34 @@ namespace BLADE
                 DeletedSong(this, new EventArgs());
             }
         }
-
+        private void btnSongLoveOff_Click(object sender, EventArgs e)
+        {
+            _song.IsFavorite = false;
+            ChangedIconFavoriteState(_song.IsFavorite);
+            if (FavoriteStateChanged != null)
+                FavoriteStateChanged(this, new EventArgs());
+        }
         private void BtnSongLove_Click(object sender, EventArgs e)
         {
-            Song.IsFavorite = !Song.IsFavorite;
-            if (FavoriteChanged!= null)
+            _song.IsFavorite = true;
+            ChangedIconFavoriteState(_song.IsFavorite);
+            if (FavoriteStateChanged != null)
+                FavoriteStateChanged(this, new EventArgs());
+        }
+        public void ChangedIconFavoriteState(bool love)
+        {
+            if (love)
             {
-                FavoriteChanged(this.Song, new EventArgs());
+                btnSongLoveOff.Show();
+                btnSongLove.Hide();
+            }
+            else
+            {
+                btnSongLove.Show();
+                btnSongLoveOff.Hide();
             }
         }
+
+       
     }
 }

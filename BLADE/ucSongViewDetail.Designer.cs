@@ -40,6 +40,7 @@
             this.lblTimeSVD = new System.Windows.Forms.Label();
             this.ctxtmsSong = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSongLoveOff = new System.Windows.Forms.Button();
             this.ctxtmsSong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,22 +146,35 @@
             this.ctxtmsSong.Name = "ctxtmsSong";
             this.ctxtmsSong.ShowImageMargin = false;
             this.ctxtmsSong.ShowItemToolTips = false;
-            this.ctxtmsSong.Size = new System.Drawing.Size(186, 58);
+            this.ctxtmsSong.Size = new System.Drawing.Size(169, 30);
             // 
             // deleteSongToolStripMenuItem
             // 
             this.deleteSongToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteSongToolStripMenuItem.Name = "deleteSongToolStripMenuItem";
-            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteSongToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.deleteSongToolStripMenuItem.Text = "Remove Song";
             this.deleteSongToolStripMenuItem.Click += new System.EventHandler(this.DeleteSongToolStripMenuItem_Click);
+            // 
+            // btnSongLoveOff
+            // 
+            this.btnSongLoveOff.FlatAppearance.BorderSize = 0;
+            this.btnSongLoveOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongLoveOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLoveOff.Image")));
+            this.btnSongLoveOff.Location = new System.Drawing.Point(40, 0);
+            this.btnSongLoveOff.Name = "btnSongLoveOff";
+            this.btnSongLoveOff.Size = new System.Drawing.Size(40, 40);
+            this.btnSongLoveOff.TabIndex = 2;
+            this.btnSongLoveOff.UseVisualStyleBackColor = true;
+            this.btnSongLoveOff.Click += new System.EventHandler(this.btnSongLoveOff_Click);
             // 
             // ucSongViewDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.btnSongLoveOff);
             this.Controls.Add(this.lblTimeSVD);
             this.Controls.Add(this.lblCategorySVD);
             this.Controls.Add(this.lblArtistSVD);
@@ -194,5 +208,6 @@
         private System.Windows.Forms.Label lblTimeSVD;
         private System.Windows.Forms.ContextMenuStrip ctxtmsSong;
         private System.Windows.Forms.ToolStripMenuItem deleteSongToolStripMenuItem;
+        private System.Windows.Forms.Button btnSongLoveOff;
     }
 }
