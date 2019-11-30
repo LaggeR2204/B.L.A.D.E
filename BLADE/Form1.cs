@@ -277,8 +277,36 @@ namespace BLADE
             uc_Playlist.Hide();
             uc_Search.Hide();
             uc_Home.Hide();
+            uc_Queue.Hide();
+            uc_MusicCutter.Show();
+            uc_MusicCutter.BringToFront();
             lblTextBLADE.Show();
         }
+
+        private bool isShowQueue = false;
+        private void btnQueue_Click(object sender, EventArgs e)
+        {
+            if (!isCollapsed)
+            {
+                btnTimer.PerformClick();
+            }
+            //set vi tri cho pnlSelectedButton
+            pnlSelectedButton.Hide();
+            //cho user control ohu hop xuat hien
+            if (!isShowQueue)
+            {
+                uc_Queue.Show();
+                uc_Queue.BringToFront();
+                isShowQueue = true;
+            }
+            else
+            {
+                uc_Queue.Hide();
+                uc_Queue.SendToBack();
+                isShowQueue = false;
+            }
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             if (!isCollapsed)
@@ -293,6 +321,8 @@ namespace BLADE
             uc_Info.Hide();
             uc_Playlist.Hide();
             uc_Search.Hide();
+            uc_MusicCutter.Hide();
+            uc_Queue.Hide();
             lblTextBLADE.Show();
             uc_Home.Show();
             uc_Home.BringToFront();
@@ -311,7 +341,9 @@ namespace BLADE
             //cho user control ohu hop xuat hien
             uc_Info.Hide();
             uc_Home.Hide();
+            uc_Queue.Hide();
             uc_Search.Hide();
+            uc_MusicCutter.Hide();
             lblTextBLADE.Show();
             uc_Playlist.Show();
             uc_Playlist.BringToFront();
@@ -331,6 +363,8 @@ namespace BLADE
             uc_Playlist.Hide();
             uc_Home.Hide();
             uc_Search.Hide();
+            uc_Queue.Hide();
+            uc_MusicCutter.Hide();
             lblTextBLADE.Hide();
             uc_Info.Show();
             uc_Info.BringToFront();
@@ -348,8 +382,10 @@ namespace BLADE
             uc_Playlist.Hide();
             uc_Home.Hide();
             uc_Info.Hide();
+            uc_MusicCutter.Hide();
             lblTextBLADE.Show();
             uc_Search.Show();
+            uc_Queue.Hide();
             uc_Search.BringToFront();
             uc_Search.fpnlSearchSongView.Controls.Clear();
             uc_Search.pnlSearchTitle.Hide();

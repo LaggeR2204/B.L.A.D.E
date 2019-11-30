@@ -48,9 +48,9 @@
             this.txtTimeStart.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtTimeStart.Location = new System.Drawing.Point(194, 494);
             this.txtTimeStart.Name = "txtTimeStart";
-            this.txtTimeStart.Size = new System.Drawing.Size(160, 32);
+            this.txtTimeStart.Size = new System.Drawing.Size(160, 27);
             this.txtTimeStart.TabIndex = 0;
-            this.txtTimeStart.Text = "TimeStart";
+            this.txtTimeStart.Text = "00:00:00";
             this.txtTimeStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTimeEnd
@@ -61,9 +61,9 @@
             this.txtTimeEnd.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtTimeEnd.Location = new System.Drawing.Point(429, 494);
             this.txtTimeEnd.Name = "txtTimeEnd";
-            this.txtTimeEnd.Size = new System.Drawing.Size(160, 32);
+            this.txtTimeEnd.Size = new System.Drawing.Size(160, 27);
             this.txtTimeEnd.TabIndex = 0;
-            this.txtTimeEnd.Text = "TimeEnd";
+            this.txtTimeEnd.Text = "00:00:00";
             this.txtTimeEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTextTo
@@ -72,7 +72,7 @@
             this.lblTextTo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextTo.Location = new System.Drawing.Point(378, 496);
             this.lblTextTo.Name = "lblTextTo";
-            this.lblTextTo.Size = new System.Drawing.Size(30, 23);
+            this.lblTextTo.Size = new System.Drawing.Size(27, 21);
             this.lblTextTo.TabIndex = 1;
             this.lblTextTo.Text = "to";
             // 
@@ -80,9 +80,9 @@
             // 
             this.lblTextCut.AutoSize = true;
             this.lblTextCut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextCut.Location = new System.Drawing.Point(320, 435);
+            this.lblTextCut.Location = new System.Drawing.Point(335, 435);
             this.lblTextCut.Name = "lblTextCut";
-            this.lblTextCut.Size = new System.Drawing.Size(145, 23);
+            this.lblTextCut.Size = new System.Drawing.Size(117, 21);
             this.lblTextCut.TabIndex = 1;
             this.lblTextCut.Text = "Cut from, sec:";
             // 
@@ -131,7 +131,7 @@
             // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnSave);

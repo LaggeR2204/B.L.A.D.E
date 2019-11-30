@@ -169,6 +169,12 @@
     <Compile Include="ucPlaylistView.Designer.cs">
       <DependentUpon>ucPlaylistView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQueue.Designer.cs">
+      <DependentUpon>ucQueue.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPlaylistView.resx">
       <DependentUpon>ucPlaylistView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucQueue.resx">
+      <DependentUpon>ucQueue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucSearch.resx">
       <DependentUpon>ucSearch.cs</DependentUpon>

@@ -117,43 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPlay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAUpJREFUSEvt
-        lrFKA0EURVckgjYhKHZiI6QVrCysLQQr/QU/wMbCxk4rIaW/kNYyYGXhB9hpp4XaiYig6Hqe3AHByWZ2
-        ZhZT5MBpsu/dC8vubIoJ/0ZZli18wEfc1M/NQ9k8/uYKN3S5OSjp/NT95RxXNJYfwocVG+94hosazweh
-        VcWOFzzCWa2lQ1hIseMO93Ba6/EQUqfYcY1bioiDgJhixwBXFVUPFlOKjU/s47Iiw2AhtdjxiifYVnQ1
-        DOYqdtzjPs6owg8DuYsdx6rww0ATxXbbt1Xhh4Gcxc94gHOKHw5DOYo/sIcLih0Nw6nF9ip1FRcOS7HF
-        l7iumPqwXLf4FndxShFxEBBa/IT2gWhpNQ2CRhW/oZ1IHa3kwQIt3YOdwfYnYEmjeSHYV3yBaxppBgqs
-        +Mva4AZ3MO3BCYWiQzzF6oN9wvhTFN/+LgKizYxJpAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAASFJREFUSEvt
-        lDFKA2EQRleSQgIWYhDRQmJsktbaIwheQSw8gFiIpW0gYGefE6TICVIIhhQWgo2HUOzE9f3/fLCsuxGE
-        nVUwD16RmWFfCEmSJb9GmqYruP7FNa19IHCCL1jGPXZ0Wh08tIGvofANc+zi3g/cUaIcDtroxQPuKpWH
-        hWc4MFQqD4sN27sxUioPi5bt3VgYXsWZo9dK/QF4N03s4YGzW0oaDMZYB+94pGwMv8VxPWQ/K15MbFYL
-        x8rG8JnN3AmfbEvZGN7Gj7BxZqxkBsM727lyqlwGw0vbuRG+0ZvKZTDsx7UfU6WKsHyyGxculCnCcmA3
-        LuwrU4Tlod1UzqMS5XAQ/rOf42m1XCmxGI46eIO3FXmODT1+yb8hST4BQ1HTgOk140AAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAARxJREFUSEvt
-        kD9OAkEUhxewMUDUG3gDChIuQEFCQmJjQW9jSDyGnb0cgNB4AxsTwwHoaTC2FkpBsBm+mXnyZ2F1ZjIJ
-        JuyXfMXb93v7y26Sc1CUUgW8EM/k8Q7siljFU5lPUN9UTMAHjm5whj9MZbUDu4aNqFeZm3ZUc2yZkAuE
-        S7hZqgkp1riXE9S/LU1osWaBVyb8G4RiF2v+/nICvsU1fMMnmfcVa4bmIAsCXsVpyEYt/sYO1h18xH0E
-        FccgL96GwL8rnuCzgy/4hWmCiu9k7QT5cxyZyzXexZ9YkLUz3HTN9Rrv4ndZecFd256vyIu3IXB8xWWb
-        W/GB1wHe4yYDqciG0Nhmo3Irr8+G0CU+YD+SPSzJ63OOhiRZAgAYfLbD50y+AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>40</value>
-  </metadata>
 </root>
