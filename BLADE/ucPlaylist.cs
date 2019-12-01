@@ -32,12 +32,14 @@ namespace BLADE
             _default.PlaylistShowed += ucPlaylistView_showContent;
             _default.PlaylistDeleted += DeletePlaylist;
             _default.NewSongAdded += AddingSongHandler;
+            _default.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
             _default.RemoveChooseItem();
 
             _favorites = new ucPlaylistView(new Playlist("Favorites"));
             _favorites.PlaylistShowed += ucPlaylistView_showContent;
             _favorites.PlaylistDeleted += DeletePlaylist;
             _favorites.NewSongAdded += AddingSongHandler;
+            _favorites.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
             _favorites.RemoveChooseItem();
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
 
@@ -52,22 +54,6 @@ namespace BLADE
             songView.FavoriteStateChanged += SongView_FavoriteStateChanged;
             this.fpnlSongView.Controls.Add(songView);
         }
-
-        private void SongView_FavoriteStateChanged(object sender, EventArgs e)
-        {
-            ucSongViewDetail src = sender as ucSongViewDetail;
-           // src.ChangedIconFavoriteState(src.Song.IsFavorite);
-            if (src.Song.IsFavorite)
-            {
-                _favorites.AddSong(src.Song);
-            }
-            else
-            {
-                _favorites.RemoveSong(src.Song);
-            }
-           
-        }
-
         private void clearSongViewList()
         {
             fpnlSongView.Controls.Clear();
@@ -78,9 +64,33 @@ namespace BLADE
             temp.PlaylistShowed += ucPlaylistView_showContent;
             temp.PlaylistDeleted += DeletePlaylist;
             temp.NewSongAdded += AddingSongHandler;
+            temp.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
             fpnlPlaylistView.Controls.Add(temp);
         }
 
+        #region Event Handler
+        private void ucPlaylistView_AllMusicPlayed(object sender, EventArgs e)
+        {
+            Playlist src = sender as Playlist;
+            if (this.PlaylistUpdated != null)
+                PlaylistUpdated(src, new EventArgs());
+        }
+        private void SongView_FavoriteStateChanged(object sender, EventArgs e)
+        {
+            ucSongViewDetail src = sender as ucSongViewDetail;
+            // src.ChangedIconFavoriteState(src.Song.IsFavorite);
+            if (src.Song.IsFavorite)
+            {
+                _favorites.AddSong(src.Song);
+            }
+            else
+            {
+                if (this.choosingPlaylist == _favorites.Playlist)
+                    fpnlSongView.Controls.Remove(src);
+                _favorites.RemoveSong(src.Song);
+            }
+
+        }
         private void ucPlaylistView_showContent(object sender, EventArgs e)
         {
             Playlist pl = sender as Playlist;
@@ -94,7 +104,6 @@ namespace BLADE
                 choosingPlaylist = pl;
             }
         }
-        #region Event Handler
         private void AddingSongHandler(object sender, EventArgs e)
         {
             Playlist temp = sender as Playlist;
@@ -140,16 +149,12 @@ namespace BLADE
         private void deleteSong(object sender, EventArgs e)
         {
             ucSongViewDetail src = sender as ucSongViewDetail;
+            if (this.choosingPlaylist == _favorites.Playlist)
+                src.Song.IsFavorite = false;
+            this.choosingPlaylist.Remove(src.Song);
             fpnlSongView.Controls.Remove(src);
             src.Dispose();
         }
         #endregion
-
-        private void btnAddPlaylistToPlayback_Click(object sender, EventArgs e)
-        {
-            if (this.PlaylistUpdated != null)
-                PlaylistUpdated(this.ChoosingPlaylist, new EventArgs());
-
-        }
     }
 }

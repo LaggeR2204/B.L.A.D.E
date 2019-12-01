@@ -19,6 +19,7 @@ namespace BLADE
         public event EventHandler PlaylistShowed;
         public event EventHandler PlaylistDeleted;
         public event EventHandler NewSongAdded;
+        public event EventHandler AllMusicPlayed;
         public ucPlaylistView()
         {
             InitializeComponent();
@@ -60,10 +61,6 @@ namespace BLADE
             //deleteToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
 
         }
-        private void setLabelName(object sender, EventArgs e)
-        {
-            this.lblPlaylistName.Text = _playlist.PlaylistName;
-        }
         public void AddSong(Song src)
         {
             if (!_playlist.List.Contains(src))
@@ -95,9 +92,26 @@ namespace BLADE
             //song.SongImage = getImage(file.FullName);
             return song;
         }
-
+        public void RemoveChooseItem()
+        {
+            ctxtmsPlaylist.Items.RemoveAt(3);
+            ctxtmsPlaylist.Items.RemoveAt(2);
+        }
         #region EVENTHANDLER
-
+        private void setLabelName(object sender, EventArgs e)
+        {
+            this.lblPlaylistName.Text = _playlist.PlaylistName;
+        }
+        private void playAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(_playlist.Count == 0)
+            {
+                MessageBox.Show("This playlist is empty");
+                return;
+            }
+            if (this.AllMusicPlayed != null)
+                AllMusicPlayed(_playlist, new EventArgs());
+        }
         //private void ToolStripMenuItem_Hover (object sender, EventArgs e)
         //{
         //    ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -116,14 +130,12 @@ namespace BLADE
             //btnPlaylistMenu.Show();
             lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
         }
-
         private void ucPlaylistView_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(40, 40, 40);
             //btnPlaylistMenu.Hide();
             lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
         }
-
         private void BtnPlaylistMenu_MouseClick(object sender, MouseEventArgs e)
         {
             ctxtmsPlaylist.Show(btnPlaylistMenu, 0, btnPlaylistMenu.Height);
@@ -192,10 +204,6 @@ namespace BLADE
         }
         #endregion
 
-        public void RemoveChooseItem()
-        {
-            ctxtmsPlaylist.Items.RemoveAt(2);
-            ctxtmsPlaylist.Items.RemoveAt(1);
-        }
+      
     }
 }

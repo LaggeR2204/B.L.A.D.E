@@ -36,6 +36,7 @@
             this.addSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxtmsPlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,12 +71,13 @@
             this.ctxtmsPlaylist.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ctxtmsPlaylist.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addSongToolStripMenuItem,
+            this.playAllToolStripMenuItem,
             this.renameToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.ctxtmsPlaylist.Name = "ctxtmsPlaylist";
             this.ctxtmsPlaylist.ShowImageMargin = false;
             this.ctxtmsPlaylist.ShowItemToolTips = false;
-            this.ctxtmsPlaylist.Size = new System.Drawing.Size(186, 110);
+            this.ctxtmsPlaylist.Size = new System.Drawing.Size(186, 136);
             // 
             // addSongToolStripMenuItem
             // 
@@ -100,6 +102,14 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
+            // playAllToolStripMenuItem
+            // 
+            this.playAllToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.playAllToolStripMenuItem.Name = "playAllToolStripMenuItem";
+            this.playAllToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.playAllToolStripMenuItem.Text = "Play All";
+            this.playAllToolStripMenuItem.Click += new System.EventHandler(this.playAllToolStripMenuItem_Click);
             // 
             // ucPlaylistView
             // 
@@ -129,5 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem addSongToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playAllToolStripMenuItem;
     }
 }

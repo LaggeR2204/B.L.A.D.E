@@ -39,7 +39,6 @@
             this.btnAddPlaylist = new System.Windows.Forms.Button();
             this.fpnlSongView = new System.Windows.Forms.FlowLayoutPanel();
             this.fpnlPlaylistView = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAddPlaylistToPlayback = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +61,6 @@
             // 
             this.pnlTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTitle.Controls.Add(this.btnAddPlaylistToPlayback);
             this.pnlTitle.Controls.Add(this.lblTimeColumn);
             this.pnlTitle.Controls.Add(this.lblCategoryColumn);
             this.pnlTitle.Controls.Add(this.lblArtistColumn);
@@ -156,19 +154,6 @@
             this.fpnlPlaylistView.Size = new System.Drawing.Size(161, 519);
             this.fpnlPlaylistView.TabIndex = 0;
             // 
-            // btnAddPlaylistToPlayback
-            // 
-            this.btnAddPlaylistToPlayback.FlatAppearance.BorderSize = 0;
-            this.btnAddPlaylistToPlayback.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnAddPlaylistToPlayback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPlaylistToPlayback.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPlaylistToPlayback.Image")));
-            this.btnAddPlaylistToPlayback.Location = new System.Drawing.Point(3, 2);
-            this.btnAddPlaylistToPlayback.Name = "btnAddPlaylistToPlayback";
-            this.btnAddPlaylistToPlayback.Size = new System.Drawing.Size(38, 38);
-            this.btnAddPlaylistToPlayback.TabIndex = 6;
-            this.btnAddPlaylistToPlayback.UseVisualStyleBackColor = true;
-            this.btnAddPlaylistToPlayback.Click += new System.EventHandler(this.btnAddPlaylistToPlayback_Click);
-            // 
             // ucPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -204,6 +189,5 @@
         private System.Windows.Forms.Button btnAddPlaylist;
         private System.Windows.Forms.FlowLayoutPanel fpnlSongView;
         private System.Windows.Forms.FlowLayoutPanel fpnlPlaylistView;
-        private System.Windows.Forms.Button btnAddPlaylistToPlayback;
     }
 }

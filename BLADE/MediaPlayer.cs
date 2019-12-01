@@ -20,9 +20,9 @@ namespace BLADE
         public event EventHandler MediaEnded;
         public event EventHandler MediaChanged;
         public event EventHandler PlaybackStateChanged;
-        public PlaybackState MediaState 
+        public PlaybackState MediaState
         {
-            get => _playbackState; 
+            get => _playbackState;
             set
             {
                 if (_playbackState != value)
@@ -81,7 +81,7 @@ namespace BLADE
                     outputSound.Play();
                     MediaState = PlaybackState.Playing;
                 }
-                  
+
         }
         public void Pause()
         {
@@ -93,7 +93,7 @@ namespace BLADE
                     outputSound.Pause();
                     MediaState = PlaybackState.Paused;
                 }
-                  
+
         }
         public void Stop()
         {
@@ -174,16 +174,20 @@ namespace BLADE
         public void PlayInIndex(int src)
         {
             DisposeAudio();
-            _curMedia = _curPlaylist[src];
-            audioReader = new MediaFoundationReader(_curMedia.SavedPath);
-            outputSound = new DirectSoundOut();
-            waveChanel = new WaveChannel32(audioReader);
-            outputSound.Init(waveChanel);
-            outputSound.Play();
-            if (MediaChanged != null)
-                MediaChanged(this, new EventArgs());
-            _timer.Start();
-            MediaState = PlaybackState.Playing;
+            if (_curPlaylist != null)
+                if (src < _curPlaylist.Count)
+                {
+                    _curMedia = _curPlaylist[src];
+                    audioReader = new MediaFoundationReader(_curMedia.SavedPath);
+                    outputSound = new DirectSoundOut();
+                    waveChanel = new WaveChannel32(audioReader);
+                    outputSound.Init(waveChanel);
+                    outputSound.Play();
+                    if (MediaChanged != null)
+                        MediaChanged(this, new EventArgs());
+                    _timer.Start();
+                    MediaState = PlaybackState.Playing;
+                }
         }
         public double GetDurationInSecond()
         {

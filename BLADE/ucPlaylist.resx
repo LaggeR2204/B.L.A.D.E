@@ -118,17 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAddPlaylistToPlayback.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAEkSURBVFhH7ZRNasMwEIXd7PsDJYvmujlGb9RNoV00PY36PenJyODYEnZoC/rgEc+b0Wgs2xk6
-        nc6/IYTwjN7RZtyyHtbstrlw2zqof0FfcWUIb+jJqWZSi4YBqN1tc5HaVA5AXXnsH+joVIT4Dt07HJnz
-        MuQiDq9DzeKdEx/QK/pGJ9vyT/aUO9gewYs4nIf84p0LvEf0qQKINZauhX4fXD6SUgsDkFvdPKMcKoco
-        N59dl9JXBsCv3jyjGpSHEGtDRxxOwdfzu8SK3xhAkKseQjm03yPIkF8dAu82L2GGmrLZ5FPL4J3R5BPV
-        tb2zrQn4EYfLULd4EsS3+yPKULt6Ei2kNg0DCOp3GyK1aBxAsKZ8HJtx2zZYV57EJtyy0+n8BYbhBxbz
-        iZvHMEuQAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btnAddPlaylist.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAfJJREFUSEvF
