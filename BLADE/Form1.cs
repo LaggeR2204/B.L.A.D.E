@@ -457,9 +457,30 @@ namespace BLADE
         {
             sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond() * 1000;
             sliderMusic.Value = 0;
-            WindowsMediaPlayer WMP = new WindowsMediaPlayer();
-            IWMPMedia src = WMP.newMedia(mediaPlayer.CurrentMedia.SavedPath);
-            string textSongName = src.getItemInfo("Name");
+            //WindowsMediaPlayer WMP = new WindowsMediaPlayer();
+            //IWMPMedia src = WMP.newMedia(mediaPlayer.CurrentMedia.SavedPath);
+            //string textSongName = src.getItemInfo("Name");
+            //if (textSongName.Length > 18)
+            //{
+            //    lblSongName.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
+            //}
+            //else
+            //{
+            //    lblSongName.Text = textSongName;
+            //}
+            //string textAuthor = src.getItemInfo("Author");
+            //if (textAuthor.Length > 21)
+            //{
+            //    lblArtistName.Text = textAuthor.Remove(21, textAuthor.Length - 21).Insert(21, "...");
+            //}
+            //else
+            //{
+            //    lblArtistName.Text = textAuthor;
+            //}
+            //lblDurationLimit.Text = TimeSpan.FromSeconds(mediaPlayer.GetDurationInSecond()).ToString("mm':'ss");
+           
+            string textSongName = mediaPlayer.CurrentMedia.SongName;
+            string textAuthor = mediaPlayer.CurrentMedia.Singer;
             if (textSongName.Length > 18)
             {
                 lblSongName.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
@@ -468,7 +489,6 @@ namespace BLADE
             {
                 lblSongName.Text = textSongName;
             }
-            string textAuthor = src.getItemInfo("Author");
             if (textAuthor.Length > 21)
             {
                 lblArtistName.Text = textAuthor.Remove(21, textAuthor.Length - 21).Insert(21, "...");
@@ -477,7 +497,8 @@ namespace BLADE
             {
                 lblArtistName.Text = textAuthor;
             }
-            lblDurationLimit.Text = TimeSpan.FromSeconds(mediaPlayer.GetDurationInSecond()).ToString("mm':'ss");
+            lblDurationLimit.Text = mediaPlayer.CurrentMedia.SongTime;
+
             timerSliderMusic.Start();
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
