@@ -663,5 +663,10 @@ namespace BLADE
         }
 
         #endregion
+
+        private void txtSecond_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

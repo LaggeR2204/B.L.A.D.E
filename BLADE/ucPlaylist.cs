@@ -151,5 +151,6 @@ namespace BLADE
                 PlaylistUpdated(this.ChoosingPlaylist, new EventArgs());
 
         }
+
     }
 }

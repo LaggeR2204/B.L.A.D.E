@@ -46,7 +46,7 @@
             this.lblPlaylistName.Location = new System.Drawing.Point(3, 12);
             this.lblPlaylistName.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblPlaylistName.Name = "lblPlaylistName";
-            this.lblPlaylistName.Size = new System.Drawing.Size(119, 17);
+            this.lblPlaylistName.Size = new System.Drawing.Size(94, 17);
             this.lblPlaylistName.TabIndex = 2;
             this.lblPlaylistName.Text = "Playlist Name";
             this.lblPlaylistName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,13 +75,13 @@
             this.ctxtmsPlaylist.Name = "ctxtmsPlaylist";
             this.ctxtmsPlaylist.ShowImageMargin = false;
             this.ctxtmsPlaylist.ShowItemToolTips = false;
-            this.ctxtmsPlaylist.Size = new System.Drawing.Size(186, 110);
+            this.ctxtmsPlaylist.Size = new System.Drawing.Size(119, 76);
             // 
             // addSongToolStripMenuItem
             // 
             this.addSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
-            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.addSongToolStripMenuItem.Text = "Add song";
             this.addSongToolStripMenuItem.Click += new System.EventHandler(this.AddSongToolStripMenuItem_Click);
             // 
@@ -89,7 +89,7 @@
             // 
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
             // 
@@ -97,13 +97,13 @@
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // ucPlaylistView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnPlaylistMenu);

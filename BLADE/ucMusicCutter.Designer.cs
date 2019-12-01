@@ -38,6 +38,8 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblSongName = new System.Windows.Forms.Label();
+            this.waveViewer1 = new NAudio.Gui.WaveViewer();
+            this.lblDurationLimit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtTimeStart
@@ -107,6 +109,7 @@
             this.btnOpen.Size = new System.Drawing.Size(40, 40);
             this.btnOpen.TabIndex = 2;
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnSave
             // 
@@ -118,6 +121,7 @@
             this.btnSave.Size = new System.Drawing.Size(40, 40);
             this.btnSave.TabIndex = 2;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblSongName
             // 
@@ -129,11 +133,34 @@
             this.lblSongName.Text = "SongName";
             this.lblSongName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // waveViewer1
+            // 
+            this.waveViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.waveViewer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.waveViewer1.Location = new System.Drawing.Point(56, 137);
+            this.waveViewer1.Name = "waveViewer1";
+            this.waveViewer1.SamplesPerPixel = 128;
+            this.waveViewer1.Size = new System.Drawing.Size(672, 150);
+            this.waveViewer1.StartPosition = ((long)(0));
+            this.waveViewer1.TabIndex = 3;
+            this.waveViewer1.WaveStream = null;
+            // 
+            // lblDurationLimit
+            // 
+            this.lblDurationLimit.AutoSize = true;
+            this.lblDurationLimit.Location = new System.Drawing.Point(639, 299);
+            this.lblDurationLimit.Name = "lblDurationLimit";
+            this.lblDurationLimit.Size = new System.Drawing.Size(89, 16);
+            this.lblDurationLimit.TabIndex = 4;
+            this.lblDurationLimit.Text = "lblDurationLimit";
+            // 
             // ucMusicCutter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.lblDurationLimit);
+            this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnPlay);
@@ -162,5 +189,7 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblSongName;
+        private NAudio.Gui.WaveViewer waveViewer1;
+        private System.Windows.Forms.Label lblDurationLimit;
     }
 }
