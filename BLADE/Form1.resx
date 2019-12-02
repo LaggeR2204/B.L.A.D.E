@@ -135,13 +135,13 @@
   </data>
   <data name="btnQueue.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAUdJREFUSEvt
-        krEvBEEUh5cTl8uGSDTCKahUQpQaElFJjkuUKqE6nUSjU9CKXoVCofEHiP9Br6K6SqJR3PrezDu32R03
-        4/ZC40u+Ymbe/N7OzkT//ApJkgzhEjbwCh+wossWJmJcxTWPy1jSPTV8xHfMMmWC2zBxZueD2NI9TTt0
-        kmswjq4vziqnLOue7/jAURNcBJv1xTNe4wHOaUkHJuUEddz2uIHpE9zhhAnpBkW93IFwYQJ8UCivSJ6a
-        zwVsvyIhrEEv/KgBhZO4i/sedzDWPUJwg1NbH8Sm7hGCG5TR9c+zzuMAllDo7x0QKMEreCPpEHyCaTzE
-        I4czWrOHr5gmuMGJrc/xhvL71s0oz7lGdIfCQZx1WNX1S3RxbAKKQtC9zcthXlRhCJL7yfKCw1pSDIIq
-        eIstFJ5wUZf7B6EjOKbDvyaKPgH33jbw1bVK6QAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAElSURBVEhL7ZWxSgNREEUXgo0EbBPQKgQ/wEJIk8bKJpW9dSws7cTSX7AXG+38AUuxEaws0lpY
+        SAgEBEHWM7PXoLtv3yaLQoocOGR2350ZCOQlWbEQaZo2VVrdw72Yylnd86YqCL7hMTawhRf4iUHUc5Y9
+        pU94hBs+LITHMh6xr3dd3Amp8+8FD/qc4padFcjOZ7xgV0elkPEFqm3xqR+EsCC8ozWt4xoO8TykemYL
+        KiF3ix3VBzjCUpSbf0EdlmsBubtFVM8SLajDvyxg3j5eyUuc+yuK8Yr2uzj0pxwaEYfcScSBMs9YwAf8
+        BcwaZyN/MdFxHIKFK/mHu8rcYJ5rH1CFwmV84Da28d5eCKtbGhGHYOFKzrmpnP1f2DVuNrx5RT2S5AtH
+        y84L6YF1bgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnNext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -283,7 +283,7 @@
 </value>
   </data>
   <metadata name="menuUser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1000, 17</value>
+    <value>156, 56</value>
   </metadata>
   <data name="txtSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -495,10 +495,10 @@
     <value>542, 17</value>
   </metadata>
   <metadata name="notifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>755, 17</value>
+    <value>905, 17</value>
   </metadata>
   <metadata name="menuNofityIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>861, 17</value>
+    <value>17, 56</value>
   </metadata>
   <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -595,6 +595,9 @@
         ///8D////D////x/////////////////////////
 </value>
   </data>
+  <metadata name="UcDropdownTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>755, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>56</value>
   </metadata>

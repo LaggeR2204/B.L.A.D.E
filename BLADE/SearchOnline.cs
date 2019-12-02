@@ -16,7 +16,7 @@ namespace BLADE
 {
     class SearchOnline
     {
-        
+
         const string sSave = @"D:\\Music\\";
         HttpClient httpClient;
         HttpClientHandler handler;
@@ -27,10 +27,10 @@ namespace BLADE
         {
             try
             {
-                string path = "https://chiasenhac.vn/tim-kiem?q=" + _SongName.Replace(" ", "+").Trim() ;
+                string path = "https://chiasenhac.vn/tim-kiem?q=" + _SongName.Replace(" ", "+").Trim();
                 return Crawl(path);
             }
-            catch(WebException exception)
+            catch (WebException exception)
             {
                 MessageBox.Show("Search Error" + exception.Message);
                 return new List<ucSongSearchDetail>();
@@ -40,7 +40,7 @@ namespace BLADE
 
         List<ucSongSearchDetail> Crawl(string searchURL)
         {
-            
+
             string htmlKQ = FindFromURL(searchURL);
             List<ucSongSearchDetail> ucListSongSearch = new List<ucSongSearchDetail>();
             var songList = Regex.Matches(htmlKQ, @"<div class=""media-left(.*?)</li>", RegexOptions.Singleline);
@@ -48,7 +48,7 @@ namespace BLADE
             foreach (var song in songList)
             {
                 Song songSearch = new Song();
-                songSearch.SongName = Regex.Match(song.ToString(), @"title=""(.*?)"">").Value.Replace("title=", "").Replace(">", "").Replace('"',' ');
+                songSearch.SongName = Regex.Match(song.ToString(), @"title=""(.*?)"">").Value.Replace("title=", "").Replace(">", "").Replace('"', ' ');
                 songSearch.SongURL = Regex.Match(song.ToString(), @"href=""(.*?)""").Value.Replace("href=", "").Replace('"', ' ').Trim();
                 songSearch.Singer = Regex.Match(song.ToString(), @"author"">(.*?)</div>").Value.Replace("author", "").Replace("</div>", "").Replace(">", "").Replace('"', ' ');
                 songSearch.SongTime = Regex.Match(song.ToString(), @"<small class=""time_stt"">(.*?)</small>").Value.Replace("<small class=", "").Replace("time_stt", "").Replace("</small>", "").Replace(">", "").Replace('"', ' ').Trim();

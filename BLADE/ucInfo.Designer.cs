@@ -38,7 +38,7 @@
             // 
             // btnVTB
             // 
-            this.btnVTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVTB.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnVTB.FlatAppearance.BorderSize = 0;
             this.btnVTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVTB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -58,7 +58,7 @@
             // 
             // btnTHMD
             // 
-            this.btnTHMD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTHMD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnTHMD.FlatAppearance.BorderSize = 0;
             this.btnTHMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTHMD.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,7 +78,7 @@
             // 
             // btnPQA
             // 
-            this.btnPQA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPQA.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnPQA.FlatAppearance.BorderSize = 0;
             this.btnPQA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPQA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,7 +98,7 @@
             // 
             // btnBHL
             // 
-            this.btnBHL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBHL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnBHL.FlatAppearance.BorderSize = 0;
             this.btnBHL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBHL.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,15 +118,15 @@
             // 
             // lblInfoBLADE
             // 
+            this.lblInfoBLADE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInfoBLADE.AutoEllipsis = false;
-            this.lblInfoBLADE.AutoSize = false;
             this.lblInfoBLADE.CursorType = null;
             this.lblInfoBLADE.Font = new System.Drawing.Font("Showcard Gothic", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfoBLADE.ForeColor = System.Drawing.Color.White;
-            this.lblInfoBLADE.Location = new System.Drawing.Point(3, 165);
+            this.lblInfoBLADE.Location = new System.Drawing.Point(48, 167);
             this.lblInfoBLADE.Name = "lblInfoBLADE";
             this.lblInfoBLADE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblInfoBLADE.Size = new System.Drawing.Size(422, 120);
+            this.lblInfoBLADE.Size = new System.Drawing.Size(303, 121);
             this.lblInfoBLADE.TabIndex = 15;
             this.lblInfoBLADE.Text = "BLADE";
             this.lblInfoBLADE.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,6 +148,7 @@
             this.Name = "ucInfo";
             this.Size = new System.Drawing.Size(787, 565);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

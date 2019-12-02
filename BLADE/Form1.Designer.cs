@@ -32,11 +32,11 @@ namespace BLADE
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties41 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties42 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties43 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties44 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            BLADE.Playlist playlist11 = new BLADE.Playlist();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            BLADE.Playlist playlist2 = new BLADE.Playlist();
             this.pnlMusicControl = new System.Windows.Forms.Panel();
             this.lblDurationLimit = new System.Windows.Forms.Label();
             this.lbCurDuration = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@ namespace BLADE
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.pnlControl = new System.Windows.Forms.Panel();
+            this.btnCollapse = new System.Windows.Forms.Button();
             this.lblTime = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblUserName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.menuUser = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -116,6 +117,7 @@ namespace BLADE
             this.lbl = new System.Windows.Forms.Label();
             this.lblCurDuration = new System.Windows.Forms.Label();
             this.ucQueue1 = new BLADE.ucQueue();
+            this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
             this.pnlMusicControl.SuspendLayout();
             this.pnlControl.SuspendLayout();
             this.menuUser.SuspendLayout();
@@ -438,6 +440,7 @@ namespace BLADE
             // 
             // pnlControl
             // 
+            this.pnlControl.Controls.Add(this.btnCollapse);
             this.pnlControl.Controls.Add(this.lblTime);
             this.pnlControl.Controls.Add(this.lblUserName);
             this.pnlControl.Controls.Add(this.txtSearch);
@@ -449,6 +452,19 @@ namespace BLADE
             this.pnlControl.Name = "pnlControl";
             this.pnlControl.Size = new System.Drawing.Size(787, 35);
             this.pnlControl.TabIndex = 2;
+            // 
+            // btnCollapse
+            // 
+            this.btnCollapse.FlatAppearance.BorderSize = 0;
+            this.btnCollapse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCollapse.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCollapse.Image = global::BLADE.Properties.Resources.angle_left_24px;
+            this.btnCollapse.Location = new System.Drawing.Point(0, 0);
+            this.btnCollapse.Name = "btnCollapse";
+            this.btnCollapse.Size = new System.Drawing.Size(35, 35);
+            this.btnCollapse.TabIndex = 4;
+            this.btnCollapse.UseVisualStyleBackColor = true;
+            this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
             // 
             // lblTime
             // 
@@ -546,26 +562,26 @@ namespace BLADE
             this.txtSearch.Modified = false;
             this.txtSearch.Multiline = false;
             this.txtSearch.Name = "txtSearch";
-            stateProperties41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
-            stateProperties41.FillColor = System.Drawing.Color.Empty;
-            stateProperties41.ForeColor = System.Drawing.Color.Empty;
-            stateProperties41.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSearch.OnActiveState = stateProperties41;
-            stateProperties42.BorderColor = System.Drawing.Color.Empty;
-            stateProperties42.FillColor = System.Drawing.Color.White;
-            stateProperties42.ForeColor = System.Drawing.Color.Empty;
-            stateProperties42.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtSearch.OnDisabledState = stateProperties42;
-            stateProperties43.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
-            stateProperties43.FillColor = System.Drawing.Color.Empty;
-            stateProperties43.ForeColor = System.Drawing.Color.Empty;
-            stateProperties43.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSearch.OnHoverState = stateProperties43;
-            stateProperties44.BorderColor = System.Drawing.Color.Silver;
-            stateProperties44.FillColor = System.Drawing.Color.WhiteSmoke;
-            stateProperties44.ForeColor = System.Drawing.Color.Black;
-            stateProperties44.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSearch.OnIdleState = stateProperties44;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSearch.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.Empty;
+            stateProperties6.FillColor = System.Drawing.Color.White;
+            stateProperties6.ForeColor = System.Drawing.Color.Empty;
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtSearch.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSearch.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.WhiteSmoke;
+            stateProperties8.ForeColor = System.Drawing.Color.Black;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSearch.OnIdleState = stateProperties8;
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtSearch.PlaceholderText = "Search";
@@ -659,6 +675,8 @@ namespace BLADE
             this.pnlButton.Controls.Add(this.AppMenu);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlButton.Location = new System.Drawing.Point(0, 0);
+            this.pnlButton.MaximumSize = new System.Drawing.Size(213, 600);
+            this.pnlButton.MinimumSize = new System.Drawing.Size(57, 600);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(213, 600);
             this.pnlButton.TabIndex = 3;
@@ -1125,6 +1143,7 @@ namespace BLADE
             // 
             // uc_Home
             // 
+            this.uc_Home.AutoSize = true;
             this.uc_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.uc_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Home.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1137,11 +1156,12 @@ namespace BLADE
             // 
             // uc_Playlist
             // 
+            this.uc_Playlist.AutoSize = true;
             this.uc_Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            playlist11.Count = 0;
-            playlist11.CreatedDay = new System.DateTime(2019, 11, 30, 8, 36, 38, 738);
-            playlist11.PlaylistName = "Default";
-            this.uc_Playlist.ChoosingPlaylist = playlist11;
+            playlist2.Count = 0;
+            playlist2.CreatedDay = new System.DateTime(2019, 11, 30, 8, 36, 38, 738);
+            playlist2.PlaylistName = "Default";
+            this.uc_Playlist.ChoosingPlaylist = playlist2;
             this.uc_Playlist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Playlist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Playlist.ForeColor = System.Drawing.Color.Gainsboro;
@@ -1165,6 +1185,7 @@ namespace BLADE
             // 
             // uc_Search
             // 
+            this.uc_Search.AutoSize = true;
             this.uc_Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.uc_Search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Search.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1188,6 +1209,7 @@ namespace BLADE
             // 
             // uc_Queue
             // 
+            this.uc_Queue.AutoSize = true;
             this.uc_Queue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.uc_Queue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Queue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1277,6 +1299,11 @@ namespace BLADE
             this.ucQueue1.Size = new System.Drawing.Size(787, 565);
             this.ucQueue1.TabIndex = 6;
             // 
+            // UcDropdownTime
+            // 
+            this.UcDropdownTime.Interval = 10;
+            this.UcDropdownTime.Tick += new System.EventHandler(this.UcDropdownTime_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1309,6 +1336,7 @@ namespace BLADE
             this.AppMenu.ResumeLayout(false);
             this.AppMenu.PerformLayout();
             this.pnlMain.ResumeLayout(false);
+            this.pnlMain.PerformLayout();
             this.menuNofityIcon.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1400,6 +1428,8 @@ namespace BLADE
         private System.Windows.Forms.Button btnQueue;
         private ucQueue uc_Queue;
         private ucQueue ucQueue1;
+        private System.Windows.Forms.Button btnCollapse;
+        private System.Windows.Forms.Timer UcDropdownTime;
     }
 }
 

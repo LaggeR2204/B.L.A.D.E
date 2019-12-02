@@ -229,13 +229,58 @@ namespace BLADE
             }
         }
 
+        private bool isUcCollapsed;
+        private void UcDropdownTime_Tick(object sender, EventArgs e)
+        {
+            if (isUcCollapsed)
+            {
+                pnlButton.Width += 10;
+                if (pnlButton.Size == pnlButton.MaximumSize)
+                {
+                    UcDropdownTime.Stop();
+                    isUcCollapsed = false;
+                }
+            }
+            else
+            {
+                pnlButton.Width -= 10;
+                if (pnlButton.Size == pnlButton.MinimumSize)
+                {
+                    UcDropdownTime.Stop();
+                    isUcCollapsed = true;
+                }
+            }
+        }
+
+        private void btnCollapse_Click(object sender, EventArgs e)
+        {
+            UcDropdownTime.Start();
+            if (!isUcCollapsed)
+            {
+                btnCollapse.Image = BLADE.Properties.Resources.angle_right_24px;
+                lblTextBLADE.Hide();
+            }
+            else
+            {
+                btnCollapse.Image = BLADE.Properties.Resources.angle_left_24px;
+                lblTextBLADE.Show();
+            }
+        }
+
         private void btnTimer_Click(object sender, EventArgs e)
         {
             //set vi tri cho pnlSelectedButton
             pnlSelectedButton.Show();
             pnlSelectedButton.Height = btnTimer.Height;
             pnlSelectedButton.Top = pnlTimerControl.Top;
-            lblTextBLADE.Show();
+            if (!isUcCollapsed)
+            {
+                lblTextBLADE.Show();
+            }
+            else
+            {
+                lblTextBLADE.Hide();
+            }
             DropdownTime.Start();
             if (isCollapsed)
             {
@@ -263,7 +308,14 @@ namespace BLADE
             uc_Queue.Hide();
             uc_MusicCutter.Show();
             uc_MusicCutter.BringToFront();
-            lblTextBLADE.Show();
+            if (!isUcCollapsed)
+            {
+                lblTextBLADE.Show();
+            }
+            else
+            {
+                lblTextBLADE.Hide();
+            }
         }
 
         private bool isShowQueue = false;
@@ -306,7 +358,14 @@ namespace BLADE
             uc_Search.Hide();
             uc_MusicCutter.Hide();
             uc_Queue.Hide();
-            lblTextBLADE.Show();
+            if (!isUcCollapsed)
+            {
+                lblTextBLADE.Show();
+            }
+            else
+            {
+                lblTextBLADE.Hide();
+            }
             uc_Home.Show();
             uc_Home.BringToFront();
         }
@@ -327,7 +386,14 @@ namespace BLADE
             uc_Queue.Hide();
             uc_Search.Hide();
             uc_MusicCutter.Hide();
-            lblTextBLADE.Show();
+            if (!isUcCollapsed)
+            {
+                lblTextBLADE.Show();
+            }
+            else
+            {
+                lblTextBLADE.Hide();
+            }
             uc_Playlist.Show();
             uc_Playlist.BringToFront();
         }
@@ -366,7 +432,14 @@ namespace BLADE
             uc_Home.Hide();
             uc_Info.Hide();
             uc_MusicCutter.Hide();
-            lblTextBLADE.Show();
+            if (!isUcCollapsed)
+            {
+                lblTextBLADE.Show();
+            }
+            else
+            {
+                lblTextBLADE.Hide();
+            }
             uc_Search.Show();
             uc_Queue.Hide();
             uc_Search.BringToFront();
@@ -680,6 +753,6 @@ namespace BLADE
         private void txtSecond_OnValueChanged(object sender, EventArgs e)
         {
 
-        }
+        } 
     }
 }

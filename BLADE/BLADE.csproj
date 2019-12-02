@@ -283,6 +283,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Login.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\angle_right_24px.png" />
+    <None Include="Resources\angle_left_24px.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
