@@ -191,10 +191,14 @@ namespace BLADE
         }
         public double GetDurationInSecond()
         {
+            if (audioReader == null)
+                return 0;
             return audioReader.TotalTime.TotalSeconds;
         }
         public double GetCurrentPossiton()
         {
+            if (audioReader == null)
+                return 0;
             return audioReader.CurrentTime.TotalSeconds;
         }
         public void SetVolume(float n)
@@ -205,6 +209,8 @@ namespace BLADE
 
         public void SetPossition(int n)
         {
+            if (audioReader == null)
+                return;
             audioReader.CurrentTime = audioReader.CurrentTime.Add(TimeSpan.FromSeconds(n));
         }
         private void DisposeAudio()

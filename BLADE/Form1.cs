@@ -18,6 +18,7 @@ namespace BLADE
         private MediaPlayer mediaPlayer;
         private SearchOnline search = new SearchOnline();
         private Timer timerSliderMusic;
+        private bool isDrag = false;
         public MainForm()
         {
             InitializeComponent();
@@ -39,26 +40,29 @@ namespace BLADE
             uc_Search.Hide();
             uc_Home.Show();
             uc_Home.BringToFront();
-            this.uc_Playlist.SelectSong += PlayMusic;
-            this.uc_Playlist.PlaylistUpdated += UpDatePlaylist;
-            //slidervolume
-            this.SliderVolume.ValueChanged += SliderVolumeChangeHandler;
-            this.SliderVolume.LargeChange = 1;
-            this.SliderVolume.SmallChange = 1;
-            this.SliderVolume.Value = 5;
-            //label curduration
-            lbCurDuration.Text = "";
-            //label duration limit
+            uc_Playlist.SelectSong += PlayMusic;
+            uc_Playlist.PlaylistUpdated += UpDatePlaylist;
+            //slidervolume
+            SliderVolume.Scroll += SliderVolumeChangeHandler;
+            SliderVolume.LargeChange = 1;
+            SliderVolume.SmallChange = 1;
+            SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;
+            //label curduration
+            lbCurDuration.Text = "";            lblCurDuration.Visible = true;
+            //label duration limit
             lblDurationLimit.Text = "";
-            //slider music
+            //slider music
             sliderMusic.Scroll += SliderMusic_Scroll; ;
             sliderMusic.Minimum = 0;
             sliderMusic.SmallChange = 1;
             sliderMusic.LargeChange = 1;
             sliderMusic.Value = 0;
+            sliderMusic.AllowIncrementalClickMoves = false;
+            sliderMusic.AllowScrollOptionsMenu = false;
+
             //notifyicon stop timer            //timer slider
             timerSliderMusic = new Timer();
-            timerSliderMusic.Interval = 10;
+            timerSliderMusic.Interval = 200;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
 
@@ -69,7 +73,7 @@ namespace BLADE
                 btnPlay.Show();
                 btnPause.Hide();
             }
-            else 
+            else
             if (mediaPlayer.MediaState == PlaybackState.Playing)
             {
                 btnPlay.Hide();
@@ -438,13 +442,14 @@ namespace BLADE
         #region Media Player
         private void UpDatePlaylist(object sender, EventArgs e)
         {
-            Playlist playlist = sender as Playlist;            mediaPlayer.CurrentPlaylist.Clear();            for(int i = 0; i < playlist.Count; i++)
+            Playlist playlist = sender as Playlist;            mediaPlayer.CurrentPlaylist.Clear();            for (int i = 0; i < playlist.Count; i++)
             {
                 mediaPlayer.CurrentPlaylist.Add(playlist.List[i]);
             }
             mediaPlayer.PlayInIndex(0);
+            timerSliderMusic.Start();
         }
-       
+
         private void PlayMusic(object sender, EventArgs e)
         {
             Song song = sender as Song;
@@ -452,32 +457,13 @@ namespace BLADE
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
             btnPause.Show();
             btnPlay.Hide();
+            timerSliderMusic.Start();
         }
         private void MediaPlayer_MediaChanged(object sender, EventArgs e)
         {
-            sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond() * 1000;
-            sliderMusic.Value = 0;
-            //WindowsMediaPlayer WMP = new WindowsMediaPlayer();
-            //IWMPMedia src = WMP.newMedia(mediaPlayer.CurrentMedia.SavedPath);
-            //string textSongName = src.getItemInfo("Name");
-            //if (textSongName.Length > 18)
-            //{
-            //    lblSongName.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
-            //}
-            //else
-            //{
-            //    lblSongName.Text = textSongName;
-            //}
-            //string textAuthor = src.getItemInfo("Author");
-            //if (textAuthor.Length > 21)
-            //{
-            //    lblArtistName.Text = textAuthor.Remove(21, textAuthor.Length - 21).Insert(21, "...");
-            //}
-            //else
-            //{
-            //    lblArtistName.Text = textAuthor;
-            //}
-            //lblDurationLimit.Text = TimeSpan.FromSeconds(mediaPlayer.GetDurationInSecond()).ToString("mm':'ss");
+            sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond();
+            sliderMusic.SmallChange = 1;
+            sliderMusic.LargeChange = Math.Min(10, (int)mediaPlayer.GetDurationInSecond() / 10);
            
             string textSongName = mediaPlayer.CurrentMedia.SongName;
             string textAuthor = mediaPlayer.CurrentMedia.Singer;
@@ -498,7 +484,6 @@ namespace BLADE
                 lblArtistName.Text = textAuthor;
             }
             lblDurationLimit.Text = mediaPlayer.CurrentMedia.SongTime;
-
             timerSliderMusic.Start();
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
@@ -672,15 +657,22 @@ namespace BLADE
         }
 
 
+
+
         #endregion
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
-            mediaPlayer.SetPossition(sliderMusic.Value / 1000 - (int)mediaPlayer.GetCurrentPossiton());
+            isDrag = true;
+            mediaPlayer.SetPossition(sliderMusic.Value - (int)mediaPlayer.GetCurrentPossiton());
+            lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
+            isDrag = false;
         }
         private void TimerSliderMusic_Tick(object sender, EventArgs e)
         {
-            sliderMusic.Value += 1000;
-            lblCurDuration.Text = TimeSpan.FromSeconds(mediaPlayer.GetCurrentPossiton()).ToString("mm':'ss");
+            if (isDrag == true)
+                return;
+            sliderMusic.Value = (int)mediaPlayer.GetCurrentPossiton();
+            lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
         }
 
         #endregion
