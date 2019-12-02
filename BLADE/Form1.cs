@@ -66,26 +66,6 @@ namespace BLADE
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
 
-        private void MediaPlayer_PlaybackStateChanged(object sender, EventArgs e)
-        {
-            if (mediaPlayer.MediaState == PlaybackState.Paused)
-            {
-                btnPlay.Show();
-                btnPause.Hide();
-            }
-            else
-            if (mediaPlayer.MediaState == PlaybackState.Playing)
-            {
-                btnPlay.Hide();
-                btnPause.Show();
-            }
-            else
-            {
-                btnPlay.Show();
-                btnPause.Hide();
-            }
-        }
-
         #region Account Actions
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -165,14 +145,13 @@ namespace BLADE
         private void btnPlay_Click(object sender, EventArgs e)
         {
             mediaPlayer.Play();
-            btnPlay.Hide();
-            btnPause.Show();
+            timerSliderMusic.Start();
+          
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
             mediaPlayer.Pause();
-            btnPlay.Show();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -447,7 +426,6 @@ namespace BLADE
                 mediaPlayer.CurrentPlaylist.Add(playlist.List[i]);
             }
             mediaPlayer.PlayInIndex(0);
-            timerSliderMusic.Start();
         }
 
         private void PlayMusic(object sender, EventArgs e)
@@ -457,10 +435,10 @@ namespace BLADE
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
             btnPause.Show();
             btnPlay.Hide();
-            timerSliderMusic.Start();
         }
         private void MediaPlayer_MediaChanged(object sender, EventArgs e)
         {
+            sliderMusic.Value = 0;
             sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond();
             sliderMusic.SmallChange = 1;
             sliderMusic.LargeChange = Math.Min(10, (int)mediaPlayer.GetDurationInSecond() / 10);
@@ -484,12 +462,34 @@ namespace BLADE
                 lblArtistName.Text = textAuthor;
             }
             lblDurationLimit.Text = mediaPlayer.CurrentMedia.SongTime;
+            lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
             timerSliderMusic.Start();
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {
             mediaPlayer.Next();
-            timerSliderMusic.Stop();
+        }
+        private void MediaPlayer_PlaybackStateChanged(object sender, EventArgs e)
+        {
+            if (mediaPlayer.MediaState == PlaybackState.Paused)
+            {
+                timerSliderMusic.Stop();
+                btnPlay.Show();
+                btnPause.Hide();
+            }
+            else
+            if (mediaPlayer.MediaState == PlaybackState.Playing)
+            {
+                timerSliderMusic.Start();
+                btnPlay.Hide();
+                btnPause.Show();
+            }
+            else
+            {
+                timerSliderMusic.Stop();
+                btnPlay.Show();
+                btnPause.Hide();
+            }
         }
         #endregion
         #region StopTimer

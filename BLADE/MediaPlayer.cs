@@ -66,7 +66,7 @@ namespace BLADE
         }
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds)
+            if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds - 2)
                 if (MediaEnded != null)
                     MediaEnded(this, new EventArgs());
         }
@@ -109,8 +109,6 @@ namespace BLADE
         }
         public void Next()
         {
-            if (_timer.Enabled == false)
-                _timer.Start();
             if (_curPlaylist.Count == 1)
             {
                 PlayInIndex(0);
@@ -138,8 +136,6 @@ namespace BLADE
         }
         public void Previous()
         {
-            if (_timer.Enabled == false)
-                _timer.Start();
             if (_curPlaylist.Count == 1)
             {
                 PlayInIndex(0);
