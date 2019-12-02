@@ -115,6 +115,16 @@ namespace BLADE
             btnPlay.Visible = true;
             timer.Stop();
         }
+
+        private void btnGetStartTime_Click(object sender, EventArgs e)
+        {
+            txtTimeStart.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
+        }
+
+        private void btnGetEndTime_Click(object sender, EventArgs e)
+        {
+            txtTimeEnd.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss.fff");
+        }
     }
 
 }

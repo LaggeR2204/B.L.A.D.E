@@ -40,6 +40,8 @@
             this.lblSongName = new System.Windows.Forms.Label();
             this.waveViewer1 = new NAudio.Gui.WaveViewer();
             this.btnStop = new System.Windows.Forms.Button();
+            this.btnGetStartTime = new System.Windows.Forms.Button();
+            this.btnGetEndTime = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTimeStart
@@ -160,12 +162,39 @@
             this.btnStop.Visible = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
+            // btnGetStartTime
+            // 
+            this.btnGetStartTime.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGetStartTime.BackgroundImage")));
+            this.btnGetStartTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGetStartTime.FlatAppearance.BorderSize = 0;
+            this.btnGetStartTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetStartTime.Location = new System.Drawing.Point(161, 494);
+            this.btnGetStartTime.Name = "btnGetStartTime";
+            this.btnGetStartTime.Size = new System.Drawing.Size(27, 27);
+            this.btnGetStartTime.TabIndex = 6;
+            this.btnGetStartTime.UseVisualStyleBackColor = true;
+            this.btnGetStartTime.Click += new System.EventHandler(this.btnGetStartTime_Click);
+            // 
+            // btnGetEndTime
+            // 
+            this.btnGetEndTime.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGetEndTime.BackgroundImage")));
+            this.btnGetEndTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGetEndTime.FlatAppearance.BorderSize = 0;
+            this.btnGetEndTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetEndTime.Location = new System.Drawing.Point(595, 494);
+            this.btnGetEndTime.Name = "btnGetEndTime";
+            this.btnGetEndTime.Size = new System.Drawing.Size(27, 27);
+            this.btnGetEndTime.TabIndex = 7;
+            this.btnGetEndTime.UseVisualStyleBackColor = true;
+            this.btnGetEndTime.Click += new System.EventHandler(this.btnGetEndTime_Click);
+            // 
             // ucMusicCutter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnGetEndTime);
+            this.Controls.Add(this.btnGetStartTime);
             this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
@@ -175,6 +204,7 @@
             this.Controls.Add(this.lblTextTo);
             this.Controls.Add(this.txtTimeEnd);
             this.Controls.Add(this.txtTimeStart);
+            this.Controls.Add(this.btnStop);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Name = "ucMusicCutter";
@@ -197,5 +227,7 @@
         private System.Windows.Forms.Label lblSongName;
         private NAudio.Gui.WaveViewer waveViewer1;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnGetStartTime;
+        private System.Windows.Forms.Button btnGetEndTime;
     }
 }
