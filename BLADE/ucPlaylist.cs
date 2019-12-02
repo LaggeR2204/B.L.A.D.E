@@ -156,5 +156,13 @@ namespace BLADE
             src.Dispose();
         }
         #endregion
+
+        private void btnAddPlaylistToPlayback_Click(object sender, EventArgs e)
+        {
+            if (this.PlaylistUpdated != null)
+                PlaylistUpdated(this.ChoosingPlaylist, new EventArgs());
+
+        }
+
     }
 }

@@ -205,5 +205,10 @@ namespace BLADE
         #endregion
 
       
+        public void RemoveChooseItem()
+        {
+            ctxtmsPlaylist.Items.RemoveAt(2);
+            ctxtmsPlaylist.Items.RemoveAt(1);
+        }
     }
 }

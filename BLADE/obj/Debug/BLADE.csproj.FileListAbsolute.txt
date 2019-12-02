@@ -1,4 +1,3 @@
-D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe.config
 D:\B.L.A.D.E\BLADE\obj\Debug\Interop.WMPLib.dll
 D:\B.L.A.D.E\BLADE\obj\Debug\AxInterop.WMPLib.dll
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.ResolveComReference.cache
