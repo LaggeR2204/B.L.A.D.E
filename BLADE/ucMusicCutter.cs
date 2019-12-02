@@ -22,6 +22,7 @@ namespace BLADE
         WaveOutEvent waveOut;
         Mp3FileReader mp3Reader;
         int currentSecond;
+        TimeSpan maxTime;
         public ucMusicCutter()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace BLADE
                 waveViewer1.WaveStream = pcm;
                 opname = open.FileName;
                 txtTimeStart.Text = "00:00:00";
+                maxTime = mp3.TotalTime;
                 txtTimeEnd.Text = mp3.TotalTime.ToString("hh':'mm':'ss");
             }
         }
@@ -52,7 +54,7 @@ namespace BLADE
             timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
             timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
             if (timeStart >= timeEnd)
-                MessageBox.Show("    END SHOULD BE GREATER THAN BEGIN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("    END MUST BE GREATER THAN BEGIN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 string name = string.Copy("");
@@ -69,24 +71,28 @@ namespace BLADE
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Start();
-            timer.Tick += Timer_Tick;
+            if (opname == null)
+                MessageBox.Show("    YOU HAVE TO OPEN A FILE ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                timer = new Timer();
+                timer.Interval = 1000;
+                timer.Start();
+                timer.Tick += Timer_Tick;
 
-            btnPlay.Visible = false;
-            btnStop.Visible = true;
-            timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
-            timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
-            waveOut = new WaveOutEvent();
-            mp3Reader = new Mp3FileReader(opname);
-            mp3Reader.CurrentTime = TimeSpan.FromSeconds(timeStart);
+                btnPlay.Visible = false;
+                btnStop.Visible = true;
+                timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
+                timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
+                waveOut = new WaveOutEvent();
+                mp3Reader = new Mp3FileReader(opname);
+                mp3Reader.CurrentTime = TimeSpan.FromSeconds(timeStart);
 
-            currentSecond = (int)mp3Reader.CurrentTime.TotalSeconds;
-            waveOut.Init(mp3Reader);
-            waveOut.Play();
+                currentSecond = (int)mp3Reader.CurrentTime.TotalSeconds;
+                waveOut.Init(mp3Reader);
+                waveOut.Play();
 
-            
+            }
 
         }
 
@@ -118,12 +124,23 @@ namespace BLADE
 
         private void btnGetStartTime_Click(object sender, EventArgs e)
         {
-            txtTimeStart.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
+            if (mp3Reader != null)
+                txtTimeStart.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
         }
 
         private void btnGetEndTime_Click(object sender, EventArgs e)
         {
-            txtTimeEnd.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss.fff");
+            if (mp3Reader != null)
+                txtTimeEnd.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
+        }
+
+        private void txtTimeEnd_TextChanged(object sender, EventArgs e)
+        {
+            if (TimeSpan.Parse(txtTimeEnd.Text) > maxTime)
+            {
+                txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
+            }
+
         }
     }
 

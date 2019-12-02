@@ -69,6 +69,7 @@
             this.txtTimeEnd.TabIndex = 0;
             this.txtTimeEnd.Text = "00:00:00";
             this.txtTimeEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTimeEnd.TextChanged += new System.EventHandler(this.txtTimeEnd_TextChanged);
             // 
             // lblTextTo
             // 
@@ -129,7 +130,7 @@
             // lblSongName
             // 
             this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongName.Location = new System.Drawing.Point(3, 0);
+            this.lblSongName.Location = new System.Drawing.Point(3, 14);
             this.lblSongName.Name = "lblSongName";
             this.lblSongName.Size = new System.Drawing.Size(781, 40);
             this.lblSongName.TabIndex = 1;
