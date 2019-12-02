@@ -39,7 +39,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblSongName = new System.Windows.Forms.Label();
             this.waveViewer1 = new NAudio.Gui.WaveViewer();
-            this.lblDurationLimit = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTimeStart
@@ -98,6 +98,7 @@
             this.btnPlay.Size = new System.Drawing.Size(40, 40);
             this.btnPlay.TabIndex = 2;
             this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnOpen
             // 
@@ -145,21 +146,26 @@
             this.waveViewer1.TabIndex = 3;
             this.waveViewer1.WaveStream = null;
             // 
-            // lblDurationLimit
+            // btnStop
             // 
-            this.lblDurationLimit.AutoSize = true;
-            this.lblDurationLimit.Location = new System.Drawing.Point(639, 299);
-            this.lblDurationLimit.Name = "lblDurationLimit";
-            this.lblDurationLimit.Size = new System.Drawing.Size(89, 16);
-            this.lblDurationLimit.TabIndex = 4;
-            this.lblDurationLimit.Text = "lblDurationLimit";
+            this.btnStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStop.BackgroundImage")));
+            this.btnStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStop.FlatAppearance.BorderSize = 0;
+            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStop.Location = new System.Drawing.Point(371, 359);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(40, 40);
+            this.btnStop.TabIndex = 4;
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Visible = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // ucMusicCutter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.lblDurationLimit);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
@@ -190,6 +196,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblSongName;
         private NAudio.Gui.WaveViewer waveViewer1;
-        private System.Windows.Forms.Label lblDurationLimit;
+        private System.Windows.Forms.Button btnStop;
     }
 }
