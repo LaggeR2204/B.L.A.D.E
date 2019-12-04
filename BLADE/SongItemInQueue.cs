@@ -41,8 +41,16 @@ namespace BLADE
         {
             btnSongPlay.Hide();
             btnSongPause.Hide();
-
+            _song.PlayStateChanged += _song_PlayStateChanged;
             this.MouseDoubleClick += SongItemInQueue_MouseDoubleClick;
+        }
+
+        private void _song_PlayStateChanged(object sender, EventArgs e)
+        {
+            if (_song.IsPlaying)
+                this.BackColor = Color.FromArgb(0, 217, 87);
+            else
+                this.BackColor = Color.FromArgb(40, 40, 40);
         }
 
         private void SongItemInQueue_MouseDoubleClick(object sender, MouseEventArgs e)

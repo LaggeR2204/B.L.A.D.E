@@ -74,8 +74,6 @@ namespace BLADE
             ChangedIconFavoriteState(_song.IsFavorite);
         }
 
-       
-
         #region EVENTHANDLER
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
         {

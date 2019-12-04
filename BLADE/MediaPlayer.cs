@@ -173,6 +173,8 @@ namespace BLADE
             if (_curPlaylist != null)
                 if (src < _curPlaylist.Count)
                 {
+                    if (_curMedia != null)
+                        _curMedia.IsPlaying = false;
                     _curMedia = _curPlaylist[src];
                     audioReader = new MediaFoundationReader(_curMedia.SavedPath);
                     outputSound = new DirectSoundOut();
@@ -183,6 +185,7 @@ namespace BLADE
                         MediaChanged(this, new EventArgs());
                     _timer.Start();
                     MediaState = PlaybackState.Playing;
+                    _curMedia.IsPlaying = true;
                 }
         }
         public double GetDurationInSecond()

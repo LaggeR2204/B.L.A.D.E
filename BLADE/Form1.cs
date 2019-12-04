@@ -47,7 +47,7 @@ namespace BLADE
             SliderVolume.LargeChange = 1;
             SliderVolume.SmallChange = 1;
             SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
-            uc_Queue.SongSelected += PlayMusic;
+            uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
 
             //label curduration
@@ -69,8 +69,14 @@ namespace BLADE
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
 
-
         #region ucQueue
+        private void Uc_Queue_SongSelected(object sender, EventArgs e)
+        {
+            Song song = sender as Song;
+            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
+            btnPause.Show();
+            btnPlay.Hide();
+        }
         private void Uc_Queue_SongRemoved(object sender, EventArgs e)
         {
             Song src = sender as Song;
