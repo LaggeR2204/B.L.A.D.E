@@ -34,6 +34,7 @@
             this.lbSongName = new System.Windows.Forms.Label();
             this.lbSongSinger = new System.Windows.Forms.Label();
             this.fpnlQueue = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbNowPlaying = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // picbArtCover
             // 
-            this.picbArtCover.Location = new System.Drawing.Point(511, 72);
+            this.picbArtCover.Location = new System.Drawing.Point(511, 123);
             this.picbArtCover.Name = "picbArtCover";
             this.picbArtCover.Size = new System.Drawing.Size(273, 264);
             this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -73,19 +74,21 @@
             // 
             this.lbSongName.AutoSize = true;
             this.lbSongName.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongName.Location = new System.Drawing.Point(513, 365);
+            this.lbSongName.Location = new System.Drawing.Point(521, 413);
             this.lbSongName.Name = "lbSongName";
-            this.lbSongName.Size = new System.Drawing.Size(0, 29);
+            this.lbSongName.Size = new System.Drawing.Size(39, 29);
             this.lbSongName.TabIndex = 3;
+            this.lbSongName.Text = "aa";
             // 
             // lbSongSinger
             // 
             this.lbSongSinger.AutoSize = true;
             this.lbSongSinger.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongSinger.Location = new System.Drawing.Point(513, 407);
+            this.lbSongSinger.Location = new System.Drawing.Point(522, 462);
             this.lbSongSinger.Name = "lbSongSinger";
-            this.lbSongSinger.Size = new System.Drawing.Size(0, 20);
+            this.lbSongSinger.Size = new System.Drawing.Size(29, 20);
             this.lbSongSinger.TabIndex = 4;
+            this.lbSongSinger.Text = "bb";
             // 
             // fpnlQueue
             // 
@@ -97,11 +100,22 @@
             this.fpnlQueue.TabIndex = 5;
             this.fpnlQueue.WrapContents = false;
             // 
+            // lbNowPlaying
+            // 
+            this.lbNowPlaying.AutoSize = true;
+            this.lbNowPlaying.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNowPlaying.Location = new System.Drawing.Point(520, 72);
+            this.lbNowPlaying.Name = "lbNowPlaying";
+            this.lbNowPlaying.Size = new System.Drawing.Size(177, 32);
+            this.lbNowPlaying.TabIndex = 6;
+            this.lbNowPlaying.Text = "Now Playing";
+            // 
             // ucQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.lbNowPlaying);
             this.Controls.Add(this.fpnlQueue);
             this.Controls.Add(this.lbSongSinger);
             this.Controls.Add(this.lbSongName);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.Label lbSongName;
         private System.Windows.Forms.Label lbSongSinger;
         private System.Windows.Forms.FlowLayoutPanel fpnlQueue;
+        private System.Windows.Forms.Label lbNowPlaying;
     }
 }
