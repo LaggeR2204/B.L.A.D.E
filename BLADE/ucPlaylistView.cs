@@ -92,10 +92,12 @@ namespace BLADE
             song.GetImageFromFile(file.FullName);
             return song;
         }
-        public void RemoveChooseItem()
+        public void RemoveChooseItem(bool mode = false)
         {
             ctxtmsPlaylist.Items.RemoveAt(3);
             ctxtmsPlaylist.Items.RemoveAt(2);
+            if(mode)
+                ctxtmsPlaylist.Items.RemoveAt(0);
         }
         #region EVENTHANDLER
         private void setLabelName(object sender, EventArgs e)

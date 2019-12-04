@@ -40,7 +40,7 @@ namespace BLADE
             _favorites.PlaylistDeleted += DeletePlaylist;
             _favorites.NewSongAdded += AddingSongHandler;
             _favorites.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
-            _favorites.RemoveChooseItem();
+            _favorites.RemoveChooseItem(true);
             fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
 
             choosingPlaylist = _default.Playlist;
