@@ -33,6 +33,7 @@
             this.picbArtCover = new System.Windows.Forms.PictureBox();
             this.lbSongName = new System.Windows.Forms.Label();
             this.lbSongSinger = new System.Windows.Forms.Label();
+            this.fpnlQueue = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,11 @@
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuSeparator1.LineThickness = 3;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(490, 0);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(490, 72);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(23, 565);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(23, 493);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
@@ -63,34 +64,45 @@
             // 
             this.picbArtCover.Location = new System.Drawing.Point(511, 72);
             this.picbArtCover.Name = "picbArtCover";
-            this.picbArtCover.Size = new System.Drawing.Size(273, 246);
-            this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbArtCover.Size = new System.Drawing.Size(273, 264);
+            this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picbArtCover.TabIndex = 2;
             this.picbArtCover.TabStop = false;
             // 
             // lbSongName
             // 
             this.lbSongName.AutoSize = true;
-            this.lbSongName.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongName.Location = new System.Drawing.Point(507, 370);
+            this.lbSongName.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSongName.Location = new System.Drawing.Point(513, 365);
             this.lbSongName.Name = "lbSongName";
-            this.lbSongName.Size = new System.Drawing.Size(0, 31);
+            this.lbSongName.Size = new System.Drawing.Size(0, 29);
             this.lbSongName.TabIndex = 3;
             // 
             // lbSongSinger
             // 
             this.lbSongSinger.AutoSize = true;
-            this.lbSongSinger.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongSinger.Location = new System.Drawing.Point(507, 438);
+            this.lbSongSinger.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSongSinger.Location = new System.Drawing.Point(513, 407);
             this.lbSongSinger.Name = "lbSongSinger";
-            this.lbSongSinger.Size = new System.Drawing.Size(0, 21);
+            this.lbSongSinger.Size = new System.Drawing.Size(0, 20);
             this.lbSongSinger.TabIndex = 4;
+            // 
+            // fpnlQueue
+            // 
+            this.fpnlQueue.AutoSize = true;
+            this.fpnlQueue.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fpnlQueue.Location = new System.Drawing.Point(3, 72);
+            this.fpnlQueue.Name = "fpnlQueue";
+            this.fpnlQueue.Size = new System.Drawing.Size(493, 490);
+            this.fpnlQueue.TabIndex = 5;
+            this.fpnlQueue.WrapContents = false;
             // 
             // ucQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.fpnlQueue);
             this.Controls.Add(this.lbSongSinger);
             this.Controls.Add(this.lbSongName);
             this.Controls.Add(this.picbArtCover);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.PictureBox picbArtCover;
         private System.Windows.Forms.Label lbSongName;
         private System.Windows.Forms.Label lbSongSinger;
+        private System.Windows.Forms.FlowLayoutPanel fpnlQueue;
     }
 }

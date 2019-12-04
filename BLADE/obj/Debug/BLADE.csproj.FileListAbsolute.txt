@@ -42,3 +42,4 @@ D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu_UI_v1.5.3.xml
 D:\B.L.A.D.E\BLADE\bin\Debug\policy.2.0.taglib-sharp.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\taglib-sharp.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\policy.2.0.taglib-sharp.config
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.SongItemInQueue.resources

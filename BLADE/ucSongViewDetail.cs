@@ -24,8 +24,6 @@ namespace BLADE
         public ucSongViewDetail()
         {
             InitializeComponent();
-            btnSongPlay.Hide();
-            btnSongPause.Hide();
             _song = new Song();
             Init();
 
@@ -43,6 +41,9 @@ namespace BLADE
 
         private void Init()
         {
+            btnSongPlay.Hide();
+            btnSongPause.Hide();
+
             btnSongLove.Show();
             btnSongLoveOff.Hide();
 

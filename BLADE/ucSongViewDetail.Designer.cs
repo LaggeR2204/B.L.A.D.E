@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSongViewDetail));
-            this.btnSongPlay = new System.Windows.Forms.Button();
-            this.btnSongPause = new System.Windows.Forms.Button();
-            this.btnSongMenu = new System.Windows.Forms.Button();
-            this.btnSongLove = new System.Windows.Forms.Button();
             this.lblSongNameSVD = new System.Windows.Forms.Label();
             this.lblArtistSVD = new System.Windows.Forms.Label();
             this.lblCategorySVD = new System.Windows.Forms.Label();
@@ -41,54 +37,12 @@
             this.ctxtmsSong = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSongLoveOff = new System.Windows.Forms.Button();
+            this.btnSongLove = new System.Windows.Forms.Button();
+            this.btnSongMenu = new System.Windows.Forms.Button();
+            this.btnSongPlay = new System.Windows.Forms.Button();
+            this.btnSongPause = new System.Windows.Forms.Button();
             this.ctxtmsSong.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnSongPlay
-            // 
-            this.btnSongPlay.FlatAppearance.BorderSize = 0;
-            this.btnSongPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPlay.Image")));
-            this.btnSongPlay.Location = new System.Drawing.Point(0, 0);
-            this.btnSongPlay.Name = "btnSongPlay";
-            this.btnSongPlay.Size = new System.Drawing.Size(40, 40);
-            this.btnSongPlay.TabIndex = 0;
-            this.btnSongPlay.UseVisualStyleBackColor = true;
-            // 
-            // btnSongPause
-            // 
-            this.btnSongPause.FlatAppearance.BorderSize = 0;
-            this.btnSongPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongPause.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPause.Image")));
-            this.btnSongPause.Location = new System.Drawing.Point(0, 0);
-            this.btnSongPause.Name = "btnSongPause";
-            this.btnSongPause.Size = new System.Drawing.Size(40, 40);
-            this.btnSongPause.TabIndex = 0;
-            this.btnSongPause.UseVisualStyleBackColor = true;
-            // 
-            // btnSongMenu
-            // 
-            this.btnSongMenu.FlatAppearance.BorderSize = 0;
-            this.btnSongMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnSongMenu.Image")));
-            this.btnSongMenu.Location = new System.Drawing.Point(580, 0);
-            this.btnSongMenu.Name = "btnSongMenu";
-            this.btnSongMenu.Size = new System.Drawing.Size(40, 40);
-            this.btnSongMenu.TabIndex = 0;
-            this.btnSongMenu.UseVisualStyleBackColor = true;
-            this.btnSongMenu.Click += new System.EventHandler(this.BtnSongMenu_Click);
-            // 
-            // btnSongLove
-            // 
-            this.btnSongLove.FlatAppearance.BorderSize = 0;
-            this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
-            this.btnSongLove.Location = new System.Drawing.Point(40, 0);
-            this.btnSongLove.Name = "btnSongLove";
-            this.btnSongLove.Size = new System.Drawing.Size(40, 40);
-            this.btnSongLove.TabIndex = 0;
-            this.btnSongLove.UseVisualStyleBackColor = true;
-            this.btnSongLove.Click += new System.EventHandler(this.BtnSongLove_Click);
             // 
             // lblSongNameSVD
             // 
@@ -168,6 +122,52 @@
             this.btnSongLoveOff.TabIndex = 2;
             this.btnSongLoveOff.UseVisualStyleBackColor = true;
             this.btnSongLoveOff.Click += new System.EventHandler(this.btnSongLoveOff_Click);
+            // 
+            // btnSongLove
+            // 
+            this.btnSongLove.FlatAppearance.BorderSize = 0;
+            this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
+            this.btnSongLove.Location = new System.Drawing.Point(40, 0);
+            this.btnSongLove.Name = "btnSongLove";
+            this.btnSongLove.Size = new System.Drawing.Size(40, 40);
+            this.btnSongLove.TabIndex = 0;
+            this.btnSongLove.UseVisualStyleBackColor = true;
+            this.btnSongLove.Click += new System.EventHandler(this.BtnSongLove_Click);
+            // 
+            // btnSongMenu
+            // 
+            this.btnSongMenu.FlatAppearance.BorderSize = 0;
+            this.btnSongMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnSongMenu.Image")));
+            this.btnSongMenu.Location = new System.Drawing.Point(580, 0);
+            this.btnSongMenu.Name = "btnSongMenu";
+            this.btnSongMenu.Size = new System.Drawing.Size(40, 40);
+            this.btnSongMenu.TabIndex = 0;
+            this.btnSongMenu.UseVisualStyleBackColor = true;
+            this.btnSongMenu.Click += new System.EventHandler(this.BtnSongMenu_Click);
+            // 
+            // btnSongPlay
+            // 
+            this.btnSongPlay.FlatAppearance.BorderSize = 0;
+            this.btnSongPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPlay.Image")));
+            this.btnSongPlay.Location = new System.Drawing.Point(0, 0);
+            this.btnSongPlay.Name = "btnSongPlay";
+            this.btnSongPlay.Size = new System.Drawing.Size(40, 40);
+            this.btnSongPlay.TabIndex = 0;
+            this.btnSongPlay.UseVisualStyleBackColor = true;
+            // 
+            // btnSongPause
+            // 
+            this.btnSongPause.FlatAppearance.BorderSize = 0;
+            this.btnSongPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongPause.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPause.Image")));
+            this.btnSongPause.Location = new System.Drawing.Point(0, 0);
+            this.btnSongPause.Name = "btnSongPause";
+            this.btnSongPause.Size = new System.Drawing.Size(40, 40);
+            this.btnSongPause.TabIndex = 0;
+            this.btnSongPause.UseVisualStyleBackColor = true;
             // 
             // ucSongViewDetail
             // 

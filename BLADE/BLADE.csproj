@@ -112,6 +112,12 @@
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InputNameCutFileBox.cs" />
+    <Compile Include="SongItemInQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SongItemInQueue.Designer.cs">
+      <DependentUpon>SongItemInQueue.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaveformsPlotting.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SongItemInQueue.resx">
+      <DependentUpon>SongItemInQueue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucHome.resx">
       <DependentUpon>ucHome.cs</DependentUpon>

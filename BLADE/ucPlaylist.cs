@@ -19,7 +19,7 @@ namespace BLADE
         private Playlist choosingPlaylist;
         public Playlist ChoosingPlaylist { get => choosingPlaylist; set => choosingPlaylist = value; }
         public event EventHandler SelectSong;
-        public event EventHandler PlaylistUpdated;
+        public event EventHandler QueueUpdated;
 
         public ucPlaylist()
         {
@@ -72,8 +72,8 @@ namespace BLADE
         private void ucPlaylistView_AllMusicPlayed(object sender, EventArgs e)
         {
             Playlist src = sender as Playlist;
-            if (this.PlaylistUpdated != null)
-                PlaylistUpdated(src, new EventArgs());
+            if (this.QueueUpdated != null)
+                QueueUpdated(src, new EventArgs());
         }
         private void SongView_FavoriteStateChanged(object sender, EventArgs e)
         {
@@ -156,13 +156,5 @@ namespace BLADE
             src.Dispose();
         }
         #endregion
-
-        private void btnAddPlaylistToPlayback_Click(object sender, EventArgs e)
-        {
-            if (this.PlaylistUpdated != null)
-                PlaylistUpdated(this.ChoosingPlaylist, new EventArgs());
-
-        }
-
     }
 }

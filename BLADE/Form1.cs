@@ -41,12 +41,15 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
             uc_Playlist.SelectSong += PlayMusic;
-            uc_Playlist.PlaylistUpdated += UpDatePlaylist;
+            uc_Playlist.QueueUpdated += UpdateQueue;
             //slidervolume
             SliderVolume.Scroll += SliderVolumeChangeHandler;
             SliderVolume.LargeChange = 1;
             SliderVolume.SmallChange = 1;
-            SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;
+            SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
+            uc_Queue.SongSelected += PlayMusic;
+            uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
+
             //label curduration
             lbCurDuration.Text = "";            lblCurDuration.Visible = true;
             //label duration limit
@@ -66,6 +69,14 @@ namespace BLADE
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
 
+
+        #region ucQueue
+        private void Uc_Queue_SongRemoved(object sender, EventArgs e)
+        {
+            Song src = sender as Song;
+            mediaPlayer.CurrentPlaylist.Remove(src);
+        }
+        #endregion
         #region Account Actions
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -492,12 +503,13 @@ namespace BLADE
 
         #endregion
         #region Media Player
-        private void UpDatePlaylist(object sender, EventArgs e)
+        private void UpdateQueue(object sender, EventArgs e)
         {
             Playlist playlist = sender as Playlist;            mediaPlayer.CurrentPlaylist.Clear();            for (int i = 0; i < playlist.Count; i++)
             {
                 mediaPlayer.CurrentPlaylist.Add(playlist.List[i]);
             }
+            uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
             mediaPlayer.PlayInIndex(0);
         }
 
@@ -505,6 +517,7 @@ namespace BLADE
         {
             Song song = sender as Song;
             mediaPlayer.AddSongToCurrentPlaylist(song);
+            uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
             btnPause.Show();
             btnPlay.Hide();

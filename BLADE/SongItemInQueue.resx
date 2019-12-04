@@ -117,43 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ctxtmsSong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSongLoveOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAU9JREFUSEvt
-        lD9KxEAYxb9kUgkq/k02VoqF6AG8gFhb2HgAba1EvIG2ojYeQAQPYGcpbG2lFoIIC4s2uoWKPF8mH5Kd
-        nYXdWcHGBz+SzLz57UJmIv/xZhqSZogPyA15IffkJIXMakV4v8yxM/JImhlMndedHDKklfakSFZYKGTw
-        0Mph1njdJV+V8R9qiG8pX1BdmQyyyMk3t+zgFTo8jENGVFuI43OnEEyKeK+0QhIOtNxCOKZuvZOQ3F8I
-        pmnFxdv0TA7CnRUX4UPDmRyA6FK1VnzUWQijBrOlWrvdljj44ZYCaIxBRlVbhoP7TqlvUpgN1VVit110
-        5VvQI8dq6gy33nCInMf5lH/MqKZLygNz6C7uwmfby+olXLDJha+OqMpTjmRV6/1lCjLPI3rdKY0uZiAT
-        WgsMJOKHZZvCd/LMH1rXmd9J8YEnc/r4VxH5Bn7EMI2lQrhSAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSongLove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXpJREFUSEvt
-        1M8rBHEcxvFZkh9plRIuIslRIVHkgpOLgz1pc9pSDrQ3UZL2JnFCOZASNwdydELKlfwoiuS/GO9PPWbT
-        jDUz7UHx1Kt8n893vu3srHH+8zvjum4XVnGIHUyhWmObN2Aee7A9i2jW+PuwqQxbuME0hjCGTTxiAJN4
-        xjJGMYwFvGJWRwWHDes4QrkqL3SdeMctGlV7oavDNdKqvoZBO55QqcoXZuPo0NIXZm2wO/F9QBvOYUnL
-        2OGMY4xomQ/lBia0jB3OWEFGy3wo7ZeQ1TJ2OMN+EP4PaiW2tYwdzrAH7X9OlEm8oVZV5HBtH6609Ifh
-        GnJaRgrXJXCK4J+phaHdxT0GVYUO18zgBAlVwWFDN17Qq+rHsDeNO9SrKhw29sOeR0pVYJiXwN5J9hpp
-        Uh0udgHOsYsq1V7o7IV3hn0kVUcLF1bA/gEv0Kr68w7tWWVR+DsPEw5Jwd4xGeTwgB6NixMObMElDlCj
-        urjh4FL9+WfiOB9ewJcOnhUHAAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnSongMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAPVJREFUSEvt
-        kj1qAlEURifmpxEUUhlIESHBgCtwDdapbLSwyQrEVYiVRVagKS1DGrFSwTJN2qS0s7EYz33vc+C6AKt3
-        4MDjO29gYCZLJBIXJM/zJ3zHN7zTXMD2gH3sYFlzAds99rBrZ80Rhjbu8cQWK8rWW7izIH6xpmz9Ff8t
-        iD9sKIcL9sA5Q2Xryzg5xsrWP+PkmJ7iNR7C5PkIF4CzvdE5c2Xrmzg51srhwiJujq6y9WmcHANl6+M4
-        OUbK4cIL/oQ5MsErZev2gVcWxAyLH4FzFb8tiC8svmGA4Rab+KjJwX6DDaxrcrCX8FmWNCcSiSzLjkKP
-        nHEF4nf0AAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btnSongPlay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKZJREFUSEtj
@@ -170,4 +134,17 @@
         2uX7UI22n9lat33o7Gd3+v64jdZ+SVe22MzSXAcAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnSongMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAPVJREFUSEvt
+        kj1qAlEURifmpxEUUhlIESHBgCtwDdapbLSwyQrEVYiVRVagKS1DGrFSwTJN2qS0s7EYz33vc+C6AKt3
+        4MDjO29gYCZLJBIXJM/zJ3zHN7zTXMD2gH3sYFlzAds99rBrZ80Rhjbu8cQWK8rWW7izIH6xpmz9Ff8t
+        iD9sKIcL9sA5Q2Xryzg5xsrWP+PkmJ7iNR7C5PkIF4CzvdE5c2Xrmzg51srhwiJujq6y9WmcHANl6+M4
+        OUbK4cIL/oQ5MsErZev2gVcWxAyLH4FzFb8tiC8svmGA4Rab+KjJwX6DDaxrcrCX8FmWNCcSiSzLjkKP
+        nHEF4nf0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="ctxtMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
