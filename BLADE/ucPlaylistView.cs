@@ -89,7 +89,7 @@ namespace BLADE
             song.SongTime = Song.convertToTime(src.getItemInfo("Duration"));
             song.Singer = src.getItemInfo("Artist");
             song.Genre = src.getItemInfo("WM/Genre");
-            //song.SongImage = getImage(file.FullName);
+            song.GetImageFromFile(file.FullName);
             return song;
         }
         public void RemoveChooseItem()

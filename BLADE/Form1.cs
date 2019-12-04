@@ -537,6 +537,9 @@ namespace BLADE
             lblDurationLimit.Text = mediaPlayer.CurrentMedia.SongTime;
             lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
             timerSliderMusic.Start();
+
+            uc_Queue.SetArtCover(mediaPlayer.CurrentMedia.SongImage);
+            uc_Queue.SetInfor(textSongName, textAuthor);
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {

@@ -16,5 +16,17 @@ namespace BLADE
         {
             InitializeComponent();
         }
+
+        public void SetArtCover(Bitmap src)
+        {
+            picbArtCover.Image = src;
+        }
+
+        public void SetInfor(string name, string singer)
+        {
+            lbSongName.Text = name;
+            lbSongSinger.Text = singer;
+        }
+
     }
 }

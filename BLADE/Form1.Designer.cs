@@ -116,7 +116,6 @@ namespace BLADE
             this.label2 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.lblCurDuration = new System.Windows.Forms.Label();
-            this.ucQueue1 = new BLADE.ucQueue();
             this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
             this.pnlMusicControl.SuspendLayout();
             this.pnlControl.SuspendLayout();
@@ -1287,18 +1286,6 @@ namespace BLADE
             this.lblCurDuration.TabIndex = 5;
             this.lblCurDuration.Text = "lblCurDuration";
             // 
-            // ucQueue1
-            // 
-            this.ucQueue1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ucQueue1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucQueue1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucQueue1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ucQueue1.Location = new System.Drawing.Point(0, 0);
-            this.ucQueue1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucQueue1.Name = "ucQueue1";
-            this.ucQueue1.Size = new System.Drawing.Size(787, 565);
-            this.ucQueue1.TabIndex = 6;
-            // 
             // UcDropdownTime
             // 
             this.UcDropdownTime.Interval = 10;
@@ -1427,7 +1414,6 @@ namespace BLADE
         private ucMusicCutter uc_MusicCutter;
         private System.Windows.Forms.Button btnQueue;
         private ucQueue uc_Queue;
-        private ucQueue ucQueue1;
         private System.Windows.Forms.Button btnCollapse;
         private System.Windows.Forms.Timer UcDropdownTime;
     }

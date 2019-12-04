@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace BLADE
         private string _songTime;
         private string _singer;
         private string _genre;
-        private Image _songImage;
+        private Bitmap _songImage;
 
         private bool _isFavorite;
 
@@ -34,7 +35,7 @@ namespace BLADE
         public string SongTime { get => _songTime; set => _songTime = value; }
         public string Singer { get => _singer; set => _singer = value; }
         public string Genre { get => _genre; set => _genre = value; }
-        public Image SongImage { get => _songImage; set => _songImage = value; }
+        public Bitmap SongImage { get => _songImage; set => _songImage = value; }
         public string SongURL { get => _songURL; set => _songURL = value; }
         //public string DownloadURL { get => downloadURL; set => downloadURL = value; }
         //public string PhotoURL { get => _photoURL; set => _photoURL = value; }
@@ -100,6 +101,24 @@ namespace BLADE
             TimeSpan temp = TimeSpan.FromSeconds(sec);
             result = temp.ToString("mm':'ss");
             return result;
+        }
+
+        public void GetImageFromFile(string path)
+        {
+            TagLib.File file = TagLib.File.Create(path);
+            var mStream = new MemoryStream();
+            var firstPicture = file.Tag.Pictures.FirstOrDefault();
+            if (firstPicture != null)
+            {
+                byte[] pData = firstPicture.Data.Data;
+                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               _songImage = new Bitmap(mStream, false);
+                mStream.Dispose();
+            }
+            else
+            {
+                _songImage = new Bitmap(@"D:\B.L.A.D.E\BLADE\Resources\music.jpg");
+            }
         }
 
         #region SORT SONG
