@@ -47,6 +47,7 @@ namespace BLADE
             SliderVolume.LargeChange = 1;
             SliderVolume.SmallChange = 1;
             SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
+            uc_Queue.ShowStateChanged += Uc_Queue_ShowStateChanged;
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
 
@@ -81,6 +82,13 @@ namespace BLADE
         {
             Song src = sender as Song;
             mediaPlayer.CurrentPlaylist.Remove(src);
+        }
+        private void Uc_Queue_ShowStateChanged(object sender, EventArgs e)
+        {
+            if (uc_Queue.IsShow)
+                pnlSongInfo.Hide();
+            else
+                pnlSongInfo.Show();
         }
         #endregion
         #region Account Actions
@@ -330,8 +338,6 @@ namespace BLADE
                 lblTextBLADE.Hide();
             }
         }
-
-        private bool isShowQueue = false;
         private void btnQueue_Click(object sender, EventArgs e)
         {
             if (!isCollapsed)
@@ -339,17 +345,17 @@ namespace BLADE
                 btnTimer.PerformClick();
             }
             //cho user control ohu hop xuat hien
-            if (!isShowQueue)
+            if (!uc_Queue.IsShow)
             {
                 uc_Queue.Show();
                 uc_Queue.BringToFront();
-                isShowQueue = true;
+                uc_Queue.IsShow = true;
             }
             else
             {
                 uc_Queue.Hide();
                 uc_Queue.SendToBack();
-                isShowQueue = false;
+                uc_Queue.IsShow = false;
             }
         }
 
@@ -765,10 +771,6 @@ namespace BLADE
         }
 
         #endregion
-
-        private void txtSecond_OnValueChanged(object sender, EventArgs e)
-        {
-
-        } 
+      
     }
 }
