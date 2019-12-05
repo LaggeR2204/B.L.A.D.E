@@ -22,6 +22,12 @@ namespace BLADE
             lblIncorrect.Hide();
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            txtUsername.Text = Properties.Settings.Default.UserName;
+            txtPassword.Text = Properties.Settings.Default.Password;
+        }
+
         private void txtPassword_TextChange(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
@@ -50,6 +56,14 @@ namespace BLADE
             {
                 if (LoginSuccess != null)
                     LoginSuccess(username, new EventArgs());
+
+                if (checkboxRemember.Checked)
+                {
+                    Properties.Settings.Default.UserName = txtUsername.Text;
+                    Properties.Settings.Default.Password = txtPassword.Text;
+                    Properties.Settings.Default.Save();
+                }
+
                 this.Hide();
             }
             else

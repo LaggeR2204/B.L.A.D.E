@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace BLADE
 {
@@ -20,7 +21,7 @@ namespace BLADE
 
         private DataProvider() { }
 
-        private string ConnectionSTR = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\B.L.A.D.E\BLADE\Login.mdf;Integrated Security=True";
+        private string ConnectionSTR = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Login.mdf;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
