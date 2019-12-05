@@ -44,9 +44,9 @@
             this.lblTextQueue.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextQueue.Location = new System.Drawing.Point(17, 20);
             this.lblTextQueue.Name = "lblTextQueue";
-            this.lblTextQueue.Size = new System.Drawing.Size(136, 25);
+            this.lblTextQueue.Size = new System.Drawing.Size(119, 25);
             this.lblTextQueue.TabIndex = 0;
-            this.lblTextQueue.Text = "PLAY QUEUE";
+            this.lblTextQueue.Text = "PLAYBACK";
             // 
             // bunifuSeparator1
             // 
@@ -54,7 +54,7 @@
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(495, 72);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(11, 493);
             this.bunifuSeparator1.TabIndex = 1;

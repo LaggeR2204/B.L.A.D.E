@@ -28,7 +28,6 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ChangePasswordForm.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucMusicCutter.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucQueue.resources
 D:\B.L.A.D.E\BLADE\bin\Debug\NAudio.dll
-D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
 D:\B.L.A.D.E\BLADE\bin\Debug\NAudio.xml
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
@@ -52,3 +51,6 @@ D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu.UI.WinForms.ToggleSwitch.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\Bunifu_UI_v1.5.3.dll
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucChart.resources
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucNowPlaying.resources
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache

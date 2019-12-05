@@ -120,6 +120,18 @@
     <Compile Include="SongItemInQueue.Designer.cs">
       <DependentUpon>SongItemInQueue.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucChart.Designer.cs">
+      <DependentUpon>ucChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucNowPlaying.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNowPlaying.Designer.cs">
+      <DependentUpon>ucNowPlaying.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaveformsPlotting.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -232,6 +244,9 @@
     <EmbeddedResource Include="SongItemInQueue.resx">
       <DependentUpon>SongItemInQueue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucChart.resx">
+      <DependentUpon>ucChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucHome.resx">
       <DependentUpon>ucHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucMusicCutter.resx">
       <DependentUpon>ucMusicCutter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNowPlaying.resx">
+      <DependentUpon>ucNowPlaying.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPlaylist.resx">
       <DependentUpon>ucPlaylist.cs</DependentUpon>
