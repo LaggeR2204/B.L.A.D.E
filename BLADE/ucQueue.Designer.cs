@@ -44,7 +44,7 @@
             this.lblTextQueue.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextQueue.Location = new System.Drawing.Point(17, 20);
             this.lblTextQueue.Name = "lblTextQueue";
-            this.lblTextQueue.Size = new System.Drawing.Size(174, 32);
+            this.lblTextQueue.Size = new System.Drawing.Size(136, 25);
             this.lblTextQueue.TabIndex = 0;
             this.lblTextQueue.Text = "PLAY QUEUE";
             // 
@@ -53,17 +53,17 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(490, 72);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(495, 72);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(23, 493);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(11, 493);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // picbArtCover
             // 
-            this.picbArtCover.Location = new System.Drawing.Point(511, 123);
+            this.picbArtCover.Location = new System.Drawing.Point(510, 123);
             this.picbArtCover.Name = "picbArtCover";
             this.picbArtCover.Size = new System.Drawing.Size(273, 264);
             this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -73,22 +73,20 @@
             // lbSongName
             // 
             this.lbSongName.AutoSize = true;
-            this.lbSongName.Font = new System.Drawing.Font("Rockwell", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongName.Location = new System.Drawing.Point(521, 413);
+            this.lbSongName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSongName.Location = new System.Drawing.Point(510, 397);
             this.lbSongName.Name = "lbSongName";
-            this.lbSongName.Size = new System.Drawing.Size(39, 29);
+            this.lbSongName.Size = new System.Drawing.Size(0, 25);
             this.lbSongName.TabIndex = 3;
-            this.lbSongName.Text = "aa";
             // 
             // lbSongSinger
             // 
             this.lbSongSinger.AutoSize = true;
-            this.lbSongSinger.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongSinger.Location = new System.Drawing.Point(522, 462);
+            this.lbSongSinger.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSongSinger.Location = new System.Drawing.Point(510, 435);
             this.lbSongSinger.Name = "lbSongSinger";
-            this.lbSongSinger.Size = new System.Drawing.Size(29, 20);
+            this.lbSongSinger.Size = new System.Drawing.Size(0, 17);
             this.lbSongSinger.TabIndex = 4;
-            this.lbSongSinger.Text = "bb";
             // 
             // fpnlQueue
             // 
@@ -96,7 +94,7 @@
             this.fpnlQueue.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlQueue.Location = new System.Drawing.Point(3, 72);
             this.fpnlQueue.Name = "fpnlQueue";
-            this.fpnlQueue.Size = new System.Drawing.Size(493, 490);
+            this.fpnlQueue.Size = new System.Drawing.Size(493, 501);
             this.fpnlQueue.TabIndex = 5;
             this.fpnlQueue.WrapContents = false;
             // 
@@ -106,21 +104,21 @@
             this.lbNowPlaying.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNowPlaying.Location = new System.Drawing.Point(520, 72);
             this.lbNowPlaying.Name = "lbNowPlaying";
-            this.lbNowPlaying.Size = new System.Drawing.Size(177, 32);
+            this.lbNowPlaying.Size = new System.Drawing.Size(139, 25);
             this.lbNowPlaying.TabIndex = 6;
             this.lbNowPlaying.Text = "Now Playing";
             // 
             // ucQueue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.lbNowPlaying);
             this.Controls.Add(this.fpnlQueue);
             this.Controls.Add(this.lbSongSinger);
             this.Controls.Add(this.lbSongName);
             this.Controls.Add(this.picbArtCover);
-            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.lblTextQueue);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
