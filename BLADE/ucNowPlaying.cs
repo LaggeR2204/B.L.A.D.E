@@ -13,8 +13,6 @@ namespace BLADE
 {
     public partial class ucNowPlaying : UserControl
     {
-        StereoAudioWavePainter stereo;
-        DrawingWaveSound _drawtool;
         public ucNowPlaying()
         {
             InitializeComponent();
@@ -32,31 +30,7 @@ namespace BLADE
             stereo.Enabled = true;
             stereo.BackColor = Color.FromArgb(0, 190, 190);
             stereo.Show();
-            _drawtool = new DrawingWaveSound();
-            _drawtool.NotifySample += _drawtool_NotifySample;
-        }
-
-        private void _drawtool_NotifySample(object sender, NAudio.Wave.SampleEventArgs e)
-        {
-            lock (_drawtool.SampleObject)
-            {
-                if(_drawtool.Count >= _drawtool.Speed)
-                {
-                    stereo.AddLeftRight(_drawtool.LeftMax, _drawtool.RightMax);
-                    _drawtool.LeftMax = 0;
-                    _drawtool.RightMax = 0;
-                    _drawtool.Count = 0;
-                }
-                else
-                {
-                    if (Math.Abs(e.Left) + Math.Abs(e.Right) > Math.Abs(_drawtool.LeftMax) + Math.Abs(_drawtool.RightMax))
-                    {
-                        _drawtool.LeftMax = e.Left;
-                        _drawtool.RightMax = e.Right;
-                    }
-                    _drawtool.Count++;
-                }
-            }
+           
         }
     }
 }
