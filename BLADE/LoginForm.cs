@@ -63,6 +63,10 @@ namespace BLADE
                     Properties.Settings.Default.Password = txtPassword.Text;
                     Properties.Settings.Default.Save();
                 }
+                else
+                {
+                    Properties.Settings.Default.Reset();
+                }
 
                 this.Hide();
             }
