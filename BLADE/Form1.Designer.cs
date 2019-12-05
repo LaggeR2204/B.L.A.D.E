@@ -185,9 +185,8 @@ namespace BLADE
             this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSongName.Location = new System.Drawing.Point(85, 19);
             this.lblSongName.Name = "lblSongName";
-            this.lblSongName.Size = new System.Drawing.Size(34, 23);
+            this.lblSongName.Size = new System.Drawing.Size(0, 18);
             this.lblSongName.TabIndex = 4;
-            this.lblSongName.Text = "sss";
             // 
             // lblArtistName
             // 
@@ -198,9 +197,8 @@ namespace BLADE
             this.lblArtistName.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblArtistName.Location = new System.Drawing.Point(86, 56);
             this.lblArtistName.Name = "lblArtistName";
-            this.lblArtistName.Size = new System.Drawing.Size(46, 21);
+            this.lblArtistName.Size = new System.Drawing.Size(0, 16);
             this.lblArtistName.TabIndex = 4;
-            this.lblArtistName.Text = "aaa";
             // 
             // lblDurationLimit
             // 
@@ -208,7 +206,7 @@ namespace BLADE
             this.lblDurationLimit.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblDurationLimit.Location = new System.Drawing.Point(690, 47);
             this.lblDurationLimit.Name = "lblDurationLimit";
-            this.lblDurationLimit.Size = new System.Drawing.Size(51, 21);
+            this.lblDurationLimit.Size = new System.Drawing.Size(40, 17);
             this.lblDurationLimit.TabIndex = 5;
             this.lblDurationLimit.Text = "04:00";
             // 
@@ -218,7 +216,7 @@ namespace BLADE
             this.lbCurDuration.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbCurDuration.Location = new System.Drawing.Point(255, 47);
             this.lbCurDuration.Name = "lbCurDuration";
-            this.lbCurDuration.Size = new System.Drawing.Size(51, 21);
+            this.lbCurDuration.Size = new System.Drawing.Size(40, 17);
             this.lbCurDuration.TabIndex = 5;
             this.lbCurDuration.Text = "00:00";
             // 
@@ -242,7 +240,7 @@ namespace BLADE
             this.SliderVolume.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SliderVolume.DrawThickBorder = false;
             this.SliderVolume.DurationBeforeShrink = 2000;
-            this.SliderVolume.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.SliderVolume.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.SliderVolume.LargeChange = 1;
             this.SliderVolume.Location = new System.Drawing.Point(913, 38);
             this.SliderVolume.Margin = new System.Windows.Forms.Padding(5);
@@ -263,7 +261,7 @@ namespace BLADE
             this.SliderVolume.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
             this.SliderVolume.SmallChange = 1;
             this.SliderVolume.TabIndex = 3;
-            this.SliderVolume.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.SliderVolume.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.SliderVolume.ThumbFillColor = System.Drawing.SystemColors.Control;
             this.SliderVolume.ThumbLength = 18;
             this.SliderVolume.ThumbMargin = 1;
@@ -332,10 +330,10 @@ namespace BLADE
             this.sliderMusic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sliderMusic.DrawThickBorder = false;
             this.sliderMusic.DurationBeforeShrink = 2000;
-            this.sliderMusic.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.sliderMusic.ElapsedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.sliderMusic.LargeChange = 1;
             this.sliderMusic.Location = new System.Drawing.Point(250, 66);
-            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sliderMusic.Margin = new System.Windows.Forms.Padding(4);
             this.sliderMusic.Maximum = 100;
             this.sliderMusic.Minimum = 0;
             this.sliderMusic.MinimumSize = new System.Drawing.Size(0, 31);
@@ -353,7 +351,7 @@ namespace BLADE
             this.sliderMusic.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
             this.sliderMusic.SmallChange = 1;
             this.sliderMusic.TabIndex = 0;
-            this.sliderMusic.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.sliderMusic.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.sliderMusic.ThumbFillColor = System.Drawing.SystemColors.Control;
             this.sliderMusic.ThumbLength = 18;
             this.sliderMusic.ThumbMargin = 1;
@@ -498,7 +496,7 @@ namespace BLADE
             this.lblTime.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblTime.Location = new System.Drawing.Point(349, 7);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(91, 22);
+            this.lblTime.Size = new System.Drawing.Size(77, 18);
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "TimeNow";
             // 
@@ -524,7 +522,7 @@ namespace BLADE
             this.menuUser.Name = "menuUser";
             this.menuUser.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuUser.ShowImageMargin = false;
-            this.menuUser.Size = new System.Drawing.Size(223, 52);
+            this.menuUser.Size = new System.Drawing.Size(186, 48);
             // 
             // changeYourPasswordToolStripMenuItem
             // 
@@ -534,7 +532,7 @@ namespace BLADE
             this.changeYourPasswordToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.changeYourPasswordToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.changeYourPasswordToolStripMenuItem.Name = "changeYourPasswordToolStripMenuItem";
-            this.changeYourPasswordToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.changeYourPasswordToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.changeYourPasswordToolStripMenuItem.Text = "Change Your Password";
             this.changeYourPasswordToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeYourPasswordToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -546,7 +544,7 @@ namespace BLADE
             this.logOutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.logOutToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logOutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -615,7 +613,7 @@ namespace BLADE
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(197, 31);
+            this.txtSearch.Size = new System.Drawing.Size(197, 27);
             this.txtSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -676,7 +674,7 @@ namespace BLADE
             this.lblCountdown.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCountdown.Location = new System.Drawing.Point(120, 14);
             this.lblCountdown.Name = "lblCountdown";
-            this.lblCountdown.Size = new System.Drawing.Size(0, 18);
+            this.lblCountdown.Size = new System.Drawing.Size(0, 16);
             this.lblCountdown.TabIndex = 4;
             // 
             // DragControl
@@ -708,6 +706,7 @@ namespace BLADE
             // btnMusicCutter
             // 
             this.btnMusicCutter.FlatAppearance.BorderSize = 0;
+            this.btnMusicCutter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnMusicCutter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMusicCutter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMusicCutter.ForeColor = System.Drawing.Color.White;
@@ -724,7 +723,7 @@ namespace BLADE
             // 
             // pnlSelectedButton
             // 
-            this.pnlSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.pnlSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlSelectedButton.ForeColor = System.Drawing.Color.White;
             this.pnlSelectedButton.Location = new System.Drawing.Point(0, 88);
             this.pnlSelectedButton.Name = "pnlSelectedButton";
@@ -761,7 +760,7 @@ namespace BLADE
             // btnSetCustomTime
             // 
             this.btnSetCustomTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetCustomTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.btnSetCustomTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSetCustomTime.FlatAppearance.BorderSize = 0;
             this.btnSetCustomTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetCustomTime.Location = new System.Drawing.Point(160, 0);
@@ -783,9 +782,9 @@ namespace BLADE
             this.txtSecond.HintForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSecond.HintText = "S";
             this.txtSecond.isPassword = false;
-            this.txtSecond.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtSecond.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtSecond.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtSecond.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtSecond.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtSecond.LineThickness = 2;
             this.txtSecond.Location = new System.Drawing.Point(113, 0);
             this.txtSecond.Margin = new System.Windows.Forms.Padding(4);
@@ -806,9 +805,9 @@ namespace BLADE
             this.txtMinute.HintForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtMinute.HintText = "M";
             this.txtMinute.isPassword = false;
-            this.txtMinute.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtMinute.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMinute.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtMinute.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtMinute.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMinute.LineThickness = 2;
             this.txtMinute.Location = new System.Drawing.Point(65, 0);
             this.txtMinute.Margin = new System.Windows.Forms.Padding(4);
@@ -829,9 +828,9 @@ namespace BLADE
             this.txtHour.HintForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtHour.HintText = "H";
             this.txtHour.isPassword = false;
-            this.txtHour.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtHour.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtHour.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtHour.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.txtHour.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtHour.LineThickness = 2;
             this.txtHour.Location = new System.Drawing.Point(17, 0);
             this.txtHour.Margin = new System.Windows.Forms.Padding(4);
@@ -924,6 +923,7 @@ namespace BLADE
             // btnInfo
             // 
             this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfo.ForeColor = System.Drawing.Color.White;
@@ -957,7 +957,7 @@ namespace BLADE
             // btnHome
             // 
             this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.White;
@@ -975,6 +975,7 @@ namespace BLADE
             // btnPlaylist
             // 
             this.btnPlaylist.FlatAppearance.BorderSize = 0;
+            this.btnPlaylist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlaylist.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlaylist.ForeColor = System.Drawing.Color.White;
@@ -1012,7 +1013,7 @@ namespace BLADE
             this.accountToolStripMenuItem});
             this.menuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("menuToolStripMenuItem.Image")));
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
             this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // fileToolStripMenuItem
@@ -1025,15 +1026,15 @@ namespace BLADE
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShowShortcutKeys = false;
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1052,7 +1053,7 @@ namespace BLADE
             this.playbackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
             this.playbackToolStripMenuItem.ShowShortcutKeys = false;
-            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.playbackToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.playbackToolStripMenuItem.Text = "Playback";
             // 
             // playToolStripMenuItem
@@ -1060,7 +1061,7 @@ namespace BLADE
             this.playToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.playToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -1069,7 +1070,7 @@ namespace BLADE
             this.pauseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
@@ -1078,7 +1079,7 @@ namespace BLADE
             this.nextToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.nextToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
@@ -1087,7 +1088,7 @@ namespace BLADE
             this.previousToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.previousToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.previousToolStripMenuItem.Text = "Previous";
             this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
             // 
@@ -1096,7 +1097,7 @@ namespace BLADE
             this.volumeUpToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.volumeUpToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
-            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.volumeUpToolStripMenuItem.Text = "Volume up";
             // 
             // volumeDownToolStripMenuItem
@@ -1104,7 +1105,7 @@ namespace BLADE
             this.volumeDownToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.volumeDownToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
-            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.volumeDownToolStripMenuItem.Text = "Volume down";
             // 
             // accountToolStripMenuItem
@@ -1118,7 +1119,7 @@ namespace BLADE
             this.accountToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.ShowShortcutKeys = false;
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // changePasswordToolStripMenuItem
@@ -1126,7 +1127,7 @@ namespace BLADE
             this.changePasswordToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.changePasswordToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -1135,7 +1136,7 @@ namespace BLADE
             this.logOutToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.logOutToolStripMenuItem1.ForeColor = System.Drawing.Color.Gainsboro;
             this.logOutToolStripMenuItem1.Name = "logOutToolStripMenuItem1";
-            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(245, 26);
+            this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
             this.logOutToolStripMenuItem1.Text = "Log Out";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
             // 
@@ -1265,19 +1266,19 @@ namespace BLADE
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem1});
             this.menuNofityIcon.Name = "menuNofityIcon";
-            this.menuNofityIcon.Size = new System.Drawing.Size(189, 52);
+            this.menuNofityIcon.Size = new System.Drawing.Size(162, 48);
             // 
             // minimizeToTrayToolStripMenuItem
             // 
             this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
             this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(188, 24);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -1318,7 +1319,7 @@ namespace BLADE
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);

@@ -121,7 +121,7 @@
   <data name="SliderVolume.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFIAAAAeCAYAAAC/tkmMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAA/SURBVGhD7dChDQAgDEXB7r8ipjswACBQEBI03CVPteoH
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA/SURBVGhD7dChDQAgDEXB7r8ipjswACBQEBI03CVPteoH
         AAAAAL/IzDJquqrM2XbjWJdnnatzNgAAAAAeF9EBfkUmJ6wJCNwAAAAASUVORK5CYII=
 </value>
   </data>
@@ -155,7 +155,7 @@
   <data name="sliderMusic.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAAfCAYAAAARIj9/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABzSURBVHhe7dWhDQAgDEXB7r8ipjswACCqQJNU3CVPtf4H
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVHhe7dWhDQAgDEXB7r8ipjswACCqQJNU3CVPtf4H
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAf5k5TkuSJLVv1Hy/znFez5IkqWez5hsAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA4J+IDbfG+ggFCsIJAAAAAElFTkSuQmCC
 </value>
@@ -287,18 +287,18 @@
   </metadata>
   <data name="txtSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="txtSearch.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -446,7 +446,7 @@
 </value>
   </data>
   <data name="lblTextBLADE.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 1.2px; margin: auto; padding-top: -45px;font-family: 'Showcard Gothic'; font-size: 36pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: White; text-align: center; }</value>
+    <value>#bunifu-label { padding: 1.2px; margin: auto; padding-top: 1px;font-family: 'Showcard Gothic'; font-size: 36pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: White; text-align: center; }</value>
   </data>
   <data name="btnHome.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

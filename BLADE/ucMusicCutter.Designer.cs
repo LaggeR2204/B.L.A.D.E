@@ -139,8 +139,8 @@
             // 
             // waveViewer1
             // 
-            this.waveViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
-            this.waveViewer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(217)))), ((int)(((byte)(87)))));
+            this.waveViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.waveViewer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.waveViewer1.Location = new System.Drawing.Point(56, 137);
             this.waveViewer1.Name = "waveViewer1";
             this.waveViewer1.SamplesPerPixel = 128;

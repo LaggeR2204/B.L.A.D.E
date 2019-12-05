@@ -294,10 +294,6 @@ namespace BLADE
 
         private void btnTimer_Click(object sender, EventArgs e)
         {
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Show();
-            pnlSelectedButton.Height = btnTimer.Height;
-            pnlSelectedButton.Top = pnlTimerControl.Top;
             if (!isUcCollapsed)
             {
                 lblTextBLADE.Show();
@@ -348,8 +344,6 @@ namespace BLADE
             {
                 btnTimer.PerformClick();
             }
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Hide();
             //cho user control ohu hop xuat hien
             if (!uc_Queue.IsShow)
             {
