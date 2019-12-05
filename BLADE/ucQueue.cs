@@ -12,6 +12,21 @@ namespace BLADE
 {
     public partial class ucQueue : UserControl
     {
+        private bool _isShow;
+        public bool IsShow
+        {
+            get => _isShow;
+            set
+            {
+                if (value != _isShow)
+                {
+                    _isShow = value;
+                    if (ShowStateChanged != null)
+                        ShowStateChanged(this, new EventArgs());
+                }
+            }
+        }
+        public event EventHandler ShowStateChanged;
         public event EventHandler SongSelected;
         public event EventHandler SongRemoved;
         public ucQueue()

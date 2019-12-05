@@ -153,7 +153,7 @@ namespace BLADE
         {
             OpenFileDialog openfileDialog = new OpenFileDialog();
             openfileDialog.InitialDirectory = "c:\\";
-            openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3|All File|*.*";
+            openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3;*.wav";
             openfileDialog.FilterIndex = 2;
             openfileDialog.RestoreDirectory = true;
             openfileDialog.Multiselect = true;
@@ -164,7 +164,7 @@ namespace BLADE
                 {
                     FileInfo fileinfo = new FileInfo(file);
                     Song song;
-                    if (fileinfo.Extension == ".mp3")
+                    if (fileinfo.Extension == ".mp3" || fileinfo.Extension == ".wav")
                     {
                         song = GetSongInfo(fileinfo);
                         if (!_playlist.IsContains(song))
