@@ -91,7 +91,7 @@ namespace BLADE
 
         private void ucSongViewDetail_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.BackColor = Color.FromArgb(0, 217, 87);
+            this.BackColor = Color.FromArgb(0, 192, 192);
             if (SelectedSong != null)
                 SelectedSong(_song, e);
         }
