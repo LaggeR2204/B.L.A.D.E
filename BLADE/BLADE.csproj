@@ -113,6 +113,7 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DrawingWaveSound.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
     <Compile Include="SongItemInQueue.cs">
       <SubType>UserControl</SubType>
