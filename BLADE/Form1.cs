@@ -50,6 +50,7 @@ namespace BLADE
             uc_Queue.ShowStateChanged += Uc_Queue_ShowStateChanged;
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
+            uc_Queue.CurrentSongFavoriteChanged += Uc_Queue_CurrentSongFavoriteChanged;
 
             //label curduration
             lbCurDuration.Text = "";            lblCurDuration.Visible = true;
@@ -69,8 +70,12 @@ namespace BLADE
             timerSliderMusic.Interval = 200;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
-
         #region ucQueue
+        private void Uc_Queue_CurrentSongFavoriteChanged(object sender, EventArgs e)
+        {
+            mediaPlayer.CurrentMedia.IsFavorite = (bool)sender;
+            uc_Queue.SetFavoriteState(mediaPlayer.CurrentMedia);
+        }
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {
             Song song = sender as Song;
@@ -82,6 +87,7 @@ namespace BLADE
         {
             Song src = sender as Song;
             mediaPlayer.CurrentPlaylist.Remove(src);
+            
         }
         private void Uc_Queue_ShowStateChanged(object sender, EventArgs e)
         {
@@ -556,9 +562,9 @@ namespace BLADE
             lblDurationLimit.Text = mediaPlayer.CurrentMedia.SongTime;
             lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
             timerSliderMusic.Start();
+            //uc Playback
             picArtCover.Image = mediaPlayer.CurrentMedia.SongImage;
-            uc_Queue.SetArtCover(mediaPlayer.CurrentMedia.SongImage);
-            uc_Queue.SetInfor(textSongName, textAuthor);
+            uc_Queue.SetSongInfo(mediaPlayer.CurrentMedia);
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {

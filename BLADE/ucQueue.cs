@@ -26,6 +26,7 @@ namespace BLADE
                 }
             }
         }
+        public event EventHandler CurrentSongFavoriteChanged;
         public event EventHandler ShowStateChanged;
         public event EventHandler SongSelected;
         public event EventHandler SongRemoved;
@@ -42,7 +43,26 @@ namespace BLADE
         {
             picbArtCover.Image = src;
         }
-
+        public void SetFavoriteState(Song src)
+        {
+            if (src.IsFavorite)
+            {
+                btnSongLoveOff.Show();
+                btnSongLove.Hide();
+            }
+            else
+            {
+                btnSongLove.Show();
+                btnSongLoveOff.Hide();
+            }
+        }
+        public void SetSongInfo(Song src)
+        {
+            picbArtCover.Image = src.SongImage;
+            lbSongName.Text = src.SongName;
+            lbSongSinger.Text = src.Singer;
+            SetFavoriteState(src);
+        }
         public void SetInfor(string name, string singer)
         {
             lbSongName.Text = name;
@@ -75,6 +95,18 @@ namespace BLADE
             songItem.SelectedSong += SongSelected_Handler;
             songItem.SongRemoved += SongRemoved_Handler;
             this.fpnlQueue.Controls.Add(songItem);
+        }
+
+        private void btnSongLove_Click(object sender, EventArgs e)
+        {
+            if (CurrentSongFavoriteChanged != null)
+                CurrentSongFavoriteChanged(true, new EventArgs());
+        }
+
+        private void btnSongLoveOff_Click(object sender, EventArgs e)
+        {
+            if (CurrentSongFavoriteChanged != null)
+                CurrentSongFavoriteChanged(false, new EventArgs());
         }
     }
 }
