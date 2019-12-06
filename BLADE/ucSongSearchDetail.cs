@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 
 namespace BLADE
 {
@@ -51,7 +52,16 @@ namespace BLADE
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            search.Download(_song.SongName, _song.SongURL);            
+            ThreadStart st = new ThreadStart(DownloadSong);
+            Thread thrd = new Thread(st);
+            thrd.IsBackground = true;
+            thrd.Start();
+        }
+
+        void DownloadSong()
+        {
+            search.Download(_song);
+            MessageBox.Show("Down xong");
         }
     }
 }

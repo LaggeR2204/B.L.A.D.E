@@ -113,6 +113,7 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrawlChart.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
     <Compile Include="SongItemInQueue.cs">
       <SubType>UserControl</SubType>
@@ -131,6 +132,12 @@
     </Compile>
     <Compile Include="ucNowPlaying.Designer.cs">
       <DependentUpon>ucNowPlaying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSongChartDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSongChartDetail.Designer.cs">
+      <DependentUpon>ucSongChartDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="WaveformsPlotting.cs">
       <SubType>Component</SubType>
@@ -270,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucSearch.resx">
       <DependentUpon>ucSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSongChartDetail.resx">
+      <DependentUpon>ucSongChartDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucSongSearchDetail.resx">
       <DependentUpon>ucSongSearchDetail.cs</DependentUpon>

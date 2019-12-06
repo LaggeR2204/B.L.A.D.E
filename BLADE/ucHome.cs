@@ -33,15 +33,22 @@ namespace BLADE
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            pnlSelectedTab.Left = btnChart.Left;
-            btnChart.Font = new Font(btnChart.Font.Name, btnChart.Font.Size, FontStyle.Bold);
-            btnChart.ForeColor = Color.White;
-            btnNowPlaying.Font = new Font(btnNowPlaying.Font.Name, btnNowPlaying.Font.Size, FontStyle.Regular);
-            btnNowPlaying.ForeColor = Color.Gainsboro;
+            if (uc_Chart.isCompletedChart)
+            {
+                pnlSelectedTab.Left = btnChart.Left;
+                btnChart.Font = new Font(btnChart.Font.Name, btnChart.Font.Size, FontStyle.Bold);
+                btnChart.ForeColor = Color.White;
+                btnNowPlaying.Font = new Font(btnNowPlaying.Font.Name, btnNowPlaying.Font.Size, FontStyle.Regular);
+                btnNowPlaying.ForeColor = Color.Gainsboro;
 
-            uc_NowPlaying.Hide();
-            uc_Chart.Show();
-            uc_Chart.BringToFront();
+                uc_NowPlaying.Hide();
+                uc_Chart.Show();
+                uc_Chart.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chờ đợi crawl bxh cái disme");
+            }
         }
     }
 }

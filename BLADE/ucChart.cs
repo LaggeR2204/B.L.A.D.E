@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BLADE
 {
     public partial class ucChart : UserControl
     {
+        private CrawlChart chart = new CrawlChart();
+        public bool isCompletedChart = false;
+
         public ucChart()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
+            btnRefresh.PerformClick();
         }
 
         private void btnVN_Click(object sender, EventArgs e)
@@ -51,6 +57,67 @@ namespace BLADE
             fpnlVN.Hide();
             fpnlKorea.Show();
             fpnlKorea.BringToFront();
+        }
+
+        public void ShowChartVN(List<ucSongChartDetail> src)
+        {
+            foreach (var item in src)
+            {
+                fpnlVN.Controls.Add(item);
+            }
+        }
+
+        public void ShowChartUSUK(List<ucSongChartDetail> src)
+        {
+            foreach (var item in src)
+            {
+                fpnlUSUK.Controls.Add(item);
+            }
+        }
+
+        public void ShowChartKorea(List<ucSongChartDetail> src)
+        {
+            foreach (var item in src)
+            {
+                fpnlKorea.Controls.Add(item);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Thread thrdChart = new Thread(RefreshChart);
+            thrdChart.IsBackground = true;
+            if (isCompletedChart)
+            {
+                return;
+            }
+            else
+            {
+                thrdChart.Start();
+            }
+            
+        }
+
+        private void RefreshChart()
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    ShowChartVN(chart.CrawlChartFromCSN("vietnam"));
+                    ShowChartUSUK(chart.CrawlChartFromCSN("us-uk"));
+                    ShowChartKorea(chart.CrawlChartFromCSN("korea"));
+                    isCompletedChart = true;
+                });
+            }
+            else
+            {
+                ShowChartVN(chart.CrawlChartFromCSN("vietnam"));
+                ShowChartUSUK(chart.CrawlChartFromCSN("us-uk"));
+                ShowChartKorea(chart.CrawlChartFromCSN("korea"));
+                isCompletedChart = true;
+            }
+            
         }
     }
 }

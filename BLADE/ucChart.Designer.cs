@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChart));
             this.fpnlVN = new System.Windows.Forms.FlowLayoutPanel();
             this.fpnlUSUK = new System.Windows.Forms.FlowLayoutPanel();
             this.fpnlKorea = new System.Windows.Forms.FlowLayoutPanel();
             this.btnVN = new System.Windows.Forms.Button();
             this.btnUSUK = new System.Windows.Forms.Button();
             this.btnKorea = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // fpnlVN
@@ -102,17 +104,32 @@
             this.btnKorea.UseVisualStyleBackColor = false;
             this.btnKorea.Click += new System.EventHandler(this.btnKorea_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(754, 4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(30, 30);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // ucChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnKorea);
             this.Controls.Add(this.btnUSUK);
             this.Controls.Add(this.btnVN);
+            this.Controls.Add(this.fpnlVN);
             this.Controls.Add(this.fpnlKorea);
             this.Controls.Add(this.fpnlUSUK);
-            this.Controls.Add(this.fpnlVN);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -129,5 +146,6 @@
         private System.Windows.Forms.Button btnVN;
         private System.Windows.Forms.Button btnUSUK;
         private System.Windows.Forms.Button btnKorea;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
