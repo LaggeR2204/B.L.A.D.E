@@ -73,7 +73,7 @@
             this.pnlSaperator.Controls.Add(this.pnlSelectedTab);
             this.pnlSaperator.Location = new System.Drawing.Point(0, 59);
             this.pnlSaperator.Name = "pnlSaperator";
-            this.pnlSaperator.Size = new System.Drawing.Size(787, 6);
+            this.pnlSaperator.Size = new System.Drawing.Size(787, 5);
             this.pnlSaperator.TabIndex = 1;
             // 
             // pnlSelectedTab
@@ -81,7 +81,7 @@
             this.pnlSelectedTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlSelectedTab.Location = new System.Drawing.Point(3, 0);
             this.pnlSelectedTab.Name = "pnlSelectedTab";
-            this.pnlSelectedTab.Size = new System.Drawing.Size(140, 6);
+            this.pnlSelectedTab.Size = new System.Drawing.Size(140, 5);
             this.pnlSelectedTab.TabIndex = 2;
             // 
             // uc_Chart

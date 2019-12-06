@@ -303,12 +303,33 @@ namespace BLADE
                 lblTextBLADE.Hide();
             }
             DropdownTime.Start();
-            if (isCollapsed)
+            if (pnlSelectedButton.Top == btnInfo.Top)
             {
-                btnInfo.Top = 440;
+                if (isCollapsed)
+                {
+                    btnInfo.Top = 440;
+                    pnlSelectedButton.Height = btnInfo.Height;
+                    pnlSelectedButton.Top = btnInfo.Top;
+                }
+                else
+                {
+                    btnInfo.Top = 292;
+                    pnlSelectedButton.Height = btnInfo.Height;
+                    pnlSelectedButton.Top = btnInfo.Top;
+                }
             }
             else
-                btnInfo.Top = 292;
+            {
+                if (isCollapsed)
+                {
+                    btnInfo.Top = 440;
+                }
+                else
+                {
+                    btnInfo.Top = 292;
+                }
+            }
+            
         }
 
         private void btnMusicCutter_Click(object sender, EventArgs e)

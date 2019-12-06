@@ -58,6 +58,26 @@ namespace BLADE
             return ucListSongSearch;
         }
 
+        List<ucSongSearchDetail> CrawlChart (string chartURL)
+        {
+            List<ucSongSearchDetail> ucListSongSearch = new List<ucSongSearchDetail>();
+            string htmlKQ = FindFromURL(chartURL);
+            var songList = Regex.Matches(htmlKQ, @"", RegexOptions.Singleline);
+
+            foreach (var song in songList)
+            {
+                Song songSearch = new Song();
+                songSearch.SongName = Regex.Match(song.ToString(), @"").Value;
+                songSearch.SongURL = Regex.Match(song.ToString(), @"").Value;
+                songSearch.Singer = Regex.Match(song.ToString(), @"").Value;
+                songSearch.SongTime = Regex.Match(song.ToString(), @"").Value;
+                ucSongSearchDetail ucSongSearch = new ucSongSearchDetail(songSearch);
+                ucListSongSearch.Add(ucSongSearch);
+            }
+
+            return ucListSongSearch;
+        }
+
         public string FindFromURL(string path)
         {
             string html = "";
