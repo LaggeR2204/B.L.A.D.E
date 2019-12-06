@@ -19,6 +19,7 @@ namespace BLADE
             this.KeyDown += EnterToLogin;
             this.txtPassword.KeyDown += EnterToLogin;
             this.txtUsername.KeyDown += EnterToLogin;
+            this.checkboxRemember.Checked = false;
             lblIncorrect.Hide();
         }
 
@@ -26,6 +27,15 @@ namespace BLADE
         {
             txtUsername.Text = Properties.Settings.Default.UserName;
             txtPassword.Text = Properties.Settings.Default.Password;
+
+            if (Properties.Settings.Default.RememberChecked)
+            {
+                checkboxRemember.Checked = true;
+            }
+            else
+            {
+                checkboxRemember.Checked = false;
+            }
         }
 
         private void txtPassword_TextChange(object sender, EventArgs e)
@@ -61,11 +71,12 @@ namespace BLADE
                 {
                     Properties.Settings.Default.UserName = txtUsername.Text;
                     Properties.Settings.Default.Password = txtPassword.Text;
+                    Properties.Settings.Default.RememberChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else
                 {
-                    Properties.Settings.Default.Reset();
+                    Properties.Settings.Default.Reload();
                 }
 
                 this.Hide();
