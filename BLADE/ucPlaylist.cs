@@ -46,6 +46,7 @@ namespace BLADE
             choosingPlaylist = _default.Playlist;
             
         }
+
         public void ShowSongOnListArea(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
@@ -56,6 +57,10 @@ namespace BLADE
         }
         private void clearSongViewList()
         {
+            foreach(ucSongViewDetail ctrl in fpnlSongView.Controls)
+            {
+                ctrl.RemoveEventHandler();
+            }
             fpnlSongView.Controls.Clear();
         }
         private void ShowPlaylistInfo(Playlist src)
@@ -86,7 +91,11 @@ namespace BLADE
             else
             {
                 if (this.choosingPlaylist == _favorites.Playlist)
+                {
                     fpnlSongView.Controls.Remove(src);
+                    src.RemoveEventHandler();
+                }
+                    
                 _favorites.RemoveSong(src.Song);
             }
 
@@ -153,6 +162,7 @@ namespace BLADE
                 src.Song.IsFavorite = false;
             this.choosingPlaylist.Remove(src.Song);
             fpnlSongView.Controls.Remove(src);
+            src.RemoveEventHandler();
             src.Dispose();
         }
         #endregion

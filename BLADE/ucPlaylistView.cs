@@ -44,10 +44,10 @@ namespace BLADE
 
             _playlist.NameChanged += setLabelName;
 
-            lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
-            btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
-            btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
-            lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
+            //lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
+            //btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
+            //btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
+            //lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
 
 
 

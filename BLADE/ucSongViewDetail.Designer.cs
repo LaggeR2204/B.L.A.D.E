@@ -188,8 +188,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucSongViewDetail";
             this.Size = new System.Drawing.Size(620, 40);
-            this.MouseLeave += new System.EventHandler(this.ucSongViewDetail_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.ucSongViewDetail_MouseHover);
+           // this.MouseLeave += new System.EventHandler(this.ucSongViewDetail_MouseLeave);
+            //this.MouseHover += new System.EventHandler(this.ucSongViewDetail_MouseHover);
             this.ctxtmsSong.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

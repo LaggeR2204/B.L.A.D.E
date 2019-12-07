@@ -11,6 +11,7 @@ namespace BLADE
 {
     public class Song
     {
+        public event EventHandler FavoriteChanged;
         public event EventHandler PlayStateChanged;
         private bool _isPlaying;
         private string _songName;
@@ -51,6 +52,11 @@ namespace BLADE
                 if (_isFavorite != value)
                 {
                     _isFavorite = value;
+                    if (FavoriteChanged != null)
+                    {
+                        FavoriteChanged(this, new EventArgs());
+                    }
+                       
                 }
             }
         }

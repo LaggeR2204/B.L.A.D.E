@@ -53,24 +53,32 @@ namespace BLADE
             lblArtistSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
             this.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
 
-            btnSongLove.MouseHover += ucSongViewDetail_MouseHover;
-            btnSongMenu.MouseHover += ucSongViewDetail_MouseHover;
-            btnSongPause.MouseHover += ucSongViewDetail_MouseHover;
-            btnSongPlay.MouseHover += ucSongViewDetail_MouseHover;
-            lblCategorySVD.MouseHover += ucSongViewDetail_MouseHover;
-            lblArtistSVD.MouseHover += ucSongViewDetail_MouseHover;
-            lblSongNameSVD.MouseHover += ucSongViewDetail_MouseHover;
-            lblTimeSVD.MouseHover += ucSongViewDetail_MouseHover;
+            //btnSongLove.MouseHover += ucSongViewDetail_MouseHover;
+            //btnSongMenu.MouseHover += ucSongViewDetail_MouseHover;
+            //btnSongPause.MouseHover += ucSongViewDetail_MouseHover;
+            //btnSongPlay.MouseHover += ucSongViewDetail_MouseHover;
+            //lblCategorySVD.MouseHover += ucSongViewDetail_MouseHover;
+            //lblArtistSVD.MouseHover += ucSongViewDetail_MouseHover;
+            //lblSongNameSVD.MouseHover += ucSongViewDetail_MouseHover;
+            //lblTimeSVD.MouseHover += ucSongViewDetail_MouseHover;
 
-            btnSongLove.MouseLeave += ucSongViewDetail_MouseLeave;
-            btnSongMenu.MouseLeave += ucSongViewDetail_MouseLeave;
-            btnSongPause.MouseLeave += ucSongViewDetail_MouseLeave;
-            btnSongPlay.MouseLeave += ucSongViewDetail_MouseLeave;
-            lblCategorySVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            //btnSongLove.MouseLeave += ucSongViewDetail_MouseLeave;
+            //btnSongMenu.MouseLeave += ucSongViewDetail_MouseLeave;
+            //btnSongPause.MouseLeave += ucSongViewDetail_MouseLeave;
+            //btnSongPlay.MouseLeave += ucSongViewDetail_MouseLeave;
+            //lblCategorySVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            //lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            //lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            //lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
 
+            ChangedIconFavoriteState(_song.IsFavorite);
+            _song.FavoriteChanged += _song_FavoriteChanged;
+        }
+
+        private void _song_FavoriteChanged(object sender, EventArgs e)
+        {
+            if (FavoriteStateChanged != null)
+                FavoriteStateChanged(this, new EventArgs());
             ChangedIconFavoriteState(_song.IsFavorite);
         }
 
@@ -112,16 +120,13 @@ namespace BLADE
         private void btnSongLoveOff_Click(object sender, EventArgs e)
         {
             _song.IsFavorite = false;
-            ChangedIconFavoriteState(_song.IsFavorite);
-            if (FavoriteStateChanged != null)
-                FavoriteStateChanged(this, new EventArgs());
+
+
         }
         private void BtnSongLove_Click(object sender, EventArgs e)
         {
             _song.IsFavorite = true;
-            ChangedIconFavoriteState(_song.IsFavorite);
-            if (FavoriteStateChanged != null)
-                FavoriteStateChanged(this, new EventArgs());
+
         }
         public void ChangedIconFavoriteState(bool love)
         {
@@ -135,8 +140,12 @@ namespace BLADE
                 btnSongLove.Show();
                 btnSongLoveOff.Hide();
             }
+
         }
 
-       
+        public void RemoveEventHandler()
+        {
+            _song.FavoriteChanged -= _song_FavoriteChanged;
+        }
     }
 }

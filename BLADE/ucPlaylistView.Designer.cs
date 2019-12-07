@@ -123,8 +123,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucPlaylistView";
             this.Size = new System.Drawing.Size(160, 40);
-            this.MouseLeave += new System.EventHandler(this.ucPlaylistView_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.ucPlaylistView_MouseHover);
+            //this.MouseLeave += new System.EventHandler(this.ucPlaylistView_MouseLeave);
+            //this.MouseHover += new System.EventHandler(this.ucPlaylistView_MouseHover);
             this.ctxtmsPlaylist.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
