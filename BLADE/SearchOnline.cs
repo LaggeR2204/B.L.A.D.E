@@ -48,7 +48,7 @@ namespace BLADE
             foreach (var song in songList)
             {
                 Song songSearch = new Song();
-                songSearch.SongName = Regex.Match(song.ToString(), @"title=""(.*?)"">").Value.Replace("title=", "").Replace(">", "").Replace('"', ' ');
+                songSearch.SongName = Regex.Match(song.ToString(), @"title=""(.*?)"">").Value.Replace("title=", "").Replace(">", "").Replace('"', ' ').Trim();
                 songSearch.SongURL = Regex.Match(song.ToString(), @"href=""(.*?)""").Value.Replace("href=", "").Replace('"', ' ').Trim();
                 songSearch.Singer = Regex.Match(song.ToString(), @"author"">(.*?)</div>").Value.Replace("author", "").Replace("</div>", "").Replace(">", "").Replace('"', ' ');
                 songSearch.SongTime = Regex.Match(song.ToString(), @"<small class=""time_stt"">(.*?)</small>").Value.Replace("<small class=", "").Replace("time_stt", "").Replace("</small>", "").Replace(">", "").Replace('"', ' ').Trim();
@@ -81,13 +81,13 @@ namespace BLADE
             httpClient.BaseAddress = new Uri("https://chiasenhac.vn");
         }
 
-        public void Download(string songName, string songURL)
+        public void Download(Song song)
         {
-            string htmlsong = FindFromURL(songURL);
-            string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item(.*?)128kbps").Value;
-            string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)""\stitle=").Value.Replace("href=", "").Replace("title=", "").Replace('"', ' ').Trim();
+            string htmlsong = FindFromURL(song.SongURL);
+            string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item"" href=(.*?)128kbps</span>(.*?)</a>").Value;
+            string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)"" title").Value.Replace("href=", "").Replace("title", "").Replace('"', ' ').Trim();
             WebClient wc = new WebClient();
-            wc.DownloadFile(DownloadURL, sSave + songName + ".mp3");
+            wc.DownloadFile(DownloadURL, sSave + song.SongName + ".mp3");
         }
     }
 }
