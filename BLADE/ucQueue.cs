@@ -13,6 +13,27 @@ namespace BLADE
     public partial class ucQueue : UserControl
     {
         private bool _isShow;
+        private Song _nowPlayingSong;
+        public Song NowPlayingSong
+        { 
+            get => _nowPlayingSong; 
+            set
+            {
+                if(_nowPlayingSong != value)
+                {
+                    _nowPlayingSong = value;
+                    _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
+                    if (NowPlayingSongChanged != null)
+                        NowPlayingSongChanged(this, new EventArgs());
+                }
+            }
+        }
+
+        private void _nowPlayingSong_FavoriteChanged(object sender, EventArgs e)
+        {
+            SetFavoriteState(_nowPlayingSong);
+        }
+
         public bool IsShow
         {
             get => _isShow;
@@ -26,7 +47,7 @@ namespace BLADE
                 }
             }
         }
-        public event EventHandler CurrentSongFavoriteChanged;
+        public event EventHandler NowPlayingSongChanged;
         public event EventHandler ShowStateChanged;
         public event EventHandler SongSelected;
         public event EventHandler SongRemoved;
@@ -38,10 +59,6 @@ namespace BLADE
         private void Init()
         {
             
-        }
-        public void SetArtCover(Bitmap src)
-        {
-            picbArtCover.Image = src;
         }
         public void SetFavoriteState(Song src)
         {
@@ -56,17 +73,12 @@ namespace BLADE
                 btnSongLoveOff.Hide();
             }
         }
-        public void SetSongInfo(Song src)
+        public void SetSongInfo()
         {
-            picbArtCover.Image = src.SongImage;
-            lbSongName.Text = src.SongName;
-            lbSongSinger.Text = src.Singer;
-            SetFavoriteState(src);
-        }
-        public void SetInfor(string name, string singer)
-        {
-            lbSongName.Text = name;
-            lbSongSinger.Text = singer;
+            picbArtCover.Image = _nowPlayingSong.SongImage;
+            lbSongName.Text = _nowPlayingSong.SongName;
+            lbSongSinger.Text = _nowPlayingSong.Singer;
+            SetFavoriteState(_nowPlayingSong);
         }
 
         private void SongSelected_Handler(object sender, EventArgs e)
@@ -99,14 +111,12 @@ namespace BLADE
 
         private void btnSongLove_Click(object sender, EventArgs e)
         {
-            if (CurrentSongFavoriteChanged != null)
-                CurrentSongFavoriteChanged(true, new EventArgs());
+            _nowPlayingSong.IsFavorite = true;
         }
 
         private void btnSongLoveOff_Click(object sender, EventArgs e)
         {
-            if (CurrentSongFavoriteChanged != null)
-                CurrentSongFavoriteChanged(false, new EventArgs());
+            _nowPlayingSong.IsFavorite = false;
         }
     }
 }
