@@ -15,12 +15,13 @@ namespace BLADE
     {
         private CrawlChart chart = new CrawlChart();
         public bool isCompletedChart = false;
+        public bool isInternet = true;
 
         public ucChart()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-            btnRefresh.PerformClick();
+            InitChart();
         }
 
         private void btnVN_Click(object sender, EventArgs e)
@@ -83,19 +84,18 @@ namespace BLADE
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void InitChart()
         {
-            Thread thrdChart = new Thread(RefreshChart);
-            thrdChart.IsBackground = true;
-            if (isCompletedChart)
+            if (IsConnectedToInternet())
             {
-                return;
+                Thread thrd = new Thread(RefreshChart);
+                thrd.IsBackground = true;
+                thrd.Start();
             }
             else
             {
-                thrdChart.Start();
+                isInternet = false;
             }
-            
         }
 
         private void RefreshChart()
@@ -118,6 +118,19 @@ namespace BLADE
                 isCompletedChart = true;
             }
             
+        }
+
+        public bool IsConnectedToInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry i = System.Net.Dns.GetHostEntry("www.google.com");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

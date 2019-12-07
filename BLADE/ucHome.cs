@@ -33,21 +33,28 @@ namespace BLADE
 
         private void btnChart_Click(object sender, EventArgs e)
         {
-            if (uc_Chart.isCompletedChart)
+            if (uc_Chart.isInternet)
             {
-                pnlSelectedTab.Left = btnChart.Left;
-                btnChart.Font = new Font(btnChart.Font.Name, btnChart.Font.Size, FontStyle.Bold);
-                btnChart.ForeColor = Color.White;
-                btnNowPlaying.Font = new Font(btnNowPlaying.Font.Name, btnNowPlaying.Font.Size, FontStyle.Regular);
-                btnNowPlaying.ForeColor = Color.Gainsboro;
+                if (uc_Chart.isCompletedChart)
+                {
+                    pnlSelectedTab.Left = btnChart.Left;
+                    btnChart.Font = new Font(btnChart.Font.Name, btnChart.Font.Size, FontStyle.Bold);
+                    btnChart.ForeColor = Color.White;
+                    btnNowPlaying.Font = new Font(btnNowPlaying.Font.Name, btnNowPlaying.Font.Size, FontStyle.Regular);
+                    btnNowPlaying.ForeColor = Color.Gainsboro;
 
-                uc_NowPlaying.Hide();
-                uc_Chart.Show();
-                uc_Chart.BringToFront();
+                    uc_NowPlaying.Hide();
+                    uc_Chart.Show();
+                    uc_Chart.BringToFront();
+                }
+                else
+                {
+                    MessageBox.Show("    Please wait while the application is updating the data", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Vui lòng chờ đợi crawl bxh cái disme");
+                MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

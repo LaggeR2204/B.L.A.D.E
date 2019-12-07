@@ -52,16 +52,36 @@ namespace BLADE
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            ThreadStart st = new ThreadStart(DownloadSong);
-            Thread thrd = new Thread(st);
-            thrd.IsBackground = true;
-            thrd.Start();
+            if (IsConnectedToInternet())
+            {
+                ThreadStart st = new ThreadStart(DownloadSong);
+                Thread thrd = new Thread(st);
+                thrd.IsBackground = true;
+                thrd.Start();
+            }
+            else
+            {
+                MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool IsConnectedToInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry i = System.Net.Dns.GetHostEntry("www.google.com");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         void DownloadSong()
         {
             search.Download(_song);
-            MessageBox.Show("Down xong");
+            MessageBox.Show("The download is complete", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

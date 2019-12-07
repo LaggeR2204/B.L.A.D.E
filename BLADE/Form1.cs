@@ -142,13 +142,33 @@ namespace BLADE
         {
             if (e.KeyCode == Keys.Enter)
             {
-                TextBox textbox = sender as TextBox;
-                uc_Search.pnlSearchTitle.Show();
-                uc_Search.pnlSearchTitle.BringToFront();
-                uc_Search.fpnlSearchSongView.Show();
-                uc_Search.fpnlSearchSongView.BringToFront();
-                uc_Search.lblTextSearch.Text = textbox.Text;
-                uc_Search.ShowListSearch(search.Search(textbox.Text));
+                if (IsConnectedToInternet())
+                {
+                    TextBox textbox = sender as TextBox;
+                    uc_Search.pnlSearchTitle.Show();
+                    uc_Search.pnlSearchTitle.BringToFront();
+                    uc_Search.fpnlSearchSongView.Show();
+                    uc_Search.fpnlSearchSongView.BringToFront();
+                    uc_Search.lblTextSearch.Text = textbox.Text;
+                    uc_Search.ShowListSearch(search.Search(textbox.Text));
+                }
+                else
+                {
+                    MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public bool IsConnectedToInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry i = System.Net.Dns.GetHostEntry("www.google.com");
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
