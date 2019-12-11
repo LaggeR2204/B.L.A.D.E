@@ -23,6 +23,7 @@ namespace BLADE
         Mp3FileReader mp3Reader;
         int currentSecond;
         TimeSpan maxTime;
+        public event EventHandler OpenFileSucceed;
         public ucMusicCutter()
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace BLADE
                 txtTimeStart.Text = "00:00:00";
                 maxTime = mp3.TotalTime;
                 txtTimeEnd.Text = mp3.TotalTime.ToString("hh':'mm':'ss");
+                if (OpenFileSucceed != null)
+                    OpenFileSucceed(this, new EventArgs());
             }
         }
 
@@ -91,7 +94,8 @@ namespace BLADE
                 currentSecond = (int)mp3Reader.CurrentTime.TotalSeconds;
                 waveOut.Init(mp3Reader);
                 waveOut.Play();
-
+                if (OpenFileSucceed != null)
+                    OpenFileSucceed(this, new EventArgs());
             }
 
         }
@@ -110,8 +114,7 @@ namespace BLADE
                 timer.Stop();
             }
         }
-
-        private void btnStop_Click(object sender, EventArgs e)
+        public void Pause()
         {
             waveOut.Stop();
             mp3Reader.Position = 0;
@@ -120,6 +123,11 @@ namespace BLADE
             btnStop.Visible = false;
             btnPlay.Visible = true;
             timer.Stop();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            this.Pause();
         }
 
         private void btnGetStartTime_Click(object sender, EventArgs e)
@@ -136,8 +144,16 @@ namespace BLADE
 
         private void txtTimeEnd_TextChanged(object sender, EventArgs e)
         {
-            if (TimeSpan.Parse(txtTimeEnd.Text) > maxTime)
+            try
             {
+                if (TimeSpan.Parse(txtTimeEnd.Text) > maxTime)
+                {
+                    txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("    YOU MUST ENTER TIME SPAN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
             }
 

@@ -19,6 +19,7 @@ namespace BLADE
         private string _songTime;
         private string _singer;
         private string _genre;
+        private int _songNumber;
         private Bitmap _songImage;
 
         private bool _isFavorite;
@@ -33,6 +34,7 @@ namespace BLADE
         //private double duration;
         //private double position;
 
+        public int SongNumber { get => _songNumber; set => _songNumber = value; }
         public string SongName { get => _songName; set => _songName = value; }
         public string SavedPath { get => _savedPath; set => _savedPath = value; }
         public string SongTime { get => _songTime; set => _songTime = value; }
@@ -76,6 +78,7 @@ namespace BLADE
         public Song()
         {
             _isFavorite = false;
+            this._songNumber = 0;
             this._songName = "";
             this._savedPath = "";
             this._songTime = "";
@@ -86,6 +89,7 @@ namespace BLADE
         }
         public Song(Song src)
         {
+            this._songNumber = src._songNumber;
             this._songName = string.Copy(src._songName);
             this._savedPath = string.Copy(src._savedPath);
             this._songTime = string.Copy(src._songTime);
