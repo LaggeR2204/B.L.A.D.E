@@ -41,6 +41,10 @@ namespace BLADE
         private void txtPassword_TextChange(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
+            if (txtPassword.Text == "")
+            {
+                txtPassword.PasswordChar = '\0';
+            }
         }
 
         public bool Login(string username, string password)
@@ -56,12 +60,7 @@ namespace BLADE
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            if (username == null)
-            {
-                MessageBox.Show("Please enter user name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUsername.Focus();
-                return;
-            }
+
             if (Login(username, password))
             {
                 if (LoginSuccess != null)
