@@ -15,6 +15,21 @@ namespace BLADE
 {
     public partial class MainForm : Form
     {
+        public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
+        private event EventHandler ShowingStateChanged;
+        private ShowingUC _showingUC;
+        public ShowingUC ShowingUc
+        {
+            set
+            {
+                if (_showingUC != value)
+                {
+                    _showingUC = value;
+                    if (ShowingStateChanged != null)
+                        ShowingStateChanged(this, new EventArgs());
+                }
+            }
+        }
         private MediaPlayer mediaPlayer;
         private SearchOnline search = new SearchOnline();
         private Timer timerSliderMusic;
@@ -27,7 +42,9 @@ namespace BLADE
             timerTime.Enabled = false;
         }
         private void Init()
-        {            mediaPlayer = new MediaPlayer();
+        {            this.ShowingStateChanged += MainForm_ShowingStateChanged;            _showingUC = ShowingUC.UcHome;
+            //
+            mediaPlayer = new MediaPlayer();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             mediaPlayer.MediaChanged += MediaPlayer_MediaChanged;
             mediaPlayer.PlaybackStateChanged += MediaPlayer_PlaybackStateChanged;
@@ -47,7 +64,6 @@ namespace BLADE
             SliderVolume.LargeChange = 1;
             SliderVolume.SmallChange = 1;
             SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
-            uc_Queue.ShowStateChanged += Uc_Queue_ShowStateChanged;
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
 
@@ -69,6 +85,8 @@ namespace BLADE
             timerSliderMusic.Interval = 200;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
         }
+
+
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {
@@ -81,14 +99,7 @@ namespace BLADE
         {
             Song src = sender as Song;
             mediaPlayer.CurrentPlaylist.Remove(src);
-            
-        }
-        private void Uc_Queue_ShowStateChanged(object sender, EventArgs e)
-        {
-            if (uc_Queue.IsShow)
-                pnlSongInfo.Hide();
-            else
-                pnlSongInfo.Show();
+
         }
         #endregion
         #region Account Actions
@@ -191,7 +202,7 @@ namespace BLADE
         {
             mediaPlayer.Play();
             timerSliderMusic.Start();
-          
+
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -349,27 +360,22 @@ namespace BLADE
                     btnInfo.Top = 292;
                 }
             }
-            
-        }
 
-        private void btnMusicCutter_Click(object sender, EventArgs e)
+        }
+        private void MainForm_ShowingStateChanged(object sender, EventArgs e)
         {
+            if (_showingUC == ShowingUC.UcQueue)
+            {
+                pnlSongInfo.Hide();
+            }
+            else
+            {
+                pnlSongInfo.Show();
+            }
             if (!isCollapsed)
             {
                 btnTimer.PerformClick();
             }
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Show();
-            pnlSelectedButton.Height = btnMusicCutter.Height;
-            pnlSelectedButton.Top = btnMusicCutter.Top;
-            //cho user control ohu hop xuat hien
-            uc_Info.Hide();
-            uc_Playlist.Hide();
-            uc_Search.Hide();
-            uc_Home.Hide();
-            uc_Queue.Hide();
-            uc_MusicCutter.Show();
-            uc_MusicCutter.BringToFront();
             if (!isUcCollapsed)
             {
                 lblTextBLADE.Show();
@@ -378,132 +384,149 @@ namespace BLADE
             {
                 lblTextBLADE.Hide();
             }
+            switch (_showingUC)
+            {
+                case ShowingUC.UcHome:
+                    //set vi tri cho pnlSelectedButton
+                    pnlSelectedButton.Show();
+                    pnlSelectedButton.Height = btnHome.Height;
+                    pnlSelectedButton.Top = btnHome.Top;
+                    //cho user control ohu hop xuat hien
+                    uc_Info.Hide();
+                    uc_Playlist.Hide();
+                    uc_Search.Hide();
+                    uc_MusicCutter.Hide();
+                    uc_Queue.Hide();
+                    uc_Home.Show();
+                    uc_Home.BringToFront();
+                    break;
+                case ShowingUC.UcPlaylist:
+                    //set vi tri cho pnlSelectedButton
+                    pnlSelectedButton.Show();
+                    pnlSelectedButton.Height = btnPlaylist.Height;
+                    pnlSelectedButton.Top = btnPlaylist.Top;
+                    //cho user control ohu hop xuat hien
+                    uc_Info.Hide();
+                    uc_Home.Hide();
+                    uc_Queue.Hide();
+                    uc_Search.Hide();
+                    uc_MusicCutter.Hide();
+                    uc_Playlist.Show();
+                    uc_Playlist.BringToFront();
+                    break;
+                case ShowingUC.UcQueue:
+                    //cho user control ohu hop xuat hien
+                    uc_Queue.Show();
+                    uc_Queue.BringToFront();
+                    ShowingUc = ShowingUC.UcQueue;
+                    break;
+                case ShowingUC.UcInfo:
+                    //set vi tri cho pnlSelectedButton
+                    pnlSelectedButton.Show();
+                    pnlSelectedButton.Height = btnInfo.Height;
+                    pnlSelectedButton.Top = btnInfo.Top;
+                    //cho user control ohu hop xuat hien
+                    uc_Playlist.Hide();
+                    uc_Home.Hide();
+                    uc_Search.Hide();
+                    uc_Queue.Hide();
+                    uc_MusicCutter.Hide();
+                    lblTextBLADE.Hide();
+                    uc_Info.Show();
+                    uc_Info.BringToFront();
+                    break;
+                case ShowingUC.UcMusicCutter:
+                    if (!isCollapsed)
+                    {
+                        btnTimer.PerformClick();
+                    }
+                    //set vi tri cho pnlSelectedButton
+                    pnlSelectedButton.Show();
+                    pnlSelectedButton.Height = btnMusicCutter.Height;
+                    pnlSelectedButton.Top = btnMusicCutter.Top;
+                    //cho user control ohu hop xuat hien
+                    uc_Info.Hide();
+                    uc_Playlist.Hide();
+                    uc_Search.Hide();
+                    uc_Home.Hide();
+                    uc_Queue.Hide();
+                    uc_MusicCutter.Show();
+                    uc_MusicCutter.BringToFront();
+                    break;
+                case ShowingUC.UcSearch:
+                    //an pnlSelectedButton di
+                    pnlSelectedButton.Hide();
+                    //cho user control ohu hop xuat hien
+                    uc_Playlist.Hide();
+                    uc_Home.Hide();
+                    uc_Info.Hide();
+                    uc_MusicCutter.Hide();
+                    uc_Search.Show();
+                    uc_Queue.Hide();
+                    uc_Search.BringToFront();
+                    uc_Search.fpnlSearchSongView.Controls.Clear();
+                    uc_Search.pnlSearchTitle.Hide();
+                    uc_Search.fpnlSearchSongView.Hide();
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void btnMusicCutter_Click(object sender, EventArgs e)
+        {
+
+            if (_showingUC != ShowingUC.UcMusicCutter)
+            {
+                ShowingUc = ShowingUC.UcMusicCutter;
+            }
         }
         private void btnQueue_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
+            if (_showingUC != ShowingUC.UcQueue)
             {
-                btnTimer.PerformClick();
-            }
-            //cho user control ohu hop xuat hien
-            if (!uc_Queue.IsShow)
-            {
-                uc_Queue.Show();
-                uc_Queue.BringToFront();
-                uc_Queue.IsShow = true;
+                ShowingUc = ShowingUC.UcQueue;
             }
             else
             {
-                uc_Queue.Hide();
-                uc_Queue.SendToBack();
-                uc_Queue.IsShow = false;
+                ShowingUc = ShowingUC.UcPlaylist;
             }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
+
+            if (_showingUC != ShowingUC.UcHome)
             {
-                btnTimer.PerformClick();
+                ShowingUc = ShowingUC.UcHome;
             }
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Show();
-            pnlSelectedButton.Height = btnHome.Height;
-            pnlSelectedButton.Top = btnHome.Top;
-            //cho user control ohu hop xuat hien
-            uc_Info.Hide();
-            uc_Playlist.Hide();
-            uc_Search.Hide();
-            uc_MusicCutter.Hide();
-            uc_Queue.Hide();
-            if (!isUcCollapsed)
-            {
-                lblTextBLADE.Show();
-            }
-            else
-            {
-                lblTextBLADE.Hide();
-            }
-            uc_Home.Show();
-            uc_Home.BringToFront();
         }
 
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
+
+            if (_showingUC != ShowingUC.UcPlaylist)
             {
-                btnTimer.PerformClick();
+                ShowingUc = ShowingUC.UcPlaylist;
             }
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Show();
-            pnlSelectedButton.Height = btnPlaylist.Height;
-            pnlSelectedButton.Top = btnPlaylist.Top;
-            //cho user control ohu hop xuat hien
-            uc_Info.Hide();
-            uc_Home.Hide();
-            uc_Queue.Hide();
-            uc_Search.Hide();
-            uc_MusicCutter.Hide();
-            if (!isUcCollapsed)
-            {
-                lblTextBLADE.Show();
-            }
-            else
-            {
-                lblTextBLADE.Hide();
-            }
-            uc_Playlist.Show();
-            uc_Playlist.BringToFront();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            if (!isCollapsed)
+
+            if (_showingUC != ShowingUC.UcInfo)
             {
-                btnTimer.PerformClick();
+                ShowingUc = ShowingUC.UcInfo;
             }
-            //set vi tri cho pnlSelectedButton
-            pnlSelectedButton.Show();
-            pnlSelectedButton.Height = btnInfo.Height;
-            pnlSelectedButton.Top = btnInfo.Top;
-            //cho user control ohu hop xuat hien
-            uc_Playlist.Hide();
-            uc_Home.Hide();
-            uc_Search.Hide();
-            uc_Queue.Hide();
-            uc_MusicCutter.Hide();
-            lblTextBLADE.Hide();
-            uc_Info.Show();
-            uc_Info.BringToFront();
         }
 
         private void txtSearch_Click(object sender, MouseEventArgs e)
         {
-            if (!isCollapsed)
+
+            if (_showingUC != ShowingUC.UcSearch)
             {
-                btnTimer.PerformClick();
+                ShowingUc = ShowingUC.UcSearch;
             }
-            //an pnlSelectedButton di
-            pnlSelectedButton.Hide();
-            //cho user control ohu hop xuat hien
-            uc_Playlist.Hide();
-            uc_Home.Hide();
-            uc_Info.Hide();
-            uc_MusicCutter.Hide();
-            if (!isUcCollapsed)
-            {
-                lblTextBLADE.Show();
-            }
-            else
-            {
-                lblTextBLADE.Hide();
-            }
-            uc_Search.Show();
-            uc_Queue.Hide();
-            uc_Search.BringToFront();
-            uc_Search.fpnlSearchSongView.Controls.Clear();
-            uc_Search.pnlSearchTitle.Hide();
-            uc_Search.fpnlSearchSongView.Hide();
+
         }
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
@@ -520,6 +543,7 @@ namespace BLADE
         {
             this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
+
         #endregion
         #region Buttons in menu
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -575,7 +599,7 @@ namespace BLADE
             sliderMusic.Maximum = (int)mediaPlayer.GetDurationInSecond();
             sliderMusic.SmallChange = 1;
             sliderMusic.LargeChange = Math.Min(10, (int)mediaPlayer.GetDurationInSecond() / 10);
-           
+
             string textSongName = mediaPlayer.CurrentMedia.SongName;
             string textAuthor = mediaPlayer.CurrentMedia.Singer;
             if (textSongName.Length > 18)
@@ -796,6 +820,8 @@ namespace BLADE
 
 
 
+
+
         #endregion
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
@@ -813,6 +839,6 @@ namespace BLADE
         }
 
         #endregion
-      
+
     }
 }

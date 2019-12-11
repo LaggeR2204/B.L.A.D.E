@@ -1238,7 +1238,6 @@ namespace BLADE
             this.uc_Queue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Queue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Queue.ForeColor = System.Drawing.Color.Gainsboro;
-            this.uc_Queue.IsShow = false;
             this.uc_Queue.Location = new System.Drawing.Point(0, 0);
             this.uc_Queue.Margin = new System.Windows.Forms.Padding(4);
             this.uc_Queue.Name = "uc_Queue";
