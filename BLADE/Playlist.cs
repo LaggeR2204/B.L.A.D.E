@@ -50,16 +50,22 @@ namespace BLADE
             _listSong = new List<Song>();
         }
 
-        public void AddSong(Song src)
+        public bool AddSong(Song src)
         {
+            if (_listSong.Contains(src))
+                return false;
             _listSong.Add(src);
             _count++;
+            return true;
         }
 
-        public void Remove(Song src)
+        public bool Remove(Song src)
         {
+            if (!_listSong.Contains(src))
+                return false;
             _listSong.Remove(src);
             _count--;
+            return true;
         }
         public bool IsContains(Song src)
         {

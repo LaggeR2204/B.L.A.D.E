@@ -86,6 +86,10 @@ namespace BLADE
             // src.ChangedIconFavoriteState(src.Song.IsFavorite);
             if (src.Song.IsFavorite)
             {
+                if (this.choosingPlaylist == _favorites.Playlist)
+                {
+                    fpnlSongView.Controls.Add(src);
+                }
                 _favorites.AddSong(src.Song);
             }
             else

@@ -88,7 +88,6 @@ namespace BLADE
             uc_MusicCutter.OpenFileSucceed += btnPause_Click;
         }
 
-
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {

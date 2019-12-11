@@ -37,6 +37,7 @@ namespace BLADE
 
         void Init()
         {
+            this.lblPlaylistName.Click += ucPlaylistView_MouseClick;
             this.MouseClick += ucPlaylistView_MouseClick;
             this.lblPlaylistName.Text = _playlist.PlaylistName;
 
@@ -63,21 +64,17 @@ namespace BLADE
         }
         public void AddSong(Song src)
         {
-            if (!_playlist.List.Contains(src))
-            {
-                _playlist.AddSong(src);
-            }
-            else
-            {
+            bool result = _playlist.AddSong(src);
+            if (!result)
                 MessageBox.Show("Bai hat da ton tai trong playlist!!!");
-                return;
-            }
         }
         public void RemoveSong(Song src)
         {
             if (src != null)
-                if (_playlist.List.Contains(src))
-                    _playlist.Remove(src);
+            {
+               _playlist.Remove(src);
+            }
+                
         }
         private Song GetSongInfo(FileInfo file)
         {
@@ -143,7 +140,7 @@ namespace BLADE
             ctxtmsPlaylist.Show(btnPlaylistMenu, 0, btnPlaylistMenu.Height);
         }
 
-        private void ucPlaylistView_MouseClick(object sender, MouseEventArgs e)
+        private void ucPlaylistView_MouseClick(object sender, EventArgs e)
         {
             if (PlaylistShowed != null)
                 PlaylistShowed(_playlist, e);
@@ -167,11 +164,7 @@ namespace BLADE
                     if (fileinfo.Extension == ".mp3" || fileinfo.Extension == ".wav")
                     {
                         song = GetSongInfo(fileinfo);
-                        if (!_playlist.IsContains(song))
-                        {
-                            _playlist.AddSong(song);
-                        }
-                        else
+                        if (!_playlist.AddSong(song))
                         {
                             MessageBox.Show("Bai hat da ton tai trong playlist!!!");
                             return;
