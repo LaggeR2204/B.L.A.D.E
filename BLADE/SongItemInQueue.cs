@@ -44,13 +44,9 @@ namespace BLADE
             _song.PlayStateChanged += _song_PlayStateChanged;
             this.MouseDoubleClick += SongItemInQueue_MouseDoubleClick;
         }
-
-        private void _song_PlayStateChanged(object sender, EventArgs e)
+        public void DisposeSongEvent()
         {
-            if (_song.IsPlaying)
-                this.BackColor = Color.FromArgb(0, 192, 192);
-            else
-                this.BackColor = Color.FromArgb(40, 40, 40);
+            _song.PlayStateChanged -= _song_PlayStateChanged;
         }
 
         private void SongItemInQueue_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -60,6 +56,14 @@ namespace BLADE
                 SelectedSong(_song, e);
         }
 
+        #region Button click event
+        private void _song_PlayStateChanged(object sender, EventArgs e)
+        {
+            if (_song.IsPlaying)
+                this.BackColor = Color.FromArgb(0, 192, 192);
+            else
+                this.BackColor = Color.FromArgb(40, 40, 40);
+        }
         private void btnSongMenu_Click(object sender, EventArgs e)
         {
             ctxtMenu.Show(btnSongMenu, 0, btnSongMenu.Height);
@@ -70,5 +74,6 @@ namespace BLADE
             if (SongRemoved != null)
                 SongRemoved(this, new EventArgs());
         }
+        #endregion
     }
 }

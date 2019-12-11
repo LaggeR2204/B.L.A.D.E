@@ -123,14 +123,13 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSongLoveOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFbSURBVEhL7ZUxSwNBEIVHREQQRLETwU7ERhC0tPMPaCfYCFqKjVhaWCtWFhYWdvcD0sTs7CRw
-        VWoFRbCTFAoWQgTxfKtTrHeb3OVIIegHH+ztznshl3BH//xSjFkkkROyNoIXWO9QtTqmp4Traezvw8uv
-        GeZDOKOnXWg2hxA4h0nAR3zwCsq3sH5NnTnf4J42dcDaUy8Qsg0/Uns/FdnUthTGzGLgPRPo3RZVKsPa
-        6sF8EBgup8iqtnqInAWHyyiyra0ezEfB4TIas6atHu7HCQ2X0Zh5bfVoNMZx6P5q4VBxb7QxgLXHqeHe
-        FdnQtgDf3+IhEyqqyBUlyYC2dYB5AcMvmXC+d8hOaksOxiwj8Jwq6OY11WpTmi6IyByC96mirCKW4nhC
-        Uz0SxyMocc+n0POnjfLd/HteBOZ1FD555bdUry/paZ9w7wB3O9z7gXlUd/tMFA3q6s9A9AkMIHGwOPCf
-        sQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVtJREFUSEvt
+        lTFLA0EQhUdERBBEsRPBTsRGELS08w9oJ9gIWoqNWFpYK1YWFhZ29wPSxOzsJHBVagVFsJMUChZCBPF8
+        q1Osd5vc5Ugh6Acf7O3OeyGXcEf//FKMWSSRE7I2ghdY71C1OqanhOtp7O/Dy68Z5kM4o6ddaDaHEDiH
+        ScBHfPAKyrewfk2dOd/gnjZ1wNpTLxCyDT9Sez8V2dS2FMbMYuA9E+jdFlUqw9rqwXwQGC6nyKq2eoic
+        BYfLKLKtrR7MR8HhMhqzpq0e7scJDZfRmHlt9Wg0xnHo/mrhUHFvtDGAtcep4d4V2dC2AN/f4iETKqrI
+        FSXJgLZ1gHkBwy+ZcL53yE5qSw7GLCPwnCro5jXValOaLojIHIL3qaKsIpbieEJTPRLHIyhxz6fQ86eN
+        8t38e14E5nUUPnnlt1SvL+lpn3DvAHc73PuBeVR3+0wUDerqz0D0CQwgcbA48J+xAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnSongLove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

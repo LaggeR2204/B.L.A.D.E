@@ -58,7 +58,7 @@ namespace BLADE
             uc_Home.Show();
             uc_Home.BringToFront();
             uc_Playlist.SelectSong += PlayMusic;
-            uc_Playlist.QueueUpdated += UpdateQueue;
+            uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;
             //slidervolume
             SliderVolume.Scroll += SliderVolumeChangeHandler;
             SliderVolume.LargeChange = 1;
@@ -103,6 +103,7 @@ namespace BLADE
 
         }
         #endregion
+
         #region Account Actions
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -144,6 +145,7 @@ namespace BLADE
             logOutToolStripMenuItem1.PerformClick();
         }
         #endregion
+
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
@@ -198,6 +200,7 @@ namespace BLADE
             this.WindowState = FormWindowState.Minimized;
         }
         #endregion
+
         #region Music Controls
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -262,6 +265,7 @@ namespace BLADE
             mediaPlayer.SetPlaybackMode(true, false, false);
         }
         #endregion
+
         #region UC button events
         private bool isCollapsed;
         private void DropdownTime_Tick(object sender, EventArgs e)
@@ -546,6 +550,7 @@ namespace BLADE
         }
 
         #endregion
+
         #region Buttons in menu
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -574,8 +579,15 @@ namespace BLADE
 
 
         #endregion
+
         #region Media Player
-        private void UpdateQueue(object sender, EventArgs e)
+        private void UcPlaylist_UpdatePlayback(object sender, EventArgs e)
+        {
+            Song song = sender as Song;
+            mediaPlayer.AddSongToCurrentPlaylist(song);
+            uc_Queue.UpdateQueue(song);
+        }
+        private void UcPlaylist_ChangePlayback(object sender, EventArgs e)
         {
             Playlist playlist = sender as Playlist;            mediaPlayer.CurrentPlaylist.Clear();            for (int i = 0; i < playlist.Count; i++)
             {
@@ -654,6 +666,7 @@ namespace BLADE
             }
         }
         #endregion
+
         #region StopTimer
         private void btnSetCustomTime_Click(object sender, EventArgs e)
         {            if (!isCollapsed)
@@ -767,6 +780,7 @@ namespace BLADE
             btnTimer.Show();
         }
         #endregion
+
         #region Slider Volume
         private void SliderVolumeChangeHandler(object sender, EventArgs e)
         {
@@ -783,6 +797,7 @@ namespace BLADE
             mediaPlayer.SetVolume((float)SliderVolume.Value / 5f);
         }
         #endregion
+
         #region Notify Icon
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -824,6 +839,7 @@ namespace BLADE
 
 
         #endregion
+
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
             isDrag = true;

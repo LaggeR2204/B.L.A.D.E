@@ -21,12 +21,7 @@ namespace BLADE
         private string _genre;
         private int _songNumber;
         private Bitmap _songImage;
-
         private bool _isFavorite;
-
-        //private string songURL;
-        //private string lyric;
-
         private string _songURL;
 
         //private string downloadURL;

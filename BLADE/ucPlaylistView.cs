@@ -14,12 +14,29 @@ namespace BLADE
 {
     public partial class ucPlaylistView : UserControl
     {
+        private bool _isChoose;
+        public bool IsChoose
+        {
+            get => _isChoose;
+            set
+            {
+                if(_isChoose!=value)
+                {
+                    _isChoose = value;
+                    if (ChooseStateChanged != null)
+                        ChooseStateChanged(this, new EventArgs());
+                }
+            }
+        }
         private Playlist _playlist;
         public Playlist Playlist { get => _playlist; set => _playlist = value; }
+        public event EventHandler ChooseStateChanged;
         public event EventHandler PlaylistShowed;
         public event EventHandler PlaylistDeleted;
         public event EventHandler NewSongAdded;
         public event EventHandler AllMusicPlayed;
+
+        #region Constructor
         public ucPlaylistView()
         {
             InitializeComponent();
@@ -34,7 +51,6 @@ namespace BLADE
             _playlist = src;
             Init();
         }
-
         void Init()
         {
             this.lblPlaylistName.Click += ucPlaylistView_MouseClick;
@@ -61,7 +77,12 @@ namespace BLADE
             //deleteToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
             //deleteToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
 
+            _isChoose = false;
+
         }
+        #endregion
+
+        #region Normal Function
         public void AddSong(Song src)
         {
             bool result = _playlist.AddSong(src);
@@ -72,9 +93,9 @@ namespace BLADE
         {
             if (src != null)
             {
-               _playlist.Remove(src);
+                _playlist.Remove(src);
             }
-                
+
         }
         private Song GetSongInfo(FileInfo file)
         {
@@ -93,24 +114,12 @@ namespace BLADE
         {
             ctxtmsPlaylist.Items.RemoveAt(3);
             ctxtmsPlaylist.Items.RemoveAt(2);
-            if(mode)
+            if (mode)
                 ctxtmsPlaylist.Items.RemoveAt(0);
         }
-        #region EVENTHANDLER
-        private void setLabelName(object sender, EventArgs e)
-        {
-            this.lblPlaylistName.Text = _playlist.PlaylistName;
-        }
-        private void playAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(_playlist.Count == 0)
-            {
-                MessageBox.Show("This playlist is empty");
-                return;
-            }
-            if (this.AllMusicPlayed != null)
-                AllMusicPlayed(_playlist, new EventArgs());
-        }
+        #endregion
+
+        #region Mouse event
         //private void ToolStripMenuItem_Hover (object sender, EventArgs e)
         //{
         //    ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -143,7 +152,24 @@ namespace BLADE
         private void ucPlaylistView_MouseClick(object sender, EventArgs e)
         {
             if (PlaylistShowed != null)
-                PlaylistShowed(_playlist, e);
+                PlaylistShowed(this, e);
+        }
+        #endregion
+
+        #region Button event
+        private void setLabelName(object sender, EventArgs e)
+        {
+            this.lblPlaylistName.Text = _playlist.PlaylistName;
+        }
+        private void playAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(_playlist.Count == 0)
+            {
+                MessageBox.Show("This playlist is empty");
+                return;
+            }
+            if (this.AllMusicPlayed != null)
+                AllMusicPlayed(this, new EventArgs());
         }
 
         private void AddSongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -175,7 +201,7 @@ namespace BLADE
                         MessageBox.Show("Day khong phai file audio");
                     }
                     if (NewSongAdded != null)
-                        NewSongAdded(_playlist, e);
+                        NewSongAdded(this, e);
                 }
 
             }

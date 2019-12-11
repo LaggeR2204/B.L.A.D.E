@@ -14,11 +14,11 @@ namespace BLADE
     {
         private Song _nowPlayingSong;
         public Song NowPlayingSong
-        { 
-            get => _nowPlayingSong; 
+        {
+            get => _nowPlayingSong;
             set
             {
-                if(_nowPlayingSong != value)
+                if (_nowPlayingSong != value)
                 {
                     _nowPlayingSong = value;
                     _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
@@ -42,7 +42,7 @@ namespace BLADE
         }
         private void Init()
         {
-            
+            _nowPlayingSong = null;
         }
         public void SetFavoriteState(Song src)
         {
@@ -79,11 +79,19 @@ namespace BLADE
         }
         public void UpdateQueue(List<Song> src)
         {
+            foreach (SongItemInQueue ctrl in fpnlQueue.Controls)
+            {
+                ctrl.DisposeSongEvent();
+            }
             fpnlQueue.Controls.Clear();
-            for(int i = 0; i<src.Count; i++)
+            for (int i = 0; i < src.Count; i++)
             {
                 ShowSongQueue(src[i]);
             }
+        }
+        public void UpdateQueue(Song src)
+        {
+            ShowSongQueue(src);
         }
         public void ShowSongQueue(Song song)
         {

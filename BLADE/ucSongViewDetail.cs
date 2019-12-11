@@ -19,6 +19,7 @@ namespace BLADE
             set { _song = value; }
         }
         public event EventHandler SelectedSong;
+        public event EventHandler PlaybackAdding;
         public event EventHandler DeletedSong;
         public event EventHandler FavoriteStateChanged;
         public ucSongViewDetail()
@@ -74,15 +75,8 @@ namespace BLADE
             ChangedIconFavoriteState(_song.IsFavorite);
             _song.FavoriteChanged += _song_FavoriteChanged;
         }
-
-        private void _song_FavoriteChanged(object sender, EventArgs e)
-        {
-            if (FavoriteStateChanged != null)
-                FavoriteStateChanged(this, new EventArgs());
-            ChangedIconFavoriteState(_song.IsFavorite);
-        }
-
-        #region EVENTHANDLER
+       
+        #region Mouse event handler
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
@@ -105,6 +99,12 @@ namespace BLADE
         }
         #endregion
 
+        #region button click handler
+        private void addToPlaybackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PlaybackAdding != null)
+                PlaybackAdding(this.Song, new EventArgs());
+        }
         private void BtnSongMenu_Click(object sender, EventArgs e)
         {
             ctxtmsSong.Show(btnSongMenu, 0, btnSongMenu.Height);
@@ -120,13 +120,17 @@ namespace BLADE
         private void btnSongLoveOff_Click(object sender, EventArgs e)
         {
             _song.IsFavorite = false;
-
-
         }
         private void BtnSongLove_Click(object sender, EventArgs e)
         {
             _song.IsFavorite = true;
-
+        }
+        #endregion
+        private void _song_FavoriteChanged(object sender, EventArgs e)
+        {
+            if (FavoriteStateChanged != null)
+                FavoriteStateChanged(this, new EventArgs());
+            ChangedIconFavoriteState(_song.IsFavorite);
         }
         public void ChangedIconFavoriteState(bool love)
         {
@@ -142,10 +146,11 @@ namespace BLADE
             }
 
         }
-
         public void RemoveEventHandler()
         {
             _song.FavoriteChanged -= _song_FavoriteChanged;
         }
+
+       
     }
 }
