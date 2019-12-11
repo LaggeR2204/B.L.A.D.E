@@ -117,8 +117,6 @@ namespace BLADE
         public void Pause()
         {
             waveOut.Stop();
-            mp3Reader.Position = 0;
-            mp3Reader.Dispose();
             waveOut.Dispose();
             btnStop.Visible = false;
             btnPlay.Visible = true;
@@ -128,6 +126,8 @@ namespace BLADE
         private void btnStop_Click(object sender, EventArgs e)
         {
             this.Pause();
+            mp3Reader.Position = 0;
+            mp3Reader.Dispose();
         }
 
         private void btnGetStartTime_Click(object sender, EventArgs e)
