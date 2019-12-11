@@ -34,6 +34,19 @@ namespace BLADE
             lblSongNameSCD.Text = _song.SongName;
             lblArtistSCD.Text = _song.Singer;
             lblNumberPlays.Text = _song.SongTime;
+            lblNumber.Text = _song.SongNumber.ToString();
+            if (lblNumber.Text == "1")
+            {
+                lblNumber.ForeColor = Color.Orange;
+            }
+            else if (lblNumber.Text == "2")
+            {
+                lblNumber.ForeColor = Color.Green;
+            }
+            else if (lblNumber.Text == "3")
+            {
+                lblNumber.ForeColor = Color.Blue;
+            }
         }
 
         private void ucSongChartDetail_MouseHover(object sender, EventArgs e)

@@ -34,13 +34,14 @@
             this.lblTextPlays = new System.Windows.Forms.Label();
             this.lblNumberPlays = new System.Windows.Forms.Label();
             this.btnDownload = new System.Windows.Forms.Button();
+            this.lblNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblSongNameSCD
             // 
             this.lblSongNameSCD.AutoSize = true;
             this.lblSongNameSCD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongNameSCD.Location = new System.Drawing.Point(15, 10);
+            this.lblSongNameSCD.Location = new System.Drawing.Point(47, 10);
             this.lblSongNameSCD.MaximumSize = new System.Drawing.Size(400, 21);
             this.lblSongNameSCD.Name = "lblSongNameSCD";
             this.lblSongNameSCD.Size = new System.Drawing.Size(86, 16);
@@ -97,6 +98,17 @@
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // lblNumber
+            // 
+            this.lblNumber.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(3, 7);
+            this.lblNumber.MaximumSize = new System.Drawing.Size(179, 22);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(38, 22);
+            this.lblNumber.TabIndex = 4;
+            this.lblNumber.Text = "10";
+            this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucSongChartDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -105,6 +117,7 @@
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.lblTextPlays);
             this.Controls.Add(this.lblNumberPlays);
+            this.Controls.Add(this.lblNumber);
             this.Controls.Add(this.lblArtistSCD);
             this.Controls.Add(this.lblSongNameSCD);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Label lblTextPlays;
         private System.Windows.Forms.Label lblNumberPlays;
         private System.Windows.Forms.Button btnDownload;
+        private System.Windows.Forms.Label lblNumber;
     }
 }

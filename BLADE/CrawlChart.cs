@@ -31,6 +31,7 @@ namespace BLADE
                     Song songChart = new Song();
                     string songURL = "https://chiasenhac.vn/nhac-hot/" + nation + ".html?playlist=" + i;
                     songChart = CrawlSongInChart(songURL);
+                    songChart.SongNumber = i;
                     ucSongChartDetail ucSongChart = new ucSongChartDetail(songChart);
                     ucListSongChart.Add(ucSongChart);
                 }
