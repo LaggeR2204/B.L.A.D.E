@@ -68,6 +68,8 @@ namespace BLADE
             timerSliderMusic = new Timer();
             timerSliderMusic.Interval = 200;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
+            //
+            uc_MusicCutter.OpenFileSucceed += btnPause_Click;
         }
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
@@ -191,7 +193,7 @@ namespace BLADE
         {
             mediaPlayer.Play();
             timerSliderMusic.Start();
-          
+            uc_MusicCutter.Pause();
         }
 
         private void btnPause_Click(object sender, EventArgs e)
