@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using WMPLib;
 using AxWMPLib;
 using NAudio.Wave;
+using System.IO;
 
 namespace BLADE
 {
     public partial class MainForm : Form
     {
+        GifImage gifImage = null;
         public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
         private event EventHandler ShowingStateChanged;
         private ShowingUC _showingUC;
@@ -38,8 +40,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
-            timerChangeColorBLADE.Enabled = false;
-            timerTime.Enabled = false;
+            //timerChangeColorBLADE.Enabled = false;
+            //timerTime.Enabled = false;
         }
         private void Init()
         {            this.ShowingStateChanged += MainForm_ShowingStateChanged;            _showingUC = ShowingUC.UcHome;
@@ -86,6 +88,9 @@ namespace BLADE
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
             //
             uc_MusicCutter.OpenFileSucceed += btnPause_Click;
+            //
+            gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\ezgif-6-cf50a6b931dd.gif"));
+            gifImage.ReverseAtEnd = false;
         }
 
         #region ucQueue
@@ -372,10 +377,12 @@ namespace BLADE
             if (_showingUC == ShowingUC.UcQueue)
             {
                 pnlSongInfo.Hide();
+                pnlGif.Show();
             }
             else
             {
                 pnlSongInfo.Show();
+                pnlGif.Hide();
             }
             if (!isCollapsed)
             {
@@ -536,6 +543,7 @@ namespace BLADE
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
         {
+            picboxGif.Image = gifImage.GetNextFrame();
             if (lblTextBLADE.ForeColor == Color.White)
             {
                 lblTextBLADE.ForeColor = Color.FromArgb(0, 217, 87);

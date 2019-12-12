@@ -114,6 +114,7 @@
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CrawlChart.cs" />
+    <Compile Include="GifImage.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
     <Compile Include="SongItemInQueue.cs">
       <SubType>UserControl</SubType>
@@ -328,6 +329,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Login.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\ezgif-5-d8412fe526a9.gif" />
+    <Content Include="Resources\ezgif-6-7a88bb4ebc82head.gif" />
+    <Content Include="Resources\ezgif-6-cf50a6b931dd.gif" />
     <Content Include="Resources\music.jpg" />
     <None Include="Resources\angle_right_24px.png" />
     <None Include="Resources\angle_left_24px.png" />

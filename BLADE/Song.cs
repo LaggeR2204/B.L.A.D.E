@@ -137,7 +137,9 @@ namespace BLADE
             }
             else
             {
-                _songImage = new Bitmap(@"D:\B.L.A.D.E\BLADE\Resources\music.jpg");
+                
+                _songImage = new Bitmap(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\music.jpg"));
+                //_songImage = new Bitmap(@"D:\B.L.A.D.E\BLADE\Resources\music.jpg");
             }
         }
 
