@@ -75,7 +75,10 @@ namespace BLADE
                 }
                 else
                 {
-                    Properties.Settings.Default.Reload();
+                    Properties.Settings.Default.UserName = null;
+                    Properties.Settings.Default.Password = null;
+                    Properties.Settings.Default.RememberChecked = false;
+                    Properties.Settings.Default.Save();
                 }
 
                 this.Hide();
