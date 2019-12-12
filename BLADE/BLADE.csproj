@@ -232,6 +232,9 @@
     <Compile Include="ucSongViewDetail.Designer.cs">
       <DependentUpon>ucSongViewDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="xDialog\MsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucSongViewDetail.resx">
       <DependentUpon>ucSongViewDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xDialog\MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

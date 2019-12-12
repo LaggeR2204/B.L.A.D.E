@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using NAudio.Wave;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WMPLib;
-using AxWMPLib;
-using NAudio.Wave;
 using System.IO;
+using System.Windows.Forms;
+using BLADE.xDialog;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace BLADE
 {
     public partial class MainForm : Form
     {
+        
         GifImage gifImage = null;
         public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
         private event EventHandler ShowingStateChanged;
@@ -34,7 +30,7 @@ namespace BLADE
         }
         private MediaPlayer mediaPlayer;
         private SearchOnline search = new SearchOnline();
-        private Timer timerSliderMusic;
+        private System.Windows.Forms.Timer timerSliderMusic;
         private bool isDrag = false;
         public MainForm()
         {
@@ -83,7 +79,7 @@ namespace BLADE
             sliderMusic.AllowScrollOptionsMenu = false;
 
             //notifyicon stop timer            //timer slider
-            timerSliderMusic = new Timer();
+            timerSliderMusic = new System.Windows.Forms.Timer();
             timerSliderMusic.Interval = 200;
             timerSliderMusic.Tick += TimerSliderMusic_Tick;
             //
@@ -169,11 +165,12 @@ namespace BLADE
                     uc_Search.fpnlSearchSongView.Show();
                     uc_Search.fpnlSearchSongView.BringToFront();
                     uc_Search.lblTextSearch.Text = textbox.Text;
-                    uc_Search.ShowListSearch(search.Search(textbox.Text));
+                    List<ucSongSearchDetail> ListSongSearch = search.Search(textbox.Text);
+                    uc_Search.ShowListSearch(ListSongSearch);
                 }
                 else
                 {
-                    MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MsgBox.Show("Check your Internet connection and try again", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                 }
             }
         }
@@ -189,15 +186,6 @@ namespace BLADE
             {
                 return false;
             }
-        }
-
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -546,7 +534,7 @@ namespace BLADE
             picboxGif.Image = gifImage.GetNextFrame();
             if (lblTextBLADE.ForeColor == Color.White)
             {
-                lblTextBLADE.ForeColor = Color.FromArgb(0, 217, 87);
+                lblTextBLADE.ForeColor = Color.FromArgb(0, 192, 192);
             }
             else
                 lblTextBLADE.ForeColor = Color.White;
@@ -714,7 +702,7 @@ namespace BLADE
             }
             catch (Exception ex)
             {
-                MessageBox.Show("    YOU MUST FILL ALL FIELDS ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("You must fill all fields", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             }
         }
         private void btn10m_Click_1(object sender, EventArgs e)
@@ -840,6 +828,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 

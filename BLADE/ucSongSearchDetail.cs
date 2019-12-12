@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -61,7 +62,7 @@ namespace BLADE
             }
             else
             {
-                MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("Check your Internet connection and try again", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             }
         }
 
@@ -81,7 +82,7 @@ namespace BLADE
         void DownloadSong()
         {
             search.Download(_song);
-            MessageBox.Show("The download is complete", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MsgBox.Show("The download is complete", "NOTIFICATION", MsgBox.Buttons.OK, MsgBox.Icon.Info, MsgBox.AnimateStyle.FadeIn);
         }
     }
 }

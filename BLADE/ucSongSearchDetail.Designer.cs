@@ -40,7 +40,7 @@
             // 
             this.lblSongNameSSD.AutoSize = true;
             this.lblSongNameSSD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongNameSSD.Location = new System.Drawing.Point(20, 10);
+            this.lblSongNameSSD.Location = new System.Drawing.Point(25, 10);
             this.lblSongNameSSD.MaximumSize = new System.Drawing.Size(400, 21);
             this.lblSongNameSSD.Name = "lblSongNameSSD";
             this.lblSongNameSSD.Size = new System.Drawing.Size(86, 16);

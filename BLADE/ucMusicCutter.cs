@@ -11,6 +11,8 @@ using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using WMPLib;
 using System.IO;
+using BLADE.xDialog;
+
 namespace BLADE
 {
     public partial class ucMusicCutter : UserControl
@@ -57,7 +59,7 @@ namespace BLADE
             timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
             timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
             if (timeStart >= timeEnd)
-                MessageBox.Show("    END MUST BE GREATER THAN BEGIN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("End must be greater than begin", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             else
             {
                 string name = string.Copy("");
@@ -75,7 +77,7 @@ namespace BLADE
         private void btnPlay_Click(object sender, EventArgs e)
         {
             if (opname == null)
-                MessageBox.Show("    YOU HAVE TO OPEN A FILE ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("You have to open a file", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             else
             {
                 timer = new Timer();
@@ -153,7 +155,7 @@ namespace BLADE
             }
             catch (Exception ex)
             {
-                MessageBox.Show("    YOU MUST ENTER TIME SPAN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("You must enter time span", "Error", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                 txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
             }
 

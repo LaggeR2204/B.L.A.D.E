@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -49,12 +50,12 @@ namespace BLADE
                 }
                 else
                 {
-                    MessageBox.Show("    Please wait while the application is updating the data", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MsgBox.Show("Please wait while the application is updating the data", "SORRY", MsgBox.Buttons.OK, MsgBox.Icon.Info, MsgBox.AnimateStyle.FadeIn);
                 }
             }
             else
             {
-                MessageBox.Show("    Check your Internet connection and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("Check your Internet connection and try again", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             }
         }
     }
