@@ -105,6 +105,12 @@ namespace BLADE
             this.DropdownTime = new System.Windows.Forms.Timer(this.components);
             this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.uc_Home = new BLADE.ucHome();
+            this.uc_Playlist = new BLADE.ucPlaylist();
+            this.uc_Info = new BLADE.ucInfo();
+            this.uc_Search = new BLADE.ucSearch();
+            this.uc_MusicCutter = new BLADE.ucMusicCutter();
+            this.uc_Queue = new BLADE.ucQueue();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuNofityIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -112,12 +118,6 @@ namespace BLADE
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
-            this.uc_Home = new BLADE.ucHome();
-            this.uc_Playlist = new BLADE.ucPlaylist();
-            this.uc_Info = new BLADE.ucInfo();
-            this.uc_Search = new BLADE.ucSearch();
-            this.uc_MusicCutter = new BLADE.ucMusicCutter();
-            this.uc_Queue = new BLADE.ucQueue();
             this.pnlMusicControl.SuspendLayout();
             this.pnlSongInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtCover)).BeginInit();
@@ -535,7 +535,7 @@ namespace BLADE
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(96, 18);
             this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "UserName";
+            this.lblUserName.Text = "Guess";
             // 
             // menuUser
             // 
@@ -1178,58 +1178,6 @@ namespace BLADE
             this.pnlMain.Size = new System.Drawing.Size(787, 565);
             this.pnlMain.TabIndex = 4;
             // 
-            // timerTime
-            // 
-            this.timerTime.Enabled = true;
-            this.timerTime.Interval = 1000;
-            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
-            // 
-            // notifyIcon
-            // 
-            this.notifyIcon.ContextMenuStrip = this.menuNofityIcon;
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "BLADE-Player";
-            this.notifyIcon.Visible = true;
-            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
-            // 
-            // menuNofityIcon
-            // 
-            this.menuNofityIcon.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuNofityIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.minimizeToTrayToolStripMenuItem,
-            this.exitToolStripMenuItem1});
-            this.menuNofityIcon.Name = "menuNofityIcon";
-            this.menuNofityIcon.Size = new System.Drawing.Size(162, 48);
-            // 
-            // minimizeToTrayToolStripMenuItem
-            // 
-            this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
-            this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(757, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label1";
-            // 
-            // UcDropdownTime
-            // 
-            this.UcDropdownTime.Interval = 10;
-            this.UcDropdownTime.Tick += new System.EventHandler(this.UcDropdownTime_Tick);
-            // 
             // uc_Home
             // 
             this.uc_Home.AutoSize = true;
@@ -1305,6 +1253,58 @@ namespace BLADE
             this.uc_Queue.NowPlayingSong = null;
             this.uc_Queue.Size = new System.Drawing.Size(787, 565);
             this.uc_Queue.TabIndex = 6;
+            // 
+            // timerTime
+            // 
+            this.timerTime.Enabled = true;
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.ContextMenuStrip = this.menuNofityIcon;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "BLADE-Player";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            // 
+            // menuNofityIcon
+            // 
+            this.menuNofityIcon.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuNofityIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.minimizeToTrayToolStripMenuItem,
+            this.exitToolStripMenuItem1});
+            this.menuNofityIcon.Name = "menuNofityIcon";
+            this.menuNofityIcon.Size = new System.Drawing.Size(162, 48);
+            // 
+            // minimizeToTrayToolStripMenuItem
+            // 
+            this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.minimizeToTrayToolStripMenuItem.Text = "Minimize to Tray";
+            this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(757, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label1";
+            // 
+            // UcDropdownTime
+            // 
+            this.UcDropdownTime.Interval = 10;
+            this.UcDropdownTime.Tick += new System.EventHandler(this.UcDropdownTime_Tick);
             // 
             // MainForm
             // 
