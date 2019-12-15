@@ -66,6 +66,8 @@ namespace BLADE
         }
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
+            if (audioReader == null)
+                return;
             if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds - 2)
                 if (MediaEnded != null)
                     MediaEnded(this, new EventArgs());

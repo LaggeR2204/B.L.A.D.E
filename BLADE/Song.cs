@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WMPLib;
 
 namespace BLADE
 {
@@ -69,6 +70,10 @@ namespace BLADE
                         PlayStateChanged(this, new EventArgs());
                 }
             }
+        }
+        public Song(FileInfo fileinfo)
+        {
+            this.GetSongInfo(fileinfo);
         }
         public Song()
         {
@@ -142,7 +147,17 @@ namespace BLADE
                 //_songImage = new Bitmap(@"D:\B.L.A.D.E\BLADE\Resources\music.jpg");
             }
         }
-
+        public void GetSongInfo(FileInfo file)
+        {
+            WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+            IWMPMedia src = wmp.newMedia(file.FullName);
+            _songName = src.getItemInfo("Name");
+            _savedPath = file.FullName;
+            _songTime = Song.convertToTime(src.getItemInfo("Duration"));
+            _singer = src.getItemInfo("Artist");
+            _genre = src.getItemInfo("WM/Genre");
+            GetImageFromFile(file.FullName);
+        }
         #region SORT SONG
         private class sortNameAscending : IComparer
         {

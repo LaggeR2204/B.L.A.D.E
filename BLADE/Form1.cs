@@ -11,7 +11,7 @@ namespace BLADE
 {
     public partial class MainForm : Form
     {
-        
+        AppData _appData;
         GifImage gifImage = null;
         public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
         private event EventHandler ShowingStateChanged;
@@ -40,7 +40,14 @@ namespace BLADE
             //timerTime.Enabled = false;
         }
         private void Init()
-        {            this.ShowingStateChanged += MainForm_ShowingStateChanged;            _showingUC = ShowingUC.UcHome;
+        {
+            //App data
+            _appData = new AppData();
+            //
+            //
+            this.FormClosing += MainForm_FormClosing;
+            //
+            this.ShowingStateChanged += MainForm_ShowingStateChanged;            _showingUC = ShowingUC.UcHome;
             //
             mediaPlayer = new MediaPlayer();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
@@ -89,6 +96,111 @@ namespace BLADE
             gifImage.ReverseAtEnd = false;
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _appData.SongCollection.Clear();
+            _appData.Playback.Clear();
+            _appData.PlaylistCollection.Clear();
+            foreach (Song song in mediaPlayer.CurrentPlaylist)
+            {
+                _appData.Playback.Add(song.SavedPath);
+            }
+            foreach (Playlist pl in uc_Playlist.PlaylistCollection)
+            {
+                _appData.PlaylistCollection.Add(pl.PlaylistName);
+                string songPath = string.Format("");
+                foreach (Song song in pl.List)
+                {
+                    songPath += song.SavedPath + "\n";
+                }
+                _appData.SongCollection.Add(songPath);
+            }
+            if (mediaPlayer.CurrentMedia != null)
+            {
+                _appData.CurrentSong = mediaPlayer.CurrentMedia.SavedPath;
+                _appData.CurrentPossition = (int)mediaPlayer.GetCurrentPossiton();
+            }
+            _appData.SaveData();
+        }
+
+        private List<string> GetListPath(string str)
+        {
+            List<string> result = new List<string>();
+            int index = str.IndexOf("\n");
+            while (index > 0)
+            {
+                string cutString = str.Substring(0, index);
+                str = str.Remove(0, index + 1);
+                cutString = cutString.Replace("\n", "");
+                result.Add(cutString);
+                index = str.IndexOf("\n");
+            }
+            return result;
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoginForm frmLI = new LoginForm();
+            frmLI.LoginSuccess += ShowUserName;
+            frmLI.ShowDialog();
+            //
+            _appData.LoadData();
+            for (int i = 0; i < _appData.PlaylistCollection.Count; i++)
+            {
+                string str = _appData.PlaylistCollection[i];
+                Playlist playlist = new Playlist(str);
+                List<string> listPath;
+                if (i < _appData.SongCollection.Count)
+                {
+                    listPath = GetListPath(_appData.SongCollection[i]);
+                    foreach (string path in listPath)
+                    {
+                        FileInfo fileinfo = new FileInfo(path);
+                        Song song = new Song(fileinfo);
+                        playlist.AddSong(song);
+                        if (path == _appData.CurrentSong)
+                            mediaPlayer.CurrentMedia = song;
+                        if (_appData.Playback.Contains(path))
+                            mediaPlayer.CurrentPlaylist.Add(song);
+                    }
+                }
+                uc_Playlist.PlaylistCollection.Add(playlist);
+            }
+            uc_Playlist.LoadData();
+            if (mediaPlayer.CurrentPlaylist.Count > 0)
+            {
+                mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(mediaPlayer.CurrentMedia));
+                mediaPlayer.SetPossition(_appData.CurrentPossition);
+                sliderMusic.Value = _appData.CurrentPossition;
+                mediaPlayer.Pause();
+            }
+        }
+        //private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    _appData.Playback.Clear();
+        //    _appData.PlaylistCollection.Clear();
+        //    _appData.SongCollection.Clear();
+        //    foreach (Song song in mediaPlayer.CurrentPlaylist)
+        //    {
+        //        _appData.Playback.Add(song.SavedPath);
+        //    }
+        //    foreach (Playlist pl in uc_Playlist.PlaylistCollection)
+        //    {
+        //        _appData.PlaylistCollection.Add(pl.PlaylistName);
+        //        string songPath = string.Format("");
+        //        foreach (Song song in pl.List)
+        //        {
+        //            songPath += song.SavedPath + "\n";
+        //        }
+        //        _appData.SongCollection.Add(songPath);
+        //    }
+        //    if (mediaPlayer.CurrentMedia != null)
+        //    {
+        //        _appData.CurrentSong = mediaPlayer.CurrentMedia.SavedPath;
+        //        _appData.CurrentPossition = (int)mediaPlayer.GetCurrentPossiton();
+        //    }
+        //    _appData.SaveData();
+        //}
+
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {
@@ -106,12 +218,7 @@ namespace BLADE
         #endregion
 
         #region Account Actions
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            LoginForm frmLI = new LoginForm();
-            frmLI.LoginSuccess += ShowUserName;
-            frmLI.ShowDialog();
-        }
+
         private void ShowUserName(object sender, EventArgs e)
         {
             string textUsername = sender.ToString();
@@ -828,6 +935,12 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
+
+
+
+
 
 
 

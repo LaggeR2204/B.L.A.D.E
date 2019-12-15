@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using WMPLib;
 
 namespace BLADE
 {
@@ -97,19 +96,6 @@ namespace BLADE
             }
 
         }
-        private Song GetSongInfo(FileInfo file)
-        {
-            WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-            IWMPMedia src = wmp.newMedia(file.FullName);
-            Song song = new Song();
-            song.SongName = src.getItemInfo("Name");
-            song.SavedPath = file.FullName;
-            song.SongTime = Song.convertToTime(src.getItemInfo("Duration"));
-            song.Singer = src.getItemInfo("Artist");
-            song.Genre = src.getItemInfo("WM/Genre");
-            song.GetImageFromFile(file.FullName);
-            return song;
-        }
         public void RemoveChooseItem(bool mode = false)
         {
             ctxtmsPlaylist.Items.RemoveAt(3);
@@ -186,10 +172,9 @@ namespace BLADE
                 foreach (string file in openfileDialog.FileNames)
                 {
                     FileInfo fileinfo = new FileInfo(file);
-                    Song song;
                     if (fileinfo.Extension == ".mp3" || fileinfo.Extension == ".wav")
                     {
-                        song = GetSongInfo(fileinfo);
+                        Song song = new Song(fileinfo);
                         if (!_playlist.AddSong(song))
                         {
                             MessageBox.Show("Bai hat da ton tai trong playlist!!!");
