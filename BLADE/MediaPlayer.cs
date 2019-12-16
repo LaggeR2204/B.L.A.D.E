@@ -229,8 +229,5 @@ namespace BLADE
                 audioReader = null;
             }
         }
-
-
-
     }
 }

@@ -225,7 +225,7 @@ namespace BLADE
                 {
                     ShowSongOnListArea(src);
                 }
-                _favorites.AddSong(src);
+                _favorites.AddToFavorite(src);
             }
         }
         private void ucPlaylistView_PlaylistDeleted(object sender, EventArgs e)

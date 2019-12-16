@@ -50,7 +50,13 @@ namespace BLADE
             _createdDay = DateTime.Now;
             _listSong = new List<Song>();
         }
-
+        public void AddToFavorite(Song src)
+        {
+            if (_listSong.Contains(src))
+                return;
+            _listSong.Add(src);
+            _count++;
+        }
         public bool AddSong(Song src)
         {
             if (_listSong.Contains(src))

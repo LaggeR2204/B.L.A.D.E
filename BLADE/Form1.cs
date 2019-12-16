@@ -37,8 +37,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
-            timerChangeColorBLADE.Enabled = false;
-            timerTime.Enabled = false;
+            //timerChangeColorBLADE.Enabled = false;
+            //timerTime.Enabled = false;
         }
         private void Init()
         {
@@ -145,6 +145,7 @@ namespace BLADE
                 sliderMusic.Value = _appData.CurrentPossition;
                 lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
             }
+            mediaPlayer.Pause();
             mediaPlayer.Pause();
         }
 

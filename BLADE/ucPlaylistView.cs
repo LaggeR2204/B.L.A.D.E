@@ -89,6 +89,10 @@ namespace BLADE
             if (!result)
                 MessageBox.Show("Bai hat da ton tai trong playlist!!!");
         }
+        public void AddToFavorite(Song src)
+        {
+            _playlist.AddToFavorite(src);
+        }
         public void RemoveSong(Song src)
         {
             if (src != null)
