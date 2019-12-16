@@ -22,8 +22,8 @@ namespace BLADE
                 {
                     _nowPlayingSong = value;
                     _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
-                    if (NowPlayingSongChanged != null)
-                        NowPlayingSongChanged(this, new EventArgs());
+                    //if (NowPlayingSongChanged != null)
+                    //    NowPlayingSongChanged(this, new EventArgs());
                 }
             }
         }
@@ -32,7 +32,7 @@ namespace BLADE
         {
             SetFavoriteState(_nowPlayingSong);
         }
-        public event EventHandler NowPlayingSongChanged;
+        //public event EventHandler NowPlayingSongChanged;
         public event EventHandler SongSelected;
         public event EventHandler SongRemoved;
         public ucQueue()

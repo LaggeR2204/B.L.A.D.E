@@ -74,9 +74,12 @@ namespace BLADE
         public Song(FileInfo fileinfo)
         {
             this.GetSongInfo(fileinfo);
+            this._isFavorite = false;
+            this._isPlaying = false;
         }
         public Song()
         {
+            _isPlaying = false;
             _isFavorite = false;
             this._songNumber = 0;
             this._songName = "";
@@ -89,6 +92,7 @@ namespace BLADE
         }
         public Song(Song src)
         {
+            this._isPlaying = src._isPlaying;
             this._songNumber = src._songNumber;
             this._songName = string.Copy(src._songName);
             this._savedPath = string.Copy(src._savedPath);
@@ -96,7 +100,7 @@ namespace BLADE
             this._singer = string.Copy(src._singer);
             this._genre = string.Copy(src._genre);
 
-            _isFavorite = src.IsFavorite;
+            _isFavorite = src._isFavorite;
 
             this._songURL = string.Copy(src._songURL);
 

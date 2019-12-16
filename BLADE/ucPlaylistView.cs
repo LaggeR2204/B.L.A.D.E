@@ -32,7 +32,6 @@ namespace BLADE
         public event EventHandler ChooseStateChanged;
         public event EventHandler PlaylistShowed;
         public event EventHandler PlaylistDeleted;
-        public event EventHandler NewSongAdded;
         public event EventHandler AllMusicPlayed;
 
         #region Constructor
@@ -79,6 +78,8 @@ namespace BLADE
             _isChoose = false;
 
         }
+
+       
         #endregion
 
         #region Normal Function
@@ -185,10 +186,7 @@ namespace BLADE
                     {
                         MessageBox.Show("Day khong phai file audio");
                     }
-                    if (NewSongAdded != null)
-                        NewSongAdded(this, e);
                 }
-
             }
             openfileDialog.Dispose();
 

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BLADE.xDialog;
 using System.Collections.Generic;
 using System.Threading;
+using System.Collections.Specialized;
 
 namespace BLADE
 {
@@ -36,8 +37,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
-            //timerChangeColorBLADE.Enabled = false;
-            //timerTime.Enabled = false;
+            timerChangeColorBLADE.Enabled = false;
+            timerTime.Enabled = false;
         }
         private void Init()
         {
@@ -97,10 +98,13 @@ namespace BLADE
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        {   
+            if(_appData.SongCollection!=null)
             _appData.SongCollection.Clear();
-            _appData.Playback.Clear();
-            _appData.PlaylistCollection.Clear();
+            if (_appData.Playback != null)
+                _appData.Playback.Clear();
+            if (_appData.PlaylistCollection != null)
+                _appData.PlaylistCollection.Clear();
             foreach (Song song in mediaPlayer.CurrentPlaylist)
             {
                 _appData.Playback.Add(song.SavedPath);
@@ -123,83 +127,27 @@ namespace BLADE
             _appData.SaveData();
         }
 
-        private List<string> GetListPath(string str)
-        {
-            List<string> result = new List<string>();
-            int index = str.IndexOf("\n");
-            while (index > 0)
-            {
-                string cutString = str.Substring(0, index);
-                str = str.Remove(0, index + 1);
-                cutString = cutString.Replace("\n", "");
-                result.Add(cutString);
-                index = str.IndexOf("\n");
-            }
-            return result;
-        }
+      
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
             frmLI.LoginSuccess += ShowUserName;
             frmLI.ShowDialog();
             //
+            Song curMedia = new Song();
             _appData.LoadData();
-            for (int i = 0; i < _appData.PlaylistCollection.Count; i++)
-            {
-                string str = _appData.PlaylistCollection[i];
-                Playlist playlist = new Playlist(str);
-                List<string> listPath;
-                if (i < _appData.SongCollection.Count)
-                {
-                    listPath = GetListPath(_appData.SongCollection[i]);
-                    foreach (string path in listPath)
-                    {
-                        FileInfo fileinfo = new FileInfo(path);
-                        Song song = new Song(fileinfo);
-                        playlist.AddSong(song);
-                        if (path == _appData.CurrentSong)
-                            mediaPlayer.CurrentMedia = song;
-                        if (_appData.Playback.Contains(path))
-                            mediaPlayer.CurrentPlaylist.Add(song);
-                    }
-                }
-                uc_Playlist.PlaylistCollection.Add(playlist);
-            }
-            uc_Playlist.LoadData();
+            uc_Playlist.LoadData(_appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist);
+            uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
             if (mediaPlayer.CurrentPlaylist.Count > 0)
             {
-                mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(mediaPlayer.CurrentMedia));
+                mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
                 mediaPlayer.SetPossition(_appData.CurrentPossition);
                 sliderMusic.Value = _appData.CurrentPossition;
-                mediaPlayer.Pause();
+                lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
             }
+            mediaPlayer.Pause();
         }
-        //private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    _appData.Playback.Clear();
-        //    _appData.PlaylistCollection.Clear();
-        //    _appData.SongCollection.Clear();
-        //    foreach (Song song in mediaPlayer.CurrentPlaylist)
-        //    {
-        //        _appData.Playback.Add(song.SavedPath);
-        //    }
-        //    foreach (Playlist pl in uc_Playlist.PlaylistCollection)
-        //    {
-        //        _appData.PlaylistCollection.Add(pl.PlaylistName);
-        //        string songPath = string.Format("");
-        //        foreach (Song song in pl.List)
-        //        {
-        //            songPath += song.SavedPath + "\n";
-        //        }
-        //        _appData.SongCollection.Add(songPath);
-        //    }
-        //    if (mediaPlayer.CurrentMedia != null)
-        //    {
-        //        _appData.CurrentSong = mediaPlayer.CurrentMedia.SavedPath;
-        //        _appData.CurrentPossition = (int)mediaPlayer.GetCurrentPossiton();
-        //    }
-        //    _appData.SaveData();
-        //}
+
 
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
@@ -935,6 +883,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 

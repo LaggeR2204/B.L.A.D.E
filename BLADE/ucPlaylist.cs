@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Specialized;
 
 namespace BLADE
 {
@@ -50,35 +51,77 @@ namespace BLADE
             //_default.IsChoose = true;
             //_choosingPlaylist = _default;
         }
-        public void LoadData()
+        private List<string> GetListPath(string str)
         {
-            for (int i = 0; i < _playlistCollection.Count; i++)
+            List<string> result = new List<string>();
+            int index = str.IndexOf("\n");
+            while (index > 0)
             {
-                ucPlaylistView playlistItem = new ucPlaylistView(_playlistCollection[i]);
-                playlistItem.PlaylistShowed += ucPlaylistView_ShowContent;
-                playlistItem.PlaylistDeleted += ucPlaylistView_PlaylistDeleted;
-                playlistItem.NewSongAdded += ucPlaylistView_NewSongAdded;
-                playlistItem.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
-                playlistItem.ChooseStateChanged += ucPlaylistView_ChooseStateChanged;
-                fpnlPlaylistView.Controls.Add(playlistItem);
+                string cutString = str.Substring(0, index);
+                str = str.Remove(0, index + 1);
+                cutString = cutString.Replace("\n", "");
+                result.Add(cutString);
+                index = str.IndexOf("\n");
+            }
+            return result;
+        }
+        public void LoadData(StringCollection playbackCollection, StringCollection playlistCollection, StringCollection songCollection, string curSong, int pos,ref Song curMedia, List<Song> curPlaylist)
+        {
+            Playlist pldefault = new Playlist(playlistCollection[0]);
+            pldefault.SongAdded += Playlist_SongAdded;
+            _default = ShowPlaylistInfo(pldefault);
+            _default.RemoveChooseItem();
+            _choosingPlaylist = _default;
+            _choosingPlaylist.IsChoose = true;
+
+            Playlist plFavo = new Playlist(playlistCollection[1]);
+            plFavo.SongAdded += Playlist_SongAdded;
+            _favorites = ShowPlaylistInfo(plFavo);
+            _favorites.RemoveChooseItem(true);
+
+            List<string> favorite;
+            if (songCollection.Count >= 2)
+                favorite = GetListPath(songCollection[1]);
+            else
+                favorite = new List<string>();
+            for (int i = 0; i < playlistCollection.Count; i++)
+            {
+                string str = playlistCollection[i];
+                Playlist playlist;
                 if (i == 0)
                 {
-                    _default = playlistItem;
-                    _default.RemoveChooseItem();
+                    playlist = pldefault;
+                }
+                else
+                if (i == 1)
+                {
+                    playlist = plFavo;
                 }
                 else
                 {
-                    if (i == 1)
+                    playlist = new Playlist(str);
+                    playlist.SongAdded += Playlist_SongAdded;
+                    ShowPlaylistInfo(playlist);
+                }
+
+                List<string> listPath;
+                if (i < songCollection.Count)
+                {
+                    listPath = GetListPath(songCollection[i]);
+                    foreach (string path in listPath)
                     {
-                        _favorites = playlistItem;
-                        _favorites.RemoveChooseItem(true);
+                        FileInfo fileinfo = new FileInfo(path);
+                        Song song = new Song(fileinfo);
+                        playlist.AddSong(song);
+                        if (favorite.Contains(path))
+                            song.IsFavorite = true;
+                        if (path == curSong)
+                            curMedia = song;
+                        if (playbackCollection.Contains(path))
+                            curPlaylist.Add(song);
                     }
                 }
-            }
-            if (_default != null)
-            {
-                _default.IsChoose = true;
-                _choosingPlaylist = _default;
+                _playlistCollection.Add(playlist);
             }
         }
 
@@ -102,15 +145,15 @@ namespace BLADE
             }
             fpnlSongView.Controls.Clear();
         }
-        private void ShowPlaylistInfo(Playlist src)
+        private ucPlaylistView ShowPlaylistInfo(Playlist src)
         {
             ucPlaylistView temp = new ucPlaylistView(src);
             temp.PlaylistShowed += ucPlaylistView_ShowContent;
             temp.PlaylistDeleted += ucPlaylistView_PlaylistDeleted;
-            temp.NewSongAdded += ucPlaylistView_NewSongAdded;
             temp.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
             temp.ChooseStateChanged += ucPlaylistView_ChooseStateChanged;
             fpnlPlaylistView.Controls.Add(temp);
+            return temp;
         }
         #endregion
 
@@ -164,12 +207,12 @@ namespace BLADE
                 _choosingPlaylist.IsChoose = true;
             }
         }
-        private void ucPlaylistView_NewSongAdded(object sender, EventArgs e)
+        private void Playlist_SongAdded(object sender, EventArgs e)
         {
-            ucPlaylistView temp = sender as ucPlaylistView;
-            Song song = temp.Playlist.List[temp.Playlist.List.Count - 1];
+            Playlist temp = sender as Playlist;
+            Song song = temp.List[temp.List.Count - 1];
             song.FavoriteChanged += Song_FavoriteChangedHandler;
-            if (temp.IsChoose)
+            if (_choosingPlaylist.Playlist == temp)
                 ShowSongOnListArea(song);
         }
         private void Song_FavoriteChangedHandler(object sender, EventArgs e)
@@ -211,6 +254,7 @@ namespace BLADE
             if (InputNamePlaylistBox.Show("Notification", "Enter playlist name: ", ref name) == DialogResult.OK)
             {
                 Playlist pl1 = new Playlist(name);
+                pl1.SongAdded += Playlist_SongAdded;
                 foreach (ucPlaylistView item in fpnlPlaylistView.Controls)
                 {
                     if (item.Playlist.PlaylistName == name)

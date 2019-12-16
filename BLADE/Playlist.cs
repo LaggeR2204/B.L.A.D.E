@@ -30,6 +30,7 @@ namespace BLADE
         public DateTime CreatedDay { get => _createdDay; set => _createdDay = value; }
 
         public event EventHandler NameChanged;
+        public event EventHandler SongAdded;
 
         public Playlist()
         {
@@ -55,6 +56,8 @@ namespace BLADE
             if (_listSong.Contains(src))
                 return false;
             _listSong.Add(src);
+            if (SongAdded != null)
+                SongAdded(this, new EventArgs());
             _count++;
             return true;
         }
