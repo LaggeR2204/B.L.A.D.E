@@ -110,5 +110,15 @@ namespace BLADE
         {
             Application.Exit();
         }
+
+        private void btnWithoutLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
 }

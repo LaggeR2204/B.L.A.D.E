@@ -50,6 +50,7 @@
             this.checkboxRemember = new Bunifu.Framework.UI.BunifuCheckbox();
             this.btnCloseWindows = new System.Windows.Forms.Button();
             this.lblIncorrect = new Bunifu.UI.WinForms.BunifuLabel();
+            this.btnWithoutLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -343,7 +344,7 @@
             this.btnCloseWindows.FlatAppearance.BorderSize = 0;
             this.btnCloseWindows.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseWindows.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCloseWindows.Location = new System.Drawing.Point(150, 393);
+            this.btnCloseWindows.Location = new System.Drawing.Point(238, 383);
             this.btnCloseWindows.Name = "btnCloseWindows";
             this.btnCloseWindows.Size = new System.Drawing.Size(51, 35);
             this.btnCloseWindows.TabIndex = 13;
@@ -366,12 +367,27 @@
             this.lblIncorrect.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblIncorrect.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
+            // btnWithoutLogin
+            // 
+            this.btnWithoutLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWithoutLogin.FlatAppearance.BorderSize = 0;
+            this.btnWithoutLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWithoutLogin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnWithoutLogin.Location = new System.Drawing.Point(58, 383);
+            this.btnWithoutLogin.Name = "btnWithoutLogin";
+            this.btnWithoutLogin.Size = new System.Drawing.Size(134, 35);
+            this.btnWithoutLogin.TabIndex = 14;
+            this.btnWithoutLogin.Text = "Use without log in";
+            this.btnWithoutLogin.UseVisualStyleBackColor = true;
+            this.btnWithoutLogin.Click += new System.EventHandler(this.btnWithoutLogin_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(350, 430);
+            this.Controls.Add(this.btnWithoutLogin);
             this.Controls.Add(this.btnCloseWindows);
             this.Controls.Add(this.checkboxRemember);
             this.Controls.Add(this.lblBLADE);
@@ -389,6 +405,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -407,5 +424,6 @@
         private Bunifu.Framework.UI.BunifuCheckbox checkboxRemember;
         private System.Windows.Forms.Button btnCloseWindows;
         private Bunifu.UI.WinForms.BunifuLabel lblIncorrect;
+        private System.Windows.Forms.Button btnWithoutLogin;
     }
 }
