@@ -105,6 +105,7 @@ namespace BLADE
             this.DropdownTime = new System.Windows.Forms.Timer(this.components);
             this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.uc_NewHome = new BLADE.ucNewHome();
             this.uc_Playlist = new BLADE.ucPlaylist();
             this.uc_Info = new BLADE.ucInfo();
             this.uc_Search = new BLADE.ucSearch();
@@ -117,7 +118,6 @@ namespace BLADE
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
-            this.uc_NewHome = new BLADE.ucNewHome();
             this.pnlMusicControl.SuspendLayout();
             this.pnlSongInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtCover)).BeginInit();
@@ -1178,6 +1178,18 @@ namespace BLADE
             this.pnlMain.Size = new System.Drawing.Size(787, 565);
             this.pnlMain.TabIndex = 4;
             // 
+            // uc_NewHome
+            // 
+            this.uc_NewHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.uc_NewHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_NewHome.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uc_NewHome.ForeColor = System.Drawing.Color.Gainsboro;
+            this.uc_NewHome.Location = new System.Drawing.Point(0, 0);
+            this.uc_NewHome.Margin = new System.Windows.Forms.Padding(4);
+            this.uc_NewHome.Name = "uc_NewHome";
+            this.uc_NewHome.Size = new System.Drawing.Size(787, 565);
+            this.uc_NewHome.TabIndex = 7;
+            // 
             // uc_Playlist
             // 
             this.uc_Playlist.AutoSize = true;
@@ -1292,18 +1304,6 @@ namespace BLADE
             // 
             this.UcDropdownTime.Interval = 10;
             this.UcDropdownTime.Tick += new System.EventHandler(this.UcDropdownTime_Tick);
-            // 
-            // uc_NewHome
-            // 
-            this.uc_NewHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.uc_NewHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_NewHome.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uc_NewHome.ForeColor = System.Drawing.Color.Gainsboro;
-            this.uc_NewHome.Location = new System.Drawing.Point(0, 0);
-            this.uc_NewHome.Margin = new System.Windows.Forms.Padding(4);
-            this.uc_NewHome.Name = "uc_NewHome";
-            this.uc_NewHome.Size = new System.Drawing.Size(787, 565);
-            this.uc_NewHome.TabIndex = 7;
             // 
             // MainForm
             // 

@@ -69,7 +69,7 @@
             this.lblNumberPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumberPlays.AutoSize = true;
             this.lblNumberPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberPlays.Location = new System.Drawing.Point(580, 20);
+            this.lblNumberPlays.Location = new System.Drawing.Point(587, 20);
             this.lblNumberPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblNumberPlays.Name = "lblNumberPlays";
             this.lblNumberPlays.Size = new System.Drawing.Size(60, 16);
@@ -82,7 +82,7 @@
             this.lblTextPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTextPlays.AutoSize = true;
             this.lblTextPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextPlays.Location = new System.Drawing.Point(640, 20);
+            this.lblTextPlays.Location = new System.Drawing.Point(647, 20);
             this.lblTextPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblTextPlays.Name = "lblTextPlays";
             this.lblTextPlays.Size = new System.Drawing.Size(40, 16);
@@ -96,7 +96,7 @@
             this.btnDownload.FlatAppearance.BorderSize = 0;
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(737, 10);
+            this.btnDownload.Location = new System.Drawing.Point(744, 10);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(40, 40);
@@ -117,9 +117,9 @@
             this.Controls.Add(this.lblSongNameSSD);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Name = "ucSongSearchDetail";
-            this.Size = new System.Drawing.Size(780, 60);
+            this.Size = new System.Drawing.Size(787, 60);
             this.MouseLeave += new System.EventHandler(this.ucSongSearchDetail_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucSongSearchDetail_MouseHover);
             this.ResumeLayout(false);

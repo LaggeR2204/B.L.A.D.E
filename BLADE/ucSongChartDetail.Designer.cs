@@ -63,6 +63,7 @@
             // 
             // lblTextPlays
             // 
+            this.lblTextPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTextPlays.AutoSize = true;
             this.lblTextPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextPlays.Location = new System.Drawing.Point(688, 10);
@@ -75,6 +76,7 @@
             // 
             // lblNumberPlays
             // 
+            this.lblNumberPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumberPlays.AutoSize = true;
             this.lblNumberPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumberPlays.Location = new System.Drawing.Point(628, 10);
@@ -87,6 +89,7 @@
             // 
             // btnDownload
             // 
+            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownload.FlatAppearance.BorderSize = 0;
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
@@ -113,6 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.lblTextPlays);
@@ -122,7 +126,7 @@
             this.Controls.Add(this.lblSongNameSCD);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Name = "ucSongChartDetail";
             this.Size = new System.Drawing.Size(787, 40);
             this.MouseLeave += new System.EventHandler(this.ucSongChartDetail_MouseLeave);

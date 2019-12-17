@@ -65,6 +65,7 @@ namespace BLADE
             foreach (var item in src)
             {
                 fpnlVN.Controls.Add(item);
+                item.Width = fpnlVN.Width;
             }
         }
 
@@ -73,6 +74,7 @@ namespace BLADE
             foreach (var item in src)
             {
                 fpnlUSUK.Controls.Add(item);
+                item.Width = fpnlUSUK.Width;
             }
         }
 
@@ -81,6 +83,7 @@ namespace BLADE
             foreach (var item in src)
             {
                 fpnlKorea.Controls.Add(item);
+                item.Width = fpnlKorea.Width;
             }
         }
 
@@ -137,6 +140,30 @@ namespace BLADE
         {
             this.Hide();
             this.SendToBack();
+        }
+
+        private void fpnlVN_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control item in fpnlVN.Controls)
+            {
+                item.Width = fpnlVN.Width;
+            }
+        }
+
+        private void fpnlKorea_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control item in fpnlKorea.Controls)
+            {
+                item.Width = fpnlKorea.Width;
+            }
+        }
+
+        private void fpnlUSUK_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control item in fpnlUSUK.Controls)
+            {
+                item.Width = fpnlUSUK.Width;
+            }
         }
     }
 }

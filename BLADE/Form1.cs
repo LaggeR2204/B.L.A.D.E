@@ -577,7 +577,8 @@ namespace BLADE
 
         private void txtSearch_Click(object sender, MouseEventArgs e)
         {
-
+            uc_Search.fpnlSongSearchView.Controls.Clear();
+            uc_Search.fpnlSongSearchView.Hide();
             if (_showingUC != ShowingUC.UcSearch)
             {
                 ShowingUc = ShowingUC.UcSearch;
