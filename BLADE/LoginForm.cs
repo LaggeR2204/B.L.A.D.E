@@ -108,7 +108,7 @@ namespace BLADE
 
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
         }
 
         private void btnWithoutLogin_Click(object sender, EventArgs e)
