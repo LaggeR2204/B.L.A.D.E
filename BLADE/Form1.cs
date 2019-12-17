@@ -98,9 +98,9 @@ namespace BLADE
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {   
-            if(_appData.SongCollection!=null)
-            _appData.SongCollection.Clear();
+        {
+            if (_appData.SongCollection != null)
+                _appData.SongCollection.Clear();
             if (_appData.Playback != null)
                 _appData.Playback.Clear();
             if (_appData.PlaylistCollection != null)
@@ -127,7 +127,7 @@ namespace BLADE
             _appData.SaveData();
         }
 
-      
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
@@ -884,6 +884,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 
