@@ -132,5 +132,11 @@ namespace BLADE
                 return false;
             }
         }
+
+        private void btnBackToHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.SendToBack();
+        }
     }
 }

@@ -20,14 +20,15 @@ namespace BLADE
         {
             InitializeComponent();
             pnlSearchTitle.Hide();
-            fpnlSearchSongView.Hide();
+            fpnlSongSearchView.Hide();
         }
 
         public void ShowListSearch(List<ucSongSearchDetail> src)
         {
             foreach (var item in src)
             {
-                fpnlSearchSongView.Controls.Add(item);
+                //fpnlSearchSongView.Controls.Add(item);
+                fpnlSongSearchView.Controls.Add(item);
             }
         }
     }

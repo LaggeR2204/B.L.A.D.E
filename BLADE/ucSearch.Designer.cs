@@ -34,7 +34,7 @@
             this.pnlSearchTitle = new System.Windows.Forms.Panel();
             this.lblTextSearch = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
-            this.fpnlSearchSongView = new System.Windows.Forms.FlowLayoutPanel();
+            this.fpnlSongSearchView = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlSearchTitle.SuspendLayout();
             this.SuspendLayout();
@@ -95,21 +95,22 @@
             this.lblResult.Text = "Showing Songs For ";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // fpnlSearchSongView
+            // fpnlSongSearchView
             // 
-            this.fpnlSearchSongView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fpnlSearchSongView.Location = new System.Drawing.Point(0, 46);
-            this.fpnlSearchSongView.Name = "fpnlSearchSongView";
-            this.fpnlSearchSongView.Size = new System.Drawing.Size(787, 519);
-            this.fpnlSearchSongView.TabIndex = 9;
+            this.fpnlSongSearchView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.fpnlSongSearchView.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fpnlSongSearchView.Location = new System.Drawing.Point(0, 46);
+            this.fpnlSongSearchView.Name = "fpnlSongSearchView";
+            this.fpnlSongSearchView.Size = new System.Drawing.Size(787, 519);
+            this.fpnlSongSearchView.TabIndex = 3;
             // 
             // ucSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.fpnlSongSearchView);
             this.Controls.Add(this.pnlSearchTitle);
-            this.Controls.Add(this.fpnlSearchSongView);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,8 +131,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Panel pnlSearchTitle;
-        public System.Windows.Forms.FlowLayoutPanel fpnlSearchSongView;
         private System.Windows.Forms.Label lblResult;
         public System.Windows.Forms.Label lblTextSearch;
+        public System.Windows.Forms.FlowLayoutPanel fpnlSongSearchView;
     }
 }

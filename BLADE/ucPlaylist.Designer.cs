@@ -39,7 +39,9 @@
             this.btnAddPlaylist = new System.Windows.Forms.Button();
             this.fpnlSongView = new System.Windows.Forms.FlowLayoutPanel();
             this.fpnlPlaylistView = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlListSong = new System.Windows.Forms.Panel();
             this.pnlTitle.SuspendLayout();
+            this.pnlListSong.SuspendLayout();
             this.SuspendLayout();
             // 
             // Slider
@@ -50,7 +52,7 @@
             this.Slider.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Slider.LineThickness = 1;
             this.Slider.Location = new System.Drawing.Point(165, 0);
-            this.Slider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Slider.Margin = new System.Windows.Forms.Padding(4);
             this.Slider.Name = "Slider";
             this.Slider.Size = new System.Drawing.Size(1, 565);
             this.Slider.TabIndex = 0;
@@ -59,60 +61,63 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTitle.Controls.Add(this.lblTimeColumn);
             this.pnlTitle.Controls.Add(this.lblCategoryColumn);
             this.pnlTitle.Controls.Add(this.lblArtistColumn);
             this.pnlTitle.Controls.Add(this.lblTitleColumn);
-            this.pnlTitle.Location = new System.Drawing.Point(167, 0);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(620, 40);
             this.pnlTitle.TabIndex = 1;
             // 
             // lblTimeColumn
             // 
+            this.lblTimeColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimeColumn.AutoSize = true;
             this.lblTimeColumn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeColumn.Location = new System.Drawing.Point(525, 12);
             this.lblTimeColumn.Name = "lblTimeColumn";
-            this.lblTimeColumn.Size = new System.Drawing.Size(45, 19);
+            this.lblTimeColumn.Size = new System.Drawing.Size(37, 16);
             this.lblTimeColumn.TabIndex = 2;
             this.lblTimeColumn.Text = "TIME";
             this.lblTimeColumn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCategoryColumn
             // 
+            this.lblCategoryColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCategoryColumn.AutoSize = true;
             this.lblCategoryColumn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryColumn.Location = new System.Drawing.Point(420, 12);
             this.lblCategoryColumn.MaximumSize = new System.Drawing.Size(93, 17);
             this.lblCategoryColumn.Name = "lblCategoryColumn";
-            this.lblCategoryColumn.Size = new System.Drawing.Size(89, 17);
+            this.lblCategoryColumn.Size = new System.Drawing.Size(79, 16);
             this.lblCategoryColumn.TabIndex = 3;
             this.lblCategoryColumn.Text = "CATEGORY";
             this.lblCategoryColumn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblArtistColumn
             // 
+            this.lblArtistColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblArtistColumn.AutoSize = true;
             this.lblArtistColumn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArtistColumn.Location = new System.Drawing.Point(270, 12);
             this.lblArtistColumn.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblArtistColumn.Name = "lblArtistColumn";
-            this.lblArtistColumn.Size = new System.Drawing.Size(60, 17);
+            this.lblArtistColumn.Size = new System.Drawing.Size(49, 16);
             this.lblArtistColumn.TabIndex = 4;
             this.lblArtistColumn.Text = "ARTIST";
             this.lblArtistColumn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTitleColumn
             // 
+            this.lblTitleColumn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitleColumn.AutoSize = true;
             this.lblTitleColumn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleColumn.Location = new System.Drawing.Point(86, 12);
             this.lblTitleColumn.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblTitleColumn.Name = "lblTitleColumn";
-            this.lblTitleColumn.Size = new System.Drawing.Size(44, 16);
+            this.lblTitleColumn.Size = new System.Drawing.Size(37, 16);
             this.lblTitleColumn.TabIndex = 5;
             this.lblTitleColumn.Text = "TITLE";
             this.lblTitleColumn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,7 +128,7 @@
             this.lblPlaylists.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylists.Location = new System.Drawing.Point(3, 7);
             this.lblPlaylists.Name = "lblPlaylists";
-            this.lblPlaylists.Size = new System.Drawing.Size(121, 28);
+            this.lblPlaylists.Size = new System.Drawing.Size(96, 23);
             this.lblPlaylists.TabIndex = 6;
             this.lblPlaylists.Text = "PLAYLISTS";
             this.lblPlaylists.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,7 +147,8 @@
             // 
             // fpnlSongView
             // 
-            this.fpnlSongView.Location = new System.Drawing.Point(167, 46);
+            this.fpnlSongView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.fpnlSongView.Location = new System.Drawing.Point(0, 46);
             this.fpnlSongView.Name = "fpnlSongView";
             this.fpnlSongView.Size = new System.Drawing.Size(620, 519);
             this.fpnlSongView.TabIndex = 8;
@@ -154,16 +160,26 @@
             this.fpnlPlaylistView.Size = new System.Drawing.Size(161, 519);
             this.fpnlPlaylistView.TabIndex = 0;
             // 
+            // pnlListSong
+            // 
+            this.pnlListSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlListSong.AutoSize = true;
+            this.pnlListSong.Controls.Add(this.pnlTitle);
+            this.pnlListSong.Controls.Add(this.fpnlSongView);
+            this.pnlListSong.Location = new System.Drawing.Point(167, 0);
+            this.pnlListSong.Name = "pnlListSong";
+            this.pnlListSong.Size = new System.Drawing.Size(620, 565);
+            this.pnlListSong.TabIndex = 9;
+            // 
             // ucPlaylist
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.pnlListSong);
             this.Controls.Add(this.fpnlPlaylistView);
-            this.Controls.Add(this.fpnlSongView);
             this.Controls.Add(this.btnAddPlaylist);
             this.Controls.Add(this.lblPlaylists);
-            this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.Slider);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
@@ -172,6 +188,7 @@
             this.Size = new System.Drawing.Size(787, 565);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            this.pnlListSong.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +206,6 @@
         private System.Windows.Forms.Button btnAddPlaylist;
         private System.Windows.Forms.FlowLayoutPanel fpnlSongView;
         private System.Windows.Forms.FlowLayoutPanel fpnlPlaylistView;
+        private System.Windows.Forms.Panel pnlListSong;
     }
 }

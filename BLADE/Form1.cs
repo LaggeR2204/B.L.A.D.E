@@ -61,8 +61,8 @@ namespace BLADE
             uc_Info.Hide();
             uc_Playlist.Hide();
             uc_Search.Hide();
-            uc_Home.Show();
-            uc_Home.BringToFront();
+            uc_NewHome.Show();
+            uc_NewHome.BringToFront();
             uc_Playlist.SelectSong += PlayMusic;
             uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;
             //slidervolume
@@ -218,8 +218,8 @@ namespace BLADE
                     TextBox textbox = sender as TextBox;
                     uc_Search.pnlSearchTitle.Show();
                     uc_Search.pnlSearchTitle.BringToFront();
-                    uc_Search.fpnlSearchSongView.Show();
-                    uc_Search.fpnlSearchSongView.BringToFront();
+                    uc_Search.fpnlSongSearchView.Show();
+                    uc_Search.fpnlSongSearchView.BringToFront();
                     uc_Search.lblTextSearch.Text = textbox.Text;
                     List<ucSongSearchDetail> ListSongSearch = search.Search(textbox.Text);
                     uc_Search.ShowListSearch(ListSongSearch);
@@ -453,8 +453,8 @@ namespace BLADE
                     uc_Search.Hide();
                     uc_MusicCutter.Hide();
                     uc_Queue.Hide();
-                    uc_Home.Show();
-                    uc_Home.BringToFront();
+                    uc_NewHome.Show();
+                    uc_NewHome.BringToFront();
                     break;
                 case ShowingUC.UcPlaylist:
                     //set vi tri cho pnlSelectedButton
@@ -463,7 +463,7 @@ namespace BLADE
                     pnlSelectedButton.Top = btnPlaylist.Top;
                     //cho user control ohu hop xuat hien
                     uc_Info.Hide();
-                    uc_Home.Hide();
+                    uc_NewHome.Hide();
                     uc_Queue.Hide();
                     uc_Search.Hide();
                     uc_MusicCutter.Hide();
@@ -483,7 +483,7 @@ namespace BLADE
                     pnlSelectedButton.Top = btnInfo.Top;
                     //cho user control ohu hop xuat hien
                     uc_Playlist.Hide();
-                    uc_Home.Hide();
+                    uc_NewHome.Hide();
                     uc_Search.Hide();
                     uc_Queue.Hide();
                     uc_MusicCutter.Hide();
@@ -504,7 +504,7 @@ namespace BLADE
                     uc_Info.Hide();
                     uc_Playlist.Hide();
                     uc_Search.Hide();
-                    uc_Home.Hide();
+                    uc_NewHome.Hide();
                     uc_Queue.Hide();
                     uc_MusicCutter.Show();
                     uc_MusicCutter.BringToFront();
@@ -514,15 +514,15 @@ namespace BLADE
                     pnlSelectedButton.Hide();
                     //cho user control ohu hop xuat hien
                     uc_Playlist.Hide();
-                    uc_Home.Hide();
+                    uc_NewHome.Hide();
                     uc_Info.Hide();
                     uc_MusicCutter.Hide();
                     uc_Search.Show();
                     uc_Queue.Hide();
                     uc_Search.BringToFront();
-                    uc_Search.fpnlSearchSongView.Controls.Clear();
+                    uc_Search.fpnlSongSearchView.Controls.Clear();
                     uc_Search.pnlSearchTitle.Hide();
-                    uc_Search.fpnlSearchSongView.Hide();
+                    uc_Search.fpnlSongSearchView.Hide();
                     break;
                 default:
                     break;

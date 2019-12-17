@@ -129,6 +129,12 @@
     <Compile Include="ucChart.Designer.cs">
       <DependentUpon>ucChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucNewHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNewHome.Designer.cs">
+      <DependentUpon>ucNewHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucNowPlaying.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,12 +181,6 @@
     <Compile Include="Song.cs" />
     <Compile Include="stopTimer.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ucHome.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucHome.Designer.cs">
-      <DependentUpon>ucHome.cs</DependentUpon>
     </Compile>
     <Compile Include="ucInfo.cs">
       <SubType>UserControl</SubType>
@@ -256,8 +256,8 @@
     <EmbeddedResource Include="ucChart.resx">
       <DependentUpon>ucChart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucHome.resx">
-      <DependentUpon>ucHome.cs</DependentUpon>
+    <EmbeddedResource Include="ucNewHome.resx">
+      <DependentUpon>ucNewHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucInfo.resx">
       <DependentUpon>ucInfo.cs</DependentUpon>
