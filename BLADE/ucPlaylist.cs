@@ -32,24 +32,6 @@ namespace BLADE
         {
             _playlistCollection = new List<Playlist>();
             _choosingPlaylist = null;
-            //_default = new ucPlaylistView(new Playlist("Default"));
-            //_default.PlaylistShowed += ucPlaylistView_ShowContent;
-            //_default.PlaylistDeleted += ucPlaylistView_PlaylistDeleted;
-            //_default.NewSongAdded += ucPlaylistView_NewSongAdded;
-            //_default.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
-            //_default.ChooseStateChanged += ucPlaylistView_ChooseStateChanged;
-            //_default.RemoveChooseItem();
-
-            //_favorites = new ucPlaylistView(new Playlist("Favorites"));
-            //_favorites.PlaylistShowed += ucPlaylistView_ShowContent;
-            //_favorites.PlaylistDeleted += ucPlaylistView_PlaylistDeleted;
-            //_favorites.NewSongAdded += ucPlaylistView_NewSongAdded;
-            //_favorites.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
-            //_favorites.ChooseStateChanged += ucPlaylistView_ChooseStateChanged;
-            //_favorites.RemoveChooseItem(true);
-            //fpnlPlaylistView.Controls.AddRange(new ucPlaylistView[] { _default, _favorites });
-            //_default.IsChoose = true;
-            //_choosingPlaylist = _default;
         }
         private List<string> GetListPath(string str)
         {

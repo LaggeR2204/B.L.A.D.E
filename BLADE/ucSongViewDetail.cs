@@ -103,7 +103,7 @@ namespace BLADE
         private void addToPlaybackToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (PlaybackAdding != null)
-                PlaybackAdding(this.Song, new EventArgs());
+                PlaybackAdding(_song, new EventArgs());
         }
         private void BtnSongMenu_Click(object sender, EventArgs e)
         {

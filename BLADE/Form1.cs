@@ -93,7 +93,7 @@ namespace BLADE
             //
             uc_MusicCutter.OpenFileSucceed += btnPause_Click;
             //
-            gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\ezgif-6-cf50a6b931dd.gif"));
+            gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
         }
 
@@ -277,7 +277,7 @@ namespace BLADE
         {
             SliderVolume.Enabled = true;
             mediaPlayer.SetVolume((float)SliderVolume.Value / 10f);
-            SliderVolume.ElapsedColor = Color.FromArgb(0, 217, 87);
+            SliderVolume.ElapsedColor = Color.FromArgb(0, 192, 192);
             btnVolumeOff.Show();
         }
 
@@ -636,8 +636,8 @@ namespace BLADE
         private void UcPlaylist_UpdatePlayback(object sender, EventArgs e)
         {
             Song song = sender as Song;
-            mediaPlayer.AddSongToCurrentPlaylist(song);
-            uc_Queue.UpdateQueue(song);
+            if (mediaPlayer.AddSongToCurrentPlaylist(song))
+                uc_Queue.UpdateQueue(song);
         }
         private void UcPlaylist_ChangePlayback(object sender, EventArgs e)
         {
@@ -884,6 +884,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 

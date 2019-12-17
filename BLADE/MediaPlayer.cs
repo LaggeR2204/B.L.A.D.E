@@ -163,11 +163,12 @@ namespace BLADE
             }
             PlayInIndex(nowIndex);
         }
-        public void AddSongToCurrentPlaylist(Song src)
+        public bool AddSongToCurrentPlaylist(Song src)
         {
             if (_curPlaylist.Contains(src))
-                return;
+                return false;
             _curPlaylist.Add(src);
+            return true;
         }
         public void PlayInIndex(int src)
         {
