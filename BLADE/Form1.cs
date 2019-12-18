@@ -7,13 +7,17 @@ using BLADE.xDialog;
 using System.Collections.Generic;
 using System.Threading;
 using System.Collections.Specialized;
-
 namespace BLADE
 {
     public partial class MainForm : Form
     {
         AppData _appData;
         GifImage gifImage = null;
+        private MediaPlayer mediaPlayer;
+        private SearchOnline search = new SearchOnline();
+        private System.Windows.Forms.Timer timerSliderMusic;
+        private bool isDrag = false;
+        private System.Windows.Forms.Timer gifTimer;
         public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
         private event EventHandler ShowingStateChanged;
         private ShowingUC _showingUC;
@@ -29,10 +33,7 @@ namespace BLADE
                 }
             }
         }
-        private MediaPlayer mediaPlayer;
-        private SearchOnline search = new SearchOnline();
-        private System.Windows.Forms.Timer timerSliderMusic;
-        private bool isDrag = false;
+      
         public MainForm()
         {
             InitializeComponent();
@@ -42,6 +43,13 @@ namespace BLADE
         }
         private void Init()
         {
+            //gifTimer
+            gifTimer = new System.Windows.Forms.Timer();
+            gifTimer.Enabled = true;
+            gifTimer.Interval = 2000;
+            gifTimer.Tick += GifTimer_Tick;
+            gifTimer.Start();
+            //
             //App data
             _appData = new AppData();
             //
@@ -97,6 +105,11 @@ namespace BLADE
             gifImage.ReverseAtEnd = false;
         }
 
+        private void GifTimer_Tick(object sender, EventArgs e)
+        {
+            picboxGif.Image = gifImage.GetNextFrame();
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_appData.SongCollection != null)
@@ -148,7 +161,6 @@ namespace BLADE
             mediaPlayer.Pause();
             mediaPlayer.Pause();
         }
-
 
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
@@ -588,7 +600,6 @@ namespace BLADE
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)
         {
-            picboxGif.Image = gifImage.GetNextFrame();
             if (lblTextBLADE.ForeColor == Color.White)
             {
                 lblTextBLADE.ForeColor = Color.FromArgb(0, 192, 192);
@@ -700,6 +711,7 @@ namespace BLADE
         {
             if (mediaPlayer.MediaState == PlaybackState.Paused)
             {
+                picboxGif.Hide();
                 timerSliderMusic.Stop();
                 btnPlay.Show();
                 btnPause.Hide();
@@ -707,12 +719,14 @@ namespace BLADE
             else
             if (mediaPlayer.MediaState == PlaybackState.Playing)
             {
+                picboxGif.Show();
                 timerSliderMusic.Start();
                 btnPlay.Hide();
                 btnPause.Show();
             }
             else
             {
+                picboxGif.Hide();
                 timerSliderMusic.Stop();
                 btnPlay.Show();
                 btnPause.Hide();

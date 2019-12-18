@@ -154,20 +154,4 @@
         nHEF4nf0AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnSongPlay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKZJREFUSEtj
-        GAWjgOH///88QMwH5VIfAA2/B8QfgTgLiJmgwtQDQEORwQUgNoFKUQdAzEUBv4F4IhBzQ5VQBsBGYgd3
-        gdgVqox8ADELL1gFxCJQ5aQDiBkEwX0g5oRqIQ1A9BMEd4CYJhb8AeIOICbPcBAAG4MdnAZifagy8gHE
-        LBTwBYjzgZgFqoQyADYSAXYBsRJUijoAaCDNiwraFnajYKgDBgYAeeRjd/OPX0sAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnSongPause.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJRJREFUSEvt
-        1DEOgzAUBFGfL8r9u0QIwTmcDxmmA28PT/rNWEtJe9xY7/1d96371L3IGr0P1WiuO0xkVbt8H2Iossgi
-        59iJLLLIOXYiiyxyjp3IIoucYyeyyCLn2Iksssg5diKLLHKOncgii5xjJ7LIIufYiSyyyLnaLP/pbiar
-        2uX7UI22n9lat33o7Gd3+v64jdZ+SVe22MzSXAcAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

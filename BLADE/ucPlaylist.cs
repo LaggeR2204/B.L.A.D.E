@@ -32,7 +32,10 @@ namespace BLADE
         {
             _playlistCollection = new List<Playlist>();
             _choosingPlaylist = null;
+            fpnlPlaylistView.MouseWheel += FpnlPlaylistView_MouseWheel;
+            fpnlSongView.MouseWheel += FpnlSongView_MouseWheel;
         }
+
         private List<string> GetListPath(string str)
         {
             List<string> result = new List<string>();
@@ -108,6 +111,20 @@ namespace BLADE
         }
 
         #region Normal Function
+        private void UpdateScrollbarSongViewData()
+        {
+            vsbarSongView.Maximum = fpnlSongView.VerticalScroll.Maximum;
+            vsbarSongView.Minimum = fpnlSongView.VerticalScroll.Minimum;
+            vsbarSongView.SmallChange = fpnlSongView.VerticalScroll.SmallChange;
+            vsbarSongView.LargeChange = fpnlSongView.VerticalScroll.LargeChange;
+        }
+        private void UpdateScrollbarPlaylistViewData()
+        {
+            vsbarPlaylistView.Maximum = fpnlPlaylistView.VerticalScroll.Maximum;
+            vsbarPlaylistView.Minimum = fpnlPlaylistView.VerticalScroll.Minimum;
+            vsbarPlaylistView.SmallChange = fpnlPlaylistView.VerticalScroll.SmallChange;
+            vsbarPlaylistView.LargeChange = fpnlPlaylistView.VerticalScroll.LargeChange;
+        }
         public void ShowSongOnListArea(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
@@ -117,6 +134,7 @@ namespace BLADE
             songView.PlaybackAdding += SongView_PlaybackAdding;
             songView.ChangedIconFavoriteState(song.IsFavorite);
             this.fpnlSongView.Controls.Add(songView);
+            UpdateScrollbarSongViewData();
         }
 
         private void clearSongViewList()
@@ -135,6 +153,7 @@ namespace BLADE
             temp.AllMusicPlayed += ucPlaylistView_AllMusicPlayed;
             temp.ChooseStateChanged += ucPlaylistView_ChooseStateChanged;
             fpnlPlaylistView.Controls.Add(temp);
+            UpdateScrollbarPlaylistViewData();
             return temp;
         }
         #endregion
@@ -259,6 +278,27 @@ namespace BLADE
             fpnlSongView.Controls.Remove(src);
             src.RemoveEventHandler();
             src.Dispose();
+        }
+        #endregion
+        #region Srcoll bar event
+        private void bunifuVScrollBar1_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            fpnlSongView.VerticalScroll.Value = e.Value;
+        }
+
+        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            fpnlPlaylistView.VerticalScroll.Value = e.Value;
+        }
+
+        private void FpnlSongView_MouseWheel(object sender, MouseEventArgs e)
+        {
+            vsbarSongView.Value = fpnlSongView.VerticalScroll.Value;
+        }
+
+        private void FpnlPlaylistView_MouseWheel(object sender, MouseEventArgs e)
+        {
+            vsbarPlaylistView.Value = fpnlSongView.VerticalScroll.Value;
         }
         #endregion
     }

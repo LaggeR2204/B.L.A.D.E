@@ -42,9 +42,6 @@ namespace BLADE
 
         private void Init()
         {
-            btnSongPlay.Hide();
-            btnSongPause.Hide();
-
             btnSongLove.Show();
             btnSongLoveOff.Hide();
 
@@ -80,15 +77,11 @@ namespace BLADE
         private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
-            btnSongPlay.Show();
-            btnSongPause.Show();
         }
 
         private void ucSongViewDetail_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(40, 40, 40);
-            btnSongPlay.Hide();
-            btnSongPause.Hide();
         }
 
         private void ucSongViewDetail_MouseDoubleClick(object sender, MouseEventArgs e)

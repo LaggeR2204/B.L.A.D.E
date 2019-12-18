@@ -35,13 +35,11 @@
             this.lblCategorySVD = new System.Windows.Forms.Label();
             this.lblTimeSVD = new System.Windows.Forms.Label();
             this.ctxtmsSong = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToPlaybackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSongLoveOff = new System.Windows.Forms.Button();
             this.btnSongLove = new System.Windows.Forms.Button();
             this.btnSongMenu = new System.Windows.Forms.Button();
-            this.btnSongPlay = new System.Windows.Forms.Button();
-            this.btnSongPause = new System.Windows.Forms.Button();
-            this.addToPlaybackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxtmsSong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +47,7 @@
             // 
             this.lblSongNameSVD.AutoSize = true;
             this.lblSongNameSVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongNameSVD.Location = new System.Drawing.Point(86, 12);
+            this.lblSongNameSVD.Location = new System.Drawing.Point(40, 11);
             this.lblSongNameSVD.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblSongNameSVD.Name = "lblSongNameSVD";
             this.lblSongNameSVD.Size = new System.Drawing.Size(106, 16);
@@ -61,7 +59,7 @@
             // 
             this.lblArtistSVD.AutoSize = true;
             this.lblArtistSVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtistSVD.Location = new System.Drawing.Point(270, 12);
+            this.lblArtistSVD.Location = new System.Drawing.Point(240, 11);
             this.lblArtistSVD.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblArtistSVD.Name = "lblArtistSVD";
             this.lblArtistSVD.Size = new System.Drawing.Size(52, 17);
@@ -73,7 +71,7 @@
             // 
             this.lblCategorySVD.AutoSize = true;
             this.lblCategorySVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategorySVD.Location = new System.Drawing.Point(420, 12);
+            this.lblCategorySVD.Location = new System.Drawing.Point(380, 11);
             this.lblCategorySVD.MaximumSize = new System.Drawing.Size(93, 17);
             this.lblCategorySVD.Name = "lblCategorySVD";
             this.lblCategorySVD.Size = new System.Drawing.Size(89, 17);
@@ -85,7 +83,7 @@
             // 
             this.lblTimeSVD.AutoSize = true;
             this.lblTimeSVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeSVD.Location = new System.Drawing.Point(525, 12);
+            this.lblTimeSVD.Location = new System.Drawing.Point(490, 11);
             this.lblTimeSVD.Name = "lblTimeSVD";
             this.lblTimeSVD.Size = new System.Drawing.Size(49, 21);
             this.lblTimeSVD.TabIndex = 1;
@@ -103,7 +101,16 @@
             this.ctxtmsSong.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ctxtmsSong.ShowImageMargin = false;
             this.ctxtmsSong.ShowItemToolTips = false;
-            this.ctxtmsSong.Size = new System.Drawing.Size(198, 84);
+            this.ctxtmsSong.Size = new System.Drawing.Size(198, 56);
+            // 
+            // addToPlaybackToolStripMenuItem
+            // 
+            this.addToPlaybackToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addToPlaybackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.addToPlaybackToolStripMenuItem.Name = "addToPlaybackToolStripMenuItem";
+            this.addToPlaybackToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.addToPlaybackToolStripMenuItem.Text = "Add To Playback";
+            this.addToPlaybackToolStripMenuItem.Click += new System.EventHandler(this.addToPlaybackToolStripMenuItem_Click);
             // 
             // deleteSongToolStripMenuItem
             // 
@@ -119,7 +126,7 @@
             this.btnSongLoveOff.FlatAppearance.BorderSize = 0;
             this.btnSongLoveOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSongLoveOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLoveOff.Image")));
-            this.btnSongLoveOff.Location = new System.Drawing.Point(40, 0);
+            this.btnSongLoveOff.Location = new System.Drawing.Point(0, 0);
             this.btnSongLoveOff.Name = "btnSongLoveOff";
             this.btnSongLoveOff.Size = new System.Drawing.Size(40, 40);
             this.btnSongLoveOff.TabIndex = 2;
@@ -131,7 +138,7 @@
             this.btnSongLove.FlatAppearance.BorderSize = 0;
             this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
-            this.btnSongLove.Location = new System.Drawing.Point(40, 0);
+            this.btnSongLove.Location = new System.Drawing.Point(0, 0);
             this.btnSongLove.Name = "btnSongLove";
             this.btnSongLove.Size = new System.Drawing.Size(40, 40);
             this.btnSongLove.TabIndex = 0;
@@ -143,43 +150,12 @@
             this.btnSongMenu.FlatAppearance.BorderSize = 0;
             this.btnSongMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSongMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnSongMenu.Image")));
-            this.btnSongMenu.Location = new System.Drawing.Point(580, 0);
+            this.btnSongMenu.Location = new System.Drawing.Point(560, 0);
             this.btnSongMenu.Name = "btnSongMenu";
             this.btnSongMenu.Size = new System.Drawing.Size(40, 40);
             this.btnSongMenu.TabIndex = 0;
             this.btnSongMenu.UseVisualStyleBackColor = true;
             this.btnSongMenu.Click += new System.EventHandler(this.BtnSongMenu_Click);
-            // 
-            // btnSongPlay
-            // 
-            this.btnSongPlay.FlatAppearance.BorderSize = 0;
-            this.btnSongPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPlay.Image")));
-            this.btnSongPlay.Location = new System.Drawing.Point(0, 0);
-            this.btnSongPlay.Name = "btnSongPlay";
-            this.btnSongPlay.Size = new System.Drawing.Size(40, 40);
-            this.btnSongPlay.TabIndex = 0;
-            this.btnSongPlay.UseVisualStyleBackColor = true;
-            // 
-            // btnSongPause
-            // 
-            this.btnSongPause.FlatAppearance.BorderSize = 0;
-            this.btnSongPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongPause.Image = ((System.Drawing.Image)(resources.GetObject("btnSongPause.Image")));
-            this.btnSongPause.Location = new System.Drawing.Point(0, 0);
-            this.btnSongPause.Name = "btnSongPause";
-            this.btnSongPause.Size = new System.Drawing.Size(40, 40);
-            this.btnSongPause.TabIndex = 0;
-            this.btnSongPause.UseVisualStyleBackColor = true;
-            // 
-            // addToPlaybackToolStripMenuItem
-            // 
-            this.addToPlaybackToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addToPlaybackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.addToPlaybackToolStripMenuItem.Name = "addToPlaybackToolStripMenuItem";
-            this.addToPlaybackToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
-            this.addToPlaybackToolStripMenuItem.Text = "Add To Playback";
-            this.addToPlaybackToolStripMenuItem.Click += new System.EventHandler(this.addToPlaybackToolStripMenuItem_Click);
             // 
             // ucSongViewDetail
             // 
@@ -193,13 +169,11 @@
             this.Controls.Add(this.lblSongNameSVD);
             this.Controls.Add(this.btnSongLove);
             this.Controls.Add(this.btnSongMenu);
-            this.Controls.Add(this.btnSongPlay);
-            this.Controls.Add(this.btnSongPause);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucSongViewDetail";
-            this.Size = new System.Drawing.Size(620, 40);
+            this.Size = new System.Drawing.Size(600, 40);
             this.ctxtmsSong.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,9 +181,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSongPlay;
-        private System.Windows.Forms.Button btnSongPause;
         private System.Windows.Forms.Button btnSongMenu;
         private System.Windows.Forms.Button btnSongLove;
         private System.Windows.Forms.Label lblSongNameSVD;
