@@ -41,8 +41,6 @@
             this.fpnlPlaylistView = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlListSong = new System.Windows.Forms.Panel();
             this.panelContainSongView = new System.Windows.Forms.Panel();
-            this.vsbarSongView = new Bunifu.UI.WinForms.BunifuVScrollBar();
-            this.vsbarPlaylistView = new Bunifu.UI.WinForms.BunifuVScrollBar();
             this.panelContainPlaylistView = new System.Windows.Forms.Panel();
             this.pnlTitle.SuspendLayout();
             this.pnlListSong.SuspendLayout();
@@ -158,7 +156,7 @@
             this.fpnlSongView.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlSongView.Location = new System.Drawing.Point(0, 0);
             this.fpnlSongView.Name = "fpnlSongView";
-            this.fpnlSongView.Size = new System.Drawing.Size(636, 519);
+            this.fpnlSongView.Size = new System.Drawing.Size(656, 519);
             this.fpnlSongView.TabIndex = 8;
             this.fpnlSongView.WrapContents = false;
             // 
@@ -177,7 +175,6 @@
             this.pnlListSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlListSong.AutoSize = true;
             this.pnlListSong.Controls.Add(this.panelContainSongView);
-            this.pnlListSong.Controls.Add(this.vsbarSongView);
             this.pnlListSong.Controls.Add(this.pnlTitle);
             this.pnlListSong.Location = new System.Drawing.Point(167, 0);
             this.pnlListSong.Name = "pnlListSong";
@@ -190,87 +187,8 @@
             this.panelContainSongView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainSongView.Location = new System.Drawing.Point(0, 40);
             this.panelContainSongView.Name = "panelContainSongView";
-            this.panelContainSongView.Size = new System.Drawing.Size(600, 525);
+            this.panelContainSongView.Size = new System.Drawing.Size(620, 525);
             this.panelContainSongView.TabIndex = 10;
-            // 
-            // vsbarSongView
-            // 
-            this.vsbarSongView.AllowCursorChanges = true;
-            this.vsbarSongView.AllowHomeEndKeysDetection = false;
-            this.vsbarSongView.AllowIncrementalClickMoves = true;
-            this.vsbarSongView.AllowMouseDownEffects = true;
-            this.vsbarSongView.AllowMouseHoverEffects = true;
-            this.vsbarSongView.AllowScrollingAnimations = true;
-            this.vsbarSongView.AllowScrollKeysDetection = true;
-            this.vsbarSongView.AllowScrollOptionsMenu = true;
-            this.vsbarSongView.AllowShrinkingOnFocusLost = false;
-            this.vsbarSongView.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vsbarSongView.BackgroundImage")));
-            this.vsbarSongView.BindingContainer = this.fpnlSongView;
-            this.vsbarSongView.BorderRadius = 1;
-            this.vsbarSongView.BorderThickness = 1;
-            this.vsbarSongView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vsbarSongView.DurationBeforeShrink = 2000;
-            this.vsbarSongView.LargeChange = 20;
-            this.vsbarSongView.Location = new System.Drawing.Point(600, 40);
-            this.vsbarSongView.Margin = new System.Windows.Forms.Padding(5);
-            this.vsbarSongView.Maximum = 100;
-            this.vsbarSongView.Minimum = 0;
-            this.vsbarSongView.MinimumThumbLength = 18;
-            this.vsbarSongView.Name = "vsbarSongView";
-            this.vsbarSongView.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.vsbarSongView.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.vsbarSongView.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.vsbarSongView.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.vsbarSongView.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.vsbarSongView.ShrinkSizeLimit = 3;
-            this.vsbarSongView.Size = new System.Drawing.Size(20, 525);
-            this.vsbarSongView.SmallChange = 5;
-            this.vsbarSongView.TabIndex = 9;
-            this.vsbarSongView.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.vsbarSongView.ThumbLength = 103;
-            this.vsbarSongView.ThumbMargin = 1;
-            this.vsbarSongView.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
-            this.vsbarSongView.Value = 0;
-            this.vsbarSongView.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bunifuVScrollBar1_Scroll);
-            // 
-            // vsbarPlaylistView
-            // 
-            this.vsbarPlaylistView.AllowCursorChanges = true;
-            this.vsbarPlaylistView.AllowHomeEndKeysDetection = false;
-            this.vsbarPlaylistView.AllowIncrementalClickMoves = true;
-            this.vsbarPlaylistView.AllowMouseDownEffects = true;
-            this.vsbarPlaylistView.AllowMouseHoverEffects = true;
-            this.vsbarPlaylistView.AllowScrollingAnimations = true;
-            this.vsbarPlaylistView.AllowScrollKeysDetection = true;
-            this.vsbarPlaylistView.AllowScrollOptionsMenu = true;
-            this.vsbarPlaylistView.AllowShrinkingOnFocusLost = false;
-            this.vsbarPlaylistView.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vsbarPlaylistView.BackgroundImage")));
-            this.vsbarPlaylistView.BindingContainer = this.fpnlPlaylistView;
-            this.vsbarPlaylistView.BorderRadius = 1;
-            this.vsbarPlaylistView.BorderThickness = 1;
-            this.vsbarPlaylistView.DurationBeforeShrink = 2000;
-            this.vsbarPlaylistView.LargeChange = 10;
-            this.vsbarPlaylistView.Location = new System.Drawing.Point(140, 40);
-            this.vsbarPlaylistView.Margin = new System.Windows.Forms.Padding(5);
-            this.vsbarPlaylistView.Maximum = 100;
-            this.vsbarPlaylistView.Minimum = 0;
-            this.vsbarPlaylistView.MinimumThumbLength = 18;
-            this.vsbarPlaylistView.Name = "vsbarPlaylistView";
-            this.vsbarPlaylistView.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.vsbarPlaylistView.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.vsbarPlaylistView.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.vsbarPlaylistView.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.vsbarPlaylistView.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.vsbarPlaylistView.ShrinkSizeLimit = 3;
-            this.vsbarPlaylistView.Size = new System.Drawing.Size(20, 525);
-            this.vsbarPlaylistView.SmallChange = 1;
-            this.vsbarPlaylistView.TabIndex = 10;
-            this.vsbarPlaylistView.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.vsbarPlaylistView.ThumbLength = 51;
-            this.vsbarPlaylistView.ThumbMargin = 1;
-            this.vsbarPlaylistView.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
-            this.vsbarPlaylistView.Value = 0;
-            this.vsbarPlaylistView.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bunifuVScrollBar2_Scroll);
             // 
             // panelContainPlaylistView
             // 
@@ -286,7 +204,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.panelContainPlaylistView);
-            this.Controls.Add(this.vsbarPlaylistView);
             this.Controls.Add(this.pnlListSong);
             this.Controls.Add(this.btnAddPlaylist);
             this.Controls.Add(this.lblPlaylists);
@@ -320,8 +237,6 @@
         private System.Windows.Forms.FlowLayoutPanel fpnlPlaylistView;
         private System.Windows.Forms.Panel pnlListSong;
         private System.Windows.Forms.Panel panelContainSongView;
-        private Bunifu.UI.WinForms.BunifuVScrollBar vsbarSongView;
-        private Bunifu.UI.WinForms.BunifuVScrollBar vsbarPlaylistView;
         private System.Windows.Forms.Panel panelContainPlaylistView;
     }
 }

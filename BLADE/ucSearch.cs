@@ -22,15 +22,7 @@ namespace BLADE
             //vsbSongSearchView.BindTo(fpnlSongSearchView);
             pnlSearchTitle.Hide();
             fpnlSongSearchView.Hide();
-            fpnlSongSearchView.MouseWheel += FpnlSongSearchView_MouseWheel;
-           
         }
-
-        private void FpnlSongSearchView_MouseWheel(object sender, MouseEventArgs e)
-        {
-            this.vsbSongSearchView.Value = fpnlSongSearchView.VerticalScroll.Value;
-        }
-
         public void ShowListSearch(List<ucSongSearchDetail> src)
         {
             //int songCount = 0;
@@ -40,8 +32,6 @@ namespace BLADE
                 item.Width = panelContainFpnl.Width;
                 //songCount++;
             }
-            vsbSongSearchView.Maximum = fpnlSongSearchView.VerticalScroll.Maximum;
-            vsbSongSearchView.ThumbLength = 40;
         }
 
         private void fpnlSongSearchView_SizeChanged(object sender, EventArgs e)
@@ -50,11 +40,6 @@ namespace BLADE
             {
                 item.Width = panelContainFpnl.Width;
             }
-        }
-
-        private void vsbSongSearchView_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
-        {
-            fpnlSongSearchView.VerticalScroll.Value = e.Value;
         }
     }
 }
