@@ -26,16 +26,28 @@ namespace BLADE
         private void txtPassword_TextChange(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
+            if (txtPassword.Text == "")
+            {
+                txtPassword.PasswordChar = '\0';
+            }
         }
 
         private void txtNewPassword_TextChange(object sender, EventArgs e)
         {
             txtNewPassword.PasswordChar = '*';
+            if (txtNewPassword.Text == "")
+            {
+                txtNewPassword.PasswordChar = '\0';
+            }
         }
 
         private void txtConfirm_TextChange(object sender, EventArgs e)
         {
             txtConfirm.PasswordChar = '*';
+            if (txtConfirm.Text == "")
+            {
+                txtConfirm.PasswordChar = '\0';
+            }
         }
 
         public bool ResetPassword(string username, string password, string newpass)

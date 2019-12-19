@@ -19,6 +19,7 @@ namespace BLADE
             this.KeyDown += EnterToLogin;
             this.txtPassword.KeyDown += EnterToLogin;
             this.txtUsername.KeyDown += EnterToLogin;
+            this.checkboxRemember.KeyDown += EnterToLogin;
             this.checkboxRemember.Checked = false;
             lblIncorrect.Hide();
         }
@@ -35,6 +36,11 @@ namespace BLADE
             else
             {
                 checkboxRemember.Checked = false;
+            }
+
+            if (txtPassword.Text == "")
+            {
+                txtPassword.PasswordChar = '*';
             }
         }
 
@@ -119,6 +125,25 @@ namespace BLADE
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void txtPassword_OnIconRightClick(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                if (txtPassword.PasswordChar == '*')
+                {
+                    txtPassword.PasswordChar = '\0';
+                }
+                else
+                {
+                    txtPassword.PasswordChar = '*';
+                }
+            }
         }
     }
 }
