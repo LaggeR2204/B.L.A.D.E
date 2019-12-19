@@ -43,6 +43,9 @@ namespace BLADE
         }
         private void Init()
         {
+            // UcHome
+            uc_NewHome.RecentlySelected += Uc_NewHome_RecentlySelected;
+            //
             //gifTimer
             gifTimer = new System.Windows.Forms.Timer();
             gifTimer.Enabled = true;
@@ -103,6 +106,14 @@ namespace BLADE
             //
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
+        }
+
+        private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
+        {
+            RecentlySongItem src = sender as RecentlySongItem;
+            if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
+                uc_Queue.UpdateQueue(src.Song);
+            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
         }
 
         private void GifTimer_Tick(object sender, EventArgs e)
@@ -702,6 +713,7 @@ namespace BLADE
             picArtCover.Image = mediaPlayer.CurrentMedia.SongImage;
             uc_Queue.NowPlayingSong = mediaPlayer.CurrentMedia;
             uc_Queue.SetSongInfo();
+            uc_NewHome.UpdateRecentlySong(mediaPlayer.CurrentMedia);
         }
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {

@@ -117,6 +117,12 @@
     <Compile Include="CrawlChart.cs" />
     <Compile Include="GifImage.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
+    <Compile Include="RecentlySongItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecentlySongItem.Designer.cs">
+      <DependentUpon>RecentlySongItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="SongItemInQueue.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecentlySongItem.resx">
+      <DependentUpon>RecentlySongItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
