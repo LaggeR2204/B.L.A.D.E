@@ -118,5 +118,16 @@ namespace BLADE.Properties {
                 this["Playback"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection Recently {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Recently"]));
+            }
+            set {
+                this["Recently"] = value;
+            }
+        }
     }
 }

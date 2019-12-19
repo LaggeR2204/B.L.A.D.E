@@ -49,7 +49,7 @@ namespace BLADE
             }
             return result;
         }
-        public void LoadData(StringCollection playbackCollection, StringCollection playlistCollection, StringCollection songCollection, string curSong, int pos,ref Song curMedia, List<Song> curPlaylist)
+        public void LoadData(StringCollection recently ,StringCollection playbackCollection, StringCollection playlistCollection, StringCollection songCollection, string curSong, int pos,ref Song curMedia, List<Song> curPlaylist, Dictionary<int, Song> recentlyList)
         {
             Playlist pldefault = new Playlist(playlistCollection[0]);
             pldefault.SongAdded += Playlist_SongAdded;
@@ -97,6 +97,8 @@ namespace BLADE
                         FileInfo fileinfo = new FileInfo(path);
                         Song song = new Song(fileinfo);
                         playlist.AddSong(song);
+                        if (recently.Contains(path))
+                            recentlyList.Add(recently.IndexOf(path),song);
                         if (favorite.Contains(path))
                             song.IsFavorite = true;
                         if (path == curSong)

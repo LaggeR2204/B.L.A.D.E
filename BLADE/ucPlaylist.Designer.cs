@@ -195,7 +195,7 @@
             this.panelContainPlaylistView.Controls.Add(this.fpnlPlaylistView);
             this.panelContainPlaylistView.Location = new System.Drawing.Point(0, 40);
             this.panelContainPlaylistView.Name = "panelContainPlaylistView";
-            this.panelContainPlaylistView.Size = new System.Drawing.Size(140, 525);
+            this.panelContainPlaylistView.Size = new System.Drawing.Size(160, 525);
             this.panelContainPlaylistView.TabIndex = 11;
             // 
             // ucPlaylist

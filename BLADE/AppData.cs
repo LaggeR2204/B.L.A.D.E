@@ -12,11 +12,13 @@ namespace BLADE
         public AppData()
         {
         }
+        private StringCollection _recentlty;
         private StringCollection _playlistCollection;
         private StringCollection _songCollection;
         private StringCollection _playback;
         private int _curPossition;
         private string _curSong;
+        public StringCollection Recently { get => _recentlty; set => _recentlty = value; }
         public StringCollection PlaylistCollection { get => _playlistCollection; set => _playlistCollection = value; }
         public StringCollection SongCollection { get => _songCollection; set => _songCollection = value; }
         public StringCollection Playback { get => _playback; set => _playback = value; }
@@ -38,9 +40,14 @@ namespace BLADE
                 _playback = Properties.Settings.Default.Playback;
             else
                 _playback = new StringCollection();
+            if (Properties.Settings.Default.Recently != null)
+                _recentlty = Properties.Settings.Default.Recently;
+            else
+                _recentlty = new StringCollection();
         }
         public void SaveData()
         {
+            Properties.Settings.Default.Recently = _recentlty;
             Properties.Settings.Default.CurrentPossition = _curPossition;
             Properties.Settings.Default.CurrentMedia = _curSong;
             Properties.Settings.Default.PlaylistCollection = _playlistCollection;

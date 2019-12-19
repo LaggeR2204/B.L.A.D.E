@@ -57,7 +57,7 @@
             this.btnPlaylistMenu.FlatAppearance.BorderSize = 0;
             this.btnPlaylistMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlaylistMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnPlaylistMenu.Image")));
-            this.btnPlaylistMenu.Location = new System.Drawing.Point(100, 0);
+            this.btnPlaylistMenu.Location = new System.Drawing.Point(120, 0);
             this.btnPlaylistMenu.Name = "btnPlaylistMenu";
             this.btnPlaylistMenu.Size = new System.Drawing.Size(40, 40);
             this.btnPlaylistMenu.TabIndex = 3;
@@ -122,7 +122,7 @@
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucPlaylistView";
-            this.Size = new System.Drawing.Size(140, 40);
+            this.Size = new System.Drawing.Size(160, 40);
             this.ctxtmsPlaylist.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
