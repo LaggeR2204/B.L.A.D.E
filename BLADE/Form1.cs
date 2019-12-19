@@ -33,7 +33,7 @@ namespace BLADE
                 }
             }
         }
-      
+
         public MainForm()
         {
             InitializeComponent();
@@ -108,14 +108,6 @@ namespace BLADE
             gifImage.ReverseAtEnd = false;
         }
 
-        private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
-        {
-            RecentlySongItem src = sender as RecentlySongItem;
-            if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
-                uc_Queue.UpdateQueue(src.Song);
-            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
-        }
-
         private void GifTimer_Tick(object sender, EventArgs e)
         {
             picboxGif.Image = gifImage.GetNextFrame();
@@ -123,6 +115,8 @@ namespace BLADE
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (_appData.Recently != null)
+                _appData.Recently.Clear();
             if (_appData.SongCollection != null)
                 _appData.SongCollection.Clear();
             if (_appData.Playback != null)
@@ -132,6 +126,16 @@ namespace BLADE
             foreach (Song song in mediaPlayer.CurrentPlaylist)
             {
                 _appData.Playback.Add(song.SavedPath);
+            }
+            if (uc_NewHome.RecentlyItem1.Song != null)
+            {
+                _appData.Recently.Add(uc_NewHome.RecentlyItem1.Song.SavedPath);
+                if (uc_NewHome.RecentlyItem2.Song != null)
+                {
+                    _appData.Recently.Add(uc_NewHome.RecentlyItem2.Song.SavedPath);
+                    if (uc_NewHome.RecentlyItem3.Song != null)
+                        _appData.Recently.Add(uc_NewHome.RecentlyItem3.Song.SavedPath);
+                }
             }
             foreach (Playlist pl in uc_Playlist.PlaylistCollection)
             {
@@ -158,10 +162,16 @@ namespace BLADE
             frmLI.LoginSuccess += ShowUserName;
             frmLI.ShowDialog();
             //
+            Dictionary<int, Song> recentlyList = new Dictionary<int, Song>();
             Song curMedia = new Song();
             _appData.LoadData();
-            uc_Playlist.LoadData(_appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist);
+            uc_Playlist.LoadData(_appData.Recently, _appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist, recentlyList);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
+            for (int i = recentlyList.Count-1; i >=0; i--)
+            {
+                if(recentlyList[i]==null)
+                uc_NewHome.UpdateRecentlySong(recentlyList[i]);
+            }
             if (mediaPlayer.CurrentPlaylist.Count > 0)
             {
                 mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
@@ -171,6 +181,13 @@ namespace BLADE
             }
             mediaPlayer.Pause();
             mediaPlayer.Pause();
+        }
+        private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
+        {
+            RecentlySongItem src = sender as RecentlySongItem;
+            if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
+                uc_Queue.UpdateQueue(src.Song);
+            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
         }
 
         #region ucQueue
@@ -567,7 +584,7 @@ namespace BLADE
             }
             else
             {
-                ShowingUc = ShowingUC.UcPlaylist;
+                ShowingUc = ShowingUC.UcHome;
             }
         }
 
@@ -911,6 +928,16 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
+
+
+
+
+
+
+
+
 
 
 

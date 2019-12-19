@@ -13,6 +13,9 @@ namespace BLADE
 {
     public partial class ucNewHome : UserControl
     {
+        public RecentlySongItem RecentlyItem1 { get => recItem1st; }
+        public RecentlySongItem RecentlyItem2 { get => recItem2nd; }
+        public RecentlySongItem RecentlyItem3 { get => recItem3rd; }
         public event EventHandler RecentlySelected;
         public ucNewHome()
         {
