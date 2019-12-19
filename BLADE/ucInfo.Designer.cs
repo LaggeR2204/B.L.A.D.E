@@ -46,7 +46,7 @@
             this.btnVTB.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnVTB.FlatAppearance.BorderSize = 0;
             this.btnVTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVTB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVTB.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVTB.Image = ((System.Drawing.Image)(resources.GetObject("btnVTB.Image")));
             this.btnVTB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVTB.Location = new System.Drawing.Point(11, 151);
@@ -66,7 +66,7 @@
             this.btnTHMD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnTHMD.FlatAppearance.BorderSize = 0;
             this.btnTHMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTHMD.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTHMD.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTHMD.Image = ((System.Drawing.Image)(resources.GetObject("btnTHMD.Image")));
             this.btnTHMD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTHMD.Location = new System.Drawing.Point(11, 214);
@@ -86,7 +86,7 @@
             this.btnPQA.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnPQA.FlatAppearance.BorderSize = 0;
             this.btnPQA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPQA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPQA.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPQA.Image = ((System.Drawing.Image)(resources.GetObject("btnPQA.Image")));
             this.btnPQA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPQA.Location = new System.Drawing.Point(11, 277);
@@ -106,7 +106,7 @@
             this.btnBHL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnBHL.FlatAppearance.BorderSize = 0;
             this.btnBHL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBHL.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBHL.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBHL.Image = ((System.Drawing.Image)(resources.GetObject("btnBHL.Image")));
             this.btnBHL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBHL.Location = new System.Drawing.Point(11, 340);
