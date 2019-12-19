@@ -209,14 +209,20 @@ namespace BLADE
         private void Uc_Queue_SongRemoved(object sender, EventArgs e)
         {
             Song src = sender as Song;
-            mediaPlayer.CurrentPlaylist.Remove(src);
             if (src == mediaPlayer.CurrentMedia)
             {
-                mediaPlayer.Pause();
-                mediaPlayer.DisposeAudio();
-                ResetUIInfor();
-            } 
-               
+                if (mediaPlayer.CurrentPlaylist.Count >= 2)
+                    mediaPlayer.Next();
+                else
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.DisposeAudio();
+                    mediaPlayer.CurrentMedia.IsPlaying = false;
+                    mediaPlayer.CurrentMedia = null;
+                    ResetUIInfor();
+                }
+            }
+            mediaPlayer.CurrentPlaylist.Remove(src);
         }
         #endregion
 
