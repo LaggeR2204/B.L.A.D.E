@@ -81,17 +81,17 @@ namespace BLADE
         private void SongRemoved_Handler(object sender, EventArgs e)
         {
             SongItemInQueue src = sender as SongItemInQueue;
-            fpnlQueue.Controls.Remove(src);
+            fpnlPlayback.Controls.Remove(src);
             if (SongRemoved != null)
                 SongRemoved(src.Song, e);
         }
         public void UpdateQueue(List<Song> src)
         {
-            foreach (SongItemInQueue ctrl in fpnlQueue.Controls)
+            foreach (SongItemInQueue ctrl in fpnlPlayback.Controls)
             {
                 ctrl.DisposeSongEvent();
             }
-            fpnlQueue.Controls.Clear();
+            fpnlPlayback.Controls.Clear();
             for (int i = 0; i < src.Count; i++)
             {
                 ShowSongQueue(src[i]);
@@ -106,7 +106,7 @@ namespace BLADE
             SongItemInQueue songItem = new SongItemInQueue(song);
             songItem.SelectedSong += SongSelected_Handler;
             songItem.SongRemoved += SongRemoved_Handler;
-            this.fpnlQueue.Controls.Add(songItem);
+            this.fpnlPlayback.Controls.Add(songItem);
         }
 
         private void btnSongLove_Click(object sender, EventArgs e)

@@ -34,13 +34,13 @@
             this.picbArtCover = new System.Windows.Forms.PictureBox();
             this.lbSongName = new System.Windows.Forms.Label();
             this.lbSongSinger = new System.Windows.Forms.Label();
-            this.fpnlQueue = new System.Windows.Forms.FlowLayoutPanel();
             this.lbNowPlaying = new System.Windows.Forms.Label();
             this.btnSongLoveOff = new System.Windows.Forms.Button();
             this.btnSongLove = new System.Windows.Forms.Button();
-            this.panelContainFpnlSong = new System.Windows.Forms.Panel();
+            this.panelContainFPNL = new System.Windows.Forms.Panel();
+            this.fpnlPlayback = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
-            this.panelContainFpnlSong.SuspendLayout();
+            this.panelContainFPNL.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTextQueue
@@ -61,7 +61,7 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(495, 72);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(11, 493);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(11, 494);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
@@ -93,17 +93,6 @@
             this.lbSongSinger.Name = "lbSongSinger";
             this.lbSongSinger.Size = new System.Drawing.Size(0, 21);
             this.lbSongSinger.TabIndex = 4;
-            // 
-            // fpnlQueue
-            // 
-            this.fpnlQueue.AutoScroll = true;
-            this.fpnlQueue.AutoSize = true;
-            this.fpnlQueue.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.fpnlQueue.Location = new System.Drawing.Point(0, 0);
-            this.fpnlQueue.Name = "fpnlQueue";
-            this.fpnlQueue.Size = new System.Drawing.Size(474, 302);
-            this.fpnlQueue.TabIndex = 5;
-            this.fpnlQueue.WrapContents = false;
             // 
             // lbNowPlaying
             // 
@@ -139,20 +128,30 @@
             this.btnSongLove.UseVisualStyleBackColor = true;
             this.btnSongLove.Click += new System.EventHandler(this.btnSongLove_Click);
             // 
-            // panelContainFpnlSong
+            // panelContainFPNL
             // 
-            this.panelContainFpnlSong.Controls.Add(this.fpnlQueue);
-            this.panelContainFpnlSong.Location = new System.Drawing.Point(3, 72);
-            this.panelContainFpnlSong.Name = "panelContainFpnlSong";
-            this.panelContainFpnlSong.Size = new System.Drawing.Size(493, 490);
-            this.panelContainFpnlSong.TabIndex = 8;
+            this.panelContainFPNL.Controls.Add(this.fpnlPlayback);
+            this.panelContainFPNL.Location = new System.Drawing.Point(3, 72);
+            this.panelContainFPNL.Name = "panelContainFPNL";
+            this.panelContainFPNL.Size = new System.Drawing.Size(493, 494);
+            this.panelContainFPNL.TabIndex = 8;
+            // 
+            // fpnlPlayback
+            // 
+            this.fpnlPlayback.AutoScroll = true;
+            this.fpnlPlayback.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fpnlPlayback.Location = new System.Drawing.Point(0, 0);
+            this.fpnlPlayback.Name = "fpnlPlayback";
+            this.fpnlPlayback.Size = new System.Drawing.Size(595, 493);
+            this.fpnlPlayback.TabIndex = 0;
+            this.fpnlPlayback.WrapContents = false;
             // 
             // ucQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.panelContainFpnlSong);
+            this.Controls.Add(this.panelContainFPNL);
             this.Controls.Add(this.btnSongLove);
             this.Controls.Add(this.btnSongLoveOff);
             this.Controls.Add(this.bunifuSeparator1);
@@ -167,8 +166,7 @@
             this.Name = "ucQueue";
             this.Size = new System.Drawing.Size(787, 565);
             ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).EndInit();
-            this.panelContainFpnlSong.ResumeLayout(false);
-            this.panelContainFpnlSong.PerformLayout();
+            this.panelContainFPNL.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,10 +179,10 @@
         private System.Windows.Forms.PictureBox picbArtCover;
         private System.Windows.Forms.Label lbSongName;
         private System.Windows.Forms.Label lbSongSinger;
-        private System.Windows.Forms.FlowLayoutPanel fpnlQueue;
         private System.Windows.Forms.Label lbNowPlaying;
         private System.Windows.Forms.Button btnSongLoveOff;
         private System.Windows.Forms.Button btnSongLove;
-        private System.Windows.Forms.Panel panelContainFpnlSong;
+        private System.Windows.Forms.Panel panelContainFPNL;
+        private System.Windows.Forms.FlowLayoutPanel fpnlPlayback;
     }
 }
