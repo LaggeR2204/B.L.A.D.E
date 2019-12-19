@@ -45,6 +45,7 @@
             // fpnlVN
             // 
             this.fpnlVN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpnlVN.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlVN.Location = new System.Drawing.Point(0, 0);
             this.fpnlVN.Margin = new System.Windows.Forms.Padding(0);
             this.fpnlVN.Name = "fpnlVN";

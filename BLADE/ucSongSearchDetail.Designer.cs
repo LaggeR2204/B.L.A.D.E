@@ -43,7 +43,7 @@
             this.lblSongNameSSD.Location = new System.Drawing.Point(25, 10);
             this.lblSongNameSSD.MaximumSize = new System.Drawing.Size(400, 21);
             this.lblSongNameSSD.Name = "lblSongNameSSD";
-            this.lblSongNameSSD.Size = new System.Drawing.Size(112, 19);
+            this.lblSongNameSSD.Size = new System.Drawing.Size(86, 16);
             this.lblSongNameSSD.TabIndex = 2;
             this.lblSongNameSSD.Text = "Some Name";
             this.lblSongNameSSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -57,7 +57,7 @@
             this.lblArtistSSD.Location = new System.Drawing.Point(20, 30);
             this.lblArtistSSD.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblArtistSSD.Name = "lblArtistSSD";
-            this.lblArtistSSD.Size = new System.Drawing.Size(52, 21);
+            this.lblArtistSSD.Size = new System.Drawing.Size(39, 17);
             this.lblArtistSSD.TabIndex = 3;
             this.lblArtistSSD.Text = "Artist";
             this.lblArtistSSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -67,15 +67,14 @@
             // lblNumberPlays
             // 
             this.lblNumberPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNumberPlays.AutoSize = true;
             this.lblNumberPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberPlays.Location = new System.Drawing.Point(547, 20);
+            this.lblNumberPlays.Location = new System.Drawing.Point(545, 20);
             this.lblNumberPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblNumberPlays.Name = "lblNumberPlays";
-            this.lblNumberPlays.Size = new System.Drawing.Size(76, 21);
+            this.lblNumberPlays.Size = new System.Drawing.Size(95, 16);
             this.lblNumberPlays.TabIndex = 4;
             this.lblNumberPlays.Text = "Number";
-            this.lblNumberPlays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNumberPlays.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTextPlays
             // 
@@ -85,9 +84,9 @@
             this.lblTextPlays.Location = new System.Drawing.Point(641, 20);
             this.lblTextPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblTextPlays.Name = "lblTextPlays";
-            this.lblTextPlays.Size = new System.Drawing.Size(52, 21);
+            this.lblTextPlays.Size = new System.Drawing.Size(57, 16);
             this.lblTextPlays.TabIndex = 4;
-            this.lblTextPlays.Text = "plays";
+            this.lblTextPlays.Text = "streams";
             this.lblTextPlays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnDownload
@@ -106,7 +105,7 @@
             // 
             // ucSongSearchDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));

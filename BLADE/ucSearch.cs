@@ -19,24 +19,21 @@ namespace BLADE
         public ucSearch()
         {
             InitializeComponent();
-            //vsbSongSearchView.BindTo(fpnlSongSearchView);
             pnlSearchTitle.Hide();
             fpnlSongSearchView.Hide();
         }
         public void ShowListSearch(List<ucSongSearchDetail> src)
         {
-            //int songCount = 0;
             foreach (var item in src)
             {
                 fpnlSongSearchView.Controls.Add(item);
                 item.Width = panelContainFpnl.Width;
-                //songCount++;
             }
         }
 
-        private void fpnlSongSearchView_SizeChanged(object sender, EventArgs e)
+        private void panelContainFpnl_SizeChanged(object sender, EventArgs e)
         {
-            foreach  (Control item in fpnlSongSearchView.Controls)
+            foreach (Control item in fpnlSongSearchView.Controls)
             {
                 item.Width = panelContainFpnl.Width;
             }
