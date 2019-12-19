@@ -189,7 +189,15 @@ namespace BLADE
                 uc_Queue.UpdateQueue(src.Song);
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
         }
-
+        public void ResetUIInfor()
+        {
+            picArtCover.Image = null;
+            lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
+            lblDurationLimit.Text = TimeSpan.Zero.ToString("mm':'ss");
+            lblSongName.Text = "";
+            lblArtistName.Text = "";
+            sliderMusic.Value = 0;
+        }
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {
@@ -202,7 +210,13 @@ namespace BLADE
         {
             Song src = sender as Song;
             mediaPlayer.CurrentPlaylist.Remove(src);
-
+            if (src == mediaPlayer.CurrentMedia)
+            {
+                mediaPlayer.Pause();
+                mediaPlayer.DisposeAudio();
+                ResetUIInfor();
+            } 
+               
         }
         #endregion
 

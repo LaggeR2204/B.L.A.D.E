@@ -21,7 +21,8 @@ namespace BLADE
                 if (_nowPlayingSong != value)
                 {
                     _nowPlayingSong = value;
-                    _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
+                    if (_nowPlayingSong != null)
+                        _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
                     //if (NowPlayingSongChanged != null)
                     //    NowPlayingSongChanged(this, new EventArgs());
                 }
@@ -48,7 +49,7 @@ namespace BLADE
         }
         public void SetFavoriteState(Song src)
         {
-            if(src == null)
+            if (src == null)
             {
                 btnSongLoveOff.Hide();
                 btnSongLove.Hide();
@@ -67,6 +68,14 @@ namespace BLADE
         }
         public void SetSongInfo()
         {
+            if(_nowPlayingSong==null)
+            {
+                picbArtCover.Image = null;
+                lbSongName.Text = "";
+                lbSongSinger.Text ="";
+                SetFavoriteState(_nowPlayingSong);
+                return;
+            }
             picbArtCover.Image = _nowPlayingSong.SongImage;
             lbSongName.Text = _nowPlayingSong.SongName;
             lbSongSinger.Text = _nowPlayingSong.Singer;
@@ -81,6 +90,11 @@ namespace BLADE
         private void SongRemoved_Handler(object sender, EventArgs e)
         {
             SongItemInQueue src = sender as SongItemInQueue;
+            if (_nowPlayingSong == src.Song)
+            {
+                _nowPlayingSong = null;
+                SetSongInfo();
+            }
             fpnlPlayback.Controls.Remove(src);
             if (SongRemoved != null)
                 SongRemoved(src.Song, e);

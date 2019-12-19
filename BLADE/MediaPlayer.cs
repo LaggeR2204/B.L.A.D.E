@@ -215,7 +215,7 @@ namespace BLADE
                 return;
             audioReader.CurrentTime = audioReader.CurrentTime.Add(TimeSpan.FromSeconds(n));
         }
-        private void DisposeAudio()
+        public void DisposeAudio()
         {
             if (outputSound != null)
             {
