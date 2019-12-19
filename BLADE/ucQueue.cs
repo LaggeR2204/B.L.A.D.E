@@ -40,12 +40,20 @@ namespace BLADE
             InitializeComponent();
             Init();
         }
+
         private void Init()
         {
             _nowPlayingSong = null;
+            SetFavoriteState(_nowPlayingSong);
         }
         public void SetFavoriteState(Song src)
         {
+            if(src == null)
+            {
+                btnSongLoveOff.Hide();
+                btnSongLove.Hide();
+            }
+            else
             if (src.IsFavorite)
             {
                 btnSongLoveOff.Show();
