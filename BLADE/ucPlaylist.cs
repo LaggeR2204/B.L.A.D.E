@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections.Specialized;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -245,7 +246,7 @@ namespace BLADE
                 {
                     if (item.Playlist.PlaylistName == name)
                     {
-                        MessageBox.Show("Playlist is existed!!!");
+                        MsgBox.Show("Playlist is existed!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                         return;
                     }
                 }
@@ -277,5 +278,15 @@ namespace BLADE
            // fpnlPlaylistView.VerticalScroll.Value = e.Value;
         }
         #endregion
+
+
+        private void ucPlaylist_SizeChanged(object sender, EventArgs e)
+        {
+            pnlListSong.Width = this.Width - 167;
+            foreach (Control item in fpnlSongView.Controls)
+            {
+                item.Width = pnlListSong.Width;
+            }
+        }
     }
 }

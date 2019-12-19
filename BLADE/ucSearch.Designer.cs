@@ -47,7 +47,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(319, 335);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 21);
+            this.label1.Size = new System.Drawing.Size(157, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Find your favorite songs";
             // 
@@ -80,7 +80,7 @@
             this.lblTextSearch.Location = new System.Drawing.Point(157, 12);
             this.lblTextSearch.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblTextSearch.Name = "lblTextSearch";
-            this.lblTextSearch.Size = new System.Drawing.Size(103, 17);
+            this.lblTextSearch.Size = new System.Drawing.Size(82, 16);
             this.lblTextSearch.TabIndex = 4;
             this.lblTextSearch.Text = "Text Search";
             this.lblTextSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,7 +92,7 @@
             this.lblResult.Location = new System.Drawing.Point(20, 12);
             this.lblResult.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(166, 16);
+            this.lblResult.Size = new System.Drawing.Size(131, 16);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Showing Songs For ";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,6 +100,7 @@
             // fpnlSongSearchView
             // 
             this.fpnlSongSearchView.AutoScroll = true;
+            this.fpnlSongSearchView.Dock = System.Windows.Forms.DockStyle.Left;
             this.fpnlSongSearchView.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlSongSearchView.Location = new System.Drawing.Point(0, 0);
             this.fpnlSongSearchView.Margin = new System.Windows.Forms.Padding(0);
@@ -107,20 +108,20 @@
             this.fpnlSongSearchView.Size = new System.Drawing.Size(1016, 525);
             this.fpnlSongSearchView.TabIndex = 3;
             this.fpnlSongSearchView.WrapContents = false;
-            this.fpnlSongSearchView.SizeChanged += new System.EventHandler(this.fpnlSongSearchView_SizeChanged);
             // 
             // panelContainFpnl
             // 
             this.panelContainFpnl.Controls.Add(this.fpnlSongSearchView);
-            this.panelContainFpnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainFpnl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelContainFpnl.Location = new System.Drawing.Point(0, 40);
             this.panelContainFpnl.Name = "panelContainFpnl";
             this.panelContainFpnl.Size = new System.Drawing.Size(787, 525);
             this.panelContainFpnl.TabIndex = 5;
+            this.panelContainFpnl.SizeChanged += new System.EventHandler(this.panelContainFpnl_SizeChanged);
             // 
             // ucSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.panelContainFpnl);

@@ -118,5 +118,14 @@ namespace BLADE
         {
             _nowPlayingSong.IsFavorite = false;
         }
+
+        private void ucQueue_SizeChanged(object sender, EventArgs e)
+        {
+            panelContainFPNL.Width = this.Width - 294;
+            foreach (Control item in fpnlPlayback.Controls)
+            {
+                item.Width = panelContainFPNL.Width;
+            }
+        }
     }
 }

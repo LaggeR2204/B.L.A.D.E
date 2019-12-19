@@ -44,6 +44,12 @@
             this.btnGetEndTime = new System.Windows.Forms.Button();
             this.pnlSetTime = new System.Windows.Forms.Panel();
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.txtStartSecond = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtStartMinute = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtStartHour = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtEndHour = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtEndMinute = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtEndSecond = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pnlSetTime.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +61,7 @@
             this.txtTimeStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTimeStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeStart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtTimeStart.Location = new System.Drawing.Point(214, 180);
+            this.txtTimeStart.Location = new System.Drawing.Point(221, 61);
             this.txtTimeStart.Name = "txtTimeStart";
             this.txtTimeStart.Size = new System.Drawing.Size(160, 27);
             this.txtTimeStart.TabIndex = 0;
@@ -69,7 +75,7 @@
             this.txtTimeEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTimeEnd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeEnd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtTimeEnd.Location = new System.Drawing.Point(413, 181);
+            this.txtTimeEnd.Location = new System.Drawing.Point(420, 62);
             this.txtTimeEnd.Name = "txtTimeEnd";
             this.txtTimeEnd.Size = new System.Drawing.Size(160, 27);
             this.txtTimeEnd.TabIndex = 0;
@@ -200,7 +206,7 @@
             this.btnGetEndTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGetEndTime.FlatAppearance.BorderSize = 0;
             this.btnGetEndTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGetEndTime.Location = new System.Drawing.Point(580, 180);
+            this.btnGetEndTime.Location = new System.Drawing.Point(578, 181);
             this.btnGetEndTime.Name = "btnGetEndTime";
             this.btnGetEndTime.Size = new System.Drawing.Size(27, 27);
             this.btnGetEndTime.TabIndex = 7;
@@ -209,6 +215,12 @@
             // 
             // pnlSetTime
             // 
+            this.pnlSetTime.Controls.Add(this.txtEndSecond);
+            this.pnlSetTime.Controls.Add(this.txtStartSecond);
+            this.pnlSetTime.Controls.Add(this.txtEndMinute);
+            this.pnlSetTime.Controls.Add(this.txtEndHour);
+            this.pnlSetTime.Controls.Add(this.txtStartMinute);
+            this.pnlSetTime.Controls.Add(this.txtStartHour);
             this.pnlSetTime.Controls.Add(this.pnlControls);
             this.pnlSetTime.Controls.Add(this.txtTimeStart);
             this.pnlSetTime.Controls.Add(this.btnGetEndTime);
@@ -233,6 +245,150 @@
             this.pnlControls.Name = "pnlControls";
             this.pnlControls.Size = new System.Drawing.Size(787, 46);
             this.pnlControls.TabIndex = 9;
+            // 
+            // txtStartSecond
+            // 
+            this.txtStartSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtStartSecond.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtStartSecond.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtStartSecond.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtStartSecond.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtStartSecond.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtStartSecond.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartSecond.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartSecond.HintText = "S";
+            this.txtStartSecond.isPassword = false;
+            this.txtStartSecond.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartSecond.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtStartSecond.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartSecond.LineThickness = 2;
+            this.txtStartSecond.Location = new System.Drawing.Point(317, 181);
+            this.txtStartSecond.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStartSecond.MaxLength = 32767;
+            this.txtStartSecond.Name = "txtStartSecond";
+            this.txtStartSecond.Size = new System.Drawing.Size(40, 30);
+            this.txtStartSecond.TabIndex = 10;
+            this.txtStartSecond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtStartMinute
+            // 
+            this.txtStartMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtStartMinute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtStartMinute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtStartMinute.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtStartMinute.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtStartMinute.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtStartMinute.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartMinute.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartMinute.HintText = "M";
+            this.txtStartMinute.isPassword = false;
+            this.txtStartMinute.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartMinute.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtStartMinute.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartMinute.LineThickness = 2;
+            this.txtStartMinute.Location = new System.Drawing.Point(269, 181);
+            this.txtStartMinute.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStartMinute.MaxLength = 32767;
+            this.txtStartMinute.Name = "txtStartMinute";
+            this.txtStartMinute.Size = new System.Drawing.Size(40, 30);
+            this.txtStartMinute.TabIndex = 11;
+            this.txtStartMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtStartHour
+            // 
+            this.txtStartHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtStartHour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtStartHour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtStartHour.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtStartHour.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtStartHour.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtStartHour.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartHour.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStartHour.HintText = "H";
+            this.txtStartHour.isPassword = false;
+            this.txtStartHour.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartHour.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtStartHour.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtStartHour.LineThickness = 2;
+            this.txtStartHour.Location = new System.Drawing.Point(221, 181);
+            this.txtStartHour.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStartHour.MaxLength = 32767;
+            this.txtStartHour.Name = "txtStartHour";
+            this.txtStartHour.Size = new System.Drawing.Size(40, 30);
+            this.txtStartHour.TabIndex = 12;
+            this.txtStartHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEndHour
+            // 
+            this.txtEndHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndHour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtEndHour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtEndHour.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtEndHour.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEndHour.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtEndHour.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndHour.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndHour.HintText = "H";
+            this.txtEndHour.isPassword = false;
+            this.txtEndHour.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndHour.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtEndHour.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndHour.LineThickness = 2;
+            this.txtEndHour.Location = new System.Drawing.Point(431, 181);
+            this.txtEndHour.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEndHour.MaxLength = 32767;
+            this.txtEndHour.Name = "txtEndHour";
+            this.txtEndHour.Size = new System.Drawing.Size(40, 30);
+            this.txtEndHour.TabIndex = 12;
+            this.txtEndHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEndMinute
+            // 
+            this.txtEndMinute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndMinute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtEndMinute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtEndMinute.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtEndMinute.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEndMinute.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtEndMinute.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndMinute.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndMinute.HintText = "M";
+            this.txtEndMinute.isPassword = false;
+            this.txtEndMinute.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndMinute.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtEndMinute.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndMinute.LineThickness = 2;
+            this.txtEndMinute.Location = new System.Drawing.Point(479, 181);
+            this.txtEndMinute.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEndMinute.MaxLength = 32767;
+            this.txtEndMinute.Name = "txtEndMinute";
+            this.txtEndMinute.Size = new System.Drawing.Size(40, 30);
+            this.txtEndMinute.TabIndex = 11;
+            this.txtEndMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEndSecond
+            // 
+            this.txtEndSecond.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndSecond.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtEndSecond.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtEndSecond.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtEndSecond.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEndSecond.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtEndSecond.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndSecond.HintForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEndSecond.HintText = "S";
+            this.txtEndSecond.isPassword = false;
+            this.txtEndSecond.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndSecond.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtEndSecond.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtEndSecond.LineThickness = 2;
+            this.txtEndSecond.Location = new System.Drawing.Point(527, 181);
+            this.txtEndSecond.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEndSecond.MaxLength = 32767;
+            this.txtEndSecond.Name = "txtEndSecond";
+            this.txtEndSecond.Size = new System.Drawing.Size(40, 30);
+            this.txtEndSecond.TabIndex = 10;
+            this.txtEndSecond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ucMusicCutter
             // 
@@ -270,5 +426,11 @@
         private System.Windows.Forms.Button btnGetEndTime;
         private System.Windows.Forms.Panel pnlSetTime;
         private System.Windows.Forms.Panel pnlControls;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtStartSecond;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtStartMinute;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtStartHour;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndSecond;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndMinute;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndHour;
     }
 }

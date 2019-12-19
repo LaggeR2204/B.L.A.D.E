@@ -81,9 +81,9 @@
             this.btnBack.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(137, 366);
+            this.btnBack.Location = new System.Drawing.Point(137, 388);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(71, 45);
+            this.btnBack.Size = new System.Drawing.Size(71, 31);
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "Back";
             this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -127,7 +127,7 @@
             this.btnChange.IdleIconLeftImage = null;
             this.btnChange.IdleIconRightImage = null;
             this.btnChange.IndicateFocus = false;
-            this.btnChange.Location = new System.Drawing.Point(55, 315);
+            this.btnChange.Location = new System.Drawing.Point(55, 336);
             this.btnChange.Name = "btnChange";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             stateProperties1.BorderRadius = 40;
@@ -182,7 +182,7 @@
             this.txtNewPassword.IconRight = null;
             this.txtNewPassword.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNewPassword.Lines = new string[0];
-            this.txtNewPassword.Location = new System.Drawing.Point(55, 185);
+            this.txtNewPassword.Location = new System.Drawing.Point(55, 203);
             this.txtNewPassword.MaxLength = 32767;
             this.txtNewPassword.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtNewPassword.Modified = false;
@@ -257,7 +257,7 @@
             this.txtPassword.IconRight = null;
             this.txtPassword.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(55, 144);
+            this.txtPassword.Location = new System.Drawing.Point(55, 153);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtPassword.Modified = false;
@@ -385,10 +385,10 @@
             this.lblFailed.CursorType = null;
             this.lblFailed.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.lblFailed.ForeColor = System.Drawing.Color.Red;
-            this.lblFailed.Location = new System.Drawing.Point(58, 268);
+            this.lblFailed.Location = new System.Drawing.Point(58, 293);
             this.lblFailed.Name = "lblFailed";
             this.lblFailed.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblFailed.Size = new System.Drawing.Size(240, 41);
+            this.lblFailed.Size = new System.Drawing.Size(240, 35);
             this.lblFailed.TabIndex = 18;
             this.lblFailed.Text = "Create account failed.";
             this.lblFailed.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -422,7 +422,7 @@
             this.txtConfirm.IconRight = null;
             this.txtConfirm.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirm.Lines = new string[0];
-            this.txtConfirm.Location = new System.Drawing.Point(55, 226);
+            this.txtConfirm.Location = new System.Drawing.Point(55, 253);
             this.txtConfirm.MaxLength = 32767;
             this.txtConfirm.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtConfirm.Modified = false;

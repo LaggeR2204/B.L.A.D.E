@@ -53,11 +53,11 @@
             // 
             // btnPlaylistMenu
             // 
-            this.btnPlaylistMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPlaylistMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPlaylistMenu.FlatAppearance.BorderSize = 0;
             this.btnPlaylistMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlaylistMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnPlaylistMenu.Image")));
-            this.btnPlaylistMenu.Location = new System.Drawing.Point(100, 0);
+            this.btnPlaylistMenu.Location = new System.Drawing.Point(120, 0);
             this.btnPlaylistMenu.Name = "btnPlaylistMenu";
             this.btnPlaylistMenu.Size = new System.Drawing.Size(40, 40);
             this.btnPlaylistMenu.TabIndex = 3;
@@ -77,13 +77,13 @@
             this.ctxtmsPlaylist.Name = "ctxtmsPlaylist";
             this.ctxtmsPlaylist.ShowImageMargin = false;
             this.ctxtmsPlaylist.ShowItemToolTips = false;
-            this.ctxtmsPlaylist.Size = new System.Drawing.Size(137, 108);
+            this.ctxtmsPlaylist.Size = new System.Drawing.Size(119, 100);
             // 
             // addSongToolStripMenuItem
             // 
             this.addSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
-            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.addSongToolStripMenuItem.Text = "Add song";
             this.addSongToolStripMenuItem.Click += new System.EventHandler(this.AddSongToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@
             // 
             this.playAllToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playAllToolStripMenuItem.Name = "playAllToolStripMenuItem";
-            this.playAllToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.playAllToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.playAllToolStripMenuItem.Text = "Play All";
             this.playAllToolStripMenuItem.Click += new System.EventHandler(this.playAllToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             // 
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
             // 
@@ -107,13 +107,13 @@
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // ucPlaylistView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnPlaylistMenu);
@@ -122,7 +122,7 @@
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucPlaylistView";
-            this.Size = new System.Drawing.Size(140, 40);
+            this.Size = new System.Drawing.Size(160, 40);
             this.ctxtmsPlaylist.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
