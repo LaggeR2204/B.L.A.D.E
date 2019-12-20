@@ -16,8 +16,7 @@ namespace BLADE
 {
     class SearchOnline
     {
-
-        const string sSave = @"D:\\Music\\";
+        private string sSave = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).Replace("Pictures", "Downloads");
         HttpClient httpClient;
         HttpClientHandler handler;
         CookieContainer cookie = new CookieContainer();
@@ -87,7 +86,7 @@ namespace BLADE
             string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item"" href=(.*?)128kbps</span>(.*?)</a>").Value;
             string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)"" title").Value.Replace("href=", "").Replace("title", "").Replace('"', ' ').Trim();
             WebClient wc = new WebClient();
-            wc.DownloadFile(DownloadURL, sSave + song.SongName + ".mp3");
+            wc.DownloadFile(DownloadURL, sSave + "\\" +song.SongName + ".mp3");
         }
     }
 }
