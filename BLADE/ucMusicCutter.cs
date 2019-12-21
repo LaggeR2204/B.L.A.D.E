@@ -12,7 +12,7 @@ using NAudio.Wave.SampleProviders;
 using WMPLib;
 using System.IO;
 using BLADE.xDialog;
-
+using WaveFormRendererLib;
 namespace BLADE
 {
     public partial class ucMusicCutter : UserControl
@@ -30,7 +30,31 @@ namespace BLADE
         {
             InitializeComponent();
         }
+        private void RenderChart(PictureBox picbox, string audioFilePath)
+        {
+            MaxPeakProvider maxPeakProvider = new MaxPeakProvider();
+            RmsPeakProvider rmsPeakProvider = new RmsPeakProvider(200); // e.g. 200
+            SamplingPeakProvider samplingPeakProvider = new SamplingPeakProvider(200); // e.g. 200
+            AveragePeakProvider averagePeakProvider = new AveragePeakProvider(4); // e.g. 4
 
+            StandardWaveFormRendererSettings myRendererSettings = new StandardWaveFormRendererSettings();
+            myRendererSettings.Width = 4320;
+            myRendererSettings.TopHeight = 256;
+            myRendererSettings.BottomHeight = 256;
+            //myRendererSettings.BottomSpacerPen = new Pen(Color.Transparent);
+            //myRendererSettings.TopSpacerPen = new Pen(Color.Transparent);
+            //myRendererSettings.PixelsPerPeak = 10;
+            //myRendererSettings.SpacerPixels = 2;
+            myRendererSettings.TopPeakPen = new Pen(Color.FromArgb(0, 192, 192));
+            myRendererSettings.BottomPeakPen = new Pen(Color.FromArgb(100, 0, 192, 192));
+            myRendererSettings.BackgroundColor = Color.Transparent;
+            //myRendererSettings.DecibelScale = true;
+            WaveFormRenderer renderer = new WaveFormRenderer();
+          
+            Image image = renderer.Render(audioFilePath, averagePeakProvider, myRendererSettings);
+
+            picbox.Image = image;
+        }
         private void btnOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -40,10 +64,10 @@ namespace BLADE
                 WindowsMediaPlayer WMP = new WindowsMediaPlayer();
                 IWMPMedia src = WMP.newMedia(open.FileName);
                 lblSongName.Text = src.getItemInfo("Name");
-
+                //
+                RenderChart(picboxChart, open.FileName);
+                //
                 Mp3FileReader mp3 = new Mp3FileReader(open.FileName);
-                WaveStream pcm = WaveFormatConversionStream.CreatePcmStream(mp3);
-                waveViewer1.WaveStream = pcm;
                 opname = open.FileName;
                 txtStartHour.Text = "0";
                 txtStartMinute.Text = "0";

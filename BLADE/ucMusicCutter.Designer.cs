@@ -36,7 +36,6 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblSongName = new System.Windows.Forms.Label();
-            this.waveViewer1 = new NAudio.Gui.WaveViewer();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnGetStartTime = new System.Windows.Forms.Button();
             this.btnGetEndTime = new System.Windows.Forms.Button();
@@ -49,8 +48,10 @@
             this.txtStartMinute = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtStartHour = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.picboxChart = new System.Windows.Forms.PictureBox();
             this.pnlSetTime.SuspendLayout();
             this.pnlControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChart)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTextTo
@@ -126,19 +127,6 @@
             this.lblSongName.Text = "SongName";
             this.lblSongName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // waveViewer1
-            // 
-            this.waveViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.waveViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.waveViewer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.waveViewer1.Location = new System.Drawing.Point(56, 98);
-            this.waveViewer1.Name = "waveViewer1";
-            this.waveViewer1.SamplesPerPixel = 128;
-            this.waveViewer1.Size = new System.Drawing.Size(672, 189);
-            this.waveViewer1.StartPosition = ((long)(0));
-            this.waveViewer1.TabIndex = 3;
-            this.waveViewer1.WaveStream = null;
-            // 
             // btnStop
             // 
             this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -209,7 +197,7 @@
             this.lblRealTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRealTime.Location = new System.Drawing.Point(358, 73);
             this.lblRealTime.Name = "lblRealTime";
-            this.lblRealTime.Size = new System.Drawing.Size(72, 21);
+            this.lblRealTime.Size = new System.Drawing.Size(86, 23);
             this.lblRealTime.TabIndex = 13;
             this.lblRealTime.Text = "00:00:00";
             // 
@@ -372,13 +360,22 @@
             this.pnlControls.Size = new System.Drawing.Size(787, 46);
             this.pnlControls.TabIndex = 9;
             // 
+            // picboxChart
+            // 
+            this.picboxChart.Location = new System.Drawing.Point(31, 86);
+            this.picboxChart.Name = "picboxChart";
+            this.picboxChart.Size = new System.Drawing.Size(728, 180);
+            this.picboxChart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxChart.TabIndex = 9;
+            this.picboxChart.TabStop = false;
+            // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.picboxChart);
             this.Controls.Add(this.pnlSetTime);
-            this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.lblSongName);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
@@ -387,6 +384,7 @@
             this.pnlSetTime.ResumeLayout(false);
             this.pnlSetTime.PerformLayout();
             this.pnlControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,7 +398,6 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblSongName;
-        private NAudio.Gui.WaveViewer waveViewer1;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnGetStartTime;
         private System.Windows.Forms.Button btnGetEndTime;
@@ -413,5 +410,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndMinute;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndHour;
         private System.Windows.Forms.Label lblRealTime;
+        private System.Windows.Forms.PictureBox picboxChart;
     }
 }

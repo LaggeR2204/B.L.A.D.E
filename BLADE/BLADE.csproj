@@ -115,6 +115,19 @@
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CrawlChart.cs" />
+    <Compile Include="DrawChart\AveragePeakProvider.cs" />
+    <Compile Include="DrawChart\DecibelPeakProvider.cs" />
+    <Compile Include="DrawChart\IPeakProvider.cs" />
+    <Compile Include="DrawChart\MaxPeakProvider.cs" />
+    <Compile Include="DrawChart\PeakInfo.cs" />
+    <Compile Include="DrawChart\PeakProvider.cs" />
+    <Compile Include="DrawChart\RmsPeakProvider.cs" />
+    <Compile Include="DrawChart\SamplingPeakProvider.cs" />
+    <Compile Include="DrawChart\SoundCloudBlockWaveFormSettings.cs" />
+    <Compile Include="DrawChart\SoundCloudOriginalSettings.cs" />
+    <Compile Include="DrawChart\StandardWaveFormRendererSettings.cs" />
+    <Compile Include="DrawChart\WaveFormRenderer.cs" />
+    <Compile Include="DrawChart\WaveFormRendererSettings.cs" />
     <Compile Include="GifImage.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
     <Compile Include="RecentlySongItem.cs">
