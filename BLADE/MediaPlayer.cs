@@ -10,12 +10,16 @@ namespace BLADE
 {
     class MediaPlayer
     {
+        //DirectSoundOut outputSound = null;
+        //MediaFoundationReader audioReader = null;
+        //WaveChannel32 waveChanel = null;
+        private WaveOutEvent outputSound;
+       // private AudioFileReader audioReader;
         private bool _isRepeat;
         private bool _isLoop;
         private bool _isShuffle;
         private List<Song> _curPlaylist;
         private Song _curMedia;
-        private Timer _timer;
         private PlaybackState _playbackState;
         public event EventHandler MediaEnded;
         public event EventHandler MediaChanged;
@@ -34,15 +38,12 @@ namespace BLADE
             }
         }
         public bool IsRepeat { get => _isRepeat; set => _isRepeat = value; }
-        public Timer MediaTimer { get => _timer; }
         public bool IsLoop { get => _isLoop; set => _isLoop = value; }
         public bool IsShuffle { get => _isShuffle; set => _isShuffle = value; }
         public Song CurrentMedia { get => _curMedia; set => _curMedia = value; }
         public List<Song> CurrentPlaylist { get => _curPlaylist; set => _curPlaylist = value; }
 
-        DirectSoundOut outputSound = null;
-        MediaFoundationReader audioReader = null;
-        WaveChannel32 waveChanel = null;
+       
         public MediaPlayer()
         {
             Init();
@@ -50,9 +51,6 @@ namespace BLADE
 
         private void Init()
         {
-            _timer = new Timer();
-            _timer.Interval = 2000;
-            _timer.Elapsed += Timer_Elapsed;
             SetPlaybackMode(false, true, false);
             CurrentMedia = null;
             _curPlaylist = new List<Song>();
@@ -64,19 +62,17 @@ namespace BLADE
             _isShuffle = shuffle;
             _isRepeat = repeat;
         }
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            if (audioReader == null)
-                return;
-            if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds - 2)
-                if (MediaEnded != null)
-                    MediaEnded(this, new EventArgs());
-        }
+        //private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        //{
+        //    if (audioReader == null)
+        //        return;
+        //    if (audioReader.CurrentTime.TotalSeconds >= audioReader.TotalTime.TotalSeconds - 2)
+        //        if (MediaEnded != null)
+        //            MediaEnded(this, new EventArgs());
+        //}
 
         public void Play()
         {
-            if (_timer.Enabled == false)
-                _timer.Start();
             if (outputSound != null)
                 if (outputSound.PlaybackState == PlaybackState.Paused)
                 {
@@ -87,8 +83,6 @@ namespace BLADE
         }
         public void Pause()
         {
-            if (_timer.Enabled == true)
-                _timer.Stop();
             if (outputSound != null)
                 if (outputSound.PlaybackState == PlaybackState.Playing)
                 {
@@ -99,8 +93,6 @@ namespace BLADE
         }
         public void Stop()
         {
-            if (_timer.Enabled == true)
-                _timer.Stop();
             if (outputSound != null)
                 if (outputSound.PlaybackState == PlaybackState.Playing)
                 {
@@ -179,56 +171,79 @@ namespace BLADE
                     if (_curMedia != null)
                         _curMedia.IsPlaying = false;
                     _curMedia = _curPlaylist[src];
-                    audioReader = new MediaFoundationReader(_curMedia.SavedPath);
-                    outputSound = new DirectSoundOut();
-                    waveChanel = new WaveChannel32(audioReader);
-                    outputSound.Init(waveChanel);
+                    //audioReader = new AudioFileReader(_curMedia.SavedPath);
+                    outputSound = new WaveOutEvent();
+                    outputSound.PlaybackStopped += OutputSound_PlaybackStopped;
+                    // waveChanel = new WaveChannel32(audioReader);
+                    _curMedia.AudioFile.Position = 0;
+                    outputSound.Init(_curMedia.AudioFile);
                     outputSound.Play();
                     if (MediaChanged != null)
                         MediaChanged(this, new EventArgs());
-                    _timer.Start();
                     MediaState = PlaybackState.Playing;
                     _curMedia.IsPlaying = true;
                 }
         }
+
+        private void OutputSound_PlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            if(_playbackState != PlaybackState.Stopped)
+            {
+                if (MediaEnded != null)
+                    MediaEnded(this, new EventArgs());
+                _playbackState = PlaybackState.Stopped;
+            }
+
+        }
+
         public double GetDurationInSecond()
         {
-            if (audioReader == null)
+            //if (audioReader == null)
+            //    return 0;
+            //return audioReader.TotalTime.TotalSeconds;
+            if (_curMedia.AudioFile == null)
                 return 0;
-            return audioReader.TotalTime.TotalSeconds;
+            return _curMedia.AudioFile.TotalTime.TotalSeconds;
         }
         public double GetCurrentPossiton()
         {
-            if (audioReader == null)
+            //if (audioReader == null)
+            //    return 0;
+            //return audioReader.CurrentTime.TotalSeconds;
+            if (_curMedia.AudioFile == null)
                 return 0;
-            return audioReader.CurrentTime.TotalSeconds;
+            return _curMedia.AudioFile.CurrentTime.TotalSeconds;
         }
         public void SetVolume(float n)
         {
-            if (waveChanel != null)
-                waveChanel.Volume = n;
+            //if (waveChanel != null)
+            //    waveChanel.Volume = n;
+            if (outputSound != null)
+                outputSound.Volume = n;
         }
 
         public void SetPossition(int n)
         {
-            if (audioReader == null)
+            //if (audioReader == null)
+            //    return;
+            //audioReader.CurrentTime = TimeSpan.FromSeconds(n);
+            if (_curMedia.AudioFile == null)
                 return;
-            audioReader.CurrentTime = audioReader.CurrentTime.Add(TimeSpan.FromSeconds(n));
+            _curMedia.AudioFile.CurrentTime = TimeSpan.FromSeconds(n);
         }
         public void DisposeAudio()
         {
             if (outputSound != null)
             {
-                if (outputSound.PlaybackState == PlaybackState.Playing)
-                    outputSound.Stop();
+                outputSound.PlaybackStopped -= OutputSound_PlaybackStopped;
                 outputSound.Dispose();
                 outputSound = null;
             }
-            if (audioReader != null)
-            {
-                audioReader.Dispose();
-                audioReader = null;
-            }
+            //if (audioReader != null)
+            //{
+            //    audioReader.Dispose();
+            //    audioReader = null;
+            //}
         }
     }
 }

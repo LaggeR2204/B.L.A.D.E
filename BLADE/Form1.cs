@@ -38,8 +38,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
-            //timerChangeColorBLADE.Enabled = false;
-            //timerTime.Enabled = false;
+            timerChangeColorBLADE.Enabled = false;
+            timerTime.Enabled = false;
         }
         private void Init()
         {
@@ -78,9 +78,11 @@ namespace BLADE
             uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;
             //slidervolume
             SliderVolume.Scroll += SliderVolumeChangeHandler;
-            SliderVolume.LargeChange = 1;
-            SliderVolume.SmallChange = 1;
-            SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
+            SliderVolume.Maximum = 100;
+            SliderVolume.Minimum = 0;
+            SliderVolume.LargeChange = 10;
+            SliderVolume.SmallChange = 5;
+            SliderVolume.Value = 100;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
 
@@ -107,12 +109,10 @@ namespace BLADE
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
         }
-
         private void GifTimer_Tick(object sender, EventArgs e)
         {
             picboxGif.Image = gifImage.GetNextFrame();
         }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_appData.Recently != null)
@@ -154,8 +154,6 @@ namespace BLADE
             }
             _appData.SaveData();
         }
-
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
@@ -167,10 +165,10 @@ namespace BLADE
             _appData.LoadData();
             uc_Playlist.LoadData(_appData.Recently, _appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist, recentlyList);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
-            for (int i = recentlyList.Count-1; i >=0; i--)
+            for (int i = recentlyList.Count - 1; i >= 0; i--)
             {
-                if(recentlyList[i]==null)
-                uc_NewHome.UpdateRecentlySong(recentlyList[i]);
+                if (recentlyList[i] != null)
+                    uc_NewHome.UpdateRecentlySong(recentlyList[i]);
             }
             if (mediaPlayer.CurrentPlaylist.Count > 0)
             {
@@ -910,7 +908,7 @@ namespace BLADE
                 btnVolumeOff.Show();
                 btnVolume.Hide();
             }
-            mediaPlayer.SetVolume((float)SliderVolume.Value / 5f);
+            mediaPlayer.SetVolume((float)SliderVolume.Value / 100f);
         }
         #endregion
 
@@ -978,12 +976,14 @@ namespace BLADE
 
 
 
+
+
         #endregion
 
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
             isDrag = true;
-            mediaPlayer.SetPossition(sliderMusic.Value - (int)mediaPlayer.GetCurrentPossiton());
+            mediaPlayer.SetPossition(sliderMusic.Value);
             lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
             isDrag = false;
         }

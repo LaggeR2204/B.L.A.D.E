@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WMPLib;
+using NAudio.Wave;
 
 namespace BLADE
 {
@@ -24,12 +25,12 @@ namespace BLADE
         private Bitmap _songImage;
         private bool _isFavorite;
         private string _songURL;
-
+        private AudioFileReader _audioFile;
         //private string downloadURL;
         //private string _photoURL;
         //private double duration;
         //private double position;
-
+        public AudioFileReader AudioFile { get => _audioFile; set => _audioFile = value; }
         public int SongNumber { get => _songNumber; set => _songNumber = value; }
         public string SongName { get => _songName; set => _songName = value; }
         public string SavedPath { get => _savedPath; set => _savedPath = value; }
@@ -99,7 +100,7 @@ namespace BLADE
             this._songTime = string.Copy(src._songTime);
             this._singer = string.Copy(src._singer);
             this._genre = string.Copy(src._genre);
-
+            this._audioFile = src.AudioFile;
             _isFavorite = src._isFavorite;
 
             this._songURL = string.Copy(src._songURL);
@@ -161,6 +162,7 @@ namespace BLADE
             _singer = src.getItemInfo("Artist");
             _genre = src.getItemInfo("WM/Genre");
             GetImageFromFile(file.FullName);
+            AudioFile = new AudioFileReader(file.FullName);
         }
         #region SORT SONG
         private class sortNameAscending : IComparer
