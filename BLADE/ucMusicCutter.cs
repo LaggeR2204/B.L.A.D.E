@@ -17,8 +17,8 @@ namespace BLADE
 {
     public partial class ucMusicCutter : UserControl
     {
-        int timeStart;
-        int timeEnd;
+        int timeStart, hStart, mStart, sStart;
+        int timeEnd, hEnd, mEnd, sEnd;
         string opname;
         Timer timer;
         WaveOutEvent waveOut;
@@ -45,9 +45,13 @@ namespace BLADE
                 WaveStream pcm = WaveFormatConversionStream.CreatePcmStream(mp3);
                 waveViewer1.WaveStream = pcm;
                 opname = open.FileName;
-                txtTimeStart.Text = "00:00:00";
+                txtStartHour.Text = "0";
+                txtStartMinute.Text = "0";
+                txtStartSecond.Text = "0";
                 maxTime = mp3.TotalTime;
-                txtTimeEnd.Text = mp3.TotalTime.ToString("hh':'mm':'ss");
+                txtEndHour.Text = mp3.TotalTime.Hours.ToString();
+                txtEndMinute.Text = mp3.TotalTime.Minutes.ToString();
+                txtEndSecond.Text = mp3.TotalTime.Seconds.ToString();
                 if (OpenFileSucceed != null)
                     OpenFileSucceed(this, new EventArgs());
             }
@@ -56,8 +60,14 @@ namespace BLADE
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
-            timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
+            hStart = System.Convert.ToInt32(txtStartHour.Text) * 360;
+            mStart = System.Convert.ToInt32(txtStartMinute.Text) * 60;
+            sStart = System.Convert.ToInt32(txtStartSecond.Text);
+            timeStart = hStart + mStart + sStart;
+            hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
+            mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
+            sEnd = System.Convert.ToInt32(txtEndSecond.Text);
+            timeEnd = hEnd + mEnd + sEnd;
             if (timeStart >= timeEnd)
                 MsgBox.Show("End must be greater than begin", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             else
@@ -87,8 +97,14 @@ namespace BLADE
 
                 btnPlay.Visible = false;
                 btnStop.Visible = true;
-                timeStart = (int)TimeSpan.Parse(txtTimeStart.Text).TotalSeconds;
-                timeEnd = (int)TimeSpan.Parse(txtTimeEnd.Text).TotalSeconds;
+                hStart = System.Convert.ToInt32(txtStartHour.Text) * 360;
+                mStart = System.Convert.ToInt32(txtStartMinute.Text) * 60;
+                sStart = System.Convert.ToInt32(txtStartSecond.Text);
+                timeStart = hStart + mStart + sStart;
+                hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
+                mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
+                sEnd = System.Convert.ToInt32(txtEndSecond.Text);
+                timeEnd = hEnd + mEnd + sEnd;
                 waveOut = new WaveOutEvent();
                 mp3Reader = new Mp3FileReader(opname);
                 mp3Reader.CurrentTime = TimeSpan.FromSeconds(timeStart);
@@ -102,9 +118,30 @@ namespace BLADE
 
         }
 
+        private void txtEndTimeOnValueChanged(object sender, EventArgs e)
+        {
+            int timeEnd, hEnd=this.hEnd, sEnd= this.sEnd, mEnd= this.mEnd;
+            if (txtEndHour.Text != "" && txtEndMinute.Text != "" && txtEndSecond.Text != "")
+                    {
+                        hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
+                        mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
+                        sEnd = System.Convert.ToInt32(txtEndSecond.Text);
+                 
+                    }
+            timeEnd = hEnd + mEnd + sEnd;
+            if (timeEnd > maxTime.TotalSeconds)
+            {
+               txtEndHour.Text = maxTime.Hours.ToString();
+               txtEndMinute.Text = maxTime.Minutes.ToString();
+               txtEndSecond.Text = maxTime.Seconds.ToString();
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             currentSecond = (int)mp3Reader.CurrentTime.TotalSeconds;
+            lblRealTime.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
+
             if (currentSecond >= timeEnd)
             {
                 btnPlay.Visible = true;
@@ -135,30 +172,17 @@ namespace BLADE
         private void btnGetStartTime_Click(object sender, EventArgs e)
         {
             if (mp3Reader != null)
-                txtTimeStart.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
+                txtStartHour.Text = mp3Reader.CurrentTime.Hours.ToString();
+            txtStartMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
+            txtStartSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
         }
 
         private void btnGetEndTime_Click(object sender, EventArgs e)
         {
             if (mp3Reader != null)
-                txtTimeEnd.Text = mp3Reader.CurrentTime.ToString("hh':'mm':'ss");
-        }
-
-        private void txtTimeEnd_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (TimeSpan.Parse(txtTimeEnd.Text) > maxTime)
-                {
-                    txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
-                }
-            }
-            catch (Exception ex)
-            {
-                MsgBox.Show("You must enter time span", "Error", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-                txtTimeEnd.Text = maxTime.ToString("hh':'mm':'ss");
-            }
-
+                txtEndHour.Text = mp3Reader.CurrentTime.Hours.ToString();
+            txtEndMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
+            txtEndSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
         }
     }
 

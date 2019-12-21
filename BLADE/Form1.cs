@@ -797,11 +797,11 @@ namespace BLADE
                 h = 0;
                 m = 0;
                 s = 0;
-                if (txtHour.Text != null)
+                if (txtHour.Text != "")
                     h = Convert.ToInt32(txtHour.Text);
-                if (txtMinute.Text != null)
+                if (txtMinute.Text != "")
                     m = Convert.ToInt32(txtMinute.Text);
-                if (txtSecond.Text != null)
+                if (txtSecond.Text != "")
                     s = Convert.ToInt32(txtSecond.Text);
                 all = h * 60 * 60 + m * 60 + s;
                 this.lblCountdown.Visible = true;
