@@ -166,7 +166,7 @@ namespace BLADE
         {
             DisposeAudio();
             if (_curPlaylist != null)
-                if (src < _curPlaylist.Count)
+                if (src < _curPlaylist.Count && src >=0)
                 {
                     if (_curMedia != null)
                         _curMedia.IsPlaying = false;

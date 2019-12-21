@@ -38,8 +38,8 @@ namespace BLADE
         {
             InitializeComponent();
             Init();
-            timerChangeColorBLADE.Enabled = false;
-            timerTime.Enabled = false;
+            //timerChangeColorBLADE.Enabled = false;
+            //timerTime.Enabled = false;
         }
         private void Init()
         {
@@ -161,24 +161,29 @@ namespace BLADE
             frmLI.ShowDialog();
             //
             Dictionary<int, Song> recentlyList = new Dictionary<int, Song>();
-            Song curMedia = new Song();
+            Song curMedia = null;
             _appData.LoadData();
             uc_Playlist.LoadData(_appData.Recently, _appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist, recentlyList);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
             for (int i = recentlyList.Count - 1; i >= 0; i--)
             {
-                if (recentlyList[i] != null)
-                    uc_NewHome.UpdateRecentlySong(recentlyList[i]);
+                if (recentlyList.ContainsKey(i))
+                    if (recentlyList[i] != null)
+                        uc_NewHome.UpdateRecentlySong(recentlyList[i]);
             }
             if (mediaPlayer.CurrentPlaylist.Count > 0)
             {
-                mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
-                mediaPlayer.SetPossition(_appData.CurrentPossition);
-                sliderMusic.Value = _appData.CurrentPossition;
-                lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
+                if (curMedia != null)
+                {
+                    mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
+                    mediaPlayer.SetPossition(_appData.CurrentPossition);
+                    sliderMusic.Value = _appData.CurrentPossition;
+                    lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
+                }
+                mediaPlayer.Pause();
+                mediaPlayer.Pause();
             }
-            mediaPlayer.Pause();
-            mediaPlayer.Pause();
+
         }
         private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
         {
@@ -311,6 +316,12 @@ namespace BLADE
         #region Music Controls
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            if (mediaPlayer.CurrentMedia == null)
+            {
+                if (mediaPlayer.CurrentPlaylist != null && mediaPlayer.CurrentPlaylist.Count > 0)
+                    mediaPlayer.PlayInIndex(0);
+                return;
+            }
             mediaPlayer.Play();
             timerSliderMusic.Start();
 
@@ -946,6 +957,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 

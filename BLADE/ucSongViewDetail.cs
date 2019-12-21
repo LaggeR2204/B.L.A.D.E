@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace BLADE
 {
@@ -144,6 +146,12 @@ namespace BLADE
             _song.FavoriteChanged -= _song_FavoriteChanged;
         }
 
-       
+        private void openLocalFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(File.Exists(_song.SavedPath))
+            {
+                Process.Start(Directory.GetParent(_song.SavedPath).FullName);
+            }
+        }
     }
 }
