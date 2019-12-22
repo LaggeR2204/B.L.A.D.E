@@ -50,7 +50,7 @@ namespace BLADE
             myRendererSettings.BackgroundColor = Color.Transparent;
             //myRendererSettings.DecibelScale = true;
             WaveFormRenderer renderer = new WaveFormRenderer();
-          
+
             Image image = renderer.Render(audioFilePath, averagePeakProvider, myRendererSettings);
 
             picbox.Image = image;
@@ -76,6 +76,12 @@ namespace BLADE
                 txtEndHour.Text = mp3.TotalTime.Hours.ToString();
                 txtEndMinute.Text = mp3.TotalTime.Minutes.ToString();
                 txtEndSecond.Text = mp3.TotalTime.Seconds.ToString();
+                if (btnPlay.Visible == false)
+                {
+                    this.Pause();
+                    mp3Reader.Position = 0;
+                    mp3Reader.Dispose();
+                }
                 if (OpenFileSucceed != null)
                     OpenFileSucceed(this, new EventArgs());
             }
@@ -101,6 +107,7 @@ namespace BLADE
                 save.Filter = "Mp3 File|*.mp3;";
 
                 if (save.ShowDialog() != DialogResult.OK) return;
+
                 var mp3Path = opname;
                 var outputPath = Path.ChangeExtension(save.FileName, ".mp3");
 
@@ -144,20 +151,20 @@ namespace BLADE
 
         private void txtEndTimeOnValueChanged(object sender, EventArgs e)
         {
-            int timeEnd, hEnd=this.hEnd, sEnd= this.sEnd, mEnd= this.mEnd;
+            int timeEnd, hEnd = this.hEnd, sEnd = this.sEnd, mEnd = this.mEnd;
             if (txtEndHour.Text != "" && txtEndMinute.Text != "" && txtEndSecond.Text != "")
-                    {
-                        hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
-                        mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
-                        sEnd = System.Convert.ToInt32(txtEndSecond.Text);
-                 
-                    }
+            {
+                hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
+                mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
+                sEnd = System.Convert.ToInt32(txtEndSecond.Text);
+
+            }
             timeEnd = hEnd + mEnd + sEnd;
             if (timeEnd > maxTime.TotalSeconds)
             {
-               txtEndHour.Text = maxTime.Hours.ToString();
-               txtEndMinute.Text = maxTime.Minutes.ToString();
-               txtEndSecond.Text = maxTime.Seconds.ToString();
+                txtEndHour.Text = maxTime.Hours.ToString();
+                txtEndMinute.Text = maxTime.Minutes.ToString();
+                txtEndSecond.Text = maxTime.Seconds.ToString();
             }
         }
 
@@ -183,6 +190,7 @@ namespace BLADE
             waveOut.Dispose();
             btnStop.Visible = false;
             btnPlay.Visible = true;
+            lblRealTime.Text = "0" + txtStartHour.Text + ":" + "0" + txtStartMinute.Text + ":" + "0" + txtStartSecond.Text;
             timer.Stop();
         }
 
