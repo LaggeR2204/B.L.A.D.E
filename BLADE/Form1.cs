@@ -78,9 +78,11 @@ namespace BLADE
             uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;
             //slidervolume
             SliderVolume.Scroll += SliderVolumeChangeHandler;
-            SliderVolume.LargeChange = 1;
-            SliderVolume.SmallChange = 1;
-            SliderVolume.Value = 5;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
+            SliderVolume.Maximum = 100;
+            SliderVolume.Minimum = 0;
+            SliderVolume.LargeChange = 10;
+            SliderVolume.SmallChange = 5;
+            SliderVolume.Value = 100;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
 
@@ -107,12 +109,10 @@ namespace BLADE
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
         }
-
         private void GifTimer_Tick(object sender, EventArgs e)
         {
             picboxGif.Image = gifImage.GetNextFrame();
         }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_appData.Recently != null)
@@ -154,8 +154,6 @@ namespace BLADE
             }
             _appData.SaveData();
         }
-
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm frmLI = new LoginForm();
@@ -163,24 +161,29 @@ namespace BLADE
             frmLI.ShowDialog();
             //
             Dictionary<int, Song> recentlyList = new Dictionary<int, Song>();
-            Song curMedia = new Song();
+            Song curMedia = null;
             _appData.LoadData();
             uc_Playlist.LoadData(_appData.Recently, _appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist, recentlyList);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
-            for (int i = recentlyList.Count-1; i >=0; i--)
+            for (int i = recentlyList.Count - 1; i >= 0; i--)
             {
-                if(recentlyList[i]==null)
-                uc_NewHome.UpdateRecentlySong(recentlyList[i]);
+                if (recentlyList.ContainsKey(i))
+                    if (recentlyList[i] != null)
+                        uc_NewHome.UpdateRecentlySong(recentlyList[i]);
             }
             if (mediaPlayer.CurrentPlaylist.Count > 0)
             {
-                mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
-                mediaPlayer.SetPossition(_appData.CurrentPossition);
-                sliderMusic.Value = _appData.CurrentPossition;
-                lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
+                if (curMedia != null)
+                {
+                    mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(curMedia));
+                    mediaPlayer.SetPossition(_appData.CurrentPossition);
+                    sliderMusic.Value = _appData.CurrentPossition;
+                    lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
+                }
+                mediaPlayer.Pause();
+                mediaPlayer.Pause();
             }
-            mediaPlayer.Pause();
-            mediaPlayer.Pause();
+
         }
         private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
         {
@@ -313,6 +316,12 @@ namespace BLADE
         #region Music Controls
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            if (mediaPlayer.CurrentMedia == null)
+            {
+                if (mediaPlayer.CurrentPlaylist != null && mediaPlayer.CurrentPlaylist.Count > 0)
+                    mediaPlayer.PlayInIndex(0);
+                return;
+            }
             mediaPlayer.Play();
             timerSliderMusic.Start();
 
@@ -797,11 +806,11 @@ namespace BLADE
                 h = 0;
                 m = 0;
                 s = 0;
-                if (txtHour.Text != null)
+                if (txtHour.Text != "")
                     h = Convert.ToInt32(txtHour.Text);
-                if (txtMinute.Text != null)
+                if (txtMinute.Text != "")
                     m = Convert.ToInt32(txtMinute.Text);
-                if (txtSecond.Text != null)
+                if (txtSecond.Text != "")
                     s = Convert.ToInt32(txtSecond.Text);
                 all = h * 60 * 60 + m * 60 + s;
                 this.lblCountdown.Visible = true;
@@ -910,7 +919,7 @@ namespace BLADE
                 btnVolumeOff.Show();
                 btnVolume.Hide();
             }
-            mediaPlayer.SetVolume((float)SliderVolume.Value / 5f);
+            mediaPlayer.SetVolume((float)SliderVolume.Value / 100f);
         }
         #endregion
 
@@ -978,12 +987,16 @@ namespace BLADE
 
 
 
+
+
+
+
         #endregion
 
         #region Slider Music         private void SliderMusic_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
             isDrag = true;
-            mediaPlayer.SetPossition(sliderMusic.Value - (int)mediaPlayer.GetCurrentPossiton());
+            mediaPlayer.SetPossition(sliderMusic.Value);
             lblCurDuration.Text = TimeSpan.FromSeconds(sliderMusic.Value).ToString("mm':'ss");
             isDrag = false;
         }

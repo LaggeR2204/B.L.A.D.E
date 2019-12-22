@@ -27,6 +27,8 @@ namespace BLADE
 
         private void RecentlySongItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            if (_song == null)
+                return;
             if (PlaySong != null)
                 PlaySong(this, new EventArgs());
         }

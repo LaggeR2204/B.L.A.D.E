@@ -33,7 +33,7 @@ namespace BLADE
         {
             _playlistCollection = new List<Playlist>();
             _choosingPlaylist = null;
-         
+
         }
 
         private List<string> GetListPath(string str)
@@ -45,12 +45,13 @@ namespace BLADE
                 string cutString = str.Substring(0, index);
                 str = str.Remove(0, index + 1);
                 cutString = cutString.Replace("\n", "");
-                result.Add(cutString);
+                if (File.Exists(cutString))
+                    result.Add(cutString);
                 index = str.IndexOf("\n");
             }
             return result;
         }
-        public void LoadData(StringCollection recently ,StringCollection playbackCollection, StringCollection playlistCollection, StringCollection songCollection, string curSong, int pos,ref Song curMedia, List<Song> curPlaylist, Dictionary<int, Song> recentlyList)
+        public void LoadData(StringCollection recently, StringCollection playbackCollection, StringCollection playlistCollection, StringCollection songCollection, string curSong, int pos, ref Song curMedia, List<Song> curPlaylist, Dictionary<int, Song> recentlyList)
         {
             Playlist pldefault = new Playlist(playlistCollection[0]);
             pldefault.SongAdded += Playlist_SongAdded;
@@ -99,13 +100,15 @@ namespace BLADE
                         Song song = new Song(fileinfo);
                         playlist.AddSong(song);
                         if (recently.Contains(path))
-                            recentlyList.Add(recently.IndexOf(path),song);
+                            if (!recentlyList.ContainsValue(song))
+                                recentlyList.Add(recently.IndexOf(path), song);
                         if (favorite.Contains(path))
                             song.IsFavorite = true;
                         if (path == curSong)
                             curMedia = song;
                         if (playbackCollection.Contains(path))
-                            curPlaylist.Add(song);
+                            if (!curPlaylist.Contains(song))
+                                curPlaylist.Add(song);
                     }
                 }
                 _playlistCollection.Add(playlist);
@@ -113,7 +116,7 @@ namespace BLADE
         }
 
         #region Normal Function
-      
+
         public void ShowSongOnListArea(Song song)
         {
             ucSongViewDetail songView = new ucSongViewDetail(song);
@@ -123,7 +126,7 @@ namespace BLADE
             songView.PlaybackAdding += SongView_PlaybackAdding;
             songView.ChangedIconFavoriteState(song.IsFavorite);
             this.fpnlSongView.Controls.Add(songView);
-          
+
         }
 
         private void clearSongViewList()
@@ -277,7 +280,7 @@ namespace BLADE
 
         private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
         {
-           // fpnlPlaylistView.VerticalScroll.Value = e.Value;
+            // fpnlPlaylistView.VerticalScroll.Value = e.Value;
         }
         #endregion
 
