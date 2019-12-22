@@ -281,10 +281,11 @@ namespace BLADE
                     TextBox textbox = sender as TextBox;
                     uc_Search.pnlSearchTitle.Show();
                     uc_Search.pnlSearchTitle.BringToFront();
-                    uc_Search.fpnlSongSearchView.Show();
-                    uc_Search.fpnlSongSearchView.BringToFront();
+                    uc_Search.panelContainFpnl.Show();
+                    uc_Search.panelContainFpnl.BringToFront();
                     uc_Search.lblTextSearch.Text = textbox.Text;
                     List<ucSongSearchDetail> ListSongSearch = search.Search(textbox.Text);
+                    uc_Search.IsSearch = true;
                     uc_Search.ShowListSearch(ListSongSearch);
                 }
                 else
@@ -589,9 +590,16 @@ namespace BLADE
                     uc_Search.Show();
                     uc_Queue.Hide();
                     uc_Search.BringToFront();
-                    uc_Search.fpnlSongSearchView.Controls.Clear();
-                    uc_Search.pnlSearchTitle.Hide();
-                    uc_Search.fpnlSongSearchView.Hide();
+                    if(uc_Search.IsSearch)
+                    {
+                        uc_Search.pnlSearchTitle.Show();
+                        uc_Search.panelContainFpnl.Show();
+                    }
+                    else
+                    {
+                        uc_Search.pnlSearchTitle.Hide();
+                        uc_Search.panelContainFpnl.Hide();
+                    }
                     break;
                 default:
                     break;
@@ -646,13 +654,10 @@ namespace BLADE
 
         private void txtSearch_Click(object sender, MouseEventArgs e)
         {
-            uc_Search.fpnlSongSearchView.Controls.Clear();
-            uc_Search.fpnlSongSearchView.Hide();
             if (_showingUC != ShowingUC.UcSearch)
             {
                 ShowingUc = ShowingUC.UcSearch;
             }
-
         }
 
         private void timerChangeColorBLADE_Tick(object sender, EventArgs e)

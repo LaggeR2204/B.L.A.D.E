@@ -47,7 +47,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(319, 335);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 16);
+            this.label1.Size = new System.Drawing.Size(203, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Find your favorite songs";
             // 
@@ -80,7 +80,7 @@
             this.lblTextSearch.Location = new System.Drawing.Point(157, 12);
             this.lblTextSearch.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblTextSearch.Name = "lblTextSearch";
-            this.lblTextSearch.Size = new System.Drawing.Size(82, 16);
+            this.lblTextSearch.Size = new System.Drawing.Size(103, 17);
             this.lblTextSearch.TabIndex = 4;
             this.lblTextSearch.Text = "Text Search";
             this.lblTextSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,7 +92,7 @@
             this.lblResult.Location = new System.Drawing.Point(20, 12);
             this.lblResult.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(131, 16);
+            this.lblResult.Size = new System.Drawing.Size(166, 16);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Showing Songs For ";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,7 +121,7 @@
             // 
             // ucSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.panelContainFpnl);
@@ -150,6 +150,6 @@
         private System.Windows.Forms.Label lblResult;
         public System.Windows.Forms.Label lblTextSearch;
         public System.Windows.Forms.FlowLayoutPanel fpnlSongSearchView;
-        private System.Windows.Forms.Panel panelContainFpnl;
+        public System.Windows.Forms.Panel panelContainFpnl;
     }
 }

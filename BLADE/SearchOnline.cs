@@ -51,8 +51,11 @@ namespace BLADE
                 songSearch.SongURL = Regex.Match(song.ToString(), @"href=""(.*?)""").Value.Replace("href=", "").Replace('"', ' ').Trim();
                 songSearch.Singer = Regex.Match(song.ToString(), @"author"">(.*?)</div>").Value.Replace("author", "").Replace("</div>", "").Replace(">", "").Replace('"', ' ');
                 songSearch.SongTime = Regex.Match(song.ToString(), @"<small class=""time_stt"">(.*?)</small>").Value.Replace("<small class=", "").Replace("time_stt", "").Replace("</small>", "").Replace(">", "").Replace('"', ' ').Trim();
-                ucSongSearchDetail ucSongSearch = new ucSongSearchDetail(songSearch);
-                ucListSongSearch.Add(ucSongSearch);
+                if (songSearch.SongName != "" && songSearch.SongTime != "")
+                {
+                    ucSongSearchDetail ucSongSearch = new ucSongSearchDetail(songSearch);
+                    ucListSongSearch.Add(ucSongSearch);
+                }
             }
             return ucListSongSearch;
         }
@@ -86,7 +89,7 @@ namespace BLADE
             string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item"" href=(.*?)128kbps</span>(.*?)</a>").Value;
             string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)"" title").Value.Replace("href=", "").Replace("title", "").Replace('"', ' ').Trim();
             WebClient wc = new WebClient();
-            wc.DownloadFile(DownloadURL, sSave + "\\" +song.SongName + ".mp3");
+            wc.DownloadFile(DownloadURL, sSave + "\\" + song.SongName + ".mp3");
         }
     }
 }

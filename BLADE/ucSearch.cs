@@ -14,16 +14,20 @@ namespace BLADE
 {
     public partial class ucSearch : UserControl
     {
-        public event EventHandler SelectSong;
-
+        private bool _isSearch;
+        public bool IsSearch
+        {
+            get => _isSearch;
+            set => _isSearch = value;
+        }
         public ucSearch()
         {
             InitializeComponent();
-            pnlSearchTitle.Hide();
-            fpnlSongSearchView.Hide();
+            _isSearch = false;
         }
         public void ShowListSearch(List<ucSongSearchDetail> src)
         {
+            fpnlSongSearchView.Controls.Clear();
             foreach (var item in src)
             {
                 fpnlSongSearchView.Controls.Add(item);

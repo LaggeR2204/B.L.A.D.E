@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
 using WMPLib;
 using System.IO;
 using BLADE.xDialog;

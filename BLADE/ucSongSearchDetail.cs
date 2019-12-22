@@ -25,7 +25,6 @@ namespace BLADE
             get { return _song; }
             set { _song = value; }
         }
-        public event EventHandler SelectedSong;
         public ucSongSearchDetail()
         {
             InitializeComponent();
