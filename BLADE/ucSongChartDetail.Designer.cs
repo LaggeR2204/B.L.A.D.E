@@ -66,26 +66,25 @@
             this.lblTextPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTextPlays.AutoSize = true;
             this.lblTextPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextPlays.Location = new System.Drawing.Point(688, 10);
+            this.lblTextPlays.Location = new System.Drawing.Point(684, 10);
             this.lblTextPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblTextPlays.Name = "lblTextPlays";
-            this.lblTextPlays.Size = new System.Drawing.Size(40, 16);
+            this.lblTextPlays.Size = new System.Drawing.Size(57, 16);
             this.lblTextPlays.TabIndex = 5;
-            this.lblTextPlays.Text = "plays";
+            this.lblTextPlays.Text = "streams";
             this.lblTextPlays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNumberPlays
             // 
             this.lblNumberPlays.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNumberPlays.AutoSize = true;
             this.lblNumberPlays.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberPlays.Location = new System.Drawing.Point(628, 10);
+            this.lblNumberPlays.Location = new System.Drawing.Point(594, 10);
             this.lblNumberPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblNumberPlays.Name = "lblNumberPlays";
-            this.lblNumberPlays.Size = new System.Drawing.Size(60, 16);
+            this.lblNumberPlays.Size = new System.Drawing.Size(92, 16);
             this.lblNumberPlays.TabIndex = 6;
             this.lblNumberPlays.Text = "Number";
-            this.lblNumberPlays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNumberPlays.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnDownload
             // 
@@ -128,7 +127,7 @@
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Name = "ucSongChartDetail";
-            this.Size = new System.Drawing.Size(787, 40);
+            this.Size = new System.Drawing.Size(787, 44);
             this.MouseLeave += new System.EventHandler(this.ucSongChartDetail_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ucSongChartDetail_MouseHover);
             this.ResumeLayout(false);
