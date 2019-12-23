@@ -114,6 +114,12 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Converter\UcConverter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Converter\UcConverter.Designer.cs">
+      <DependentUpon>UcConverter.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrawlChart.cs" />
     <Compile Include="DrawChart\AveragePeakProvider.cs" />
     <Compile Include="DrawChart\DecibelPeakProvider.cs" />
@@ -254,6 +260,9 @@
     </Compile>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Converter\UcConverter.resx">
+      <DependentUpon>UcConverter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

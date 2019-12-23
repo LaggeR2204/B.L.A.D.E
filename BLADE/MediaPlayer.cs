@@ -191,7 +191,6 @@ namespace BLADE
             {
                 if (MediaEnded != null)
                     MediaEnded(this, new EventArgs());
-                _playbackState = PlaybackState.Stopped;
             }
 
         }

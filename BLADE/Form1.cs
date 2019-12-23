@@ -43,6 +43,7 @@ namespace BLADE
         }
         private void Init()
         {
+            picboxGif.Hide();
             // UcHome
             uc_NewHome.RecentlySelected += Uc_NewHome_RecentlySelected;
             //
