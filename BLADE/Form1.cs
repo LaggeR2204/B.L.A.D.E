@@ -191,6 +191,8 @@ namespace BLADE
             if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
                 uc_Queue.UpdateQueue(src.Song);
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
+            if (uc_MusicCutter.opname != null)
+                uc_MusicCutter.Pause();
         }
         public void ResetUIInfor()
         {
@@ -323,6 +325,8 @@ namespace BLADE
                     mediaPlayer.PlayInIndex(0);
                 return;
             }
+            if (uc_MusicCutter.opname!=null)
+            uc_MusicCutter.Pause();
             mediaPlayer.Play();
             timerSliderMusic.Start();
 
@@ -729,6 +733,8 @@ namespace BLADE
             mediaPlayer.AddSongToCurrentPlaylist(song);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
             mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(song));
+            if (uc_MusicCutter.opname != null)
+                uc_MusicCutter.Pause();
             btnPause.Show();
             btnPlay.Hide();
         }

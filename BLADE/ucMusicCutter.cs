@@ -18,7 +18,7 @@ namespace BLADE
     {
         int timeStart, hStart, mStart, sStart;
         int timeEnd, hEnd, mEnd, sEnd;
-        string opname;
+        public string opname;
         Timer timer;
         WaveOutEvent waveOut;
         Mp3FileReader mp3Reader;
@@ -89,35 +89,40 @@ namespace BLADE
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            hStart = System.Convert.ToInt32(txtStartHour.Text) * 360;
-            mStart = System.Convert.ToInt32(txtStartMinute.Text) * 60;
-            sStart = System.Convert.ToInt32(txtStartSecond.Text);
-            timeStart = hStart + mStart + sStart;
-            hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
-            mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
-            sEnd = System.Convert.ToInt32(txtEndSecond.Text);
-            timeEnd = hEnd + mEnd + sEnd;
-            if (timeStart >= timeEnd)
-                MsgBox.Show("End must be greater than begin", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            if (opname == null)
+                MsgBox.Show("You have to open a file first", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             else
             {
-                string name = string.Copy("");
-                SaveFileDialog save = new SaveFileDialog();
-                save.Filter = "Mp3 File|*.mp3;";
+                hStart = System.Convert.ToInt32(txtStartHour.Text) * 360;
+                mStart = System.Convert.ToInt32(txtStartMinute.Text) * 60;
+                sStart = System.Convert.ToInt32(txtStartSecond.Text);
+                timeStart = hStart + mStart + sStart;
+                hEnd = System.Convert.ToInt32(txtEndHour.Text) * 360;
+                mEnd = System.Convert.ToInt32(txtEndMinute.Text) * 60;
+                sEnd = System.Convert.ToInt32(txtEndSecond.Text);
+                timeEnd = hEnd + mEnd + sEnd;
+                if (timeStart >= timeEnd)
+                    MsgBox.Show("End must be greater than begin", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+                else
+                {
+                    string name = string.Copy("");
+                    SaveFileDialog save = new SaveFileDialog();
+                    save.Filter = "Mp3 File|*.mp3;";
 
-                if (save.ShowDialog() != DialogResult.OK) return;
+                    if (save.ShowDialog() != DialogResult.OK) return;
 
-                var mp3Path = opname;
-                var outputPath = Path.ChangeExtension(save.FileName, ".mp3");
+                    var mp3Path = opname;
+                    var outputPath = Path.ChangeExtension(save.FileName, ".mp3");
 
-                Mp3Cutter.TrimMp3(mp3Path, outputPath, timeStart, timeEnd);
+                    Mp3Cutter.TrimMp3(mp3Path, outputPath, timeStart, timeEnd);
+                }
             }
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
             if (opname == null)
-                MsgBox.Show("You have to open a file", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+                MsgBox.Show("You have to open a file first", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             else
             {
                 timer = new Timer();
@@ -203,17 +208,21 @@ namespace BLADE
         private void btnGetStartTime_Click(object sender, EventArgs e)
         {
             if (mp3Reader != null)
+            {
                 txtStartHour.Text = mp3Reader.CurrentTime.Hours.ToString();
-            txtStartMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
-            txtStartSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
+                txtStartMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
+                txtStartSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
+            }
         }
 
         private void btnGetEndTime_Click(object sender, EventArgs e)
         {
             if (mp3Reader != null)
+            {
                 txtEndHour.Text = mp3Reader.CurrentTime.Hours.ToString();
-            txtEndMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
-            txtEndSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
+                txtEndMinute.Text = mp3Reader.CurrentTime.Minutes.ToString();
+                txtEndSecond.Text = mp3Reader.CurrentTime.Seconds.ToString();
+            }
         }
     }
 
