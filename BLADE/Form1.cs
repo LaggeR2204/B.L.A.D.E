@@ -287,9 +287,15 @@ namespace BLADE
                     uc_Search.panelContainFpnl.Show();
                     uc_Search.panelContainFpnl.BringToFront();
                     uc_Search.lblTextSearch.Text = textbox.Text;
-                    List<ucSongSearchDetail> ListSongSearch = search.Search(textbox.Text);
-                    uc_Search.IsSearch = true;
-                    uc_Search.ShowListSearch(ListSongSearch);
+                    Action crawl = () =>
+                    {
+                        List<ucSongSearchDetail> ListSongSearch = search.Search(txtSearch.Text);
+                        uc_Search.IsSearch = true;
+                        uc_Search.ShowListSearch(ListSongSearch);
+                    };
+                    var thread = new Thread(
+                  () => this.Invoke(crawl));
+                    thread.Start();
                 }
                 else
                 {
@@ -297,7 +303,6 @@ namespace BLADE
                 }
             }
         }
-
         public bool IsConnectedToInternet()
         {
             try
@@ -326,8 +331,8 @@ namespace BLADE
                     mediaPlayer.PlayInIndex(0);
                 return;
             }
-            if (uc_MusicCutter.opname!=null)
-            uc_MusicCutter.Pause();
+            if (uc_MusicCutter.opname != null)
+                uc_MusicCutter.Pause();
             mediaPlayer.Play();
             timerSliderMusic.Start();
 
@@ -595,7 +600,7 @@ namespace BLADE
                     uc_Search.Show();
                     uc_Queue.Hide();
                     uc_Search.BringToFront();
-                    if(uc_Search.IsSearch)
+                    if (uc_Search.IsSearch)
                     {
                         uc_Search.pnlSearchTitle.Show();
                         uc_Search.panelContainFpnl.Show();
@@ -969,6 +974,10 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
+
+
 
 
 

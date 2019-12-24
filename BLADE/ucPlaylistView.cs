@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -87,7 +88,7 @@ namespace BLADE
         {
             bool result = _playlist.AddSong(src);
             if (!result)
-                MessageBox.Show("Bai hat da ton tai trong playlist!!!");
+                MsgBox.Show("This song is existed in current playlist!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
         }
         public void AddToFavorite(Song src)
         {
@@ -156,7 +157,7 @@ namespace BLADE
         {
             if(_playlist.Count == 0)
             {
-                MessageBox.Show("This playlist is empty");
+                MsgBox.Show("This playlist is empty!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                 return;
             }
             if (this.AllMusicPlayed != null)
@@ -167,7 +168,7 @@ namespace BLADE
         {
             OpenFileDialog openfileDialog = new OpenFileDialog();
             openfileDialog.InitialDirectory = "c:\\";
-            openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3;*.wav";
+            openfileDialog.Filter = "Video|*.mp4|Audio|*.mp3;*.wav;*.aac;*.wma";
             openfileDialog.FilterIndex = 2;
             openfileDialog.RestoreDirectory = true;
             openfileDialog.Multiselect = true;
@@ -177,18 +178,18 @@ namespace BLADE
                 foreach (string file in openfileDialog.FileNames)
                 {
                     FileInfo fileinfo = new FileInfo(file);
-                    if (fileinfo.Extension == ".mp3" || fileinfo.Extension == ".wav")
+                    if (fileinfo.Extension == ".mp3" || fileinfo.Extension == ".wav" || fileinfo.Extension == ".aac" || fileinfo.Extension == ".wma")
                     {
                         Song song = new Song(fileinfo);
                         if (!_playlist.AddSong(song))
                         {
-                            MessageBox.Show("Bai hat da ton tai trong playlist!!!");
+                            MsgBox.Show("This song is existed in current playlist", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                             return;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Day khong phai file audio");
+                        MsgBox.Show("This file is not audio file!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                     }
                 }
             }
