@@ -10,8 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 using NAudio.Wave;
 using System.Threading;
+using BLADE.xDialog;
 
-namespace TestNaudio
+namespace BLADE
 {
     public partial class UcConverter : UserControl
     {
@@ -98,14 +99,14 @@ namespace TestNaudio
                 default:
                     break;
             }
-            MessageBox.Show("DONE!!!");
+            MsgBox.Show("Done!!!", "Notification", MsgBox.Buttons.OK);
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
             if (txbSource.Text == "")
             {
-                MessageBox.Show("Source empty!!!");
+                MsgBox.Show("Source empty!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error);
                 return;
             }
             SaveFileDialog save = new SaveFileDialog();
@@ -143,6 +144,15 @@ namespace TestNaudio
                 thread.Start();
             }
            
+        }
+
+        private void UcConverter_SizeChanged(object sender, EventArgs e)
+        {
+            lblSongName.Size = new Size(this.Width - 514, lblSongName.Height);
+            lblSinger.Size = new Size(this.Width - 514, lblSinger.Height);
+            lblCategory.Size = new Size(this.Width - 547, lblCategory.Height);
+            txbSource.Size = new Size(this.Width - 417, txbSource.Size.Height);
+            pnlButton.Location = new Point((this.Width - pnlButton.Width) / 2, pnlButton.Location.Y);
         }
     }
 }

@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQueue));
             this.lblTextQueue = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.picbArtCover = new System.Windows.Forms.PictureBox();
             this.lbSongName = new System.Windows.Forms.Label();
             this.lbSongSinger = new System.Windows.Forms.Label();
             this.lbNowPlaying = new System.Windows.Forms.Label();
-            this.btnSongLoveOff = new System.Windows.Forms.Button();
-            this.btnSongLove = new System.Windows.Forms.Button();
             this.panelContainFPNL = new System.Windows.Forms.Panel();
             this.fpnlPlayback = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
+            this.btnSongLove = new System.Windows.Forms.Button();
+            this.btnSongLoveOff = new System.Windows.Forms.Button();
+            this.picbArtCover = new System.Windows.Forms.PictureBox();
             this.panelContainFPNL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTextQueue
@@ -66,17 +66,6 @@
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
-            // 
-            // picbArtCover
-            // 
-            this.picbArtCover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picbArtCover.Location = new System.Drawing.Point(510, 123);
-            this.picbArtCover.Name = "picbArtCover";
-            this.picbArtCover.Size = new System.Drawing.Size(273, 264);
-            this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbArtCover.TabIndex = 2;
-            this.picbArtCover.TabStop = false;
-            this.picbArtCover.WaitOnLoad = true;
             // 
             // lbSongName
             // 
@@ -109,32 +98,6 @@
             this.lbNowPlaying.TabIndex = 6;
             this.lbNowPlaying.Text = "Now Playing";
             // 
-            // btnSongLoveOff
-            // 
-            this.btnSongLoveOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSongLoveOff.FlatAppearance.BorderSize = 0;
-            this.btnSongLoveOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongLoveOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLoveOff.Image")));
-            this.btnSongLoveOff.Location = new System.Drawing.Point(510, 459);
-            this.btnSongLoveOff.Name = "btnSongLoveOff";
-            this.btnSongLoveOff.Size = new System.Drawing.Size(40, 40);
-            this.btnSongLoveOff.TabIndex = 3;
-            this.btnSongLoveOff.UseVisualStyleBackColor = true;
-            this.btnSongLoveOff.Click += new System.EventHandler(this.btnSongLoveOff_Click);
-            // 
-            // btnSongLove
-            // 
-            this.btnSongLove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSongLove.FlatAppearance.BorderSize = 0;
-            this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
-            this.btnSongLove.Location = new System.Drawing.Point(510, 459);
-            this.btnSongLove.Name = "btnSongLove";
-            this.btnSongLove.Size = new System.Drawing.Size(40, 40);
-            this.btnSongLove.TabIndex = 7;
-            this.btnSongLove.UseVisualStyleBackColor = true;
-            this.btnSongLove.Click += new System.EventHandler(this.btnSongLove_Click);
-            // 
             // panelContainFPNL
             // 
             this.panelContainFPNL.Controls.Add(this.fpnlPlayback);
@@ -153,6 +116,43 @@
             this.fpnlPlayback.Size = new System.Drawing.Size(784, 493);
             this.fpnlPlayback.TabIndex = 0;
             this.fpnlPlayback.WrapContents = false;
+            // 
+            // btnSongLove
+            // 
+            this.btnSongLove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSongLove.FlatAppearance.BorderSize = 0;
+            this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
+            this.btnSongLove.Location = new System.Drawing.Point(510, 459);
+            this.btnSongLove.Name = "btnSongLove";
+            this.btnSongLove.Size = new System.Drawing.Size(40, 40);
+            this.btnSongLove.TabIndex = 7;
+            this.btnSongLove.UseVisualStyleBackColor = true;
+            this.btnSongLove.Click += new System.EventHandler(this.btnSongLove_Click);
+            // 
+            // btnSongLoveOff
+            // 
+            this.btnSongLoveOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSongLoveOff.FlatAppearance.BorderSize = 0;
+            this.btnSongLoveOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSongLoveOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLoveOff.Image")));
+            this.btnSongLoveOff.Location = new System.Drawing.Point(510, 459);
+            this.btnSongLoveOff.Name = "btnSongLoveOff";
+            this.btnSongLoveOff.Size = new System.Drawing.Size(40, 40);
+            this.btnSongLoveOff.TabIndex = 3;
+            this.btnSongLoveOff.UseVisualStyleBackColor = true;
+            this.btnSongLoveOff.Click += new System.EventHandler(this.btnSongLoveOff_Click);
+            // 
+            // picbArtCover
+            // 
+            this.picbArtCover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picbArtCover.Location = new System.Drawing.Point(510, 123);
+            this.picbArtCover.Name = "picbArtCover";
+            this.picbArtCover.Size = new System.Drawing.Size(273, 264);
+            this.picbArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbArtCover.TabIndex = 2;
+            this.picbArtCover.TabStop = false;
+            this.picbArtCover.WaitOnLoad = true;
             // 
             // ucQueue
             // 
@@ -174,8 +174,8 @@
             this.Name = "ucQueue";
             this.Size = new System.Drawing.Size(787, 565);
             this.SizeChanged += new System.EventHandler(this.ucQueue_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).EndInit();
             this.panelContainFPNL.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

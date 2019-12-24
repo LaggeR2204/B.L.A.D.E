@@ -79,12 +79,11 @@
             // 
             // btnPlay
             // 
-            this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPlay.FlatAppearance.BorderSize = 0;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
-            this.btnPlay.Location = new System.Drawing.Point(374, 3);
+            this.btnPlay.Location = new System.Drawing.Point(40, 0);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(40, 40);
             this.btnPlay.TabIndex = 2;
@@ -96,7 +95,8 @@
             this.btnOpen.FlatAppearance.BorderSize = 0;
             this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
-            this.btnOpen.Location = new System.Drawing.Point(328, 3);
+            this.btnOpen.Location = new System.Drawing.Point(0, 0);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(0);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(40, 40);
             this.btnOpen.TabIndex = 2;
@@ -105,11 +105,11 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(420, 3);
+            this.btnSave.Location = new System.Drawing.Point(80, 0);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(40, 40);
             this.btnSave.TabIndex = 2;
@@ -129,13 +129,12 @@
             // 
             // btnStop
             // 
-            this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStop.BackgroundImage")));
             this.btnStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStop.FlatAppearance.BorderSize = 0;
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStop.Location = new System.Drawing.Point(374, 3);
+            this.btnStop.Location = new System.Drawing.Point(40, 0);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(0);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(40, 40);
             this.btnStop.TabIndex = 4;
@@ -193,13 +192,14 @@
             // 
             // lblRealTime
             // 
-            this.lblRealTime.AutoSize = true;
+            this.lblRealTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRealTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRealTime.Location = new System.Drawing.Point(358, 73);
+            this.lblRealTime.Location = new System.Drawing.Point(358, 63);
             this.lblRealTime.Name = "lblRealTime";
-            this.lblRealTime.Size = new System.Drawing.Size(86, 23);
+            this.lblRealTime.Size = new System.Drawing.Size(72, 21);
             this.lblRealTime.TabIndex = 13;
             this.lblRealTime.Text = "00:00:00";
+            this.lblRealTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtEndSecond
             // 
@@ -354,10 +354,10 @@
             this.pnlControls.Controls.Add(this.btnSave);
             this.pnlControls.Controls.Add(this.btnPlay);
             this.pnlControls.Controls.Add(this.btnStop);
-            this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlControls.Location = new System.Drawing.Point(0, 0);
+            this.pnlControls.Location = new System.Drawing.Point(331, 0);
+            this.pnlControls.Margin = new System.Windows.Forms.Padding(0);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(787, 46);
+            this.pnlControls.Size = new System.Drawing.Size(120, 40);
             this.pnlControls.TabIndex = 9;
             // 
             // picboxChart
@@ -371,7 +371,7 @@
             // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.picboxChart);
@@ -381,8 +381,8 @@
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Name = "ucMusicCutter";
             this.Size = new System.Drawing.Size(787, 565);
+            this.SizeChanged += new System.EventHandler(this.ucMusicCutter_SizeChanged);
             this.pnlSetTime.ResumeLayout(false);
-            this.pnlSetTime.PerformLayout();
             this.pnlControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picboxChart)).EndInit();
             this.ResumeLayout(false);

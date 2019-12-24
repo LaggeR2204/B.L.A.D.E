@@ -114,12 +114,6 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Converter\UcConverter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Converter\UcConverter.Designer.cs">
-      <DependentUpon>UcConverter.cs</DependentUpon>
-    </Compile>
     <Compile Include="CrawlChart.cs" />
     <Compile Include="DrawChart\AveragePeakProvider.cs" />
     <Compile Include="DrawChart\DecibelPeakProvider.cs" />
@@ -153,6 +147,12 @@
     </Compile>
     <Compile Include="ucChart.Designer.cs">
       <DependentUpon>ucChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcConverter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcConverter.Designer.cs">
+      <DependentUpon>UcConverter.cs</DependentUpon>
     </Compile>
     <Compile Include="ucNewHome.cs">
       <SubType>UserControl</SubType>
@@ -261,9 +261,6 @@
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Converter\UcConverter.resx">
-      <DependentUpon>UcConverter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucChart.resx">
       <DependentUpon>ucChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcConverter.resx">
+      <DependentUpon>UcConverter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucNewHome.resx">
       <DependentUpon>ucNewHome.cs</DependentUpon>
@@ -365,6 +365,7 @@
       <DependentUpon>Login.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\1kME.gif" />
+    <None Include="Resources\change_30px.png" />
     <Content Include="Resources\ezgif-6-7a88bb4ebc82head.gif" />
     <Content Include="Resources\music.jpg" />
     <Content Include="Resources\YdBO.gif" />
