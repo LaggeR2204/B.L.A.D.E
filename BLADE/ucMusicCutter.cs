@@ -153,6 +153,12 @@ namespace BLADE
 
         }
 
+        private void ucMusicCutter_SizeChanged(object sender, EventArgs e)
+        {
+            pnlControls.Location = new Point((this.Width - pnlControls.Width) / 2, pnlControls.Location.Y);
+            lblRealTime.Location = new Point((this.Width - lblRealTime.Width) / 2, lblRealTime.Location.Y);
+        }
+
         private void txtEndTimeOnValueChanged(object sender, EventArgs e)
         {
             int timeEnd, hEnd = this.hEnd, sEnd = this.sEnd, mEnd = this.mEnd;

@@ -7,6 +7,7 @@ using BLADE.xDialog;
 using System.Collections.Generic;
 using System.Threading;
 using System.Collections.Specialized;
+
 namespace BLADE
 {
     public partial class MainForm : Form
@@ -18,7 +19,7 @@ namespace BLADE
         private System.Windows.Forms.Timer timerSliderMusic;
         private bool isDrag = false;
         private System.Windows.Forms.Timer gifTimer;
-        public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch }
+        public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch, UcConverter}
         private event EventHandler ShowingStateChanged;
         private ShowingUC _showingUC;
         public ShowingUC ShowingUc
@@ -467,13 +468,13 @@ namespace BLADE
             {
                 if (isCollapsed)
                 {
-                    btnInfo.Top = 440;
+                    btnInfo.Top = 491;
                     pnlSelectedButton.Height = btnInfo.Height;
                     pnlSelectedButton.Top = btnInfo.Top;
                 }
                 else
                 {
-                    btnInfo.Top = 292;
+                    btnInfo.Top = 343;
                     pnlSelectedButton.Height = btnInfo.Height;
                     pnlSelectedButton.Top = btnInfo.Top;
                 }
@@ -482,11 +483,11 @@ namespace BLADE
             {
                 if (isCollapsed)
                 {
-                    btnInfo.Top = 440;
+                    btnInfo.Top = 491;
                 }
                 else
                 {
-                    btnInfo.Top = 292;
+                    btnInfo.Top = 343;
                 }
             }
 
@@ -527,6 +528,7 @@ namespace BLADE
                     uc_Playlist.Hide();
                     uc_Search.Hide();
                     uc_MusicCutter.Hide();
+                    uc_Converter.Hide();
                     uc_Queue.Hide();
                     uc_NewHome.Show();
                     uc_NewHome.BringToFront();
@@ -541,6 +543,7 @@ namespace BLADE
                     uc_NewHome.Hide();
                     uc_Queue.Hide();
                     uc_Search.Hide();
+                    uc_Converter.Hide();
                     uc_MusicCutter.Hide();
                     uc_Playlist.Show();
                     uc_Playlist.BringToFront();
@@ -561,10 +564,30 @@ namespace BLADE
                     uc_NewHome.Hide();
                     uc_Search.Hide();
                     uc_Queue.Hide();
+                    uc_Converter.Hide();
                     uc_MusicCutter.Hide();
                     lblTextBLADE.Hide();
                     uc_Info.Show();
                     uc_Info.BringToFront();
+                    break;
+                case ShowingUC.UcConverter:
+                    if (!isCollapsed)
+                    {
+                        btnTimer.PerformClick();
+                    }
+                    //set vi tri cho pnlSelectedButton
+                    pnlSelectedButton.Show();
+                    pnlSelectedButton.Height = btnConverter.Height;
+                    pnlSelectedButton.Top = btnConverter.Top;
+                    //cho user control ohu hop xuat hien
+                    uc_Info.Hide();
+                    uc_Playlist.Hide();
+                    uc_Search.Hide();
+                    uc_NewHome.Hide();
+                    uc_Queue.Hide();
+                    uc_MusicCutter.Hide();
+                    uc_Converter.Show();
+                    uc_Converter.BringToFront();
                     break;
                 case ShowingUC.UcMusicCutter:
                     if (!isCollapsed)
@@ -581,6 +604,7 @@ namespace BLADE
                     uc_Search.Hide();
                     uc_NewHome.Hide();
                     uc_Queue.Hide();
+                    uc_Converter.Hide();
                     uc_MusicCutter.Show();
                     uc_MusicCutter.BringToFront();
                     break;
@@ -594,6 +618,7 @@ namespace BLADE
                     uc_MusicCutter.Hide();
                     uc_Search.Show();
                     uc_Queue.Hide();
+                    uc_Converter.Hide();
                     uc_Search.BringToFront();
                     if(uc_Search.IsSearch)
                     {
@@ -610,6 +635,16 @@ namespace BLADE
                     break;
             }
         }
+
+        private void btnConverter_Click(object sender, EventArgs e)
+        {
+
+            if (_showingUC != ShowingUC.UcConverter)
+            {
+                ShowingUc = ShowingUC.UcConverter;
+            }
+        }
+
         private void btnMusicCutter_Click(object sender, EventArgs e)
         {
 
