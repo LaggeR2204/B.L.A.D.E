@@ -16,21 +16,22 @@ namespace BLADE
 {
     public partial class UcConverter : UserControl
     {
-        private enum ConvertType { ToMp3, ToWAV, ToAAC, ToWMA };
+        private enum ConvertType { ToMP3, ToWAV, ToAAC, ToWMA };
         private ConvertType type;
         private string desPath;
         private FileInfo fileSource;
         public UcConverter()
         {
             InitializeComponent();
-            type = ConvertType.ToMp3;
+            type = ConvertType.ToMP3;
             lbTitle.Text = "Convert To MP3";
             btnToMp3.BackColor = Color.FromArgb(0, 192, 192);
+            panelInfo.Hide();
         }
 
         private void btnToMp3_Click(object sender, EventArgs e)
         {
-            type = ConvertType.ToMp3;
+            type = ConvertType.ToMP3;
             lbTitle.Text = "Convert To MP3";
             btnToMp3.BackColor = Color.FromArgb(0, 192, 192);
             btnToAac.BackColor = Color.FromArgb(40, 40, 40);
@@ -77,6 +78,9 @@ namespace BLADE
             {
                 fileSource = new FileInfo(op.FileName);
                 txbSource.Text = fileSource.FullName;
+                Song sourceSong = new Song();
+                sourceSong.GetSongInfo(fileSource);
+                UpdateInfo(sourceSong);
             }
         }
         private void Convert()
@@ -84,7 +88,7 @@ namespace BLADE
             var reader = new MediaFoundationReader(fileSource.FullName);
             switch (type)
             {
-                case ConvertType.ToMp3:
+                case ConvertType.ToMP3:
                     MediaFoundationEncoder.EncodeToMp3(reader, desPath);
                     break;
                 case ConvertType.ToAAC:
@@ -99,19 +103,19 @@ namespace BLADE
                 default:
                     break;
             }
-            MsgBox.Show("Done!!!", "Notification", MsgBox.Buttons.OK);
+            MsgBox.Show("Convert Completed!!!", "Notification", MsgBox.Buttons.OK);
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
             if (txbSource.Text == "")
             {
-                MsgBox.Show("Source empty!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error);
+                MsgBox.Show("Source is empty!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error);
                 return;
             }
             SaveFileDialog save = new SaveFileDialog();
             string ext;
-            if (type == ConvertType.ToMp3)
+            if (type == ConvertType.ToMP3)
                 ext = ".mp3";
             else if (type == ConvertType.ToAAC)
                 ext = ".aac";
@@ -119,14 +123,20 @@ namespace BLADE
                 ext = ".wma";
             else
                 ext = ".wav";
+            if(fileSource.Extension == ext)
+            {
+                MsgBox.Show("Result file's format must be different from source file!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error);
+                return;
+            }
             save.Filter = string.Format("Audio|{0}", ext);
             save.FileName = Path.GetFileNameWithoutExtension(fileSource.Name);
-            if(save.ShowDialog() == DialogResult.OK)
+            if (save.ShowDialog() == DialogResult.OK)
             {
                 desPath = save.FileName;
                 Action onCompleted = () =>
                 {
                     txbSource.Clear();
+                    panelInfo.Hide();
                 };
 
                 var thread = new Thread(
@@ -143,7 +153,7 @@ namespace BLADE
                   });
                 thread.Start();
             }
-           
+
         }
 
         private void UcConverter_SizeChanged(object sender, EventArgs e)
@@ -153,6 +163,15 @@ namespace BLADE
             lblCategory.Size = new Size(this.Width - 547, lblCategory.Height);
             txbSource.Size = new Size(this.Width - 417, txbSource.Size.Height);
             pnlButton.Location = new Point((this.Width - pnlButton.Width) / 2, pnlButton.Location.Y);
+        }
+
+        private void UpdateInfo(Song song)
+        {
+            picSong.Image = song.SongImage;
+            lblCategory.Text = song.Genre;
+            lblSinger.Text = song.Singer;
+            lblSongName.Text = song.SongName;
+            panelInfo.Show();
         }
     }
 }

@@ -46,8 +46,10 @@
             this.lblSongName = new System.Windows.Forms.Label();
             this.lblSinger = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
+            this.panelInfo = new System.Windows.Forms.Panel();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSong)).BeginInit();
+            this.panelInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnToMp3
@@ -143,7 +145,7 @@
             this.lbSource.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbSource.Location = new System.Drawing.Point(113, 350);
             this.lbSource.Name = "lbSource";
-            this.lbSource.Size = new System.Drawing.Size(93, 20);
+            this.lbSource.Size = new System.Drawing.Size(112, 22);
             this.lbSource.TabIndex = 5;
             this.lbSource.Text = "Source file :";
             // 
@@ -153,7 +155,7 @@
             this.txbSource.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSource.Location = new System.Drawing.Point(212, 350);
             this.txbSource.Name = "txbSource";
-            this.txbSource.Size = new System.Drawing.Size(370, 20);
+            this.txbSource.Size = new System.Drawing.Size(370, 25);
             this.txbSource.TabIndex = 6;
             // 
             // btnOpenFile
@@ -207,9 +209,10 @@
             // 
             // picSong
             // 
-            this.picSong.Location = new System.Drawing.Point(116, 122);
+            this.picSong.Location = new System.Drawing.Point(133, 10);
             this.picSong.Name = "picSong";
             this.picSong.Size = new System.Drawing.Size(195, 195);
+            this.picSong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSong.TabIndex = 10;
             this.picSong.TabStop = false;
             // 
@@ -217,18 +220,18 @@
             // 
             this.lblTextSongNam.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextSongNam.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTextSongNam.Location = new System.Drawing.Point(340, 123);
+            this.lblTextSongNam.Location = new System.Drawing.Point(341, 45);
             this.lblTextSongNam.Name = "lblTextSongNam";
             this.lblTextSongNam.Size = new System.Drawing.Size(54, 27);
             this.lblTextSongNam.TabIndex = 11;
-            this.lblTextSongNam.Text = "Title :";
+            this.lblTextSongNam.Text = "Name:";
             this.lblTextSongNam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTextSinger
             // 
             this.lblTextSinger.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextSinger.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTextSinger.Location = new System.Drawing.Point(340, 168);
+            this.lblTextSinger.Location = new System.Drawing.Point(341, 90);
             this.lblTextSinger.Name = "lblTextSinger";
             this.lblTextSinger.Size = new System.Drawing.Size(54, 27);
             this.lblTextSinger.TabIndex = 11;
@@ -239,7 +242,7 @@
             // 
             this.lblTextCategory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextCategory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTextCategory.Location = new System.Drawing.Point(340, 209);
+            this.lblTextCategory.Location = new System.Drawing.Point(341, 131);
             this.lblTextCategory.Name = "lblTextCategory";
             this.lblTextCategory.Size = new System.Drawing.Size(87, 27);
             this.lblTextCategory.TabIndex = 11;
@@ -250,7 +253,7 @@
             // 
             this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSongName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblSongName.Location = new System.Drawing.Point(400, 123);
+            this.lblSongName.Location = new System.Drawing.Point(434, 45);
             this.lblSongName.Name = "lblSongName";
             this.lblSongName.Size = new System.Drawing.Size(273, 27);
             this.lblSongName.TabIndex = 11;
@@ -260,7 +263,7 @@
             // 
             this.lblSinger.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinger.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblSinger.Location = new System.Drawing.Point(400, 168);
+            this.lblSinger.Location = new System.Drawing.Point(434, 90);
             this.lblSinger.Name = "lblSinger";
             this.lblSinger.Size = new System.Drawing.Size(273, 27);
             this.lblSinger.TabIndex = 11;
@@ -270,24 +273,32 @@
             // 
             this.lblCategory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblCategory.Location = new System.Drawing.Point(433, 209);
+            this.lblCategory.Location = new System.Drawing.Point(434, 131);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(240, 27);
             this.lblCategory.TabIndex = 11;
             this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panelInfo
+            // 
+            this.panelInfo.Controls.Add(this.picSong);
+            this.panelInfo.Controls.Add(this.lblTextCategory);
+            this.panelInfo.Controls.Add(this.lblTextSongNam);
+            this.panelInfo.Controls.Add(this.lblTextSinger);
+            this.panelInfo.Controls.Add(this.lblSongName);
+            this.panelInfo.Controls.Add(this.lblCategory);
+            this.panelInfo.Controls.Add(this.lblSinger);
+            this.panelInfo.Location = new System.Drawing.Point(0, 112);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(784, 225);
+            this.panelInfo.TabIndex = 12;
+            // 
             // UcConverter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.lblTextCategory);
-            this.Controls.Add(this.lblTextSinger);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.lblSinger);
-            this.Controls.Add(this.lblSongName);
-            this.Controls.Add(this.lblTextSongNam);
-            this.Controls.Add(this.picSong);
+            this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnOpenFile);
@@ -300,6 +311,7 @@
             this.SizeChanged += new System.EventHandler(this.UcConverter_SizeChanged);
             this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picSong)).EndInit();
+            this.panelInfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +336,6 @@
         private System.Windows.Forms.Label lblSongName;
         private System.Windows.Forms.Label lblSinger;
         private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Panel panelInfo;
     }
 }
