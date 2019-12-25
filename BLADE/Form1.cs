@@ -278,7 +278,7 @@ namespace BLADE
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && txtSearch.Text != "")
             {
                 if (IsConnectedToInternet())
                 {
@@ -448,11 +448,20 @@ namespace BLADE
             UcDropdownTime.Start();
             if (!isUcCollapsed)
             {
+                txtHour.Hide();
+                txtMinute.Hide();
+                txtSecond.Hide();
+                btnSetCustomTime.Hide();
+                btnSetCustomTime.Enabled = false;
                 btnCollapse.Image = BLADE.Properties.Resources.angle_right_24px;
                 lblTextBLADE.Hide();
             }
             else
             {
+                txtHour.Show();
+                txtMinute.Show();
+                txtSecond.Show();
+                btnSetCustomTime.Show();
                 btnCollapse.Image = BLADE.Properties.Resources.angle_left_24px;
                 lblTextBLADE.Show();
             }
