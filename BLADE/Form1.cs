@@ -42,7 +42,7 @@ namespace BLADE
             tltMainform.SetToolTip(btnPause, "Pause");
             tltMainform.SetToolTip(btnNext, "Next");
             tltMainform.SetToolTip(btnPrev, "Previous");
-            tltMainform.SetToolTip(btnQueue, "Queue");
+            tltMainform.SetToolTip(btnQueue, "Playback");
             tltMainform.SetToolTip(btnVolume, "Unmute");
             tltMainform.SetToolTip(btnVolumeOff, "Mute");
             tltMainform.SetToolTip(btnShuffle, "Shuffle");
