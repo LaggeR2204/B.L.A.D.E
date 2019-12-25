@@ -36,11 +36,11 @@
             this.lblTimeSVD = new System.Windows.Forms.Label();
             this.ctxtmsSong = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToPlaybackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openLocalFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSongLoveOff = new System.Windows.Forms.Button();
             this.btnSongLove = new System.Windows.Forms.Button();
             this.btnSongMenu = new System.Windows.Forms.Button();
-            this.openLocalFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxtmsSong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             this.lblSongNameSVD.AutoSize = true;
             this.lblSongNameSVD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongNameSVD.Location = new System.Drawing.Point(40, 11);
+            this.lblSongNameSVD.Location = new System.Drawing.Point(46, 11);
             this.lblSongNameSVD.MaximumSize = new System.Drawing.Size(171, 16);
             this.lblSongNameSVD.Name = "lblSongNameSVD";
             this.lblSongNameSVD.Size = new System.Drawing.Size(106, 16);
@@ -105,7 +105,7 @@
             this.ctxtmsSong.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ctxtmsSong.ShowImageMargin = false;
             this.ctxtmsSong.ShowItemToolTips = false;
-            this.ctxtmsSong.Size = new System.Drawing.Size(198, 110);
+            this.ctxtmsSong.Size = new System.Drawing.Size(198, 82);
             // 
             // addToPlaybackToolStripMenuItem
             // 
@@ -115,6 +115,15 @@
             this.addToPlaybackToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.addToPlaybackToolStripMenuItem.Text = "Add To Playback";
             this.addToPlaybackToolStripMenuItem.Click += new System.EventHandler(this.addToPlaybackToolStripMenuItem_Click);
+            // 
+            // openLocalFileToolStripMenuItem
+            // 
+            this.openLocalFileToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openLocalFileToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.openLocalFileToolStripMenuItem.Name = "openLocalFileToolStripMenuItem";
+            this.openLocalFileToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.openLocalFileToolStripMenuItem.Text = "Open Local File";
+            this.openLocalFileToolStripMenuItem.Click += new System.EventHandler(this.openLocalFileToolStripMenuItem_Click);
             // 
             // deleteSongToolStripMenuItem
             // 
@@ -161,15 +170,6 @@
             this.btnSongMenu.TabIndex = 0;
             this.btnSongMenu.UseVisualStyleBackColor = true;
             this.btnSongMenu.Click += new System.EventHandler(this.BtnSongMenu_Click);
-            // 
-            // openLocalFileToolStripMenuItem
-            // 
-            this.openLocalFileToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openLocalFileToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.openLocalFileToolStripMenuItem.Name = "openLocalFileToolStripMenuItem";
-            this.openLocalFileToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
-            this.openLocalFileToolStripMenuItem.Text = "Open Local File";
-            this.openLocalFileToolStripMenuItem.Click += new System.EventHandler(this.openLocalFileToolStripMenuItem_Click);
             // 
             // ucSongViewDetail
             // 

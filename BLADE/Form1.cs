@@ -366,7 +366,7 @@ namespace BLADE
         private void btnVolume_Click(object sender, EventArgs e)
         {
             SliderVolume.Enabled = true;
-            mediaPlayer.SetVolume((float)SliderVolume.Value / 10f);
+            mediaPlayer.SetVolume((float)SliderVolume.Value / 100f);
             SliderVolume.ElapsedColor = Color.FromArgb(0, 192, 192);
             btnVolumeOff.Show();
         }

@@ -26,6 +26,7 @@ namespace BLADE
         {
             InitializeComponent();
             _song = new Song();
+            Init();
         }
 
         public ucSongChartDetail(Song src)
@@ -48,18 +49,26 @@ namespace BLADE
             {
                 lblNumber.ForeColor = Color.Blue;
             }
+            Init();
         }
-
-        private void ucSongChartDetail_MouseHover(object sender, EventArgs e)
+        private void Init()
         {
-            this.BackColor = Color.FromArgb(50, 50, 50);
+            lblNumber.MouseMove += (s, e) => OnMouseMove(e);
+            lblArtistSCD.MouseMove += (s, e) => OnMouseMove(e);
+            lblNumberPlays.MouseMove += (s, e) => OnMouseMove(e);
+            lblSongNameSCD.MouseMove += (s, e) => OnMouseMove(e);
+            lblTextPlays.MouseMove += (s, e) => OnMouseMove(e);
         }
-
-        private void ucSongChartDetail_MouseLeave(object sender, EventArgs e)
+        protected override void OnMouseLeave(EventArgs e)
         {
             this.BackColor = Color.FromArgb(40, 40, 40);
+            base.OnMouseLeave(e);
         }
-
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            this.BackColor = Color.FromArgb(50, 50, 50);
+            base.OnMouseMove(e);
+        }
         private void btnDownload_Click(object sender, EventArgs e)
         {
             if (IsConnectedToInternet())
