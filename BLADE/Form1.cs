@@ -38,9 +38,18 @@ namespace BLADE
         public MainForm()
         {
             InitializeComponent();
+            tltMainform.SetToolTip(btnPlay, "Play");
+            tltMainform.SetToolTip(btnPause, "Pause");
+            tltMainform.SetToolTip(btnNext, "Next");
+            tltMainform.SetToolTip(btnPrev, "Previous");
+            tltMainform.SetToolTip(btnQueue, "Queue");
+            tltMainform.SetToolTip(btnVolume, "Unmute");
+            tltMainform.SetToolTip(btnVolumeOff, "Mute");
+            tltMainform.SetToolTip(btnShuffle, "Shuffle");
+            tltMainform.SetToolTip(btnRepeat, "Loop");
+            tltMainform.SetToolTip(btnLoop, "Repeat");
+            tltMainform.SetToolTip(lblUserName, "Profile");
             Init();
-            //timerChangeColorBLADE.Enabled = false;
-            //timerTime.Enabled = false;
         }
         private void Init()
         {

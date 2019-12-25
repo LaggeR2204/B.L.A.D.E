@@ -15,6 +15,11 @@ namespace BLADE
         public ucInfo()
         {
             InitializeComponent();
+            tltInfo.SetToolTip(btnVTB, "www.facebook.com/22lagger");
+            tltInfo.SetToolTip(btnPQA, "www.facebook.com/anomg0210");
+            tltInfo.SetToolTip(btnBHL, "www.facebook.com/suou.ryuuji");
+            tltInfo.SetToolTip(btnTHMD, "www.facebook.com/profile.php?id=100004523919872");
+            tltInfo.SetToolTip(lblInfoBLADE, "Nhóm gồm 4 thanh niên đẹp trai thật sự !!!");
         }
 
         private void btnVTB_MouseHover(object sender, EventArgs e)

@@ -120,6 +120,7 @@ namespace BLADE
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
+            this.tltMainform = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMusicControl.SuspendLayout();
             this.pnlSongInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtCover)).BeginInit();
@@ -1474,6 +1475,7 @@ namespace BLADE
         private System.Windows.Forms.PictureBox picboxGif;
         private ucNewHome uc_NewHome;
         private UcConverter uc_Converter;
+        private System.Windows.Forms.ToolTip tltMainform;
     }
 }
 

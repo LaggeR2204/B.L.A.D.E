@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPlaylist));
             this.Slider = new Bunifu.Framework.UI.BunifuSeparator();
             this.pnlTitle = new System.Windows.Forms.Panel();
@@ -42,6 +43,7 @@
             this.pnlListSong = new System.Windows.Forms.Panel();
             this.panelContainSongView = new System.Windows.Forms.Panel();
             this.panelContainPlaylistView = new System.Windows.Forms.Panel();
+            this.tltPlaylist = new System.Windows.Forms.ToolTip(this.components);
             this.pnlTitle.SuspendLayout();
             this.pnlListSong.SuspendLayout();
             this.panelContainSongView.SuspendLayout();
@@ -241,5 +243,6 @@
         private System.Windows.Forms.Panel pnlListSong;
         private System.Windows.Forms.Panel panelContainSongView;
         private System.Windows.Forms.Panel panelContainPlaylistView;
+        private System.Windows.Forms.ToolTip tltPlaylist;
     }
 }
