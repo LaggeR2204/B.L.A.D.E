@@ -64,10 +64,7 @@ namespace BLADE
         {
             if (IsConnectedToInternet())
             {
-                ThreadStart st = new ThreadStart(DownloadSong);
-                Thread thrd = new Thread(st);
-                thrd.IsBackground = true;
-                thrd.Start();
+                chart.Download(_song.SongName, _song.SongURL);
             }
             else
             {
@@ -86,12 +83,6 @@ namespace BLADE
             {
                 return false;
             }
-        }
-
-        private void DownloadSong()
-        {
-            chart.Download(_song.SongName, _song.SongURL);
-            MsgBox.Show("The download is complete", "NOTIFICATION" , MsgBox.Buttons.OK,MsgBox.Icon.Info, MsgBox.AnimateStyle.FadeIn);
         }
     }
 }
