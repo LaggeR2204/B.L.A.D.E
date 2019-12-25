@@ -23,6 +23,7 @@ namespace BLADE
         public UcConverter()
         {
             InitializeComponent();
+            tltConverter.SetToolTip(btnOpenFile, "Open file");
             type = ConvertType.ToMP3;
             lbTitle.Text = "Convert To MP3";
             btnToMp3.BackColor = Color.FromArgb(0, 192, 192);

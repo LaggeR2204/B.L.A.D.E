@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucInfo));
             this.btnVTB = new System.Windows.Forms.Button();
             this.btnTHMD = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.btnBHL = new System.Windows.Forms.Button();
             this.lblInfoBLADE = new Bunifu.UI.WinForms.BunifuLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.tltInfo = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -185,5 +187,6 @@
         private System.Windows.Forms.Button btnBHL;
         private Bunifu.UI.WinForms.BunifuLabel lblInfoBLADE;
         private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.ToolTip tltInfo;
     }
 }

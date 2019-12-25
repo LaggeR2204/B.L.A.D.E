@@ -6,11 +6,13 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AxWMPLib;
 using WMPLib;
 using xNet;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -85,11 +87,23 @@ namespace BLADE
 
         public void Download(string songName, string songURL)
         {
-            string htmlsong = FindFromURL(songURL);
-            string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item(.*?)128kbps").Value;
-            string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)""\stitle=").Value.Replace("href=", "").Replace("title=", "").Replace('"', ' ').Trim();
-            WebClient wc = new WebClient();
-            wc.DownloadFile(DownloadURL, sSave + "\\" + songName + ".mp3");
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = string.Format("Audio|{0}", ".mp3");
+            save.FileName = songName;
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                var thread = new Thread(
+                  () =>
+                  {
+                      string htmlsong = FindFromURL(songURL);
+                      string htmlDownloadURL = Regex.Match(htmlsong, @"<a class=""download_item(.*?)128kbps").Value;
+                      string DownloadURL = Regex.Match(htmlDownloadURL, @"href=""(.*?)""\stitle=").Value.Replace("href=", "").Replace("title=", "").Replace('"', ' ').Trim();
+                      WebClient wc = new WebClient();
+                      wc.DownloadFile(DownloadURL, save.FileName);
+                      MsgBox.Show("The download is complete !!!", "NOTIFICATION", MsgBox.Buttons.OK, MsgBox.Icon.Info, MsgBox.AnimateStyle.FadeIn);
+                  });
+                thread.Start();
+            }
         }
     }
 }

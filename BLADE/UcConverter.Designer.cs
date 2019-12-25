@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcConverter));
             this.btnToMp3 = new System.Windows.Forms.Button();
             this.btnToWav = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.lblSinger = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.tltConverter = new System.Windows.Forms.ToolTip(this.components);
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSong)).BeginInit();
             this.panelInfo.SuspendLayout();
@@ -145,7 +147,7 @@
             this.lbSource.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbSource.Location = new System.Drawing.Point(113, 350);
             this.lbSource.Name = "lbSource";
-            this.lbSource.Size = new System.Drawing.Size(112, 22);
+            this.lbSource.Size = new System.Drawing.Size(93, 20);
             this.lbSource.TabIndex = 5;
             this.lbSource.Text = "Source file :";
             // 
@@ -155,7 +157,7 @@
             this.txbSource.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSource.Location = new System.Drawing.Point(212, 350);
             this.txbSource.Name = "txbSource";
-            this.txbSource.Size = new System.Drawing.Size(370, 25);
+            this.txbSource.Size = new System.Drawing.Size(370, 20);
             this.txbSource.TabIndex = 6;
             // 
             // btnOpenFile
@@ -295,7 +297,7 @@
             // 
             // UcConverter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.panelInfo);
@@ -337,5 +339,6 @@
         private System.Windows.Forms.Label lblSinger;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Panel panelInfo;
+        private System.Windows.Forms.ToolTip tltConverter;
     }
 }

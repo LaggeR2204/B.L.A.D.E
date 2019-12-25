@@ -40,7 +40,7 @@ namespace BLADE
 
             if (txtPassword.Text == "")
             {
-                txtPassword.PasswordChar = '*';
+                txtPassword.PasswordChar = '\0';
             }
         }
 

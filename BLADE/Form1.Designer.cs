@@ -98,8 +98,6 @@ namespace BLADE
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.volumeUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.volumeDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +118,7 @@ namespace BLADE
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.UcDropdownTime = new System.Windows.Forms.Timer(this.components);
+            this.tltMainform = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMusicControl.SuspendLayout();
             this.pnlSongInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArtCover)).BeginInit();
@@ -1081,9 +1080,7 @@ namespace BLADE
             this.playToolStripMenuItem,
             this.pauseToolStripMenuItem,
             this.nextToolStripMenuItem,
-            this.previousToolStripMenuItem,
-            this.volumeUpToolStripMenuItem,
-            this.volumeDownToolStripMenuItem});
+            this.previousToolStripMenuItem,});
             this.playbackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
             this.playbackToolStripMenuItem.ShowShortcutKeys = false;
@@ -1125,22 +1122,6 @@ namespace BLADE
             this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.previousToolStripMenuItem.Text = "Previous";
             this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
-            // 
-            // volumeUpToolStripMenuItem
-            // 
-            this.volumeUpToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.volumeUpToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.volumeUpToolStripMenuItem.Name = "volumeUpToolStripMenuItem";
-            this.volumeUpToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.volumeUpToolStripMenuItem.Text = "Volume up";
-            // 
-            // volumeDownToolStripMenuItem
-            // 
-            this.volumeDownToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.volumeDownToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
-            this.volumeDownToolStripMenuItem.Name = "volumeDownToolStripMenuItem";
-            this.volumeDownToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.volumeDownToolStripMenuItem.Text = "Volume down";
             // 
             // accountToolStripMenuItem
             // 
@@ -1439,8 +1420,6 @@ namespace BLADE
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem previousToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem volumeUpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem volumeDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         public System.Windows.Forms.Panel pnlControl;
         private System.Windows.Forms.Label lblCountdown;
@@ -1474,6 +1453,7 @@ namespace BLADE
         private System.Windows.Forms.PictureBox picboxGif;
         private ucNewHome uc_NewHome;
         private UcConverter uc_Converter;
+        private System.Windows.Forms.ToolTip tltMainform;
     }
 }
 

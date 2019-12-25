@@ -27,6 +27,7 @@ namespace BLADE
         public ucPlaylist()
         {
             InitializeComponent();
+            tltPlaylist.SetToolTip(btnAddPlaylist, "Add a playlist");
             Init();
         }
         private void Init()
