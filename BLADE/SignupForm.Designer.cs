@@ -379,7 +379,7 @@
             this.lblFailed.AutoSize = false;
             this.lblFailed.CursorType = null;
             this.lblFailed.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.lblFailed.ForeColor = System.Drawing.Color.Red;
+            this.lblFailed.ForeColor = System.Drawing.Color.Yellow;
             this.lblFailed.Location = new System.Drawing.Point(55, 226);
             this.lblFailed.Name = "lblFailed";
             this.lblFailed.RightToLeft = System.Windows.Forms.RightToLeft.No;

@@ -78,7 +78,7 @@ namespace BLADE
             }
             else
             {
-                lblFailed.ForeColor = Color.Red;
+                lblFailed.ForeColor = Color.Yellow;
                 lblFailed.Text = "Update password failed.";
                 lblFailed.Show();
 
@@ -95,7 +95,7 @@ namespace BLADE
 
             if (newpass != cfmnewpass)
             {
-                lblFailed.ForeColor = Color.Red;
+                lblFailed.ForeColor = Color.Yellow;
                 lblFailed.Text = "New password and confirm must be same.";
                 lblFailed.Show();
 
@@ -103,7 +103,7 @@ namespace BLADE
             }
             else if (password == newpass)
             {
-                lblFailed.ForeColor = Color.Red;
+                lblFailed.ForeColor = Color.Yellow;
                 lblFailed.Text = "Change to the same thing? Are you serious?";
                 lblFailed.Show();
 
