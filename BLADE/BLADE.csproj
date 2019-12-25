@@ -160,12 +160,6 @@
     <Compile Include="ucNewHome.Designer.cs">
       <DependentUpon>ucNewHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucNowPlaying.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucNowPlaying.Designer.cs">
-      <DependentUpon>ucNowPlaying.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucSongChartDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucMusicCutter.resx">
       <DependentUpon>ucMusicCutter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucNowPlaying.resx">
-      <DependentUpon>ucNowPlaying.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPlaylist.resx">
       <DependentUpon>ucPlaylist.cs</DependentUpon>

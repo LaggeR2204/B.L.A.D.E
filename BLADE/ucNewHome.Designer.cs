@@ -43,11 +43,10 @@
             // 
             // picBackGround
             // 
-            this.picBackGround.Dock = System.Windows.Forms.DockStyle.Top;
             this.picBackGround.Image = ((System.Drawing.Image)(resources.GetObject("picBackGround.Image")));
             this.picBackGround.Location = new System.Drawing.Point(0, 0);
             this.picBackGround.Name = "picBackGround";
-            this.picBackGround.Size = new System.Drawing.Size(787, 239);
+            this.picBackGround.Size = new System.Drawing.Size(943, 239);
             this.picBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackGround.TabIndex = 0;
             this.picBackGround.TabStop = false;

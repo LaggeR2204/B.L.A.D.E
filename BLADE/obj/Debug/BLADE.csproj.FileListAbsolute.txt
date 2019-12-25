@@ -26,7 +26,6 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucChart.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucNewHome.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucInfo.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucMusicCutter.resources
-D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucNowPlaying.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylist.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucPlaylistView.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ucQueue.resources
