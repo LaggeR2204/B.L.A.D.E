@@ -47,8 +47,6 @@
             this.lblSongNameSSD.TabIndex = 2;
             this.lblSongNameSSD.Text = "Some Name";
             this.lblSongNameSSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSongNameSSD.MouseLeave += new System.EventHandler(this.ucSongSearchDetail_MouseLeave);
-            this.lblSongNameSSD.MouseHover += new System.EventHandler(this.ucSongSearchDetail_MouseHover);
             // 
             // lblArtistSSD
             // 
@@ -61,8 +59,6 @@
             this.lblArtistSSD.TabIndex = 3;
             this.lblArtistSSD.Text = "Artist";
             this.lblArtistSSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblArtistSSD.MouseLeave += new System.EventHandler(this.ucSongSearchDetail_MouseLeave);
-            this.lblArtistSSD.MouseHover += new System.EventHandler(this.ucSongSearchDetail_MouseHover);
             // 
             // lblNumberPlays
             // 
@@ -119,8 +115,6 @@
             this.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Name = "ucSongSearchDetail";
             this.Size = new System.Drawing.Size(767, 60);
-            this.MouseLeave += new System.EventHandler(this.ucSongSearchDetail_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.ucSongSearchDetail_MouseHover);
             this.ResumeLayout(false);
             this.PerformLayout();
 

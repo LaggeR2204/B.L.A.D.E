@@ -29,6 +29,7 @@ namespace BLADE
         {
             InitializeComponent();
             _song = new Song();
+            Init();
         }
 
         public ucSongSearchDetail(Song src)
@@ -38,18 +39,27 @@ namespace BLADE
             lblSongNameSSD.Text = _song.SongName;
             lblArtistSSD.Text = _song.Singer;
             lblNumberPlays.Text = _song.SongTime;
+            Init();
+
+        }
+        private void Init()
+        {
+            lblArtistSSD.MouseMove += (s, e) => OnMouseMove(e);
+            lblNumberPlays.MouseMove += (s, e) => OnMouseMove(e);
+            lblSongNameSSD.MouseMove += (s, e) => OnMouseMove(e);
+            lblTextPlays.MouseMove += (s, e) => OnMouseMove(e);
         }
 
-        private void ucSongSearchDetail_MouseHover(object sender, EventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
+            base.OnMouseMove(e);
         }
-
-        private void ucSongSearchDetail_MouseLeave(object sender, EventArgs e)
+        protected override void OnMouseLeave(EventArgs e)
         {
             this.BackColor = Color.FromArgb(40, 40, 40);
+            base.OnMouseLeave(e);
         }
-
         private void btnDownload_Click(object sender, EventArgs e)
         {
             if (IsConnectedToInternet())

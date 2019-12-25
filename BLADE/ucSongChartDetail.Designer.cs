@@ -44,7 +44,7 @@
             this.lblSongNameSCD.Location = new System.Drawing.Point(47, 10);
             this.lblSongNameSCD.MaximumSize = new System.Drawing.Size(400, 21);
             this.lblSongNameSCD.Name = "lblSongNameSCD";
-            this.lblSongNameSCD.Size = new System.Drawing.Size(86, 16);
+            this.lblSongNameSCD.Size = new System.Drawing.Size(112, 19);
             this.lblSongNameSCD.TabIndex = 3;
             this.lblSongNameSCD.Text = "Some Name";
             this.lblSongNameSCD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -56,7 +56,7 @@
             this.lblArtistSCD.Location = new System.Drawing.Point(380, 10);
             this.lblArtistSCD.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblArtistSCD.Name = "lblArtistSCD";
-            this.lblArtistSCD.Size = new System.Drawing.Size(39, 17);
+            this.lblArtistSCD.Size = new System.Drawing.Size(52, 21);
             this.lblArtistSCD.TabIndex = 4;
             this.lblArtistSCD.Text = "Artist";
             this.lblArtistSCD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -69,7 +69,7 @@
             this.lblTextPlays.Location = new System.Drawing.Point(684, 10);
             this.lblTextPlays.MaximumSize = new System.Drawing.Size(179, 22);
             this.lblTextPlays.Name = "lblTextPlays";
-            this.lblTextPlays.Size = new System.Drawing.Size(57, 16);
+            this.lblTextPlays.Size = new System.Drawing.Size(76, 21);
             this.lblTextPlays.TabIndex = 5;
             this.lblTextPlays.Text = "streams";
             this.lblTextPlays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -113,7 +113,7 @@
             // 
             // ucSongChartDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -128,8 +128,6 @@
             this.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Name = "ucSongChartDetail";
             this.Size = new System.Drawing.Size(787, 44);
-            this.MouseLeave += new System.EventHandler(this.ucSongChartDetail_MouseLeave);
-            this.MouseHover += new System.EventHandler(this.ucSongChartDetail_MouseHover);
             this.ResumeLayout(false);
             this.PerformLayout();
 
