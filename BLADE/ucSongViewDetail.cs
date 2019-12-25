@@ -47,54 +47,40 @@ namespace BLADE
             btnSongLove.Show();
             btnSongLoveOff.Hide();
 
-            lblSongNameSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
-            lblTimeSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
-            lblCategorySVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
-            lblArtistSVD.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
-            this.MouseDoubleClick += ucSongViewDetail_MouseDoubleClick;
+            lblCategorySVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+            lblArtistSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+            lblSongNameSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+            lblTimeSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
 
-            //btnSongLove.MouseHover += ucSongViewDetail_MouseHover;
-            //btnSongMenu.MouseHover += ucSongViewDetail_MouseHover;
-            //btnSongPause.MouseHover += ucSongViewDetail_MouseHover;
-            //btnSongPlay.MouseHover += ucSongViewDetail_MouseHover;
-            //lblCategorySVD.MouseHover += ucSongViewDetail_MouseHover;
-            //lblArtistSVD.MouseHover += ucSongViewDetail_MouseHover;
-            //lblSongNameSVD.MouseHover += ucSongViewDetail_MouseHover;
-            //lblTimeSVD.MouseHover += ucSongViewDetail_MouseHover;
-
-            //btnSongLove.MouseLeave += ucSongViewDetail_MouseLeave;
-            //btnSongMenu.MouseLeave += ucSongViewDetail_MouseLeave;
-            //btnSongPause.MouseLeave += ucSongViewDetail_MouseLeave;
-            //btnSongPlay.MouseLeave += ucSongViewDetail_MouseLeave;
-            //lblCategorySVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            //lblArtistSVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            //lblSongNameSVD.MouseLeave += ucSongViewDetail_MouseLeave;
-            //lblTimeSVD.MouseLeave += ucSongViewDetail_MouseLeave;
+            lblCategorySVD.MouseMove += (s, e) => OnMouseMove(e);
+            lblArtistSVD.MouseMove += (s, e) => OnMouseMove(e);
+            lblSongNameSVD.MouseMove += (s, e) => OnMouseMove(e);
+            lblTimeSVD.MouseMove += (s, e) => OnMouseMove(e);
 
             ChangedIconFavoriteState(_song.IsFavorite);
             _song.FavoriteChanged += _song_FavoriteChanged;
         }
-       
+
         #region Mouse event handler
-        private void ucSongViewDetail_MouseHover(object sender, EventArgs e)
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(40, 40, 40);
+            base.OnMouseLeave(e);
+        }
+        protected override void OnMouseMove(MouseEventArgs e)
         {
             this.BackColor = Color.FromArgb(50, 50, 50);
         }
-
-        private void ucSongViewDetail_MouseLeave(object sender, EventArgs e)
+        protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
-            this.BackColor = Color.FromArgb(40, 40, 40);
-        }
-
-        private void ucSongViewDetail_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            //this.BackColor = Color.FromArgb(0, 192, 192);
             if (SelectedSong != null)
                 SelectedSong(_song, e);
+            base.OnMouseDoubleClick(e);
         }
         #endregion
 
         #region button click handler
+
         private void addToPlaybackToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (PlaybackAdding != null)

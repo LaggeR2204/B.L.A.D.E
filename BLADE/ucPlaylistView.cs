@@ -20,7 +20,7 @@ namespace BLADE
             get => _isChoose;
             set
             {
-                if(_isChoose!=value)
+                if (_isChoose != value)
                 {
                     _isChoose = value;
                     if (ChooseStateChanged != null)
@@ -59,28 +59,12 @@ namespace BLADE
             btnPlaylistMenu.MouseClick += BtnPlaylistMenu_MouseClick;
 
             _playlist.NameChanged += setLabelName;
-
-            //lblPlaylistName.MouseHover += ucPlaylistView_MouseHover;
-            //btnPlaylistMenu.MouseHover += ucPlaylistView_MouseHover;
-            //btnPlaylistMenu.MouseLeave += ucPlaylistView_MouseLeave;
-            //lblPlaylistName.MouseLeave += ucPlaylistView_MouseLeave;
-
-
-
-            //addSongToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
-            //addSongToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
-
-            //renameToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
-            //renameToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
-
-            //deleteToolStripMenuItem.MouseHover += ToolStripMenuItem_Hover;
-            //deleteToolStripMenuItem.MouseLeave += ToolStripMenuItem_Leave;
-
             _isChoose = false;
 
+            lblPlaylistName.MouseMove += (s, e) => OnMouseMove(e);
         }
 
-       
+
         #endregion
 
         #region Normal Function
@@ -123,18 +107,17 @@ namespace BLADE
         //    ToolStripMenuItem item = sender as ToolStripMenuItem;
         //    item.BackColor = Color.FromArgb(35, 35, 35);
         //}
-
-        private void ucPlaylistView_MouseHover(object sender, EventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            this.BackColor = Color.FromArgb(50, 50, 50);
-            //btnPlaylistMenu.Show();
-            lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
+            if (this.IsChoose == false)
+                this.BackColor = Color.FromArgb(50, 50, 50);
+            base.OnMouseMove(e);
         }
-        private void ucPlaylistView_MouseLeave(object sender, EventArgs e)
+        protected override void OnMouseLeave(EventArgs e)
         {
-            this.BackColor = Color.FromArgb(40, 40, 40);
-            //btnPlaylistMenu.Hide();
-            lblPlaylistName.Font = new Font(lblPlaylistName.Font.Name, lblPlaylistName.Font.SizeInPoints, FontStyle.Regular);
+            if (this.IsChoose == false)
+                this.BackColor = Color.FromArgb(40, 40, 40);
+            base.OnMouseLeave(e);
         }
         private void BtnPlaylistMenu_MouseClick(object sender, MouseEventArgs e)
         {
@@ -155,7 +138,7 @@ namespace BLADE
         }
         private void playAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(_playlist.Count == 0)
+            if (_playlist.Count == 0)
             {
                 MsgBox.Show("This playlist is empty!!!", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
                 return;

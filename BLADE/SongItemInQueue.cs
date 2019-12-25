@@ -26,7 +26,7 @@ namespace BLADE
             _song = new Song();
             Init();
         }
-     
+
         public SongItemInQueue(Song src)
         {
             InitializeComponent();
@@ -42,20 +42,40 @@ namespace BLADE
             btnSongPlay.Hide();
             btnSongPause.Hide();
             _song.PlayStateChanged += _song_PlayStateChanged;
-            this.MouseDoubleClick += SongItemInQueue_MouseDoubleClick;
+
+            lblArtistSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+            lblSongNameSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+            lblTimeSVD.MouseDoubleClick += (s, e) => OnMouseDoubleClick(e);
+
+            lblArtistSVD.MouseMove += (s, e) => OnMouseMove(e);
+            lblSongNameSVD.MouseMove += (s, e) => OnMouseMove(e);
+            lblTimeSVD.MouseMove += (s, e) => OnMouseMove(e);
         }
         public void DisposeSongEvent()
         {
             _song.PlayStateChanged -= _song_PlayStateChanged;
         }
-
-        private void SongItemInQueue_MouseDoubleClick(object sender, MouseEventArgs e)
+        #region Mouse event
+        protected override void OnMouseLeave(EventArgs e)
         {
-            this.BackColor = Color.FromArgb(0, 192, 192);
+            if (_song.IsPlaying == false)
+                this.BackColor = Color.FromArgb(40, 40, 40);
+            base.OnMouseLeave(e);
+        }
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (_song.IsPlaying == false)
+                this.BackColor = Color.FromArgb(50, 50, 50);
+            base.OnMouseMove(e);
+        }
+        protected override void OnMouseDoubleClick(MouseEventArgs e)
+        {
+            //this.BackColor = Color.FromArgb(0, 192, 192);
             if (SelectedSong != null)
                 SelectedSong(_song, e);
+            base.OnMouseDoubleClick(e);
         }
-
+        #endregion
         #region Button click event
         private void _song_PlayStateChanged(object sender, EventArgs e)
         {

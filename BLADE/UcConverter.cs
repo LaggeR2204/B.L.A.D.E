@@ -129,6 +129,7 @@ namespace BLADE
                 return;
             }
             save.Filter = string.Format("Audio|{0}", ext);
+            save.RestoreDirectory = true;
             save.FileName = Path.GetFileNameWithoutExtension(fileSource.Name);
             if (save.ShowDialog() == DialogResult.OK)
             {

@@ -287,7 +287,7 @@ namespace BLADE
 
         private void ucPlaylist_SizeChanged(object sender, EventArgs e)
         {
-            pnlListSong.Width = this.Width - 167;
+           // pnlListSong.Width = this.Width - 167;
             foreach (Control item in fpnlSongView.Controls)
             {
                 item.Width = pnlListSong.Width;
