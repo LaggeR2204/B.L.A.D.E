@@ -282,7 +282,7 @@
             this.lblIncorrect.AutoEllipsis = false;
             this.lblIncorrect.CursorType = null;
             this.lblIncorrect.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
+            this.lblIncorrect.ForeColor = System.Drawing.Color.Yellow;
             this.lblIncorrect.Location = new System.Drawing.Point(55, 229);
             this.lblIncorrect.Name = "lblIncorrect";
             this.lblIncorrect.RightToLeft = System.Windows.Forms.RightToLeft.No;

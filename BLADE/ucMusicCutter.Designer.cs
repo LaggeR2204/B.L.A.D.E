@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMusicCutter));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblTextTo = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.txtStartHour = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pnlControls = new System.Windows.Forms.Panel();
             this.picboxChart = new System.Windows.Forms.PictureBox();
+            this.cutterToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlSetTime.SuspendLayout();
             this.pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxChart)).BeginInit();
@@ -87,6 +89,7 @@
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(40, 40);
             this.btnPlay.TabIndex = 2;
+            this.cutterToolTip.SetToolTip(this.btnPlay, "Play");
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
@@ -100,6 +103,7 @@
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(40, 40);
             this.btnOpen.TabIndex = 2;
+            this.cutterToolTip.SetToolTip(this.btnOpen, "Open");
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
@@ -113,6 +117,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(40, 40);
             this.btnSave.TabIndex = 2;
+            this.cutterToolTip.SetToolTip(this.btnSave, "Save");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -153,6 +158,7 @@
             this.btnGetStartTime.Name = "btnGetStartTime";
             this.btnGetStartTime.Size = new System.Drawing.Size(27, 27);
             this.btnGetStartTime.TabIndex = 6;
+            this.cutterToolTip.SetToolTip(this.btnGetStartTime, "Get time");
             this.btnGetStartTime.UseVisualStyleBackColor = true;
             this.btnGetStartTime.Click += new System.EventHandler(this.btnGetStartTime_Click);
             // 
@@ -167,6 +173,7 @@
             this.btnGetEndTime.Name = "btnGetEndTime";
             this.btnGetEndTime.Size = new System.Drawing.Size(27, 27);
             this.btnGetEndTime.TabIndex = 7;
+            this.cutterToolTip.SetToolTip(this.btnGetEndTime, "Get time");
             this.btnGetEndTime.UseVisualStyleBackColor = true;
             this.btnGetEndTime.Click += new System.EventHandler(this.btnGetEndTime_Click);
             // 
@@ -411,5 +418,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtEndHour;
         private System.Windows.Forms.Label lblRealTime;
         private System.Windows.Forms.PictureBox picboxChart;
+        private System.Windows.Forms.ToolTip cutterToolTip;
     }
 }
