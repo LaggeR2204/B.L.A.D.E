@@ -873,21 +873,28 @@ namespace BLADE
                     m = Convert.ToInt32(txtMinute.Text);
                 if (txtSecond.Text != "")
                     s = Convert.ToInt32(txtSecond.Text);
-                all = h * 60 * 60 + m * 60 + s;
-                this.lblCountdown.Visible = true;
-                s_Timer = new stopTimer(all);
-                this.lblCountdown.Text = "CD: " + all;
-                timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
-                s_Timer.Tick += TimeOut;
-                s_Timer.Tick += OneMinRemaining;
-                if (all == 0)
+
+                if ((txtHour.Text == "") && (txtMinute.Text == "") && (txtSecond.Text == ""))
+                    MsgBox.Show("You must enter timespan first", "ERROR", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+                else
                 {
-                    Application.Exit();
-                }                else
-                {
-                    btnTimer.Hide();
-                    btnStopTimer.Show();
-                    notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+                    all = h * 60 * 60 + m * 60 + s;
+                    this.lblCountdown.Visible = true;
+                    s_Timer = new stopTimer(all);
+                    this.lblCountdown.Text = "CD: " + all;
+                    timeRemain = "Application will shut down in " + all.ToString() + " second(s)";
+                    s_Timer.Tick += TimeOut;
+                    s_Timer.Tick += OneMinRemaining;
+                    if (all == 0)
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        btnTimer.Hide();
+                        btnStopTimer.Show();
+                        notifyIcon.ShowBalloonTip(3000, "BLADE SleepTimer", timeRemain, ToolTipIcon.Warning);
+                    }
                 }
             }
             catch (Exception ex)
