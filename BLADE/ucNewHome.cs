@@ -38,10 +38,23 @@ namespace BLADE
                 recItem3rd.Song = recItem2nd.Song;
                 recItem2nd.Song = recItem1st.Song;
                 recItem1st.Song = src;
-                recItem1st.ShowInfo();
-                recItem2nd.ShowInfo();
-                recItem3rd.ShowInfo();
             }
+            else
+            {
+                if(src == RecentlyItem2.Song)
+                {
+                    recItem2nd.Song = recItem1st.Song;
+                    recItem1st.Song = src;
+                }
+                else if (src == recItem3rd.Song)
+                {
+                    recItem3rd.Song = recItem1st.Song;
+                    recItem1st.Song = src;
+                }
+            }
+            recItem1st.ShowInfo();
+            recItem2nd.ShowInfo();
+            recItem3rd.ShowInfo();
         }
         private void btnChart_Click(object sender, EventArgs e)
         {

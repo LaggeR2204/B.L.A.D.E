@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.Wave;
-using WMPLib;
 using System.IO;
 using BLADE.xDialog;
 using WaveFormRendererLib;
@@ -60,9 +59,8 @@ namespace BLADE
             open.Filter = "Mp3 File|*.mp3;";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                WindowsMediaPlayer WMP = new WindowsMediaPlayer();
-                IWMPMedia src = WMP.newMedia(open.FileName);
-                lblSongName.Text = src.getItemInfo("Name");
+                TagLib.File tfile = TagLib.File.Create(open.FileName);
+                lblSongName.Text = tfile.Tag.Title;
                 //
                 RenderChart(picboxChart, open.FileName);
                 //

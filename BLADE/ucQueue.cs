@@ -121,6 +121,7 @@ namespace BLADE
             songItem.SelectedSong += SongSelected_Handler;
             songItem.SongRemoved += SongRemoved_Handler;
             this.fpnlPlayback.Controls.Add(songItem);
+            songItem.Width = panelContainFPNL.Width;
         }
 
         private void btnSongLove_Click(object sender, EventArgs e)

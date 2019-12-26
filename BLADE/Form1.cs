@@ -19,9 +19,10 @@ namespace BLADE
         private System.Windows.Forms.Timer timerSliderMusic;
         private bool isDrag = false;
         private System.Windows.Forms.Timer gifTimer;
-        public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch, UcConverter}
+        public enum ShowingUC { UcHome, UcPlaylist, UcQueue, UcInfo, UcMusicCutter, UcSearch, UcConverter }
         private event EventHandler ShowingStateChanged;
         private ShowingUC _showingUC;
+        private ShowingUC _lastShowingUc;
         public ShowingUC ShowingUc
         {
             set
@@ -176,6 +177,12 @@ namespace BLADE
             _appData.LoadData();
             uc_Playlist.LoadData(_appData.Recently, _appData.Playback, _appData.PlaylistCollection, _appData.SongCollection, _appData.CurrentSong, _appData.CurrentPossition, ref curMedia, mediaPlayer.CurrentPlaylist, recentlyList);
             uc_Queue.UpdateQueue(mediaPlayer.CurrentPlaylist);
+            //for (int i = 0; i < recentlyList.Count; i++)
+            //{
+            //    if (recentlyList.ContainsKey(i))
+            //        if (recentlyList[i] != null)
+            //            uc_NewHome.UpdateRecentlySong(recentlyList[i]);
+            //}
             for (int i = recentlyList.Count - 1; i >= 0; i--)
             {
                 if (recentlyList.ContainsKey(i))
@@ -228,7 +235,17 @@ namespace BLADE
             if (src == mediaPlayer.CurrentMedia)
             {
                 if (mediaPlayer.CurrentPlaylist.Count >= 2)
-                    mediaPlayer.Next();
+                {
+                    if(mediaPlayer.IsRepeat == false)
+                         mediaPlayer.Next();
+                    else
+                    {
+                        mediaPlayer.SetPlaybackMode(true, false, false);
+                        mediaPlayer.Next();
+                        mediaPlayer.SetPlaybackMode(false, false, true);
+                    }
+                }
+                   
                 else
                 {
                     mediaPlayer.Pause();
@@ -680,11 +697,12 @@ namespace BLADE
         {
             if (_showingUC != ShowingUC.UcQueue)
             {
+                _lastShowingUc = _showingUC;
                 ShowingUc = ShowingUC.UcQueue;
             }
             else
             {
-                ShowingUc = ShowingUC.UcHome;
+                ShowingUc = _lastShowingUc;
             }
         }
 
@@ -1034,6 +1052,8 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
 
 
 

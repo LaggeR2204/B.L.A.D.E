@@ -9,8 +9,6 @@ D:\B.L.A.D.E\BLADE\bin\Debug\taglib-sharp.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\xNet.dll
 D:\B.L.A.D.E\BLADE\bin\Debug\NAudio.xml
 D:\B.L.A.D.E\BLADE\bin\Debug\policy.2.0.taglib-sharp.config
-D:\B.L.A.D.E\BLADE\obj\Debug\Interop.WMPLib.dll
-D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.ResolveComReference.cache
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.ChangePasswordForm.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.MainForm.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.LoginForm.resources
@@ -35,3 +33,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.UcConverter.resources
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache

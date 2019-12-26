@@ -369,6 +369,7 @@
             // 
             // picboxChart
             // 
+            this.picboxChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.picboxChart.Location = new System.Drawing.Point(31, 86);
             this.picboxChart.Name = "picboxChart";
             this.picboxChart.Size = new System.Drawing.Size(728, 180);
@@ -378,7 +379,7 @@
             // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.picboxChart);

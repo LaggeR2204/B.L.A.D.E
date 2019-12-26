@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WMPLib;
 using NAudio.Wave;
 
 namespace BLADE
@@ -154,13 +153,19 @@ namespace BLADE
         }
         public void GetSongInfo(FileInfo file)
         {
-            WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-            IWMPMedia src = wmp.newMedia(file.FullName);
-            _songName = src.getItemInfo("Name");
+            TagLib.File tabFile = TagLib.File.Create(file.FullName);
+            _songName = tabFile.Tag.Title;
             _savedPath = file.FullName;
-            _songTime = Song.convertToTime(src.getItemInfo("Duration"));
-            _singer = src.getItemInfo("Artist");
-            _genre = src.getItemInfo("WM/Genre");
+            _songTime = tabFile.Properties.Duration.ToString("mm':'ss");
+            _singer = tabFile.Tag.FirstPerformer;
+            _genre = tabFile.Tag.FirstGenre;
+            //WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+            //IWMPMedia src = wmp.newMedia(file.FullName);
+            //_songName = src.getItemInfo("Name");
+            //_savedPath = file.FullName;
+            //_songTime = Song.convertToTime(src.getItemInfo("Duration"));
+            //_singer = src.getItemInfo("Artist");
+            //_genre = src.getItemInfo("WM/Genre");
             GetImageFromFile(file.FullName);
             AudioFile = new AudioFileReader(file.FullName);
         }
