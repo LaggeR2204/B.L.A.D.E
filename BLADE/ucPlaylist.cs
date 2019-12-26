@@ -23,7 +23,7 @@ namespace BLADE
         public event EventHandler SelectSong;
         public event EventHandler ChangePlayback;
         public event EventHandler UpdatePlayback;
-
+        public event EventHandler SongRemoved;
         public ucPlaylist()
         {
             InitializeComponent();
@@ -270,7 +270,9 @@ namespace BLADE
             fpnlSongView.Controls.Remove(src);
             src.RemoveEventHandler();
             src.Dispose();
-        }
+            if (SongRemoved != null)
+                SongRemoved(src.Song, e);
+        }   
         #endregion
 
         #region Srcoll bar event

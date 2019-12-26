@@ -142,5 +142,17 @@ namespace BLADE
                 item.Width = panelContainFPNL.Width;
             }
         }
+       
+        public void RemoveSongItem(Song src)
+        {
+            foreach(SongItemInQueue item in fpnlPlayback.Controls)
+            {
+                if(item.Song == src)
+                {
+                    fpnlPlayback.Controls.Remove(item);
+                    return;
+                }
+            }
+        }
     }
 }

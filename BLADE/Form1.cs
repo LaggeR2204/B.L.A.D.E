@@ -87,7 +87,7 @@ namespace BLADE
             uc_NewHome.Show();
             uc_NewHome.BringToFront();
             uc_Playlist.SelectSong += PlayMusic;
-            uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;
+            uc_Playlist.ChangePlayback += UcPlaylist_ChangePlayback;            uc_Playlist.UpdatePlayback += UcPlaylist_UpdatePlayback;            uc_Playlist.SongRemoved += Uc_Playlist_SongRemoved;
             //slidervolume
             SliderVolume.Scroll += SliderVolumeChangeHandler;
             SliderVolume.Maximum = 100;
@@ -121,6 +121,7 @@ namespace BLADE
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
         }
+
         private void GifTimer_Tick(object sender, EventArgs e)
         {
             picboxGif.Image = gifImage.GetNextFrame();
@@ -212,14 +213,34 @@ namespace BLADE
             if (uc_MusicCutter.opname != null)
                 uc_MusicCutter.Pause();
         }
-        public void ResetUIInfor()
+        private void Uc_Playlist_SongRemoved(object sender, EventArgs e)
         {
-            picArtCover.Image = null;
-            lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
-            lblDurationLimit.Text = TimeSpan.Zero.ToString("mm':'ss");
-            lblSongName.Text = "";
-            lblArtistName.Text = "";
-            sliderMusic.Value = 0;
+            Song src = sender as Song;
+            if (src == mediaPlayer.CurrentMedia)
+            {
+                if (mediaPlayer.CurrentPlaylist.Count >= 2)
+                {
+                    if (mediaPlayer.IsRepeat == false)
+                        mediaPlayer.Next();
+                    else
+                    {
+                        mediaPlayer.SetPlaybackMode(true, false, false);
+                        mediaPlayer.Next();
+                        mediaPlayer.SetPlaybackMode(false, false, true);
+                    }
+                }
+
+                else
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.DisposeAudio();
+                    mediaPlayer.CurrentMedia.IsPlaying = false;
+                    mediaPlayer.CurrentMedia = null;
+                    ResetUIInfor();
+                }
+            }
+            mediaPlayer.CurrentPlaylist.Remove(src);
+            uc_Queue.RemoveSongItem(src);
         }
         #region ucQueue
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
@@ -256,6 +277,15 @@ namespace BLADE
                 }
             }
             mediaPlayer.CurrentPlaylist.Remove(src);
+        }
+        public void ResetUIInfor()
+        {
+            picArtCover.Image = null;
+            lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
+            lblDurationLimit.Text = TimeSpan.Zero.ToString("mm':'ss");
+            lblSongName.Text = "";
+            lblArtistName.Text = "";
+            sliderMusic.Value = 0;
         }
         #endregion
 
