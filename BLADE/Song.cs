@@ -159,11 +159,20 @@ namespace BLADE
         public void GetSongInfo(FileInfo file)
         {
             TagLib.File tabFile = TagLib.File.Create(file.FullName);
-            _songName = tabFile.Tag.Title;
+            if (tabFile.Tag.Title != null && tabFile.Tag.Title != "")
+                _songName = tabFile.Tag.Title;
+            else
+                _songName = " ";
             _savedPath = file.FullName;
             _songTime = tabFile.Properties.Duration.ToString("mm':'ss");
-            _singer = tabFile.Tag.FirstPerformer;
-            _genre = tabFile.Tag.FirstGenre;
+            if (tabFile.Tag.FirstPerformer != null && tabFile.Tag.FirstPerformer != "")
+                _singer = tabFile.Tag.FirstPerformer;
+            else
+                _singer = " ";
+            if (tabFile.Tag.FirstGenre != null && tabFile.Tag.FirstGenre != "")
+                _genre = tabFile.Tag.FirstGenre;
+            else
+                _genre = " ";
             GetImageFromFile(file.FullName);
             AudioFile = new AudioFileReader(file.FullName);
         }

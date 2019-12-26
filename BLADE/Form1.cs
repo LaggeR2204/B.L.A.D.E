@@ -236,8 +236,8 @@ namespace BLADE
             {
                 if (mediaPlayer.CurrentPlaylist.Count >= 2)
                 {
-                    if(mediaPlayer.IsRepeat == false)
-                         mediaPlayer.Next();
+                    if (mediaPlayer.IsRepeat == false)
+                        mediaPlayer.Next();
                     else
                     {
                         mediaPlayer.SetPlaybackMode(true, false, false);
@@ -245,7 +245,7 @@ namespace BLADE
                         mediaPlayer.SetPlaybackMode(false, false, true);
                     }
                 }
-                   
+
                 else
                 {
                     mediaPlayer.Pause();
@@ -1052,6 +1052,10 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
+
+
 
 
 
