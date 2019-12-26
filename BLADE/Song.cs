@@ -139,16 +139,21 @@ namespace BLADE
             var firstPicture = file.Tag.Pictures.FirstOrDefault();
             if (firstPicture != null)
             {
-                byte[] pData = firstPicture.Data.Data;
-                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-               _songImage = new Bitmap(mStream, false);
-                mStream.Dispose();
+                try
+                {
+                    byte[] pData = firstPicture.Data.Data;
+                    mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                    _songImage = new Bitmap(mStream, false);
+                    mStream.Dispose();
+                }
+                catch (Exception e)
+                {
+                    _songImage = new Bitmap(Properties.Resources.music);
+                }
             }
             else
             {
-                
-                _songImage = new Bitmap(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\music.jpg"));
-                //_songImage = new Bitmap(@"D:\B.L.A.D.E\BLADE\Resources\music.jpg");
+                _songImage = new Bitmap(Properties.Resources.music);
             }
         }
         public void GetSongInfo(FileInfo file)
@@ -159,13 +164,6 @@ namespace BLADE
             _songTime = tabFile.Properties.Duration.ToString("mm':'ss");
             _singer = tabFile.Tag.FirstPerformer;
             _genre = tabFile.Tag.FirstGenre;
-            //WindowsMediaPlayer wmp = new WindowsMediaPlayer();
-            //IWMPMedia src = wmp.newMedia(file.FullName);
-            //_songName = src.getItemInfo("Name");
-            //_savedPath = file.FullName;
-            //_songTime = Song.convertToTime(src.getItemInfo("Duration"));
-            //_singer = src.getItemInfo("Artist");
-            //_genre = src.getItemInfo("WM/Genre");
             GetImageFromFile(file.FullName);
             AudioFile = new AudioFileReader(file.FullName);
         }

@@ -127,7 +127,7 @@ namespace BLADE
             songView.PlaybackAdding += SongView_PlaybackAdding;
             songView.ChangedIconFavoriteState(song.IsFavorite);
             this.fpnlSongView.Controls.Add(songView);
-
+            songView.Width = panelContainSongView.Width;
         }
 
         private void clearSongViewList()

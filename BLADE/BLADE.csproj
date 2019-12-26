@@ -337,10 +337,10 @@
       <DependentUpon>Login.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\1kME.gif" />
+    <None Include="Resources\YdBO.gif" />
     <None Include="Resources\change_30px.png" />
     <Content Include="Resources\ezgif-6-7a88bb4ebc82head.gif" />
-    <Content Include="Resources\music.jpg" />
-    <Content Include="Resources\YdBO.gif" />
+    <None Include="Resources\music.jpg" />
     <None Include="Resources\angle_right_24px.png" />
     <None Include="Resources\angle_left_24px.png" />
   </ItemGroup>
