@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AxWMPLib;
 using WMPLib;
 using xNet;
 using BLADE.xDialog;
