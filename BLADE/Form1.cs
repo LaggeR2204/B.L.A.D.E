@@ -329,6 +329,7 @@ namespace BLADE
         #region Windows Controls
         private void btnCloseWindows_Click(object sender, EventArgs e)
         {
+            this.Close();
             Application.Exit();
         }
 
@@ -1075,6 +1076,7 @@ namespace BLADE
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Close();
             Application.Exit();
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

@@ -1163,7 +1163,7 @@ namespace BLADE
             // timerChangeColorBLADE
             // 
             this.timerChangeColorBLADE.Enabled = true;
-            this.timerChangeColorBLADE.Interval = 10000;
+            this.timerChangeColorBLADE.Interval = 2000;
             this.timerChangeColorBLADE.Tick += new System.EventHandler(this.timerChangeColorBLADE_Tick);
             // 
             // pnlMain
