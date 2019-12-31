@@ -33,4 +33,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csproj.CopyComplete
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.UcConverter.resources
-D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.LabelRun.resources

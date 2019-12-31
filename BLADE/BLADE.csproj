@@ -130,6 +130,12 @@
     <Compile Include="DrawChart\WaveFormRendererSettings.cs" />
     <Compile Include="GifImage.cs" />
     <Compile Include="InputNameCutFileBox.cs" />
+    <Compile Include="LabelRun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LabelRun.Designer.cs">
+      <DependentUpon>LabelRun.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecentlySongItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelRun.resx">
+      <DependentUpon>LabelRun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

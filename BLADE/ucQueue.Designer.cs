@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQueue));
             this.lblTextQueue = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.lbSongName = new System.Windows.Forms.Label();
             this.lbSongSinger = new System.Windows.Forms.Label();
             this.lbNowPlaying = new System.Windows.Forms.Label();
             this.panelContainFPNL = new System.Windows.Forms.Panel();
@@ -39,6 +38,7 @@
             this.btnSongLove = new System.Windows.Forms.Button();
             this.btnSongLoveOff = new System.Windows.Forms.Button();
             this.picbArtCover = new System.Windows.Forms.PictureBox();
+            this.labelRunSongName = new BLADE.LabelRun();
             this.panelContainFPNL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbArtCover)).BeginInit();
             this.SuspendLayout();
@@ -60,29 +60,20 @@
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(495, 72);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(11, 494);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
-            // lbSongName
-            // 
-            this.lbSongName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSongName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongName.Location = new System.Drawing.Point(510, 397);
-            this.lbSongName.Name = "lbSongName";
-            this.lbSongName.Size = new System.Drawing.Size(273, 32);
-            this.lbSongName.TabIndex = 3;
-            // 
             // lbSongSinger
             // 
             this.lbSongSinger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSongSinger.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSongSinger.Location = new System.Drawing.Point(510, 435);
+            this.lbSongSinger.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSongSinger.Location = new System.Drawing.Point(510, 440);
             this.lbSongSinger.Name = "lbSongSinger";
-            this.lbSongSinger.Size = new System.Drawing.Size(273, 21);
+            this.lbSongSinger.Size = new System.Drawing.Size(265, 31);
             this.lbSongSinger.TabIndex = 4;
             // 
             // lbNowPlaying
@@ -121,7 +112,7 @@
             this.btnSongLove.FlatAppearance.BorderSize = 0;
             this.btnSongLove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSongLove.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLove.Image")));
-            this.btnSongLove.Location = new System.Drawing.Point(510, 459);
+            this.btnSongLove.Location = new System.Drawing.Point(510, 469);
             this.btnSongLove.Name = "btnSongLove";
             this.btnSongLove.Size = new System.Drawing.Size(40, 40);
             this.btnSongLove.TabIndex = 7;
@@ -134,7 +125,7 @@
             this.btnSongLoveOff.FlatAppearance.BorderSize = 0;
             this.btnSongLoveOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSongLoveOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSongLoveOff.Image")));
-            this.btnSongLoveOff.Location = new System.Drawing.Point(510, 459);
+            this.btnSongLoveOff.Location = new System.Drawing.Point(510, 469);
             this.btnSongLoveOff.Name = "btnSongLoveOff";
             this.btnSongLoveOff.Size = new System.Drawing.Size(40, 40);
             this.btnSongLoveOff.TabIndex = 3;
@@ -152,18 +143,27 @@
             this.picbArtCover.TabStop = false;
             this.picbArtCover.WaitOnLoad = true;
             // 
+            // labelRunSongName
+            // 
+            this.labelRunSongName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.labelRunSongName.Location = new System.Drawing.Point(510, 394);
+            this.labelRunSongName.Margin = new System.Windows.Forms.Padding(4);
+            this.labelRunSongName.Name = "labelRunSongName";
+            this.labelRunSongName.Size = new System.Drawing.Size(265, 42);
+            this.labelRunSongName.TabIndex = 0;
+            // 
             // ucQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Controls.Add(this.labelRunSongName);
             this.Controls.Add(this.panelContainFPNL);
             this.Controls.Add(this.btnSongLove);
             this.Controls.Add(this.btnSongLoveOff);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.lbNowPlaying);
             this.Controls.Add(this.lbSongSinger);
-            this.Controls.Add(this.lbSongName);
             this.Controls.Add(this.picbArtCover);
             this.Controls.Add(this.lblTextQueue);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,12 +184,12 @@
         private System.Windows.Forms.Label lblTextQueue;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.PictureBox picbArtCover;
-        private System.Windows.Forms.Label lbSongName;
         private System.Windows.Forms.Label lbSongSinger;
         private System.Windows.Forms.Label lbNowPlaying;
         private System.Windows.Forms.Button btnSongLoveOff;
         private System.Windows.Forms.Button btnSongLove;
         private System.Windows.Forms.Panel panelContainFPNL;
         private System.Windows.Forms.FlowLayoutPanel fpnlPlayback;
+        private LabelRun labelRunSongName;
     }
 }

@@ -67,15 +67,16 @@ namespace BLADE
             if(_nowPlayingSong==null)
             {
                 picbArtCover.Image = null;
-                lbSongName.Text = "";
+                labelRunSongName.lbText.Text = "";
                 lbSongSinger.Text ="";
                 SetFavoriteState(_nowPlayingSong);
                 return;
             }
             picbArtCover.Image = _nowPlayingSong.SongImage;
-            lbSongName.Text = _nowPlayingSong.SongName;
+            labelRunSongName.lbText.Text = _nowPlayingSong.SongName;
             lbSongSinger.Text = _nowPlayingSong.Singer;
             SetFavoriteState(_nowPlayingSong);
+            labelRunSongName.ResetLabelLocation();
         }
         public void UpdateQueue(List<Song> src)
         {
@@ -113,8 +114,6 @@ namespace BLADE
                 }
             }
         }
-      
-
         #region Event
         private void SongSelected_Handler(object sender, EventArgs e)
         {

@@ -127,6 +127,46 @@ namespace BLADE
         {
             picboxGif.Image = gifImage.GetNextFrame();
         }
+        private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
+        {
+            RecentlySongItem src = sender as RecentlySongItem;
+            if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
+                uc_Queue.UpdateQueue(src.Song);
+            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
+            if (uc_MusicCutter.opname != null)
+                uc_MusicCutter.Pause();
+        }
+        private void Uc_Playlist_SongRemoved(object sender, EventArgs e)
+        {
+            Song src = sender as Song;
+            if (src == mediaPlayer.CurrentMedia)
+            {
+                if (mediaPlayer.CurrentPlaylist.Count >= 2)
+                {
+                    if (mediaPlayer.IsRepeat == false)
+                        mediaPlayer.Next();
+                    else
+                    {
+                        mediaPlayer.SetPlaybackMode(true, false, false);
+                        mediaPlayer.Next();
+                        mediaPlayer.SetPlaybackMode(false, false, true);
+                    }
+                }
+
+                else
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.DisposeAudio();
+                    mediaPlayer.CurrentMedia.IsPlaying = PlaybackState.Stopped;
+                    mediaPlayer.CurrentMedia = null;
+                    ResetUIInfor();
+                }
+            }
+            mediaPlayer.CurrentPlaylist.Remove(src);
+            uc_Queue.RemoveSongItem(src);
+        }
+
+        #region MainForm
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_appData.Recently != null)
@@ -205,44 +245,8 @@ namespace BLADE
             }
 
         }
-        private void Uc_NewHome_RecentlySelected(object sender, EventArgs e)
-        {
-            RecentlySongItem src = sender as RecentlySongItem;
-            if (mediaPlayer.AddSongToCurrentPlaylist(src.Song))
-                uc_Queue.UpdateQueue(src.Song);
-            mediaPlayer.PlayInIndex(mediaPlayer.CurrentPlaylist.IndexOf(src.Song));
-            if (uc_MusicCutter.opname != null)
-                uc_MusicCutter.Pause();
-        }
-        private void Uc_Playlist_SongRemoved(object sender, EventArgs e)
-        {
-            Song src = sender as Song;
-            if (src == mediaPlayer.CurrentMedia)
-            {
-                if (mediaPlayer.CurrentPlaylist.Count >= 2)
-                {
-                    if (mediaPlayer.IsRepeat == false)
-                        mediaPlayer.Next();
-                    else
-                    {
-                        mediaPlayer.SetPlaybackMode(true, false, false);
-                        mediaPlayer.Next();
-                        mediaPlayer.SetPlaybackMode(false, false, true);
-                    }
-                }
+        #endregion
 
-                else
-                {
-                    mediaPlayer.Pause();
-                    mediaPlayer.DisposeAudio();
-                    mediaPlayer.CurrentMedia.IsPlaying = PlaybackState.Stopped;
-                    mediaPlayer.CurrentMedia = null;
-                    ResetUIInfor();
-                }
-            }
-            mediaPlayer.CurrentPlaylist.Remove(src);
-            uc_Queue.RemoveSongItem(src);
-        }
         #region ucQueue
         private void Uc_Queue_SongControled(object sender, EventArgs e)
         {
