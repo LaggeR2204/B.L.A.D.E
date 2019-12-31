@@ -14,7 +14,7 @@ namespace BLADE
     {
         public event EventHandler FavoriteChanged;
         public event EventHandler PlayStateChanged;
-        private bool _isPlaying;
+        private PlaybackState _isPlaying;
         private string _songName;
         private string _savedPath;
         private string _songTime;
@@ -58,7 +58,7 @@ namespace BLADE
                 }
             }
         }
-        public bool IsPlaying
+        public PlaybackState IsPlaying
         {
             get => _isPlaying;
             set
@@ -75,11 +75,11 @@ namespace BLADE
         {
             this.GetSongInfo(fileinfo);
             this._isFavorite = false;
-            this._isPlaying = false;
+            this._isPlaying = PlaybackState.Stopped;
         }
         public Song()
         {
-            _isPlaying = false;
+            _isPlaying = PlaybackState.Stopped;
             _isFavorite = false;
             this._songNumber = 0;
             this._songName = "";

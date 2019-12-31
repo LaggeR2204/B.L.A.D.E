@@ -97,6 +97,7 @@ namespace BLADE
             SliderVolume.Value = 100;            SliderVolume.AllowIncrementalClickMoves = false;            SliderVolume.AllowScrollOptionsMenu = false;            //uc Queue
             uc_Queue.SongSelected += Uc_Queue_SongSelected; ;
             uc_Queue.SongRemoved += Uc_Queue_SongRemoved;
+            uc_Queue.SongControled += Uc_Queue_SongControled;
 
             //label curduration
             lbCurDuration.Text = "";            lblCurDuration.Visible = true;
@@ -234,7 +235,7 @@ namespace BLADE
                 {
                     mediaPlayer.Pause();
                     mediaPlayer.DisposeAudio();
-                    mediaPlayer.CurrentMedia.IsPlaying = false;
+                    mediaPlayer.CurrentMedia.IsPlaying = PlaybackState.Stopped;
                     mediaPlayer.CurrentMedia = null;
                     ResetUIInfor();
                 }
@@ -243,6 +244,18 @@ namespace BLADE
             uc_Queue.RemoveSongItem(src);
         }
         #region ucQueue
+        private void Uc_Queue_SongControled(object sender, EventArgs e)
+        {
+            string src = sender as string;
+            if (src == "Play")
+            {
+                mediaPlayer.Play();
+            }
+            else
+            {
+                mediaPlayer.Pause();
+            }
+        }
         private void Uc_Queue_SongSelected(object sender, EventArgs e)
         {
             Song song = sender as Song;
@@ -271,7 +284,7 @@ namespace BLADE
                 {
                     mediaPlayer.Pause();
                     mediaPlayer.DisposeAudio();
-                    mediaPlayer.CurrentMedia.IsPlaying = false;
+                    mediaPlayer.CurrentMedia.IsPlaying = PlaybackState.Stopped;
                     mediaPlayer.CurrentMedia = null;
                     ResetUIInfor();
                 }

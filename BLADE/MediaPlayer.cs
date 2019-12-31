@@ -78,6 +78,7 @@ namespace BLADE
                 {
                     outputSound.Play();
                     MediaState = PlaybackState.Playing;
+                    CurrentMedia.IsPlaying = PlaybackState.Playing;
                 }
 
         }
@@ -88,6 +89,7 @@ namespace BLADE
                 {
                     outputSound.Pause();
                     MediaState = PlaybackState.Paused;
+                    CurrentMedia.IsPlaying = PlaybackState.Paused;
                 }
 
         }
@@ -98,6 +100,7 @@ namespace BLADE
                 {
                     outputSound.Stop();
                     MediaState = PlaybackState.Stopped;
+                    CurrentMedia.IsPlaying = PlaybackState.Stopped;
                 }
 
         }
@@ -169,7 +172,7 @@ namespace BLADE
                 if (src < _curPlaylist.Count && src >=0)
                 {
                     if (_curMedia != null)
-                        _curMedia.IsPlaying = false;
+                        _curMedia.IsPlaying = PlaybackState.Stopped;
                     _curMedia = _curPlaylist[src];
                     //audioReader = new AudioFileReader(_curMedia.SavedPath);
                     outputSound = new WaveOutEvent();
@@ -181,7 +184,7 @@ namespace BLADE
                     if (MediaChanged != null)
                         MediaChanged(this, new EventArgs());
                     MediaState = PlaybackState.Playing;
-                    _curMedia.IsPlaying = true;
+                    _curMedia.IsPlaying = PlaybackState.Playing;
                 }
         }
 

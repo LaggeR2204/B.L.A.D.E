@@ -43,7 +43,7 @@
             // lblPlaylistName
             // 
             this.lblPlaylistName.AutoSize = true;
-            this.lblPlaylistName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaylistName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylistName.Location = new System.Drawing.Point(3, 12);
             this.lblPlaylistName.MaximumSize = new System.Drawing.Size(135, 17);
             this.lblPlaylistName.Name = "lblPlaylistName";
@@ -77,13 +77,13 @@
             this.ctxtmsPlaylist.Name = "ctxtmsPlaylist";
             this.ctxtmsPlaylist.ShowImageMargin = false;
             this.ctxtmsPlaylist.ShowItemToolTips = false;
-            this.ctxtmsPlaylist.Size = new System.Drawing.Size(119, 100);
+            this.ctxtmsPlaylist.Size = new System.Drawing.Size(137, 108);
             // 
             // addSongToolStripMenuItem
             // 
             this.addSongToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
-            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.addSongToolStripMenuItem.Text = "Add song";
             this.addSongToolStripMenuItem.Click += new System.EventHandler(this.AddSongToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@
             // 
             this.playAllToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playAllToolStripMenuItem.Name = "playAllToolStripMenuItem";
-            this.playAllToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.playAllToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.playAllToolStripMenuItem.Text = "Play All";
             this.playAllToolStripMenuItem.Click += new System.EventHandler(this.playAllToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             // 
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
             // 
@@ -107,13 +107,13 @@
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // ucPlaylistView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.btnPlaylistMenu);
