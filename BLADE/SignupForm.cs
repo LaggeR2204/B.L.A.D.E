@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLADE.xDialog;
 
 namespace BLADE
 {
@@ -82,6 +83,7 @@ namespace BLADE
             if (password == cfmpassword)
             {
                 AddAccount(username, password);
+                MsgBox.Show("Create account successfully", "Notification", MsgBox.Buttons.OK,MsgBox.Icon.Info, MsgBox.AnimateStyle.FadeIn);
             }
             else if (username.Length > 20)
             {
