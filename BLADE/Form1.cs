@@ -122,9 +122,6 @@ namespace BLADE
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
             //
-
-            logOutToolStripMenuItem1.Text = logOutToolStripMenuItem.Text;
-            changePasswordToolStripMenuItem.Enabled = changeYourPasswordToolStripMenuItem.Enabled;
         }
 
         private void GifTimer_Tick(object sender, EventArgs e)
@@ -322,6 +319,9 @@ namespace BLADE
             {
                 logOutToolStripMenuItem.Text = "Log In";
                 changeYourPasswordToolStripMenuItem.Enabled = false;
+
+                logOutToolStripMenuItem1.Text = logOutToolStripMenuItem.Text;
+                changePasswordToolStripMenuItem.Enabled = changeYourPasswordToolStripMenuItem.Enabled;
             }
         }
 
