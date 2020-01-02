@@ -121,6 +121,14 @@ namespace BLADE
             //
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
+            //
+            if (lblUserName.Text == "Guess")
+            {
+                logOutToolStripMenuItem.Text = "Log In";
+                changeYourPasswordToolStripMenuItem.Enabled = false;
+            }
+            logOutToolStripMenuItem1.Text = logOutToolStripMenuItem.Text;
+            changePasswordToolStripMenuItem.Enabled = changeYourPasswordToolStripMenuItem.Enabled;
         }
 
         private void GifTimer_Tick(object sender, EventArgs e)
@@ -300,7 +308,7 @@ namespace BLADE
             picArtCover.Image = null;
             lblCurDuration.Text = TimeSpan.Zero.ToString("mm':'ss");
             lblDurationLimit.Text = TimeSpan.Zero.ToString("mm':'ss");
-            lblSongName.Text = "";
+            labelRun1.lbText.Text = "";
             lblArtistName.Text = "";
             sliderMusic.Value = 0;
         }
@@ -341,6 +349,7 @@ namespace BLADE
         {
             logOutToolStripMenuItem1.PerformClick();
         }
+
         #endregion
 
         #region Windows Controls
@@ -874,11 +883,11 @@ namespace BLADE
             string textAuthor = mediaPlayer.CurrentMedia.Singer;
             if (textSongName.Length > 18)
             {
-                lblSongName.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
+                labelRun1.lbText.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
             }
             else
             {
-                lblSongName.Text = textSongName;
+                labelRun1.lbText.Text = textSongName;
             }
             if (textAuthor.Length > 21)
             {

@@ -119,6 +119,9 @@ namespace BLADE
 
         private void btnWithoutLogin_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.UserName = null;
+            Properties.Settings.Default.Password = null;
+            Properties.Settings.Default.RememberChecked = false;
             this.Hide();
         }
 

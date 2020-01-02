@@ -124,7 +124,7 @@
             // lblSongName
             // 
             this.lblSongName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.lblSongName.Location = new System.Drawing.Point(0, 0);
             this.lblSongName.Name = "lblSongName";
             this.lblSongName.Size = new System.Drawing.Size(787, 40);
@@ -379,7 +379,7 @@
             // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.picboxChart);

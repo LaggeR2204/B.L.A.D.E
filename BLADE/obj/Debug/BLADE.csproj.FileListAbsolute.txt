@@ -34,3 +34,4 @@ D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.exe
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.pdb
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.UcConverter.resources
 D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.LabelRun.resources
+D:\B.L.A.D.E\BLADE\obj\Debug\BLADE.csprojAssemblyReference.cache

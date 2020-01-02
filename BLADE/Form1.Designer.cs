@@ -39,8 +39,8 @@ namespace BLADE
             this.pnlMusicControl = new System.Windows.Forms.Panel();
             this.lblCurDuration = new System.Windows.Forms.Label();
             this.pnlSongInfo = new System.Windows.Forms.Panel();
+            this.labelRun1 = new BLADE.LabelRun();
             this.picArtCover = new System.Windows.Forms.PictureBox();
-            this.lblSongName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArtistName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pnlGif = new System.Windows.Forms.Panel();
             this.picboxGif = new System.Windows.Forms.PictureBox();
@@ -71,7 +71,6 @@ namespace BLADE
             this.lblCountdown = new System.Windows.Forms.Label();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pnlButton = new System.Windows.Forms.Panel();
-            this.btnConverter = new System.Windows.Forms.Button();
             this.btnMusicCutter = new System.Windows.Forms.Button();
             this.pnlSelectedButton = new System.Windows.Forms.Panel();
             this.pnlTimerControl = new System.Windows.Forms.Panel();
@@ -101,6 +100,7 @@ namespace BLADE
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnConverter = new System.Windows.Forms.Button();
             this.DropdownTime = new System.Windows.Forms.Timer(this.components);
             this.timerChangeColorBLADE = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -171,14 +171,23 @@ namespace BLADE
             // 
             // pnlSongInfo
             // 
+            this.pnlSongInfo.Controls.Add(this.labelRun1);
             this.pnlSongInfo.Controls.Add(this.picArtCover);
-            this.pnlSongInfo.Controls.Add(this.lblSongName);
             this.pnlSongInfo.Controls.Add(this.lblArtistName);
             this.pnlSongInfo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSongInfo.Location = new System.Drawing.Point(0, 0);
             this.pnlSongInfo.Name = "pnlSongInfo";
             this.pnlSongInfo.Size = new System.Drawing.Size(240, 100);
             this.pnlSongInfo.TabIndex = 7;
+            // 
+            // labelRun1
+            // 
+            this.labelRun1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.labelRun1.Location = new System.Drawing.Point(89, 15);
+            this.labelRun1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelRun1.Name = "labelRun1";
+            this.labelRun1.Size = new System.Drawing.Size(139, 29);
+            this.labelRun1.TabIndex = 6;
             // 
             // picArtCover
             // 
@@ -188,17 +197,6 @@ namespace BLADE
             this.picArtCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picArtCover.TabIndex = 5;
             this.picArtCover.TabStop = false;
-            // 
-            // lblSongName
-            // 
-            this.lblSongName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSongName.AutoSize = true;
-            this.lblSongName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSongName.Location = new System.Drawing.Point(85, 19);
-            this.lblSongName.Name = "lblSongName";
-            this.lblSongName.Size = new System.Drawing.Size(0, 18);
-            this.lblSongName.TabIndex = 4;
             // 
             // lblArtistName
             // 
@@ -736,24 +734,6 @@ namespace BLADE
             this.btnMusicCutter.UseVisualStyleBackColor = true;
             this.btnMusicCutter.Click += new System.EventHandler(this.btnMusicCutter_Click);
             // 
-            // btnConverter
-            // 
-            this.btnConverter.FlatAppearance.BorderSize = 0;
-            this.btnConverter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnConverter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConverter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConverter.ForeColor = System.Drawing.Color.White;
-            this.btnConverter.Image = BLADE.Properties.Resources.change_30px;
-            this.btnConverter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConverter.Location = new System.Drawing.Point(12, 241);
-            this.btnConverter.Name = "btnConverter";
-            this.btnConverter.Size = new System.Drawing.Size(198, 45);
-            this.btnConverter.TabIndex = 18;
-            this.btnConverter.Text = "   Converter";
-            this.btnConverter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConverter.UseVisualStyleBackColor = true;
-            this.btnConverter.Click += new System.EventHandler(this.btnConverter_Click);
-            // 
             // pnlSelectedButton
             // 
             this.pnlSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -1080,7 +1060,7 @@ namespace BLADE
             this.playToolStripMenuItem,
             this.pauseToolStripMenuItem,
             this.nextToolStripMenuItem,
-            this.previousToolStripMenuItem,});
+            this.previousToolStripMenuItem});
             this.playbackToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playbackToolStripMenuItem.Name = "playbackToolStripMenuItem";
             this.playbackToolStripMenuItem.ShowShortcutKeys = false;
@@ -1092,7 +1072,7 @@ namespace BLADE
             this.playToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.playToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -1101,7 +1081,7 @@ namespace BLADE
             this.pauseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
@@ -1110,7 +1090,7 @@ namespace BLADE
             this.nextToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.nextToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
@@ -1119,7 +1099,7 @@ namespace BLADE
             this.previousToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.previousToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.previousToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.previousToolStripMenuItem.Text = "Previous";
             this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
             // 
@@ -1154,6 +1134,24 @@ namespace BLADE
             this.logOutToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
             this.logOutToolStripMenuItem1.Text = "Log Out";
             this.logOutToolStripMenuItem1.Click += new System.EventHandler(this.logOutToolStripMenuItem1_Click);
+            // 
+            // btnConverter
+            // 
+            this.btnConverter.FlatAppearance.BorderSize = 0;
+            this.btnConverter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnConverter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConverter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConverter.ForeColor = System.Drawing.Color.White;
+            this.btnConverter.Image = global::BLADE.Properties.Resources.change_30px;
+            this.btnConverter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConverter.Location = new System.Drawing.Point(12, 241);
+            this.btnConverter.Name = "btnConverter";
+            this.btnConverter.Size = new System.Drawing.Size(198, 45);
+            this.btnConverter.TabIndex = 18;
+            this.btnConverter.Text = "   Converter";
+            this.btnConverter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConverter.UseVisualStyleBackColor = true;
+            this.btnConverter.Click += new System.EventHandler(this.btnConverter_Click);
             // 
             // DropdownTime
             // 
@@ -1193,6 +1191,19 @@ namespace BLADE
             this.uc_NewHome.Size = new System.Drawing.Size(787, 565);
             this.uc_NewHome.TabIndex = 7;
             // 
+            // uc_Converter
+            // 
+            this.uc_Converter.AutoSize = true;
+            this.uc_Converter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.uc_Converter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_Converter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uc_Converter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.uc_Converter.Location = new System.Drawing.Point(0, 0);
+            this.uc_Converter.Margin = new System.Windows.Forms.Padding(4);
+            this.uc_Converter.Name = "uc_Converter";
+            this.uc_Converter.Size = new System.Drawing.Size(787, 565);
+            this.uc_Converter.TabIndex = 8;
+            // 
             // uc_Playlist
             // 
             this.uc_Playlist.AutoSize = true;
@@ -1225,24 +1236,12 @@ namespace BLADE
             this.uc_Search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uc_Search.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uc_Search.ForeColor = System.Drawing.Color.Gainsboro;
+            this.uc_Search.IsSearch = false;
             this.uc_Search.Location = new System.Drawing.Point(0, 0);
             this.uc_Search.Margin = new System.Windows.Forms.Padding(4);
             this.uc_Search.Name = "uc_Search";
             this.uc_Search.Size = new System.Drawing.Size(787, 565);
             this.uc_Search.TabIndex = 3;
-            // 
-            // uc_Converter
-            // 
-            this.uc_Converter.AutoSize = true;
-            this.uc_Converter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.uc_Converter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_Converter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uc_Converter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.uc_Converter.Location = new System.Drawing.Point(0, 0);
-            this.uc_Converter.Margin = new System.Windows.Forms.Padding(4);
-            this.uc_Converter.Name = "uc_Converter";
-            this.uc_Converter.Size = new System.Drawing.Size(787, 565);
-            //this.uc_Converter.TabIndex = 3;
             // 
             // uc_MusicCutter
             // 
@@ -1409,7 +1408,6 @@ namespace BLADE
         private System.Windows.Forms.Button btnVolumeOff;
         private System.Windows.Forms.Button btnVolume;
         private Bunifu.Framework.UI.BunifuCustomLabel lblArtistName;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblSongName;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTime;
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.MenuStrip AppMenu;
@@ -1454,6 +1452,7 @@ namespace BLADE
         private ucNewHome uc_NewHome;
         private UcConverter uc_Converter;
         private System.Windows.Forms.ToolTip tltMainform;
+        private LabelRun labelRun1;
     }
 }
 
