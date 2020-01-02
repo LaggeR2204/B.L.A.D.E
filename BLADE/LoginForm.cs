@@ -12,7 +12,8 @@ namespace BLADE
 {
     public partial class LoginForm : Form
     {
-        public event EventHandler LoginSuccess;
+        public int loginState = 2;
+        public string _username;
         public LoginForm()
         {
             InitializeComponent();
@@ -23,7 +24,6 @@ namespace BLADE
             this.checkboxRemember.Checked = false;
             lblIncorrect.Hide();
         }
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
             txtUsername.Text = Properties.Settings.Default.UserName;
@@ -69,9 +69,8 @@ namespace BLADE
 
             if (Login(username, password))
             {
-                if (LoginSuccess != null)
-                    LoginSuccess(username, new EventArgs());
-
+                loginState = 0;
+                _username = username;
                 if (checkboxRemember.Checked)
                 {
                     Properties.Settings.Default.UserName = txtUsername.Text;
@@ -87,7 +86,7 @@ namespace BLADE
                     Properties.Settings.Default.Save();
                 }
 
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -122,12 +121,9 @@ namespace BLADE
             Properties.Settings.Default.UserName = null;
             Properties.Settings.Default.Password = null;
             Properties.Settings.Default.RememberChecked = false;
-            this.Hide();
-        }
-
-        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
+            _username = "Guess";
+            loginState = 1;
+            this.Close();
         }
 
         private void txtPassword_OnIconRightClick(object sender, EventArgs e)

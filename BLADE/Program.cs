@@ -17,7 +17,14 @@ namespace BLADE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            LoginForm frmLI = new LoginForm();
+            Application.Run(frmLI);
+            if(frmLI.loginState == 0 || frmLI.loginState == 1)
+            {
+                MainForm main = new MainForm();
+                main.SetUserName(frmLI._username);
+                Application.Run(main);
+            }
         }
     }
 }

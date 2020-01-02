@@ -122,11 +122,7 @@ namespace BLADE
             gifImage = new GifImage(Path.Combine(Environment.CurrentDirectory.Replace("bin\\Debug", ""), "Resources\\YdBO.gif"));
             gifImage.ReverseAtEnd = false;
             //
-            if (lblUserName.Text == "Guess")
-            {
-                logOutToolStripMenuItem.Text = "Log In";
-                changeYourPasswordToolStripMenuItem.Enabled = false;
-            }
+
             logOutToolStripMenuItem1.Text = logOutToolStripMenuItem.Text;
             changePasswordToolStripMenuItem.Enabled = changeYourPasswordToolStripMenuItem.Enabled;
         }
@@ -218,10 +214,6 @@ namespace BLADE
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm frmLI = new LoginForm();
-            frmLI.LoginSuccess += ShowUserName;
-            frmLI.ShowDialog();
-            //
             Dictionary<int, Song> recentlyList = new Dictionary<int, Song>();
             Song curMedia = null;
             _appData.LoadData();
@@ -316,16 +308,20 @@ namespace BLADE
 
         #region Account Actions
 
-        private void ShowUserName(object sender, EventArgs e)
+        public void SetUserName(string name)
         {
-            string textUsername = sender.ToString();
-            if (textUsername.Length > 10)
+            if (name.Length > 10)
             {
-                lblUserName.Text = textUsername.Remove(9, textUsername.Length - 9).Insert(9, "...");
+                lblUserName.Text = name.Remove(9, name.Length - 9).Insert(9, "...");
             }
             else
             {
-                lblUserName.Text = textUsername;
+                lblUserName.Text = name;
+            }
+            if (lblUserName.Text == "Guess")
+            {
+                logOutToolStripMenuItem.Text = "Log In";
+                changeYourPasswordToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -1111,6 +1107,10 @@ namespace BLADE
             s_Timer.Stop();
             this.lblCountdown.Visible = false;
         }
+
+
+
+
 
 
 
