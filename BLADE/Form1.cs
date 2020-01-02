@@ -879,16 +879,17 @@ namespace BLADE
             sliderMusic.SmallChange = 1;
             sliderMusic.LargeChange = Math.Min(10, (int)mediaPlayer.GetDurationInSecond() / 10);
 
-            string textSongName = mediaPlayer.CurrentMedia.SongName;
+            //string textSongName = mediaPlayer.CurrentMedia.SongName;
             string textAuthor = mediaPlayer.CurrentMedia.Singer;
-            if (textSongName.Length > 18)
-            {
-                labelRun1.lbText.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
-            }
-            else
-            {
-                labelRun1.lbText.Text = textSongName;
-            }
+            //if (textSongName.Length > 18)
+            //{
+            //    labelRun1.lbText.Text = textSongName.Remove(18, textSongName.Length - 18).Insert(18, "...");
+            //}
+            //else
+            //{
+            //    labelRun1.lbText.Text = textSongName;
+            //}
+            labelRun1.lbText.Text = mediaPlayer.CurrentMedia.SongName;
             if (textAuthor.Length > 21)
             {
                 lblArtistName.Text = textAuthor.Remove(21, textAuthor.Length - 21).Insert(21, "...");
