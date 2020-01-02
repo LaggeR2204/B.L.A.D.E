@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BLADE64.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Core, Version=1.11.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
@@ -338,6 +341,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BLADE64.ico" />
     <Content Include="Login.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -345,10 +349,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Login.mdf</DependentUpon>
     </Content>
-    <Content Include="Resources\1kME.gif" />
+    <None Include="Resources\BLADE64.ico" />
     <None Include="Resources\YdBO.gif" />
     <None Include="Resources\change_30px.png" />
-    <Content Include="Resources\ezgif-6-7a88bb4ebc82head.gif" />
     <None Include="Resources\music.jpg" />
     <None Include="Resources\angle_right_24px.png" />
     <None Include="Resources\angle_left_24px.png" />

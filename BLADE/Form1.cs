@@ -54,6 +54,7 @@ namespace BLADE
         }
         private void Init()
         {
+            //
             picboxGif.Hide();
             // UcHome
             uc_NewHome.RecentlySelected += Uc_NewHome_RecentlySelected;
@@ -77,6 +78,7 @@ namespace BLADE
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             mediaPlayer.MediaChanged += MediaPlayer_MediaChanged;
             mediaPlayer.PlaybackStateChanged += MediaPlayer_PlaybackStateChanged;
+            mediaPlayer.CurrentMediaNullable += MediaPlayer_CurrentMediaNullable;
             //set vi tri mac dinh cho pnlSelectedButton
             pnlSelectedButton.Height = btnHome.Height;
             pnlSelectedButton.Top = btnHome.Top;
@@ -240,6 +242,8 @@ namespace BLADE
                 mediaPlayer.Pause();
                 mediaPlayer.Pause();
             }
+            if (mediaPlayer.CurrentMedia == null)
+                sliderMusic.Enabled = false;
 
         }
         #endregion
@@ -841,6 +845,15 @@ namespace BLADE
         #endregion
 
         #region Media Player
+        private void MediaPlayer_CurrentMediaNullable(object sender, EventArgs e)
+        {
+            if (mediaPlayer.CurrentMedia == null)
+            {
+                sliderMusic.Enabled = false;
+            }
+            else
+                sliderMusic.Enabled = true;
+        }
         private void UcPlaylist_UpdatePlayback(object sender, EventArgs e)
         {
             Song song = sender as Song;

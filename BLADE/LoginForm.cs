@@ -23,6 +23,7 @@ namespace BLADE
             this.checkboxRemember.KeyDown += EnterToLogin;
             this.checkboxRemember.Checked = false;
             lblIncorrect.Hide();
+            this.Icon = Properties.Resources.BLADE64;
         }
         private void LoginForm_Load(object sender, EventArgs e)
         {

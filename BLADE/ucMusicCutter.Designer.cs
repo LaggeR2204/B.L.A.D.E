@@ -129,7 +129,6 @@
             this.lblSongName.Name = "lblSongName";
             this.lblSongName.Size = new System.Drawing.Size(787, 40);
             this.lblSongName.TabIndex = 1;
-            this.lblSongName.Text = "SongName";
             this.lblSongName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStop
@@ -379,7 +378,7 @@
             // 
             // ucMusicCutter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.picboxChart);

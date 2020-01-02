@@ -10,11 +10,7 @@ namespace BLADE
 {
     class MediaPlayer
     {
-        //DirectSoundOut outputSound = null;
-        //MediaFoundationReader audioReader = null;
-        //WaveChannel32 waveChanel = null;
         private WaveOutEvent outputSound;
-       // private AudioFileReader audioReader;
         private bool _isRepeat;
         private bool _isLoop;
         private bool _isShuffle;
@@ -24,6 +20,7 @@ namespace BLADE
         public event EventHandler MediaEnded;
         public event EventHandler MediaChanged;
         public event EventHandler PlaybackStateChanged;
+        public event EventHandler CurrentMediaNullable;
         public PlaybackState MediaState
         {
             get => _playbackState;
@@ -40,15 +37,24 @@ namespace BLADE
         public bool IsRepeat { get => _isRepeat; set => _isRepeat = value; }
         public bool IsLoop { get => _isLoop; set => _isLoop = value; }
         public bool IsShuffle { get => _isShuffle; set => _isShuffle = value; }
-        public Song CurrentMedia { get => _curMedia; set => _curMedia = value; }
+        public Song CurrentMedia
+        {
+            get => _curMedia;
+            set
+            {
+                if (_curMedia != value)
+                {
+                    _curMedia = value;
+                    if (CurrentMediaNullable != null)
+                        CurrentMediaNullable(this, new EventArgs());
+                }
+            }
+        }
         public List<Song> CurrentPlaylist { get => _curPlaylist; set => _curPlaylist = value; }
-
-       
         public MediaPlayer()
         {
             Init();
         }
-
         private void Init()
         {
             SetPlaybackMode(false, true, false);
@@ -173,7 +179,7 @@ namespace BLADE
                 {
                     if (_curMedia != null)
                         _curMedia.IsPlaying = PlaybackState.Stopped;
-                    _curMedia = _curPlaylist[src];
+                   CurrentMedia = _curPlaylist[src];
                     //audioReader = new AudioFileReader(_curMedia.SavedPath);
                     outputSound = new WaveOutEvent();
                     outputSound.PlaybackStopped += OutputSound_PlaybackStopped;

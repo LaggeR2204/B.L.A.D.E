@@ -136,7 +136,7 @@
             this.lblRememberAcc.Location = new System.Drawing.Point(58, 254);
             this.lblRememberAcc.Name = "lblRememberAcc";
             this.lblRememberAcc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblRememberAcc.Size = new System.Drawing.Size(99, 19);
+            this.lblRememberAcc.Size = new System.Drawing.Size(118, 23);
             this.lblRememberAcc.TabIndex = 2;
             this.lblRememberAcc.Text = "Remember me";
             this.lblRememberAcc.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -215,7 +215,7 @@
             this.lblNoAcc.Location = new System.Drawing.Point(58, 358);
             this.lblNoAcc.Name = "lblNoAcc";
             this.lblNoAcc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblNoAcc.Size = new System.Drawing.Size(163, 19);
+            this.lblNoAcc.Size = new System.Drawing.Size(204, 23);
             this.lblNoAcc.TabIndex = 8;
             this.lblNoAcc.Text = "DON\'T HAVE AN ACCOUNT?";
             this.lblNoAcc.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,7 +244,7 @@
             this.lblBLADE.Location = new System.Drawing.Point(97, 34);
             this.lblBLADE.Name = "lblBLADE";
             this.lblBLADE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblBLADE.Size = new System.Drawing.Size(156, 63);
+            this.lblBLADE.Size = new System.Drawing.Size(191, 77);
             this.lblBLADE.TabIndex = 10;
             this.lblBLADE.Text = "BLADE";
             this.lblBLADE.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -258,7 +258,7 @@
             this.checkboxRemember.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.checkboxRemember.ForeColor = System.Drawing.Color.White;
             this.checkboxRemember.Location = new System.Drawing.Point(269, 252);
-            this.checkboxRemember.Margin = new System.Windows.Forms.Padding(4);
+            this.checkboxRemember.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkboxRemember.Name = "checkboxRemember";
             this.checkboxRemember.Size = new System.Drawing.Size(20, 20);
             this.checkboxRemember.TabIndex = 11;
@@ -286,7 +286,7 @@
             this.lblIncorrect.Location = new System.Drawing.Point(55, 229);
             this.lblIncorrect.Name = "lblIncorrect";
             this.lblIncorrect.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblIncorrect.Size = new System.Drawing.Size(187, 19);
+            this.lblIncorrect.Size = new System.Drawing.Size(238, 21);
             this.lblIncorrect.TabIndex = 2;
             this.lblIncorrect.Text = "Username or password is incorrect.";
             this.lblIncorrect.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -384,7 +384,7 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(350, 430);
@@ -401,6 +401,7 @@
             this.Controls.Add(this.txtUsername);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.ShowIcon = false;
