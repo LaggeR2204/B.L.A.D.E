@@ -23,6 +23,7 @@ namespace BLADE
                     _nowPlayingSong = value;
                     if (_nowPlayingSong != null)
                         _nowPlayingSong.FavoriteChanged += _nowPlayingSong_FavoriteChanged;
+                    SetSongInfo();
                     //if (NowPlayingSongChanged != null)
                     //    NowPlayingSongChanged(this, new EventArgs());
                 }

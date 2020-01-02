@@ -163,6 +163,7 @@ namespace BLADE
                     mediaPlayer.CurrentMedia.IsPlaying = PlaybackState.Stopped;
                     mediaPlayer.CurrentMedia = null;
                     ResetUIInfor();
+                    uc_Queue.NowPlayingSong = null;
                 }
             }
             mediaPlayer.CurrentPlaylist.Remove(src);
