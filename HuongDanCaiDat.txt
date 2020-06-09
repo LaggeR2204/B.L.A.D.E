@@ -1,0 +1,2 @@
+B1: Cai SQL Server
+B2: Chay file .exe
